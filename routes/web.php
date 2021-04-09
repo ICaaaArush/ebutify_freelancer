@@ -15,8 +15,7 @@ use App\Http\Controllers\freelancerController;
 */
 
 Route::get('/', function () {
-    //return view('welcome');
-    echo "test";
+    return view('welcome');
 });
 
 
