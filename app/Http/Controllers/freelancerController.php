@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-class freelancerController extends Controller
+class FreelancerController extends Controller
 {
     //
     public function dashboard()
@@ -14,6 +14,8 @@ class freelancerController extends Controller
     	if(Auth::check()){
 
     		if(Auth::user()->user_type == "admin")
+
+            
 
     		return view('freelancer.index');
     		
