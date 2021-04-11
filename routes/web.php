@@ -43,3 +43,4 @@ Route::get('/message',[freelancerController::class, 'message'])->name('message')
 
 Route::get('/myprofile',[freelancerController::class, 'myprofile'])->name('myprofile');
 
+
