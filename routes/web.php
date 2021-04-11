@@ -31,7 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     
 // })->name('freelancer-dashboard');
 
-Route::get('/freelancer-dashboard',[freelancerController::class, 'dashboard'])->name('freelancer-dashboard');
+Route::get('/freelancer-subsciption',[freelancerController::class, 'dashboard'])->name('freelancer-dashboard');
 
 Route::get('/logout',[freelancerController::class, 'logoutFreelancer'])->name('logout');
 
