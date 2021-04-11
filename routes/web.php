@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\freelancerController;
+use App\Http\Controllers\FreelancerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,16 +31,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     
 // })->name('freelancer-dashboard');
 
-Route::get('/freelancer-subsciption',[freelancerController::class, 'dashboard'])->name('freelancer-dashboard');
+Route::get('/freelancer-subsciption',[FreelancerController::class, 'dashboard'])->name('freelancer-dashboard');
 
-Route::get('/logout',[freelancerController::class, 'logoutFreelancer'])->name('logout');
+Route::get('/logout',[FreelancerController::class, 'logoutFreelancer'])->name('logout');
 
-Route::get('/work-report',[freelancerController::class, 'workReportFreelancer'])->name('work-report');
+Route::get('/work-report',[FreelancerController::class, 'workReportFreelancer'])->name('work-report');
 
-Route::get('/product-research',[freelancerController::class, 'productResearch'])->name('product-research');
+Route::get('/product-research',[FreelancerController::class, 'productResearch'])->name('product-research');
 
-Route::get('/message',[freelancerController::class, 'message'])->name('message');
+Route::get('/message',[FreelancerController::class, 'message'])->name('message');
 
-Route::get('/myprofile',[freelancerController::class, 'myprofile'])->name('myprofile');
+Route::get('/myprofile',[FreelancerController::class, 'myprofile'])->name('myprofile');
 
 
