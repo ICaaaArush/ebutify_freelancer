@@ -30,8 +30,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // 	}
     
 // })->name('freelancer-dashboard');
+Route::get('/payment',[FreelancerController::class, 'payment'])->name('premium');
 
-Route::get('/freelancer-subsciption',[FreelancerController::class, 'dashboard'])->name('freelancer-dashboard');
+Route::get('/freelancer-dashboard',[FreelancerController::class, 'dashboard'])->name('freelancer-dashboard');
 
 Route::get('/logout',[FreelancerController::class, 'logoutFreelancer'])->name('logout');
 
@@ -43,4 +44,7 @@ Route::get('/message',[FreelancerController::class, 'message'])->name('message')
 
 Route::get('/myprofile',[FreelancerController::class, 'myprofile'])->name('myprofile');
 
+Route::post('/subscribe',[FreelancerController::class,'subscribe'])->name('subscribe');
+
+// Route::get('/payment',[FreelancerController::class, 'payment'])->name('payment');
 
