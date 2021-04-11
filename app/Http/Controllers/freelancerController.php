@@ -24,10 +24,12 @@ class FreelancerController extends Controller
     {
     	if(Auth::check()){
 
-    		if(Auth::user()->user_type == "admin"){
+    		if(Auth::user()->user_type == "freelancer"){
                 if(!Auth::user()->subscribed('main')){
+
                     $availablePlans = [ 'price_1If8QdEgl2c23BzjE4HCoJc3' => 'Monthly',
                     'price_1If8VPEgl2c23Bzjq8LUvao7' => 'Yearly',
+                    
                     ];
 
                     $data = [
