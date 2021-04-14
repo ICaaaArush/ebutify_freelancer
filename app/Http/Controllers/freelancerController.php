@@ -79,12 +79,6 @@ class FreelancerController extends Controller
         return view('freelancer.work-report');
     }
 
-    public function productResearch($value='')
-    {
-
-        return view('freelancer.product-research');
-    }
-
     public function message()
     {
 

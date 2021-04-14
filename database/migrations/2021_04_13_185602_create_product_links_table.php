@@ -15,7 +15,17 @@ class CreateProductLinksTable extends Migration
     {
         Schema::create('product_links', function (Blueprint $table) {
             $table->id();
-            $table->string('link');
+            $table->foreignId('product_detail_id')->constrained()->onDelete('cascade');
+            $table->string('aliexpress')->nullable();
+            $table->string('amazon')->nullable();
+            $table->string('ebay')->nullable();
+            $table->string('google_trend')->nullable();
+            $table->string('facebook_ad')->nullable();
+            $table->string('competitor_link_1')->nullable();
+            $table->string('competitor_link_2')->nullable();
+            $table->string('competitor_link_3')->nullable();
+            $table->string('competitor_link_4')->nullable();
+            $table->string('competitor_link_5')->nullable();
             $table->timestamps();
         });
     }

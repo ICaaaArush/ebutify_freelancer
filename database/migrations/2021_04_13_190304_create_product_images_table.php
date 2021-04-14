@@ -15,9 +15,10 @@ class CreateProductImagesTable extends Migration
     {
         Schema::create('product_images', function (Blueprint $table) {
             $table->id();
-            $table->string('image_link');
-            $table->string('video_link');
-
+            $table->foreignId('product_detail_id')->constrained()->onDelete('cascade');
+            $table->string('link');
+            $table->string('type');
+            $table->string('gif');
             $table->timestamps();
         });
     }

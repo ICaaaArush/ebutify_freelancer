@@ -28,6 +28,8 @@ class CreateProductDetailsTable extends Migration
             $table->foreignId('gender_id')->constrained()->onDelete('cascade');
             $table->foreignId('country_id')->constrained()->onDelete('cascade');
             $table->longText('description');
+            $table->string('status');
+            $table->string('uploader_name');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FreelancerController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,7 @@ Route::get('/logout',[FreelancerController::class, 'logoutFreelancer'])->name('l
 
 Route::get('/work-report',[FreelancerController::class, 'workReportFreelancer'])->name('work-report');
 
-Route::get('/product-research',[FreelancerController::class, 'productResearch'])->name('product-research');
+Route::get('/product-research',[ProductController::class, 'productResearch'])->name('product-research');
 
 Route::get('/message',[FreelancerController::class, 'message'])->name('message');
 
