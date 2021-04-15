@@ -25,12 +25,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/freelancer-dashboard', function () {
-// 	if(Auth::check()){	
-//     			return view('.index');
-// 	}
-    
-// })->name('freelancer-dashboard');
 Route::get('/payment',[FreelancerController::class, 'payment'])->name('premium');
 
 Route::get('/freelancer-dashboard',[FreelancerController::class, 'dashboard'])->name('freelancer-dashboard');
@@ -39,13 +33,15 @@ Route::get('/logout',[FreelancerController::class, 'logoutFreelancer'])->name('l
 
 Route::get('/work-report',[FreelancerController::class, 'workReportFreelancer'])->name('work-report');
 
-Route::get('/product-research',[ProductController::class, 'productResearch'])->name('product-research');
-
 Route::get('/message',[FreelancerController::class, 'message'])->name('message');
 
 Route::get('/myprofile',[FreelancerController::class, 'myprofile'])->name('myprofile');
 
 Route::post('/subscribe',[FreelancerController::class,'subscribe'])->name('subscribe');
 
-// Route::get('/payment',[FreelancerController::class, 'payment'])->name('payment');
+Route::get('/product-research',[ProductController::class, 'productResearch'])->name('product-research');
+
+Route::get('/uploadPage',[ProductController::class, 'uploadPage'])->name('uploadPage');
+
+Route::get('/uploadProduct',[ProductController::class, 'uploadProduct'])->name('uploadProduct');
 

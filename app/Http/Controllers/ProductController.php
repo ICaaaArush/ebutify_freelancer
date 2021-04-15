@@ -18,34 +18,20 @@ class ProductController extends Controller
     public function productResearch()
     {
     	$productDetails = ProductDetail::paginate(10);;
-    	// foreach ($productDetails as $productDetail) {
-
-
-    		// //	FOR PRODUCT NAME
-    		// echo "Product Name: ".$productDetail->product_name;
-
-    		// $productTypes = $productDetail->ProductType;
-
-    		// echo "<br>";
-
-    		// //	FOR PRODUCT TYPE
-    		// echo "Product Type: ".$productTypes->product_type;
-
-    		// echo "<br>";
-
-    		// $productGender = $productDetail->Gender;
-
-    		// echo "Product Gender: ".$productTypes->gender;
-    		
-    		// echo "<br>";
-
-
-    		// echo "<br>";
-    		// echo "<br>";
-
-
-    	// }
+    	
         return view('freelancer.product-research', compact('productDetails'));
     }
+    
+    public function uploadPage()
+    {
+        $productDetails = ProductDetail::all();
 
+        return view('freelancer.upload',compact($productDetails));
+    }
+
+    public function uploadProduct(Request $request)
+    {
+        
+        dd($request->all());
+    }
 }

@@ -15,7 +15,7 @@
 </div>
     
      <div class="col-lg-2 col-md-6 text-right">
-<button class="btn mybtn "><a href="../pages/upload.html">Add New Product</a></button>
+<button class="btn mybtn "><a href="{{ route ('uploadPage') }}">Add New Product</a></button>
      </div> 
      
      <div class="row m-2 card p-2 container-fluid">
