@@ -32,6 +32,7 @@ class FreelancerController extends Controller
                     
                     ];
 
+
                     $data = [
                         'intent' => Auth::user()->createSetupIntent(),
                         'plans' => $availablePlans

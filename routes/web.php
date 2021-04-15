@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProductController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,7 @@ Route::get('/message',[FreelancerController::class, 'message'])->name('message')
 Route::get('/myprofile',[FreelancerController::class, 'myprofile'])->name('myprofile');
 
 Route::post('/subscribe',[FreelancerController::class,'subscribe'])->name('subscribe');
+
 
 Route::get('/product-research',[ProductController::class, 'productResearch'])->name('product-research');
 
