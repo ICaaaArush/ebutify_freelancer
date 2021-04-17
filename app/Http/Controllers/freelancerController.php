@@ -14,34 +14,36 @@ class FreelancerController extends Controller
         $this->middleware('auth');
     }
 
-    public function payment()
-    {
-        # code...
-        echo "payment done";
-    }
-
     public function dashboard()
-    {
+    {   
+
+        //  IF USER'S REGISTERED
     	if(Auth::check()){
 
+            //  IF USER TYPE MATCHES
     		if(Auth::user()->user_type == "user"){
+
+                //  IF USER'S NOT SUBSCRIBED
                 if(!Auth::user()->subscribed('main')){
 
+                    //  FETCH AVAILABLE PLANS
                     $availablePlans = [ 'price_1If8QdEgl2c23BzjE4HCoJc3' => 'Monthly',
                     'price_1If8VPEgl2c23Bzjq8LUvao7' => 'Yearly',
                     
                     ];
 
-
+                    //  FETCH SUBSCRIPTION REQUIRED DATA
                     $data = [
                         'intent' => Auth::user()->createSetupIntent(),
                         'plans' => $availablePlans
                     ];
 
+                    //  VIEW PAYMENT PAGE WITH DATA
                     return view('payment')->with($data);
     		
 		        }else{
 
+                //  SHOW DASHBOARD IF SUBSCRIBED
                 return view('freelancer.index');
                 }
             }

@@ -26,8 +26,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/payment',[FreelancerController::class, 'payment'])->name('premium');
-
 Route::get('/freelancer-dashboard',[FreelancerController::class, 'dashboard'])->name('freelancer-dashboard');
 
 Route::get('/logout',[FreelancerController::class, 'logoutFreelancer'])->name('logout');
@@ -40,10 +38,9 @@ Route::get('/myprofile',[FreelancerController::class, 'myprofile'])->name('mypro
 
 Route::post('/subscribe',[FreelancerController::class,'subscribe'])->name('subscribe');
 
-
 Route::get('/product-research',[ProductController::class, 'productResearch'])->name('product-research');
 
 Route::get('/uploadPage',[ProductController::class, 'uploadPage'])->name('uploadPage');
 
-Route::get('/uploadProduct',[ProductController::class, 'uploadProduct'])->name('uploadProduct');
+Route::post('/uploadProduct',[ProductController::class, 'uploadProduct'])->name('uploadProduct');
 

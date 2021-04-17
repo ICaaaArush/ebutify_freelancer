@@ -31,6 +31,8 @@ class ProductDetailSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ipsum quam, euismod non commodo id, placerat vel nulla. Proin vitae ante bibendum, efficitur diam ac, blandit neque. Phasellus sagittis eros turpis, eu lobortis erat molestie vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque nec gravida sapien. Nullam pulvinar odio at erat sollicitudin fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris leo lectus, suscipit pretium lorem eu, sagittis semper libero. Sed sed euismod nunc. Donec iaculis dui in congue dapibus. Sed nec consectetur lacus. Aenean placerat, orci eget tristique aliquam, felis eros ornare nibh, vitae consequat diam felis nec augue. Cras eu interdum orci.',
             'status' => 'Available',
             'uploader_name' => 'Test Freelancer',
+            'user_id' => 1,
+            'created_at' => date("Y/m/d"),
         ],
         [
         	'product_name' => 'Laser Therapy Watch',

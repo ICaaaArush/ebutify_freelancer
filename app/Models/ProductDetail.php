@@ -14,24 +14,30 @@ class ProductDetail extends Model
 
         return $this->belongsTo(ProductType::class);
     }
+    
     public function productLink()
     {
 
         return $this->hasMany(ProductLink::class);
     }
+    
     public function productImage()
     {
 
         return $this->hasMany(ProductImage::class);
     }
+    
     public function category()
     {
     	return $this->belongsTo(Category::class);
     }
+    
     public function country()
     {
     	return $this->belongsTo(Country::class);
-    }public function gender()
+    }
+
+    public function gender()
     {
     	return $this->belongsTo(Gender::class);
     }

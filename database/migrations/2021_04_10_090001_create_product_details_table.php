@@ -24,11 +24,13 @@ class CreateProductDetailsTable extends Migration
             $table->decimal('alexa_rank', $precision = 8, $scale = 2);
             $table->string('age');
             $table->foreignId('product_type_id')->constrained()->onDelete('cascade');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('gender_id')->constrained()->onDelete('cascade');
-            $table->foreignId('country_id')->constrained()->onDelete('cascade');
+            $table->string('country');
+            $table->string('category');
             $table->longText('description');
             $table->string('status');
+            $table->foreignId('opportunity_level_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('uploader_name');
             $table->timestamps();
         });

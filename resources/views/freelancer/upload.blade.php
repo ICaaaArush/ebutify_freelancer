@@ -5,9 +5,22 @@
   <div class="col-sm-12">
     <div class="card p-2">   
       <h1 class="itext htext p-2">Upload New Product</h1>
-      <hr> 
-      <form action="{{route('uploadProduct')}}">
+      <hr>
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+      @endif
+      <form action="{{route('uploadProduct')}}" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="product1">
+          
+          <input type="hidden" id="uploadername" name="uploadername" value="{{Auth::user()->name}}">
+          
           <div class="div1 p-2">
             <div class="itext p-1">Product name</div>
             <input type="text" id="pname" class="form-control" name="pname">
@@ -39,8 +52,10 @@
 
           <div class="div7 p-2">
           <div class="itext p-1">	Oppotunity level</div>
-          <select name="" id="" class="form-control level">
-            <option value="">select product Type</option>
+          <select multiple="multiple" name="opportunity[]" id="opportunity" class="form-control level">
+            <option value="facebook_ads">Facebook ads</option>
+            <option value="trending_product">Trending product</option>
+            <option value="untapped_product">Untapped product</option>
           </select>
           </div>
         </div>       
@@ -73,7 +88,6 @@
           </div>
         </div>
 
-
         <div class="row p-2">
           <div class="col-lg-7 col-md-6">
             <div class="row">
@@ -87,7 +101,7 @@
                   </tr>
 
                   <tr>
-                      <td><input type="text" id="aliexpressImng2" class="form-control" name="aliexpressImng2"></td>   
+                    <td><input type="text" id="aliexpressImng2" class="form-control" name="aliexpressImng2"></td>   
                   </tr>
 
                   <tr>
@@ -139,22 +153,7 @@
                   </tr>
 
                   <tr>
-                    <td><input type="text" id="fname" class="form-control" name="fname"></td>  
-                  </tr>
-
-                  <tr>
-                    <td><input type="text" id="fname" class="form-control" name="fname"></td>  
-                  </tr>
-                  
-                  <tr>
-                    <td><input type="text" id="fname" class="form-control" name="fname"></td>  
-                  </tr>
-
-                  <tr>
-                    <td><input type="text" id="fname" class="form-control px-2" name="fname">
-                      <div> 
-                        <label for="files" class="btn file mt-3 border"> <i class="fa fa-image"></i>  Upload Gif</label>
-                      </div>
+                    <td><input type="file" id="gif" class="form-control" name="gif">
                     </td>
                   </tr>
                 </table>
@@ -179,16 +178,10 @@
                 <div class="itext p-1">	All video link</div>
                   <input type="text" id="allvideo" class="form-control space" name="allvideo">
                 </div>
-              <div class="div4 p-2">
-                <div class="itext p-1">	protective product</div>
-                  <select name="" id="" class="form-control space">
-                    <option value="">select product Type</option>
-                  </select>
-                </div>
             </div>
 
             <div class="row p-3">
-              <textarea class="form-control  pb-5 " placeholder="Input product Tag using Coma" name="" id=""></textarea>
+              <textarea class="form-control  pb-5 " placeholder="Input product Tag using Coma" name="tag" id="tag"></textarea>
             </div>
           </div>
         </div>
@@ -205,7 +198,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <select class="selectpicker form-control p-1" name="age" id="age" multiple data-live-search="true">
+                      <select multiple="multiple" class="selectpicker form-control p-1" name="age[]" id="age" multiple data-live-search="true">
                         <option>Under 18</option>
                         <option>18-24</option>
                         <option>25-34</option>
@@ -213,6 +206,21 @@
                         <option>45-54</option>
                         <option>55-64</option>
                         <option>65+</option>
+                      </select>
+                    </td>
+                  </tr>
+                <div class="col-4 mb-1">
+                <table class="table table-bordered">
+                  <tr>
+                    <tr>
+                      <td> <div class="itext">Select Type</div> </td>
+                    </tr>
+                  </tr>
+                  <tr>
+                    <td>
+                      <select class="selectpicker form-control p-1" name="status" id="status" multiple data-live-search="true">
+                        <option>Saturated</option>
+                        <option>Unsaturtated</option>
                       </select>
                     </td>
                   </tr>
@@ -227,11 +235,11 @@
                   </tr>
                   <tr>
                     <td>
-                      <select class="selectpicker form-control" name="age" id="age" multiple data-live-search="true">
+                      <select multiple="multiple" class="selectpicker form-control" name="gender[]" id="gender" multiple data-live-search="true">
                         <option>Men</option>
                         <option>Women</option>
                         <option>Baby</option>
-                        <option>Unlsex</option>
+                        <option>Unisex</option>
                       </select>
                     </td>
                   </tr>
@@ -240,18 +248,18 @@
               <div class="col-4">
                 <table class="table table-bordered">
                   <tr>
-                    <td> <div class="itext">select category</div> </td>
+                    <td> <div class="itext">Select Category</div> </td>
                   </tr>
                   <tr>
                     <td>
-                      <select class="selectpicker form-control" name="age" id="age" multiple data-live-search="true">
+                      <select multiple="multiple" class="selectpicker form-control" name="category[]" id="category" multiple data-live-search="true">
                         <option>Health & Beauty</option>
                         <option>Baby & Kids</option>
                         <option>Fitness</option>
                         <option>Car & Accessories</option>
-                        <option >Home & Garden</option>
-                        <option >Pet Accessories</option>
-                        <option >Others</option>
+                        <option>Home & Garden</option>
+                        <option>Pet Accessories</option>
+                        <option>Others</option>
                       </select>
                     </td>
                   </tr>
@@ -281,4 +289,6 @@
     <!-- /#right-panel -->
 
     <!-- Right Panel -->
+
+
 @endsection
