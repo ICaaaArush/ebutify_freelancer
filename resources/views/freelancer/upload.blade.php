@@ -15,6 +15,11 @@
           </ul>
       </div>
       @endif
+      @if (session('status'))
+          <div class="alert alert-success">
+              {{ session('status') }}
+          </div>
+      @endif
       <form action="{{route('uploadProduct')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="product1">
@@ -27,27 +32,32 @@
           </div>
 
           <div class="div2 p-2">
+            <div class="itext p-1">Price</div>
+            <input type="number" id="price" class="form-control cost" name="price" step=".01">
+          </div>
+
+          <div class="div2 p-2">
             <div class="itext p-1">Cost</div>
-            <input type="text" id="cost" class="form-control cost" name="cost">
+            <input type="number" id="cost" class="form-control cost" name="cost" step=".01">
           </div>
 
           <div class="div3 p-2">
             <div class="itext p-1">Profit</div>
-            <input type="text" id="prodit" class="form-control profit" name="profit">
+            <input type="number" id="prodit" class="form-control profit" name="profit" step=".01">
           </div>
           <div class="div4 p-2">
             <div class="itext p-1">Total order</div>
-            <input type="text" id="torder" class="form-control order" name="torder">
+            <input type="number" id="torder" class="form-control order" name="torder" step=".01">
           </div>
 
           <div class="div5 p-2">
             <div class="itext p-1">Total revinue</div>
-            <input type="text" id="trevinue" class="form-control" name="trevinue">
+            <input type="number" id="trevinue" class="form-control" name="trevinue" step=".01">
           </div>
 
           <div class="div6 p-2">
             <div class="itext p-1">Alexa Rank</div>
-            <input type="text" id="alexa" class="form-control" name="alexarank">
+            <input type="number" id="alexa" class="form-control" name="alexarank" step=".01">
           </div>
 
           <div class="div7 p-2">
@@ -94,26 +104,26 @@
               <div class="col-4">
                 <table class="table table-bordered">
                   <tr>
-                    <td><div class="itext">Aliexpress Image link</div> </td>       
+                    <td><div class="itext">Product Image link</div> </td>       
                   </tr>
                   <tr>
-                    <td><input type="text" id="aliexpressImng1" class="form-control" name="aliexpressImng1"></td>
-                  </tr>
-
-                  <tr>
-                    <td><input type="text" id="aliexpressImng2" class="form-control" name="aliexpressImng2"></td>   
+                    <td><input type="text" id="img1" class="form-control" name="img1"></td>
                   </tr>
 
                   <tr>
-                    <td><input type="text" id="aliexpressImng3" class="form-control" name="aliexpressImng3"></td>
+                    <td><input type="text" id="img2" class="form-control" name="img2"></td>   
+                  </tr>
+
+                  <tr>
+                    <td><input type="text" id="img3" class="form-control" name="img3"></td>
                   </tr>
                        
                   <tr>
-                    <td><input type="text" id="aliexpressImng4" class="form-control" name="aliexpressImng4"></td>    
+                    <td><input type="text" id="img4" class="form-control" name="img4"></td>    
                   </tr>
                   
                   <tr>
-                    <td><input type="text" id="aliexpressImng5" class="form-control" name="aliexpressImng5"></td>
+                    <td><input type="text" id="img5" class="form-control" name="img5"></td>
                   </tr>
                 </table>
               </div>
@@ -151,10 +161,26 @@
                   <tr>
                     <td> <div class="itext">Upload gif image</div> </td>
                   </tr>
-
                   <tr>
-                    <td><input type="file" id="gif" class="form-control" name="gif">
+                    <td>
+                    <div class="form-group">
+                      <input type="file" class="form-control-file" id="gif1" name="gif1">
+                    </div>
                     </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-group">
+                        <input type="file" class="form-control-file" id="gif2" name="gif2">
+                      </div>  
+                    </td>
+                  </tr>
+                  <tr>
+                  <td>
+                    <div class="form-group">
+                      <input type="file" id="gif3" class="form-control-file" name="gif3">               
+                    </td>
+                  </div>
                   </tr>
                 </table>
               </div>
@@ -209,21 +235,6 @@
                       </select>
                     </td>
                   </tr>
-                <div class="col-4 mb-1">
-                <table class="table table-bordered">
-                  <tr>
-                    <tr>
-                      <td> <div class="itext">Select Type</div> </td>
-                    </tr>
-                  </tr>
-                  <tr>
-                    <td>
-                      <select class="selectpicker form-control p-1" name="status" id="status" multiple data-live-search="true">
-                        <option>Saturated</option>
-                        <option>Unsaturtated</option>
-                      </select>
-                    </td>
-                  </tr>
                   </table>
                 </div>
               <div class="col-4 mb-1">
@@ -265,6 +276,46 @@
                   </tr>
                 </table>
               </div>
+              <div class="col-4">
+                <table class="table table-bordered">
+                  <tr>
+                    <td> <div class="itext">Select Type</div> </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <select class="selectpicker form-control p-1" name="type" id="type" multiple data-live-search="true">
+                        <option value="1">Saturated</option>
+                        <option value="2">Unsaturated</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-5">
+                <table class="table table-bordered">
+                  <tr>
+                    <td> <div class="itext">Select Status</div> </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <select class="selectpicker form-control p-1" name="status" id="status" multiple data-live-search="true">
+                        <option>Available</option>
+                        <option>Unavailable</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-6 ">
+                <table class="table table-bordered">
+                  <tr>
+                    <td><div class="itext">Product Video link</div> </td>       
+                  </tr>
+                  <tr>
+                    <td><input type="text" id="video" class="form-control" name="video"></td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
           <div class="col-5">
@@ -289,6 +340,4 @@
     <!-- /#right-panel -->
 
     <!-- Right Panel -->
-
-
 @endsection
