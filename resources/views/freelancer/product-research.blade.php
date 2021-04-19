@@ -7,50 +7,63 @@
 <div class="row mb-3 d-flex justify-content-center">
   <div class="col-lg-10 col-md-6">
   <div class="input-group mb-3 p-1">
-  <input type="text" class="form-control" placeholder="Search listed product here... " aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <div class="input-group-append">
-    <span class="input-group-text btncol" id="basic-addon2">Search</span>
-  </div>
+  <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search for names here... " aria-label="Recipient's username">
   </div>
 </div>
     
      <div class="col-lg-2 col-md-6 text-right">
 <button class="btn mybtn "><a href="{{ route ('uploadPage') }}">Add New Product</a></button>
-     </div> 
+     </div>
      
      <div class="row m-2 card p-2 container-fluid">
-       <table class="table   table-bordered   d-flex justify-content-center p-3 table-responsive ">
-<tr>
-  <td>#</td>
-  <td>Image</td>
-  <td>Product Name</td>
-  <td>Price</td>
-  <td>Cost</td>
-  <td>Profit</td>
-  <td>Total order</td>
-  <td>Total revinue</td>
-  <td>Date</td>
-  <td>Uploader Name</td>
-  <td>Action</td>
-       </tr>
-
-@foreach($productDetails as $productDetail)
-<tr>
-  <td>{{$productDetail->id}}</td>
-  <td><img src="../images/products.png" width="50px" height="50px" alt=""></td>
-  <td>{{$productDetail->product_name}}</td>
-  <td>{{$productDetail->price}}$</td>
-  <td>{{$productDetail->cost}}$</td>
-  <td>{{$productDetail->profit}}$</td>
-  <td>{{$productDetail->total_order}}</td>
-  <td>{{$productDetail->total_revenue}}</td>
-  <td>{{$productDetail->created_at}}</td>
-  <td>{{$productDetail->uploader_name}}</td>
-  <td><button class="btn px-4 mybtn"><a href="../pages/edit.html">Edit</a></button></td>
-</tr>
-@endforeach
-
+       <table class="table   table-bordered">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Image</th>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Cost</th>
+          <th>Profit</th>
+          <th>Total order</th>
+          <th>Total revinue</th>
+          <th>Date</th>
+          <th>Uploader Name</th>
+          <th>Action</th>
+         </tr>
+        </thead>
+        <tbody id="myTable">
+        <?php $i=1 ?>
+        @foreach($productDetails as $productDetail)
+        
+        <tr>
+          <td>{{$i}}</td>
+          <td><img src="../images/products.png" width="50px" height="50px" alt=""></td>
+          <td>{{$productDetail->product_name}}</td>
+          <td>{{$productDetail->price}}$</td>
+          <td>{{$productDetail->cost}}$</td>
+          <td>{{$productDetail->profit}}$</td>
+          <td>{{$productDetail->total_order}}</td>
+          <td>{{$productDetail->total_revenue}}</td>
+          <td>{{$productDetail->created_at}}</td>
+          <td>{{$productDetail->uploader_name}}</td>
+          <td><button class="btn px-4 mybtn"><a href="{{ route ('product-edit', ['id' => $productDetail->id]) }}">Edit</a></button></td>
+        </tr>
+        
+        <?php $i++ ?>
+        @endforeach
+        </tbody>
        </table>
+       <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        </script>
 
        <div class="container">
             <div class="row justify-content-between">
@@ -73,7 +86,7 @@
      </div>
                 
        
-      </div>
+    </div>
       <!-- .content -->
     </div>
     <!-- /#right-panel -->

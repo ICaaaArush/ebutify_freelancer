@@ -19,6 +19,8 @@ class CreateProductLinksTable extends Migration
             $table->string('aliexpress')->nullable();
             $table->string('amazon')->nullable();
             $table->string('ebay')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('shopify')->nullable();
             $table->string('google_trend')->nullable();
             $table->string('facebook_ad')->nullable();
             $table->string('competitor_link_1')->nullable();

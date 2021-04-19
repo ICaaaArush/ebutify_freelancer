@@ -19,7 +19,7 @@ class ProductController extends Controller
 
     public function productResearch()
     {
-    	$productDetails = ProductDetail::paginate(10);;
+    	$productDetails = ProductDetail::paginate(10);
     	
         return view('freelancer.product-research', compact('productDetails'));
     }
@@ -150,6 +150,8 @@ class ProductController extends Controller
         $productLinks->ebay = $request->input('ebay');
         $productLinks->google_trend = $request->input('google');
         $productLinks->facebook_ad = $request->input('fbadd');
+        // $productLinks->youtube = $request->input('youtube');
+        // $productLinks->shopify = $request->input('youtube');
         $productLinks->competitor_link_1 = $request->input('competitor1');
         $productLinks->competitor_link_2 = $request->input('competitor2');
         $productLinks->competitor_link_3 = $request->input('competitor2');
@@ -177,6 +179,26 @@ class ProductController extends Controller
 
         $productDetails->productImage()->save($productImage);
 
-        return back()->with('status', 'Data inserted Successfully!');
+        return back()->with('status', 'Product Uploaded Successfully!');
+    }
+
+    public function productEdit($id)
+    {
+
+        $productDetails = ProductDetail::find($id);
+        // dd($productDetails);
+
+        $productImages = ProductImage::firstWhere('product_detail_id', $id);
+        // dd($productImages);
+
+        $productLinks = ProductLink::firstWhere('product_detail_id', $id);
+        // dd($productLinks, $productImages);
+
+        return view('freelancer.edit-product', compact('id', 'productDetails', 'productLinks', 'productImages'));
+    }
+
+    public function productUpdate()
+    {
+        $productDetails = ProductDetail::paginate(10);
     }
 }
