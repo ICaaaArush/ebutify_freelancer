@@ -20,7 +20,7 @@
               {{ session('status') }}
           </div>
       @endif
-      <form action="{{route('uploadProduct')}}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('uploadProduct') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="product1">
           

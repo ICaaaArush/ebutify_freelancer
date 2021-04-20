@@ -4,7 +4,7 @@
 <div class="content mt-3">
   <div class="col-sm-12">
     <div class="card p-2">   
-      <h1 class="itext htext p-2">Upload New Product</h1>
+      <h1 class="itext htext p-2">Update New Product</h1>
       <hr>
       @if ($errors->any())
       <div class="alert alert-danger">
@@ -20,9 +20,15 @@
               {{ session('status') }}
           </div>
       @endif
-      <form action="{{route('uploadProduct')}}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('productUpdate') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="product1">
+
+          <input type="hidden" id="id" name="id" value="{{$id}}">
+
+          <input type="hidden" id="productImagesId" name="productImagesId" value="{{$productImages->id}}">
+
+          <input type="hidden" id="productLinksId" name="productLinksId" value="{{$productLinks->id}}">
           
           <input type="hidden" id="uploadername" name="uploadername" value="{{Auth::user()->name}}">
           
@@ -196,7 +202,7 @@
             </div>
 
             <div class="row p-3">
-              <textarea class="form-control  pb-5 " placeholder="Input product Tag using Coma" name="tag" id="tag"></textarea>
+              <textarea class="form-control  pb-5 " placeholder="Input product Tag using Coma" name="tag" id="tag">{{$productDetails->tag}}</textarea>
             </div>
           </div>
         </div>
@@ -251,7 +257,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <?php ($productDetails->product_type_id = 2) ?>
+                      <?php ($productDetails->product_type_id = 1) ?>
                       <?php $productType = "Saturated"?>
                       
                       
@@ -270,7 +276,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <input type="text" id="status" class="form-control" name="status" value="{{$productImages->status}}">
+                      <input type="text" id="status" class="form-control" name="status" value="{{$productDetails->status}}">
                     </td>
                   </tr>
                 </table>
@@ -281,7 +287,7 @@
                     <td><div class="itext">Product Video link</div> </td>       
                   </tr>
                   <tr>
-                    <td><input type="text" id="video" class="form-control" name="video" value="{{$productDetails->video_link}}"></td>
+                    <td><input type="text" id="video" class="form-control" name="video" value="{{$productImages->video_link}}"></td>
                   </tr>
                 </table>
               </div>
@@ -289,17 +295,17 @@
           </div>
           <div class="col-5">
             <div class="row p-3">         
-              <textarea class="form-control pb-5" cols="20" placeholder="input selling  country using Coma" name="country" id="country" value="{{$productDetails->country}}"></textarea>
+              <textarea class="form-control pb-5" cols="20" placeholder="input selling  country using Coma" name="country" id="country">{{$productDetails->country}}</textarea>
             </div>
           </div>
         </div>
 
         <div class="row p-3">
-              <textarea placeholder="write description here " class="form-control" name="desc" id="desc" cols="30" rows="10" value="{{$productDetails->description}}"></textarea>
+              <textarea placeholder="write description here " class="form-control" name="desc" id="desc" cols="30" rows="10">{{$productDetails->description}}</textarea>
         </div>
 
         <div class="d-flex justify-content-end  m-2">
-            <button type="submit" class="btn text-right  mybtn"><a class="text-right"></a>Submit product</button>
+            <button type="submit" class="btn text-right  mybtn"><a class="text-right"></a>Update Product</button>
         </div>
       </form>
     </div>

@@ -26,6 +26,7 @@ class CreateProductDetailsTable extends Migration
             $table->foreignId('product_type_id')->constrained()->onDelete('cascade');
             $table->string('gender');
             $table->string('country');
+            $table->string('tag');
             $table->string('category');
             $table->longText('description');
             $table->string('status');

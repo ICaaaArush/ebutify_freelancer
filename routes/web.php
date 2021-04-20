@@ -45,3 +45,5 @@ Route::get('/uploadPage',[ProductController::class, 'uploadPage'])->name('upload
 Route::post('/uploadProduct',[ProductController::class, 'uploadProduct'])->name('uploadProduct');
 
 Route::get('/product-edit/{id}',[ProductController::class, 'productEdit'])->name('product-edit');
+
+Route::post('/product-update', [ProductController::class, 'productUpdate'])->name('productUpdate');
