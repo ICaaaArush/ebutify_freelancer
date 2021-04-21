@@ -36,17 +36,18 @@ class ProductController extends Controller
         // dd($request->all());
 
         if(!empty($request->gif1)){
-            $request->file('gif1')->store('gifs');  
+            $request->file('gif1')->store('public');  
             $gifFileName1 = $request->gif1->hashName();
+            // dd($gifFileName1);
 
         }
         if(!empty($request->gif2)){
-            $request->file('gif2')->store('gifs');  
+            $request->file('gif2')->store('public');  
             $gifFileName2 = $request->gif2->hashName();
  
         }
         if(!empty($request->gif3)){
-            $request->file('gif3')->store('gifs');  
+            $request->file('gif3')->store('public');  
             $gifFileName3 = $request->gif3->hashName();
 
         }
@@ -143,7 +144,6 @@ class ProductController extends Controller
         $productDetails->tag = $request->input('tag');
         $productDetails->opportunity_level  = $opportunity;
         $productDetails->user_id  = auth()->id();
-        $productLinks->amazon = $request->input('amazon');
         $productDetails->uploader_name = $request->input('uploadername');
         $productDetails->save();
 
@@ -154,6 +154,7 @@ class ProductController extends Controller
         $productLinks->facebook_ad = $request->input('fbadd');
         $productLinks->youtube = $request->input('youtube');
         $productLinks->shopify = $request->input('shopify');
+        $productLinks->amazon = $request->input('amazon');
         $productLinks->competitor_link_1 = $request->input('competitor1');
         $productLinks->competitor_link_2 = $request->input('competitor2');
         $productLinks->competitor_link_3 = $request->input('competitor2');
@@ -169,7 +170,7 @@ class ProductController extends Controller
         $productImage->image_link_4 = $request->input('img4');
         $productImage->image_link_5 = $request->input('img5');
         $productImage->video_link = $request->input('video');
-        if (!empty($gifFileName)) {
+        if (!empty($gifFileName1)) {
             $productImage->gif_1 = $gifFileName1;
         }
         if (!empty($gifFileName2)) {
@@ -192,7 +193,7 @@ class ProductController extends Controller
 
         $productImages = ProductImage::firstWhere('product_detail_id', $id);
         // dd($productImages);
-
+        
         $productLinks = ProductLink::firstWhere('product_detail_id', $id);
         // dd($productLinks, $productImages);
 
@@ -205,6 +206,23 @@ class ProductController extends Controller
             $type_id = 1;
         }else{
             $type_id = 2;
+        }
+
+        if(!empty($request->gif1)){
+            $request->file('gif1')->store('public');  
+            $gifFileName1 = $request->gif1->hashName();
+            // dd($gifFileName1);
+
+        }
+        if(!empty($request->gif2)){
+            $request->file('gif2')->store('public');  
+            $gifFileName2 = $request->gif2->hashName();
+ 
+        }
+        if(!empty($request->gif3)){
+            $request->file('gif3')->store('public');  
+            $gifFileName3 = $request->gif3->hashName();
+
         }
 
         $validatedData = $request->validate([
@@ -290,7 +308,8 @@ class ProductController extends Controller
         $productImage->image_link_4 = $request->input('img4');
         $productImage->image_link_5 = $request->input('img5');
         $productImage->video_link = $request->input('video');
-        if (!empty($gifFileName)) {
+
+        if (!empty($gifFileName1)) {
             $productImage->gif_1 = $gifFileName1;
         }
         if (!empty($gifFileName2)) {

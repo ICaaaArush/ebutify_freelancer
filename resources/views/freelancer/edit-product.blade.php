@@ -158,7 +158,8 @@
                 </table>
               </div>
 
-              <!-- <div class="col-4">
+              <div class="col-4">
+                
                 <table class="table table-bordered">
                   <tr>
                     <td> <div class="itext">Upload gif image</div> </td>
@@ -166,13 +167,15 @@
                   <tr>
                     <td>
                     <div class="form-group">
-                      <input type="file" class="form-control-file" id="gif1" name="gif1" value="{{$productDetails->price}}">
+                      <img src="{{asset('storage/'.$productImages->gif_1)}}">
+                      <input type="file" class="form-control-file" id="gif1" name="gif1">
                     </div>
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <div class="form-group">
+                        <img src="{{asset('storage/'.$productImages->gif_2)}}">
                         <input type="file" class="form-control-file" id="gif2" name="gif2">
                       </div>  
                     </td>
@@ -180,12 +183,13 @@
                   <tr>
                   <td>
                     <div class="form-group">
+                      <img src="{{asset('storage/'.$productImages->gif_3)}}">
                       <input type="file" id="gif3" class="form-control-file" name="gif3">               
                     </div>
                   </td>
                   </tr>
                 </table>
-              </div> -->
+              </div>
             </div>
           </div>
 
