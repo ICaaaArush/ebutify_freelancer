@@ -43,11 +43,18 @@ class FreelancerController extends Controller
     		
 		        }else{
 
-                //  SHOW DASHBOARD IF SUBSCRIBED
-                return view('freelancer.index');
-                }
+                    //  SHOW DASHBOARD IF SUBSCRIBED
+                    return view('user.index');
+                    }
+
+            }elseif (Auth::user()->user_type == "freelancer") {
+
+                    //  
+                    return view('freelancer.index');
+
             }
-    	}
+
+        }
     }
 
     public function subscribe(Request $request)
@@ -60,7 +67,7 @@ class FreelancerController extends Controller
         Auth()->user()->newSubscription('main', $planId)->create($paymentMethod);
 
         return response([
-            'success_url'=> redirect()->intended('/freelancer-dashboard')->getTargetUrl(),
+            'success_url'=> redirect()->intended('/dashboard')->getTargetUrl(),
             'message'=>'success'
         ]);
     }

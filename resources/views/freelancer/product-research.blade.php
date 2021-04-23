@@ -38,7 +38,9 @@
         
         <tr>
           <td>{{$i}}</td>
-          <td><img src="../images/products.png" width="50px" height="50px" alt=""></td>
+          @foreach ($productDetail->productImage as $productImage)
+          <td><img src="{{$productImage->image_link_1}}" width="50px" height="50px" alt=""></td>
+          @endforeach
           <td>{{$productDetail->product_name}}</td>
           <td>{{$productDetail->price}}$</td>
           <td>{{$productDetail->cost}}$</td>
@@ -65,18 +67,19 @@
         });
         </script>
 
+        
+
        <div class="container">
             <div class="row justify-content-between">
                 
                 <div class="col-md-2">
 
                     <!-- PRODUCT LISTING DETAILS START -->
-                    <p>Showing {{$productDetails->firstItem() }} to {{$productDetails->lastItem()}} out of {{$productDetails->total()}}</p>
+
                     <!-- PRODUCT LISTING DETAILS END -->
                 </div>
             
             <div class="col-md-2">
-                {{ $productDetails->links() }}
             </div> 
 
             </div>

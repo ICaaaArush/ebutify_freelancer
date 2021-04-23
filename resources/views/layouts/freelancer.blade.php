@@ -26,8 +26,8 @@
     />
     <link rel="stylesheet" href="{{asset('vendors/themify-icons/css/themify-icons.css')}}" />
     <link rel="stylesheet" href="{{asset('vendors/flag-icon-css/css/flag-icon.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('vendors/selectFX/css/cs-skin-elastic.css')}}" />
-    <link rel="stylesheet" href="{{asset('vendors/jqvmap/dist/jqvmap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/cs-skin-elastic.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/jqvmap.min.css')}}" />
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}" />
 
@@ -244,6 +244,10 @@
     <script src="{{asset('vendors/jqvmap/dist/jquery.vmap.min.js')}}"></script>
     <script src="{{asset('vendors/jqvmap/examples/js/jquery.vmap.sampledata.js')}}"></script>
     <script src="{{asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+    <script src="{{asset('https://cdn.tiny.cloud/1/onjlznuqdmec3dv72t7t861lw7bmdasywklugogscycfh6qp/tinymce/5/tinymce.min.js')}}" referrerpolicy="origin"></script>
+
+    @yield('js')
+
     <script>
       (function ($) {
         "use strict";

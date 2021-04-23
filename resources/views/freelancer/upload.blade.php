@@ -316,6 +316,13 @@
                   </tr>
                 </table>
               </div>
+              <div class="col-8 ">
+                <table class="table table-bordered">
+                  <div class="row p-3">
+                    <textarea placeholder="write description here " class="form-control description" name="desc" id="desc" cols="50" rows="10"></textarea>
+                  </div>
+                </table>
+              </div>
             </div>
           </div>
           <div class="col-5">
@@ -323,10 +330,6 @@
               <textarea class="form-control pb-5" cols="20" placeholder="input selling  country using Coma" name="country" id="country"></textarea>
             </div>
           </div>
-        </div>
-
-        <div class="row p-3">
-              <textarea placeholder="write description here " class="form-control" name="desc" id="desc" cols="30" rows="10"></textarea>
         </div>
 
         <div class="d-flex justify-content-end  m-2">
@@ -340,4 +343,18 @@
     <!-- /#right-panel -->
 
     <!-- Right Panel -->
+@endsection
+
+@section('js')
+
+    <script>
+      tinymce.init({
+        mode : "specific_textareas",
+        editor_selector : "description",
+        plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+        toolbar_mode: 'floating',
+        width : "640",
+     });
+    </script>
+
 @endsection

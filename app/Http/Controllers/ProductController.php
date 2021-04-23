@@ -11,6 +11,8 @@ use App\Models\Category;
 use App\Models\Gender;
 use App\Models\Country;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 
 
@@ -19,8 +21,21 @@ class ProductController extends Controller
 
     public function productResearch()
     {
-    	$productDetails = ProductDetail::paginate(10);
-    	
+        $user_id = auth()->id();
+
+    	$collections = ProductDetail::where('user_id', $user_id)->get();
+
+        // foreach ($collections as $collection) {
+
+        //     foreach($collection->productImage as $productImage){
+        //         dd($productImage->image_link_1);
+        //     }
+
+        // }
+        // exit();
+
+        $productDetails = $collections->sortByDesc('created_at');
+
         return view('freelancer.product-research', compact('productDetails'));
     }
     
@@ -101,11 +116,11 @@ class ProductController extends Controller
         'google' => 'required',
         'youtube' => 'required',
         'shopify' => 'required',
-        'img1' => 'required_without_all:img2,img3,img4,img5',
-        'img2' => 'required_without_all:img3,img4,img5',
-        'img3' => 'required_without_all:img4,img5',
-        'img4' => 'required_without_all:img1,img3,img5',
-        'img5' => 'required_without_all:img1,img2,img3',
+        'img1' => 'required|active_url',
+        'img2' => 'required|active_url',
+        'img3' => 'required|active_url',
+        'img4' => 'nullable|active_url',
+        'img5' => 'nullable|active_url',
         'competitor1' => 'required',
         'competitor2' => 'required',
         'competitor3' => 'required',
@@ -238,11 +253,11 @@ class ProductController extends Controller
         'google' => 'required',
         'youtube' => 'required',
         'shopify' => 'required',
-        'img1' => 'required_without_all:img2,img3,img4,img5',
-        'img2' => 'required_without_all:img3,img4,img5',
-        'img3' => 'required_without_all:img4,img5',
-        'img4' => 'required_without_all:img1,img3,img5',
-        'img5' => 'required_without_all:img1,img2,img3',
+        'img1' => 'required|active_url',
+        'img2' => 'required|active_url',
+        'img3' => 'required|active_url',
+        'img4' => 'nullable|active_url',
+        'img5' => 'nullable|active_url',
         'competitor1' => 'required',
         'competitor2' => 'required',
         'competitor3' => 'required',

@@ -4,7 +4,7 @@
 <div class="content mt-3">
   <div class="col-sm-12">
     <div class="card p-2">   
-      <h1 class="itext htext p-2">Update New Product</h1>
+      <h1 class="itext htext p-2">Update Product</h1>
       <hr>
       @if ($errors->any())
       <div class="alert alert-danger">
@@ -162,7 +162,7 @@
                 
                 <table class="table table-bordered">
                   <tr>
-                    <td> <div class="itext">Upload gif image</div> </td>
+                    <td> <div class="itext">Update gif image</div> </td>
                   </tr>
                   <tr>
                     <td>
@@ -305,7 +305,7 @@
         </div>
 
         <div class="row p-3">
-              <textarea placeholder="write description here " class="form-control" name="desc" id="desc" cols="30" rows="10">{{$productDetails->description}}</textarea>
+              <textarea placeholder="write description here " class="form-control description" name="desc" id="desc" cols="30" rows="10">{{$productDetails->description}}</textarea>
         </div>
 
         <div class="d-flex justify-content-end  m-2">
@@ -319,4 +319,17 @@
     <!-- /#right-panel -->
 
     <!-- Right Panel -->
+@endsection
+
+@section('js')
+    
+<script>
+    tinymce.init({
+      mode : "specific_textareas",
+      editor_selector : "description",
+      plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      toolbar_mode: 'floating',
+    });
+</script>
+
 @endsection
