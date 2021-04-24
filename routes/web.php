@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -50,4 +51,5 @@ Route::post('/product-update', [ProductController::class, 'productUpdate'])->nam
 
 Route::post('/product-update', [ProductController::class, 'productUpdate'])->name('productUpdate');
 
-Route::post('/user-register', [UserController::class, 'userRegister']);
+Route::get('/trending-products', [UserController::class, 'trendingProducts'])->name('trending-products');
+

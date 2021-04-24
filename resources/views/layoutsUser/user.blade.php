@@ -71,7 +71,7 @@
                 </li>
                 <li>
                   <i class="fa fa-id-card-o"></i
-                  ><a href="pages/trending.html">Trending Products</a>
+                  ><a href="{{route('trending-products')}}">Trending Products</a>
                 </li>
                 <li>
                   <i class="fa fa-exclamation-triangle"></i

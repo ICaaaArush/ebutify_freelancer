@@ -18,7 +18,7 @@
                       <div class="text-left dib">
                         <div class="stat-text">Available Products</div>
                         <div class="stat-heading">
-                          <span class="count">3435</span>
+                          <span class="count">{{count($products)}}</span>
                         </div>
                       </div>
                     </div>

@@ -19,9 +19,9 @@ class CreateProductDetailsTable extends Migration
             $table->decimal('price', 8, 2);
             $table->decimal('cost', $precision = 8, $scale = 2);
             $table->decimal('profit', $precision = 8, $scale = 2);
-            $table->decimal('total_order', $precision = 8, $scale = 2);
+            $table->bigInteger('total_order');
             $table->decimal('total_revenue', $precision = 8, $scale = 2);
-            $table->decimal('alexa_rank', $precision = 8, $scale = 2);
+            $table->bigInteger('alexa_rank');
             $table->string('age');
             $table->foreignId('product_type_id')->constrained()->onDelete('cascade');
             $table->string('gender');

@@ -128,7 +128,7 @@ class ProductController extends Controller
         'competitor5' => 'required',
         'amazon' => 'required',
         'ebay' => 'required',
-        'allvideo' => 'required',
+
         'tag' => 'required',
         'age' => 'required',
         'gender' => 'required',
@@ -265,7 +265,6 @@ class ProductController extends Controller
         'competitor5' => 'required',
         'amazon' => 'required',
         'ebay' => 'required',
-        // 'allvideo' => 'required',
         'tag' => 'required',
         'age' => 'required',
         'gender' => 'required',

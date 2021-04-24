@@ -28,36 +28,36 @@
           
           <div class="div1 p-2">
             <div class="itext p-1">Product name</div>
-            <input type="text" id="pname" class="form-control" name="pname">
+            <input type="text" id="pname" class="form-control" name="pname" value="{{old('pname')}}" required="">
           </div>
 
           <div class="div2 p-2">
             <div class="itext p-1">Price</div>
-            <input type="number" id="price" class="form-control cost" name="price" step=".01">
+            <input type="number" id="price" class="form-control cost" name="price" step=".01" value="{{old('price')}}" required="">
           </div>
 
           <div class="div2 p-2">
             <div class="itext p-1">Cost</div>
-            <input type="number" id="cost" class="form-control cost" name="cost" step=".01">
+            <input type="number" id="cost" class="form-control cost" name="cost" step=".01" value="{{old('cost')}}" required="">
           </div>
 
           <div class="div3 p-2">
             <div class="itext p-1">Profit</div>
-            <input type="number" id="prodit" class="form-control profit" name="profit" step=".01">
+            <input type="number" id="prodit" class="form-control profit" name="profit" step=".01" value="{{old('profit')}}" required="">
           </div>
           <div class="div4 p-2">
             <div class="itext p-1">Total order</div>
-            <input type="number" id="torder" class="form-control order" name="torder" step=".01">
+            <input type="number" id="torder" class="form-control order" name="torder" step=".01" value="{{old('torder')}}" required="">
           </div>
 
           <div class="div5 p-2">
             <div class="itext p-1">Total revinue</div>
-            <input type="number" id="trevinue" class="form-control" name="trevinue" step=".01">
+            <input type="number" id="trevinue" class="form-control" name="trevinue" step=".01" value="{{old('trevinue')}}" required="">
           </div>
 
           <div class="div6 p-2">
             <div class="itext p-1">Alexa Rank</div>
-            <input type="number" id="alexa" class="form-control" name="alexarank" step=".01">
+            <input type="number" id="alexa" class="form-control" name="alexarank" step=".01" value="{{old('alexarank')}}" required="">
           </div>
 
           <div class="div7 p-2">
@@ -74,27 +74,27 @@
         <div class="product1">
           <div class="div1 p-2">
             <div class="itext p-1">AliExpress Link</div>
-            <input type="text" id="aliexpress" class="form-control space" name="aliexpress">
+            <input type="text" id="aliexpress" class="form-control space" name="aliexpress" value="{{old('aliexpress')}}" required="">
           </div>
 
           <div class="div2 p-2">
             <div class="itext p-1">Facebook ads link</div>
-            <input type="text" id="fbadd" class="form-control space" name="fbadd">
+            <input type="text" id="fbadd" class="form-control space" name="fbadd" value="{{old('fbadd')}}" required="">
           </div>
 
           <div class="div3 p-2">
             <div class="itext p-1">	Google trends link</div>
-            <input type="text" id="google" class="form-control space" name="google">
+            <input type="text" id="google" class="form-control space" name="google" value="{{old('google')}}" required="">
           </div>
 
           <div class="div4 p-2">
             <div class="itext p-1">	Youtube link</div>
-            <input type="text" id="youtube" class="form-control space" name="youtube">
+            <input type="text" id="youtube" class="form-control space" name="youtube" value="{{old('youtube')}}" required="">
           </div>
 
           <div class="div5 p-2">
             <div class="itext p-1"> Shopify website link</div>
-            <input type="text" id="shopify" class="form-control space" name="shopify">
+            <input type="text" id="shopify" class="form-control space" name="shopify" value="{{old('shopify')}}" required="">
           </div>
         </div>
 
@@ -107,23 +107,23 @@
                     <td><div class="itext">Product Image link</div> </td>       
                   </tr>
                   <tr>
-                    <td><input type="text" id="img1" class="form-control" name="img1"></td>
+                    <td><input type="text" id="img1" class="form-control" name="img1" value="{{old('img1')}}" required=""></td>
                   </tr>
 
                   <tr>
-                    <td><input type="text" id="img2" class="form-control" name="img2"></td>   
+                    <td><input type="text" id="img2" class="form-control" name="img2" value="{{old('img2')}}" required=""></td>   
                   </tr>
 
                   <tr>
-                    <td><input type="text" id="img3" class="form-control" name="img3"></td>
+                    <td><input type="text" id="img3" class="form-control" name="img3" value="{{old('img3')}}" required=""></td>
                   </tr>
                        
                   <tr>
-                    <td><input type="text" id="img4" class="form-control" name="img4"></td>    
+                    <td><input type="text" id="img4" class="form-control" name="img4" value="{{old('img4')}}"></td>    
                   </tr>
                   
                   <tr>
-                    <td><input type="text" id="img5" class="form-control" name="img5"></td>
+                    <td><input type="text" id="img5" class="form-control" name="img5" value="{{old('img5')}}"></td>
                   </tr>
                 </table>
               </div>
@@ -135,23 +135,23 @@
                   </tr>
                   
                   <tr>
-                    <td><input type="text" id="competitor1" class="form-control" name="competitor1"></td>
+                    <td><input type="text" id="competitor1" class="form-control" name="competitor1" value="{{old('competitor1')}}" required=""></td>
                   </tr>
 
                   <tr>
-                    <td><input type="text" id="competitor2" class="form-control" name="competitor2"></td>
+                    <td><input type="text" id="competitor2" class="form-control" name="competitor2" value="{{old('competitor2')}}" required=""></td>
                   </tr>
 
                   <tr>
-                    <td><input type="text" id="competitor3" class="form-control" name="competitor3"></td>
+                    <td><input type="text" id="competitor3" class="form-control" name="competitor3" value="{{old('competitor3')}}" required=""></td>
                   </tr>
                      
                   <tr>
-                    <td><input type="text" id="competitor4" class="form-control" name="competitor4"></td>
+                    <td><input type="text" id="competitor4" class="form-control" name="competitor4" value="{{old('competitor4')}}" required=""></td>
                   </tr>
                      
                   <tr>
-                    <td><input type="text" id="competitor5" class="form-control" name="competitor5"></td>
+                    <td><input type="text" id="competitor5" class="form-control" name="competitor5" value="{{old('competitor5')}}" required=""></td>
                   </tr>
                 </table>
               </div>
@@ -164,21 +164,21 @@
                   <tr>
                     <td>
                     <div class="form-group">
-                      <input type="file" class="form-control-file" id="gif1" name="gif1">
+                      <input type="file" class="form-control-file" id="gif1" name="gif1" value="{{old('gif1')}}">
                     </div>
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <div class="form-group">
-                        <input type="file" class="form-control-file" id="gif2" name="gif2">
+                        <input type="file" class="form-control-file" id="gif2" name="gif2" value="{{old('gif2')}}">
                       </div>  
                     </td>
                   </tr>
                   <tr>
                   <td>
                     <div class="form-group">
-                      <input type="file" id="gif3" class="form-control-file" name="gif3">               
+                      <input type="file" id="gif3" class="form-control-file" name="gif3" value="{{old('gif3')}}">               
                     </td>
                   </div>
                   </tr>
@@ -191,23 +191,16 @@
             <div class="product1 ">
                 <div class="div3 p-2">
                   <div class="itext p-1">	Amazon link</div>
-                  <input type="text" id="amazon" class="form-control space" name="amazon">
+                  <input type="text" id="amazon" class="form-control space" name="amazon" value="{{old('amazon')}}" required="">
                 </div>
                 <div class="div4 p-2">
                   <div class="itext p-1">	eBay link</div>
-                  <input type="text" id="ebay" class="form-control space " name="ebay">
-                </div>
-            </div>
-
-            <div class="product1 ">
-              <div class="div3 p-2">
-                <div class="itext p-1">	All video link</div>
-                  <input type="text" id="allvideo" class="form-control space" name="allvideo">
+                  <input type="text" id="ebay" class="form-control space " name="ebay" value="{{old('ebay')}}" required="">
                 </div>
             </div>
 
             <div class="row p-3">
-              <textarea class="form-control  pb-5 " placeholder="Input product Tag using Coma" name="tag" id="tag"></textarea>
+              <textarea class="form-control  pb-5 " placeholder="Input product Tag using Coma" name="tag" id="tag" value="{{old('tag')}}" required=""></textarea>
             </div>
           </div>
         </div>
@@ -224,7 +217,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <select multiple="multiple" class="selectpicker form-control p-1" name="age[]" id="age" multiple data-live-search="true">
+                      <select multiple="multiple" class="selectpicker form-control p-1" name="age[]" id="age" multiple data-live-search="true" required="">
                         <option>Under 18</option>
                         <option>18-24</option>
                         <option>25-34</option>
@@ -246,7 +239,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <select multiple="multiple" class="selectpicker form-control" name="gender[]" id="gender" multiple data-live-search="true">
+                      <select multiple="multiple" class="selectpicker form-control" name="gender[]" id="gender" multiple data-live-search="true" required="">
                         <option>Men</option>
                         <option>Women</option>
                         <option>Baby</option>
@@ -263,7 +256,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <select multiple="multiple" class="selectpicker form-control" name="category[]" id="category" multiple data-live-search="true">
+                      <select multiple="multiple" class="selectpicker form-control" name="category[]" id="category" multiple data-live-search="true" required="">
                         <option>Health & Beauty</option>
                         <option>Baby & Kids</option>
                         <option>Fitness</option>
@@ -283,7 +276,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <select class="selectpicker form-control p-1" name="type" id="type" multiple data-live-search="true">
+                      <select class="selectpicker form-control p-1" name="type" id="type" multiple data-live-search="true" required="">
                         <option value="1">Saturated</option>
                         <option value="2">Unsaturated</option>
                       </select>
@@ -298,7 +291,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <select class="selectpicker form-control p-1" name="status" id="status" multiple data-live-search="true">
+                      <select class="selectpicker form-control p-1" name="status" id="status" multiple data-live-search="true" required="">
                         <option>Available</option>
                         <option>Unavailable</option>
                       </select>
@@ -312,14 +305,14 @@
                     <td><div class="itext">Product Video link</div> </td>       
                   </tr>
                   <tr>
-                    <td><input type="text" id="video" class="form-control" name="video"></td>
+                    <td><input type="text" id="video" class="form-control" name="video" value="{{old('video')}}" required=""></td>
                   </tr>
                 </table>
               </div>
               <div class="col-8 ">
                 <table class="table table-bordered">
                   <div class="row p-3">
-                    <textarea placeholder="write description here " class="form-control description" name="desc" id="desc" cols="50" rows="10"></textarea>
+                    <textarea placeholder="write description here " class="form-control description" name="desc" id="desc" cols="50" rows="10" ></textarea>
                   </div>
                 </table>
               </div>
@@ -327,7 +320,7 @@
           </div>
           <div class="col-5">
             <div class="row p-3">         
-              <textarea class="form-control pb-5" cols="20" placeholder="input selling  country using Coma" name="country" id="country"></textarea>
+              <textarea class="form-control pb-5" cols="20" placeholder="input selling  country using Coma" name="country" id="country" required=""></textarea>
             </div>
           </div>
         </div>

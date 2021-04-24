@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\ProductDetail;
 
 class FreelancerController extends Controller
 {
@@ -44,7 +45,10 @@ class FreelancerController extends Controller
 		        }else{
 
                     //  SHOW DASHBOARD IF SUBSCRIBED
-                    return view('user.index');
+
+                    $products = ProductDetail::all();
+
+                    return view('user.index',compact('products'));
                     }
 
             }elseif (Auth::user()->user_type == "freelancer") {
@@ -59,7 +63,7 @@ class FreelancerController extends Controller
 
     public function subscribe(Request $request)
     {
-        
+
         $paymentMethod = $request->payment_method;
 
         $planId = $request->plan;
