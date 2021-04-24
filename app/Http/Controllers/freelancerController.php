@@ -59,7 +59,7 @@ class FreelancerController extends Controller
 
     public function subscribe(Request $request)
     {
-        # code...
+        
         $paymentMethod = $request->payment_method;
 
         $planId = $request->plan;
