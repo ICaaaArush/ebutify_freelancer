@@ -61,7 +61,7 @@
           </div>
 
           <div class="div7 p-2">
-          <div class="itext p-1">	Oppotunity level</div>
+          <div class="itext p-1">	Opportunity level</div>
           <select multiple="multiple" name="opportunity[]" id="opportunity" class="form-control level">
             <option value="facebook_ads">Facebook ads</option>
             <option value="trending_product">Trending product</option>

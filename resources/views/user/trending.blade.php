@@ -88,12 +88,14 @@
             </div>
          </div>
       </div>
+      <?php $j = 1; ?>
+      <?php $k = 1; ?>
       @for($i=0; $i<$rows; $i++)
       <div class="row">
         @foreach($trendingProducts as $trendingProduct)
         <div class="col-lg-3 col-md-6">
           <div class="card">
-             <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong">
+             <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong{{$j}}">
                 @foreach ($trendingProduct->productImage as $productImage)
                 <div>
                    <img
@@ -107,7 +109,7 @@
                 @endforeach
              </button>
              <div class="card-header">
-                <h3 data-toggle="modal" data-target="#exampleModalLong" class="text-left text1">
+                <h3 data-toggle="modal" data-target="#exampleModalLong{{$j}}" class="text-left text1">
                    {{$trendingProduct->product_name}}
                 </h3>
              </div>
@@ -120,27 +122,27 @@
                 </div>
                 <div>
                    <span>Product Cost</span>
-                   <span class="trend">$9.05</span>
+                   <span class="trend">${{$trendingProduct->cost}}</span>
                 </div>
                 <div>
                    <span>Selling Price</span>
-                   <span class="trend">$19.05</span>
+                   <span class="trend">${{$trendingProduct->cost}}</span>
                 </div>
                 <div>
                    <span>Profit Margin</span>
-                   <span class="trend">$15.05</span>
+                   <span class="trend">${{$trendingProduct->profit}}</span>
                 </div>
                 <div>
                    <span>Sales</span>
-                   <span class="trend">$50.05</span>
+                   <span class="trend">${{$trendingProduct->total_revenue}}</span>
                 </div>
                 <br>
                 <div class="social">
-                   <button   class="btn lgreen"><a data-toggle="modal" data-target="#exampleModalLong" class="text-light" href="">product Research</a></button>
+                   <button   class="btn lgreen"><a data-toggle="modal" data-target="#exampleModalLong{{$j}}" class="text-light" href="">product Research</a></button>
                 </div>
                 <div class="text-center mt-3">
                    <!--Product modal start-->
-                   <div class="modal fade container-fluid" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                   <div class="modal fade container-fluid" id="exampleModalLong{{$j}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                       <div class="modal-dialog modal-lg xl" role="document">
                          <div class="modal-content ">
                             <div class="modal-header">
@@ -149,47 +151,58 @@
                                </button>
                                <!--Product Details-->
                                <div class="product p-3 mb-2">
-                                  <div class="row modal-title" id="exampleModalLongTitle ">
+                                  <div class="row modal-title" id="exampleModalLongTitle">
                                      <div class="col-lg-8 col-md-6">
                                         <h1 class="product-title p-title">
-                                           Product Title: Lorem ipsum dolor sit amet
+                                           {{$trendingProduct->product_name}}
                                         </h1>
                                      </div>
+                                      @php
+                                      $date1 = new DateTime("now");
+
+                                      $date2 = date_create($trendingProduct->created_at);
+
+                                      $diff = date_diff($date1,$date2);
+
+                                      $month = $diff->m;                 
+                                      $day = $diff->d;                 
+                                      $hour = $diff->h;
+                                      $minute = $diff->i;
+
+                                      @endphp
                                      <div class="col-lg-4 col-md-6 mt-2  text-dark">
-                                        <span class="p-subtitle mt-2">Found 2 Month 3 Days 20 min ago</span>
+                                        <span class="p-subtitle mt-2">Found {{$diff->m}} Month {{$diff->d}} Days {{$diff->h}} Hours {{$diff->i}} Minutes ago</span>
                                      </div>
                                   </div>
                                   <hr />
                                   <div class="row">
                                      <div class="col-lg-4 col-md-6 slide">
                                         <!-- Full-width images with number text -->
+                                        @foreach ($trendingProduct->productImage as $productImage)
                                         <div class="mySlides">
                                            <div class="numbertext">1 / 6</div>
-                                           <img src="../images/img1.jpg" style="width: 100%" />
+                                           <img src="{{$productImage->image_link_1}}" style="width: 100%" />
                                         </div>
                                         <div class="mySlides">
                                            <div class="numbertext">2 / 6</div>
-                                           <img src="../images/img2.jpg" style="width: 100%" />
+                                           <img src="{{$productImage->image_link_2}}" style="width: 100%" />
                                         </div>
                                         <div class="mySlides">
                                            <div class="numbertext">3 / 6</div>
-                                           <img src="../images/img3.jpg" style="width: 100%" />
+                                           <img src="{{$productImage->image_link_3}}" style="width: 100%" />
                                         </div>
                                         <div class="mySlides">
                                            <div class="numbertext">4 / 6</div>
-                                           <img src="../images/img4.jpg" style="width: 100%" />
+                                           <img src="{{$productImage->image_link_4}}" style="width: 100%" />
                                         </div>
                                         <div class="mySlides">
                                            <div class="numbertext">5 / 6</div>
-                                           <img src="../images/img5.jpg" style="width: 100%" />
-                                        </div>
-                                        <div class="mySlides">
-                                           <div class="numbertext">6 / 6</div>
-                                           <img src="../images/img6.jpg" style="width: 100%" />
+                                           <img src="{{$productImage->image_link_5}}" style="width: 100%" />
                                         </div>
                                         <div class="video2">
-                                           <a href="#"> <i class="fa fa-play-circle"></i></a>
+                                           <a href="{{$productImage->video_link}}"> <i class="fa fa-play-circle"></i></a>
                                         </div>
+
                                         <!-- Next and previous buttons -->
                                         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                                         <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -199,75 +212,74 @@
                                            <div class="column">
                                               <img
                                                  class="demo cursor card"
-                                                 src="../images/img1.jpg"
+                                                 src="{{$productImage->image_link_1}}"
                                                  style="width: 100%"
-                                                 onclick="currentSlide(1)"
+                                                 onclick="currentSlide({{$k}})"
                                                  alt="The Woods"
                                                  />
+                                                 <?php $k++ ?>
                                            </div>
                                            <div class="column">
                                               <img
                                                  class="demo cursor card"
-                                                 src="../images/img2.jpg"
+                                                 src="{{$productImage->image_link_2}}"
                                                  style="width: 100%"
-                                                 onclick="currentSlide(2)"
+                                                 onclick="currentSlide({{$k}})"
                                                  alt="Cinque Terre"
                                                  />
+                                                 <?php $k++ ?>
                                            </div>
                                            <div class="column">
                                               <img
                                                  class="demo cursor card"
-                                                 src="../images/img3.jpg"
+                                                 src="{{$productImage->image_link_3}}"
                                                  style="width: 100%"
-                                                 onclick="currentSlide(3)"
+                                                 onclick="currentSlide({{$k}})"
                                                  alt="Mountains and fjords"
                                                  />
+                                                 <?php $k++ ?>
                                            </div>
                                            <div class="column">
                                               <img
                                                  class="demo cursor card"
-                                                 src="../images/img4.jpg"
+                                                 src="{{$productImage->image_link_4}}"
                                                  style="width: 100%"
-                                                 onclick="currentSlide(4)"
+                                                 onclick="currentSlide({{$k}})"
                                                  alt="Northern Lights"
                                                  />
+                                                 <?php $k++ ?>
                                            </div>
                                            <div class="column">
                                               <img
                                                  class="demo cursor card"
-                                                 src="../images/img5.jpg"
+                                                 src="{{$productImage->image_link_5}}"
                                                  style="width: 100%"
-                                                 onclick="currentSlide(5)"
+                                                 onclick="currentSlide({{$k}})"
                                                  alt="Nature and sunrise"
                                                  />
-                                           </div>
-                                           <div class="column">
-                                              <img
-                                                 class="demo cursor card shadow-lg"
-                                                 src="../images/img6.jpg"
-                                                 style="width: 100%"
-                                                 onclick="currentSlide(6)"
-                                                 alt="Snowy Mountains"
-                                                 />
+                                                 <?php $k++ ?>
                                            </div>
                                         </div>
+                                        @endforeach
+
+                                        @foreach ($trendingProduct->ProductLink as $productLink)
                                         <div class="socialbar text-left shadow-sm">
-                                           <span class="Social-icon"> <img src="../images/shp.png" class="simage" alt=""><a href="#"> Visit competitor Store</a></span>
+                                           <span class="Social-icon"> <img src="{{asset('userImages/shp.png')}}" class="simage" alt=""><a href="{{$productLink->competitor_link_1}}"> Visit competitor Store</a></span>
                                         </div>
                                         <div class="socialbar text-left shadow-sm">
-                                           <span class="Social-icon"> <img src="../images/ali.png" class="simage" alt=""><a href="#">Visit Aliexpress source</a></span>
+                                           <span class="Social-icon"> <img src="{{asset('userImages/ali.png')}}" class="simage" alt=""><a href="{{$productLink->aliexpress}}">Visit Aliexpress source</a></span>
                                         </div>
                                         <div class="socialbar text-left shadow-sm">
-                                           <span class="Social-icon"> <img src="../images/amz.png" class="simage" alt=""><a href="#">View product on Amazon</a></span>
+                                           <span class="Social-icon"> <img src="{{asset('userImages/amz.png')}}" class="simage" alt=""><a href="{{$productLink->amazon}}">View product on Amazon</a></span>
                                         </div>
                                         <div class="socialbar text-left shadow-sm">
-                                           <span class="Social-icon"> <img src="../images/ebay (1).png" class="simage" alt=""><a href="#">View product on eBay</a></span>
+                                           <span class="Social-icon"> <img src="{{asset('userImages/ebay (1).png')}}" class="simage" alt=""><a href="{{$productLink->ebay}}">View product on eBay</a></span>
                                         </div>
                                         <div class="socialbar text-left shadow-sm">
-                                           <span class="Social-icon"> <img src="../images/fb.png" class="simage" alt=""><a href="#">view Facebook Ads</a></span>
+                                           <span class="Social-icon"> <img src="{{asset('userImages/fb.png')}}" class="simage" alt=""><a href="{{$productLink->facebook_ad}}">view Facebook Ads</a></span>
                                         </div>
                                         <div class="socialbar text-left shadow-sm">
-                                           <span class="Social-icon"> <img src="../images/youtube (1).png" class="simage" alt=""><a href="#">View Youtube review</a></span>
+                                           <span class="Social-icon"> <img src="{{asset('userImages/youtube (1).png')}}" class="simage" alt=""><a href="{{$productLink->youtube}}">View Youtube review</a></span>
                                         </div>
                                         <div class="card">
                                            <div class="mt-3">
@@ -275,14 +287,34 @@
                                                  <img src="../images/img4.jpg" id="myImg" alt="" class="px-2 py-2">
                                                  <table class="px-3">
                                                     <tr>
-                                                       <td>  <img src="../images/img4.jpg" id="im1" alt="" onclick="myFunction()" class="image1 img-fluid"></td>
-                                                       <td>  <img src="../images/img3.jpg" id="im2" alt="" onclick="myFunction1()" class="image1 img-fluid"></td>
-                                                       <td><img src="../images/img2.jpg" id="im3" alt="" onclick="myFunction2()" class="image1 img-fluid"></td>
-                                                       <td><img src="../images/img5.jpg" id="im4" alt="" onclick="myFunction3()" class="image1 img-fluid"></td>
+                                                       <td><img src="{{asset('storage/'.$productImage->gif_1)}}" id="im1" alt="" onclick="myFunction()" class="image1 img-fluid"></td>
+                                                       <td><img src="{{asset('storage/'.$productImage->gif_2)}}" id="im2" alt="" onclick="myFunction1()" class="image1 img-fluid"></td>
+                                                       <td><img src="{{asset('storage/'.$productImage->gif_3)}}" id="im3" alt="" onclick="myFunction2()" class="image1 img-fluid"></td>
+                                                       <td><img src="{{asset('storage/'.$productImage->gif_4)}}" id="im4" alt="" onclick="myFunction3()" class="image1 img-fluid"></td>
+                                                       <td><img src="{{asset('storage/'.$productImage->gif_5)}}" id="im4" alt="" onclick="myFunction3()" class="image1 img-fluid"></td>
                                                     </tr>
                                                  </table>
+                                                 @php
+                                                  if (!empty($productImage->gif_1)){
+                                                      $gifs = $productImage->gif_1;
+                                                    }
+                                                  if(!empty($productImage->gif_2)){
+                                                    if(!empty($gifs)){
+                                                      $gifs = $gifs.",".$productImage->gif_2;
+                                                    }else{
+                                                      $gifs = $productImage->gif_2;
+                                                    }
+                                                  }
+                                                  if (!empty($productImage->gif_3)){
+                                                    if(!empty($gifs)){
+                                                      $gifs = $gifs.",".$productImage->gif_3;
+                                                    }else{
+                                                      $gifs = $productImage->gif_3;
+                                                    }
+                                                  }
+                                                 @endphp
                                                  <div class="prbutton mt-2 p-2">
-                                                    <span class="prspan">Download gif image <button class="btn ml-2  lgreen"><a href="#">Download</a></button> </span>
+                                                    <span class="prspan">Download gif image <button class="btn ml-2  lgreen"><a href="{{route('downloadGIF',[$gifs])}}">Download</a></button> </span>
                                                  </div>
                                               </div>
                                               <br>
@@ -291,7 +323,9 @@
                                               </div>
                                            </div>
                                         </div>
+                                        @endforeach
                                      </div>
+                                     
                                      <div class="col-lg-8 col-md-6">
                                         <div class="card">
                                            <div class="price">
@@ -404,8 +438,11 @@
              </div>
           </div>
         </div>
+        <?php $j++; ?>
+        
         @endforeach
       </div>
+      
       @endfor
       <div class="clearfix"></div>
       <!-- /#add-category -->

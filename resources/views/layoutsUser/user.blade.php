@@ -347,7 +347,7 @@
 
               
 
-                <a class="nav-link" href="#"
+                <a class="nav-link" href="{{route('logout')}}"
                   ><i class="fa fa-power -off"></i>Logout</a
                 >
               </div>

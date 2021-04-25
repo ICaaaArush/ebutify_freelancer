@@ -68,7 +68,17 @@
 
           <div class="div7 p-2">
           <div class="itext p-1"> Oppotunity level</div>
-            <input id="opportunity" class="form-control space" name="opportunity" value="{{$productDetails->price}}">
+          <select multiple="multiple" name="opportunity[]" id="opportunity" class="form-control level">
+            <option value="facebook_ads" @if ($containsF == true)
+                    selected="selected"
+                @endif>Facebook ads</option>
+            <option value="trending_product" @if ($containsT == true)
+                    selected="selected"
+                @endif>Trending product</option>
+            <option value="untapped_product" @if ($containsU == true)
+                    selected="selected"
+                @endif>Untapped product</option>
+          </select>
           </div>
         </div>       
 
@@ -223,7 +233,34 @@
                   </tr>
                   <tr>
                     <td>
-                      <input id="age" class="form-control" name="age" value="{{$productDetails->age}}">
+                      <select multiple="multiple" class="selectpicker form-control p-1" name="age[]" id="age" multiple data-live-search="true" required="">
+                        <option  @if ($containsUnder18 == true)
+                    selected="selected"
+                @endif>Under 18</option>
+                        <option @if ($containsUnder1824 == true)
+                    selected="selected"
+                @endif>18-24</option>
+                        <option
+                        @if ($containsUnder2534 == true)
+                    selected="selected"
+                @endif>25-34</option>
+                        <option
+                        @if ($containsUnder3444 == true)
+                    selected="selected"
+                @endif>34-44</option>
+                        <option
+                        @if ($containsUnder4554 == true)
+                    selected="selected"
+                @endif>45-54</option>
+                        <option
+                        @if ($containsUnder5564 == true)
+                    selected="selected"
+                @endif>55-64</option>
+                        <option
+                        @if ($containsUnder65 == true)
+                    selected="selected"
+                @endif>65+</option>
+                      </select>
                     </td>
                   </tr>
                   </table>
@@ -237,7 +274,20 @@
                   </tr>
                   <tr>
                     <td>
-                      <input id="gender" class="form-control" name="gender" value="{{$productDetails->gender}}">
+                      <select multiple="multiple" class="selectpicker form-control" name="gender[]" id="gender" multiple data-live-search="true" required="">
+                        <option @if ($containsMen == true)
+                    selected="selected"
+                @endif>Men</option>
+                        <option @if ($containsWomen == true)
+                    selected="selected"
+                @endif>Women</option>
+                        <option @if ($containsBaby == true)
+                    selected="selected"
+                @endif>Baby</option>
+                        <option @if ($containsUnisex == true)
+                    selected="selected"
+                @endif>Unisex</option>
+                      </select>
                     </td>
                   </tr>
                 </table>
@@ -261,13 +311,14 @@
                   </tr>
                   <tr>
                     <td>
-                      <?php ($productDetails->product_type_id = 1) ?>
-                      <?php $productType = "Saturated"?>
-                      
-                      
-                      <?php $productType = "Unsaturated" ?>
-                      
-                      <input id="type" class="form-control" name="type" value="{{$productType}}">
+                      <select class="selectpicker form-control p-1" name="type" id="type" multiple data-live-search="true" required="">
+                        <option value="1" @if ($containsSa == true)
+                    selected="selected"
+                @endif>Saturated</option>
+                        <option value="2" @if ($containsUn == true)
+                    selected="selected"
+                @endif>Unsaturated</option>
+                      </select>
 
                     </td>
                   </tr>
@@ -280,7 +331,14 @@
                   </tr>
                   <tr>
                     <td>
-                      <input type="text" id="status" class="form-control" name="status" value="{{$productDetails->status}}">
+                      <select multiple="" class="selectpicker form-control p-1" name="status" id="status" multiple data-live-search="true" required="">
+                        <option @if ($containsAv == true)
+                    selected="selected"
+                @endif>Available</option>
+                        <option @if ($containsUnav == true)
+                    selected="selected"
+                @endif>Unavailable</option>
+                      </select>
                     </td>
                   </tr>
                 </table>

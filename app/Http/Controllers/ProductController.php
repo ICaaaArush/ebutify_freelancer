@@ -128,7 +128,6 @@ class ProductController extends Controller
         'competitor5' => 'required',
         'amazon' => 'required',
         'ebay' => 'required',
-
         'tag' => 'required',
         'age' => 'required',
         'gender' => 'required',
@@ -202,17 +201,58 @@ class ProductController extends Controller
 
     public function productEdit($id)
     {
-
+        //  FETCH PRODUCT DETAILS BY ID
         $productDetails = ProductDetail::find($id);
         // dd($productDetails);
-
         $productImages = ProductImage::firstWhere('product_detail_id', $id);
-        // dd($productImages);
-        
+        // dd($productImages); 
         $productLinks = ProductLink::firstWhere('product_detail_id', $id);
         // dd($productLinks, $productImages);
 
-        return view('freelancer.edit-product', compact('id', 'productDetails', 'productLinks', 'productImages'));
+
+        //  FETCH SELECTED OPPORTUNITY DATA
+        $opportunitys = $productDetails->opportunity_level;
+
+        $containsT = Str::contains($opportunitys, 'trending_product');
+        $containsF = Str::contains($opportunitys, 'facebook_ads');
+        $containsU = Str::contains($opportunitys, 'untapped_product');
+
+
+        //  FETCH SELECTED GENDER DATA
+        $gender = $productDetails->gender;
+        // dd($gender);
+        $containsMen = Str::contains($gender, 'Men');
+        $containsWomen = Str::contains($gender, 'Women');
+        $containsBaby = Str::contains($gender, 'Baby');
+        $containsUnisex = Str::contains($gender, 'Unisex');
+
+
+        //  FETCH SELECTED AGE DATA
+        $customerAge = $productDetails->age;
+
+        $containsUnder18   = Str::contains($customerAge, 'Under 18');
+        $containsUnder1824 = Str::contains($customerAge, '18-24');
+        $containsUnder2534 = Str::contains($customerAge, '25-34');
+        $containsUnder3444 = Str::contains($customerAge, '34-44');
+        $containsUnder4554 = Str::contains($customerAge, '45-54');
+        $containsUnder5564 = Str::contains($customerAge, '55-64');
+        $containsUnder65   = Str::contains($customerAge, '65+');
+
+
+        //  FETCH SELECTED TYPE DATA
+        $productType = $productDetails->product_type_id;
+
+        $containsSa = Str::contains($productType, 1);
+        $containsUn = Str::contains($gender, 2);
+
+
+        //  FETCH SELECTED STATUS
+        $productStatus = $productDetails->status;
+        // dd($productStatus);
+        $containsAv = Str::contains($productStatus, 'Available');
+        $containsUnav = Str::contains($productStatus, 'Unavailable');
+
+        return view('freelancer.edit-product', compact('id', 'productDetails', 'productLinks', 'productImages','containsT','containsF','containsU','containsUnder18','containsUnder1824','containsUnder2534','containsUnder3444','containsUnder4554','containsUnder5564','containsUnder65','containsMen','containsWomen','containsBaby','containsUnisex','containsSa','containsUn','containsAv','containsUnav'));
     }
 
     public function productUpdate(Request $request)
@@ -291,7 +331,7 @@ class ProductController extends Controller
         $productDetails->category = $request->input('category');
         $productDetails->description = $request->input('desc');
         $productDetails->status = $request->input('status');
-        $productDetails->product_type_id = $type_id;
+        $productDetails->product_type_id = $request->input('type');
         $productDetails->opportunity_level  = $request->input('opportunity');
         $productDetails->user_id  = auth()->id();
         $productDetails->tag = $request->input('tag');

@@ -27,29 +27,30 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/dashboard', [FreelancerController::class, 'dashboard'])->name('freelancer-dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [FreelancerController::class, 'dashboard'])->name('freelancer-dashboard');
 
 Route::get('/logout', [FreelancerController::class, 'logoutFreelancer'])->name('logout');
 
-Route::get('/work-report', [FreelancerController::class, 'workReportFreelancer'])->name('work-report');
+Route::middleware(['auth:sanctum', 'verified'])->get('/work-report', [FreelancerController::class, 'workReportFreelancer'])->name('work-report');
 
-Route::get('/message', [FreelancerController::class, 'message'])->name('message');
+Route::middleware(['auth:sanctum', 'verified'])->get('/message', [FreelancerController::class, 'message'])->name('message');
 
-Route::get('/myprofile', [FreelancerController::class, 'myprofile'])->name('myprofile');
+Route::middleware(['auth:sanctum', 'verified'])->get('/myprofile', [FreelancerController::class, 'myprofile'])->name('myprofile');
 
 Route::post('/subscribe', [FreelancerController::class,'subscribe'])->name('subscribe');
 
-Route::get('/product-research', [ProductController::class, 'productResearch'])->name('product-research');
+Route::middleware(['auth:sanctum', 'verified'])->get('/product-research', [ProductController::class, 'productResearch'])->name('product-research');
 
-Route::get('/uploadPage', [ProductController::class, 'uploadPage'])->name('uploadPage');
+Route::middleware(['auth:sanctum', 'verified'])->get('/uploadPage', [ProductController::class, 'uploadPage'])->name('uploadPage');
 
 Route::post('/uploadProduct', [ProductController::class, 'uploadProduct'])->name('uploadProduct');
 
-Route::get('/product-edit/{id}', [ProductController::class, 'productEdit'])->name('product-edit');
+Route::middleware(['auth:sanctum', 'verified'])->get('/product-edit/{id}', [ProductController::class, 'productEdit'])->name('product-edit');
 
 Route::post('/product-update', [ProductController::class, 'productUpdate'])->name('productUpdate');
 
 Route::post('/product-update', [ProductController::class, 'productUpdate'])->name('productUpdate');
 
-Route::get('/trending-products', [UserController::class, 'trendingProducts'])->name('trending-products');
+Route::middleware(['auth:sanctum', 'verified'])->get('/trending-products', [UserController::class, 'trendingProducts'])->name('trending-products');
 
+Route::get('/downloadGIF/{gifs}', [UserController::class, 'downloadGIF'])->name('downloadGIF');
