@@ -109,9 +109,7 @@
                 @endforeach
              </button>
              <div class="card-header">
-                <h3 data-toggle="modal" data-target="#exampleModalLong{{$j}}" class="text-left text1">
-                   {{$trendingProduct->product_name}}
-                </h3>
+                <h3 data-toggle="modal" data-target="#exampleModalLong{{$j}}" class="text-left text1">{{$trendingProduct->product_name}}</h3>
              </div>
              <!--demo-->
              <div class="card-body  card-t">
@@ -331,47 +329,51 @@
                                            <div class="price">
                                               <div class="p-3 text-center">
                                                  <h3>order</h3>
-                                                 <span class="text-center">135</span>
+                                                 <span class="text-center">{{$trendingProduct->total_order}}</span>
                                               </div>
                                               <div class="p-3 text-center">
                                                  <h3>Product Cost</h3>
-                                                 <span">$12.45</span>
+                                                 <span">${{$trendingProduct->cost}}</span>
                                               </div>
                                               <div class="p-3 text-center">
                                                  <h3> Selling Price</h3>
-                                                 <span class="text-center">$39.50</span>
+                                                 <span class="text-center">${{$trendingProduct->price}}</span>
                                               </div>
                                               <div class="p-3 text-center">
                                                  <h3>Profit</h3>
-                                                 <span class="text-center">$27.5</span>
+                                                 <span class="text-center">${{$trendingProduct->profit}}</span>
                                               </div>
                                               <div class="p-3 text-center">
                                                  <h3>Total sales</h3>
-                                                 <span class="text-center">$37,12.9</span>
+                                                 <span class="text-center">${{$trendingProduct->total_revenue}}</span>
                                               </div>
                                            </div>
                                         </div>
                                         <div class="card p-3">
                                            <div class="product">
+                                            
                                               <table class="table table-borderless ">
                                                  <tr>
                                                     <td>
-                                                       <h2 class="text3">Selling on 12 shopify store</h2>
+                                                       <h2 class="text3">Selling on stores</h2>
                                                     </td>
                                                     <td>
                                                        <h2 class="text3">selling country</h2>
                                                     </td>
                                                  </tr>
                                                  <tr>
+                                                  @foreach ($trendingProduct->ProductLink as $productLink)
                                                     <td>
-                                                       <i class="fa fa-globe"></i> <a href="#">example.com</a><br>
-                                                       <i class="fa fa-globe"></i> <a href="#">example.com</a> <br>
-                                                       <i class="fa fa-globe"></i> <a href="#">example.com</a> <br>
-                                                       <i class="fa fa-globe"></i> <a href="#">example.com</a> <br>
-                                                       <i class="fa fa-globe"></i> <a href="#">example.com</a>
+                                                       <i class="fa fa-globe"></i> <a href="{{$productLink->competitor_link_1}}">{{$productLink->competitor_link_1}}</a><br>
+                                                       <i class="fa fa-globe"></i> <a href="{{$productLink->competitor_link_2}}">{{$productLink->competitor_link_2}}</a> <br>
+                                                       <i class="fa fa-globe"></i> <a href="{{$productLink->competitor_link_3}}">{{$productLink->competitor_link_3}}</a> <br>
+                                                       <i class="fa fa-globe"></i> <a href="{{$productLink->competitor_link_4}}">{{$productLink->competitor_link_4}}</a> <br>
+                                                       <i class="fa fa-globe"></i> <a href="{{$productLink->competitor_link_5}}">{{$productLink->competitor_link_5}}</a>
                                                     </td>
+                                                  @endforeach
+
                                                     <td>
-                                                       <i class="fa fa-globe"></i> <a href="#">united state</a><br>
+                                                       <i class="fa fa-globe"></i> <a href="#">{{$trendingProduct->country}}</a><br>
                                                        <i class="fa fa-globe"></i> <a href="#">united state</a> <br>
                                                        <i class="fa fa-globe"></i> <a href="#">united state</a> <br>
                                                        <i class="fa fa-globe"></i> <a href="#">united state</a> <br>
@@ -379,6 +381,7 @@
                                                     </td>
                                                  </tr>
                                               </table>
+                                              
                                            </div>
                                         </div>
                                         <!--card-->

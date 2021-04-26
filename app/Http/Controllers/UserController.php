@@ -11,6 +11,8 @@ use App\Models\ProductType;
 use App\Models\Category;
 use App\Models\Gender;
 use App\Models\Country;
+use ZipArchive;
+use File;
 
 
 class UserController extends Controller
@@ -22,8 +24,16 @@ class UserController extends Controller
 		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->get();
 
 		// dd( $trendingProducts );
+
 		$rows = round(count($trendingProducts)/4);
 		// dd($rows);
+
+		foreach ($trendingProducts as $trendingproduct) {
+			$country = $trendingproduct->country.",";
+
+			echo $country;
+		}
+
 
 		return view('user.trending',compact('trendingProducts','rows'));
 
@@ -36,10 +46,24 @@ class UserController extends Controller
 
     public function downloadGIF($gifs)
     {
-    	echo $gifs;
-    	$array = explode(',', $gifs);
-    	dd($array);
-    	$sortedGifs = $gifs.split(',');
-    	echo $sortedGifs;
+    	// echo $gifs;
+    	$files = explode(',', $gifs);
+    	// dd($files);
+    	$zip = new ZipArchive();
+		$zip_name = "ebutify_gif_".time().".zip"; // Zip name
+		$zip->open($zip_name,  ZipArchive::CREATE);
+		foreach ($files as $file) {
+		  echo $path = public_path('storage/').$file;
+		  if(file_exists($path)){
+		  $zip->addFromString(basename($path),  file_get_contents($path));
+		  }
+		  else{
+		   echo"file does not exist";
+		  }
+		}
+		$zip->close();
+
+		return response()->download(public_path($zip_name));
+
     }
 }
