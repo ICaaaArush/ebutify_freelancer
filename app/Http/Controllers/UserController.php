@@ -31,11 +31,10 @@ class UserController extends Controller
 		foreach ($trendingProducts as $trendingproduct) {
 			$country = $trendingproduct->country.",";
 
-			echo $country;
+			// echo $country;
 		}
 
-
-		return view('user.trending',compact('trendingProducts','rows'));
+		return view('user.trending-product',compact('trendingProducts','rows'));
 
 		}else{
 

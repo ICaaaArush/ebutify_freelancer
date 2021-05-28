@@ -48,7 +48,7 @@ class FreelancerController extends Controller
 
                     $products = ProductDetail::all();
 
-                    return view('user.index',compact('products'));
+                    return view('user.customer-dashboard',compact('products'));
                     }
 
             }elseif (Auth::user()->user_type == "freelancer") {

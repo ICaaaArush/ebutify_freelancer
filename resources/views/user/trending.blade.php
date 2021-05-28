@@ -124,7 +124,7 @@
                 </div>
                 <div>
                    <span>Selling Price</span>
-                   <span class="trend">${{$trendingProduct->cost}}</span>
+                   <span class="trend">${{$trendingProduct->price}}</span>
                 </div>
                 <div>
                    <span>Profit Margin</span>
@@ -371,14 +371,15 @@
                                                        <i class="fa fa-globe"></i> <a href="{{$productLink->competitor_link_5}}">{{$productLink->competitor_link_5}}</a>
                                                     </td>
                                                   @endforeach
-
+                                                  @php
+                                                  $countrys = $trendingProduct->country;
+                                                  $countrys = explode(',', $countrys);
+                                                  @endphp
+                                                  @foreach($countrys as $country)
                                                     <td>
-                                                       <i class="fa fa-globe"></i> <a href="#">{{$trendingProduct->country}}</a><br>
-                                                       <i class="fa fa-globe"></i> <a href="#">united state</a> <br>
-                                                       <i class="fa fa-globe"></i> <a href="#">united state</a> <br>
-                                                       <i class="fa fa-globe"></i> <a href="#">united state</a> <br>
-                                                       <i class="fa fa-globe"></i> <a href="#">united state</a>
+                                                       <i class="fa fa-globe"></i> <a href="#">{{$country}}</a><br>
                                                     </td>
+                                                  @endforeach
                                                  </tr>
                                               </table>
                                               
