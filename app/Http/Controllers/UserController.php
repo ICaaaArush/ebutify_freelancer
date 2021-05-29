@@ -18,15 +18,20 @@ use File;
 class UserController extends Controller
 {
     public function trendingProducts()
-	 {
+	{
 	 	if(Auth::check()){
 			
 		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->get();
 
 		// dd( $trendingProducts );
 
-		$rows = round(count($trendingProducts)/4);
+		$rows = round(count($trendingProducts)/3);
 		// dd($rows);
+
+		// foreach($trendingProducts as $trendingProduct){
+		// 	echo ("fuck");
+		// }
+		// exit();
 
 		foreach ($trendingProducts as $trendingproduct) {
 			$country = $trendingproduct->country.",";
@@ -41,7 +46,27 @@ class UserController extends Controller
 	 	return view('auth.login');
 
 	 	}
-	 }
+	}
+
+	public function productDetails()
+	{
+		if(Auth::check()){
+			
+		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->get();
+
+		foreach ($trendingProducts as $trendingproduct) {
+			$country = $trendingproduct->country.",";
+
+			// echo $country;
+		}
+
+		return view('user.product-details',compact('trendingProducts'));
+
+		}else{
+
+	 	return view('auth.login');
+		}
+	}
 
     public function downloadGIF($gifs)
     {

@@ -75,3 +75,6 @@ Route::get('/downloadGIF/{gifs}', [UserController::class, 'downloadGIF'])->name(
 Route::get('/billing-portal', function (Request $request) {
     return $request->user()->redirectToBillingPortal('billing')->name('billing-portal');
 });
+
+//  USER PRODUCT DETAILS
+Route::middleware(['auth:sanctum', 'verified'])->get('/product-details', [UserController::class, 'productDetails'])->name('product-details');

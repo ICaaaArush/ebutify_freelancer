@@ -16,7 +16,14 @@
 
   <!-- My style -->
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-
+  <style type="text/css">
+    .card-deck{
+    margin-top: 10px;
+    display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 10px;
+}
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -318,6 +325,8 @@
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js')}}"></script>
+
 <!-- Bootstrap -->
 <script src="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js')}}" ></script>
 <script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js')}}"></script>
@@ -337,6 +346,8 @@
     });
   });
 </script>
+
+@yield('js')
 
 </body>
 </html>
