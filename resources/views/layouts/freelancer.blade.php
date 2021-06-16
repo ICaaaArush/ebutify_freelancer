@@ -246,8 +246,6 @@
     <script src="{{asset('vendors/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
     <script src="{{asset('https://cdn.tiny.cloud/1/onjlznuqdmec3dv72t7t861lw7bmdasywklugogscycfh6qp/tinymce/5/tinymce.min.js')}}" referrerpolicy="origin"></script>
 
-    @yield('js')
-
     <script>
       (function ($) {
         "use strict";

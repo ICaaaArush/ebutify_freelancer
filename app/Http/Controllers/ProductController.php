@@ -23,37 +23,27 @@ class ProductController extends Controller
     {
         $user_id = auth()->id();
 
-    	$collections = ProductDetail::where('user_id', $user_id)->get();
-
-        // foreach ($collections as $collection) {
-
-        //     foreach($collection->productImage as $productImage){
-        //         dd($productImage->image_link_1);
-        //     }
-
-        // }
-        // exit();
+        $collections = ProductDetail::where('user_id', $user_id)->get();
 
         $productDetails = $collections->sortByDesc('created_at');
 
-        return view('freelancer.product-research', compact('productDetails'));
+        return view('freelancer.product-research-new', compact('productDetails'));
     }
     
     public function uploadPage()
     {
         $productDetails = ProductDetail::all();
 
-        return view('freelancer.upload',compact('productDetails'));
+        return view('freelancer.practice-upload-new',compact('productDetails'));
     }
 
     public function uploadProduct(Request $request)
     {
-        // dd($request->all());
 
         if(!empty($request->gif1)){
             $request->file('gif1')->store('public');  
             $gifFileName1 = $request->gif1->hashName();
-            // dd($gifFileName1);
+ 
 
         }
         if(!empty($request->gif2)){
@@ -67,24 +57,17 @@ class ProductController extends Controller
 
         }
         
-
-        
         $opportunity = $request->opportunity;
 
         if (is_array($opportunity)) {
             $opportunity = implode(',', $opportunity);
         }
         
-        // echo $opportunity."<br>";
-
-        
         $age = $request->age;
 
         if (is_array($age)) {
             $age = implode(',', $age);
         }
-        
-        // echo $age."<br>";
 
         $gender = $request->gender;
 
@@ -92,16 +75,24 @@ class ProductController extends Controller
             $gender = implode(',', $gender);
         }
 
-        // echo $gender."<br>";
-
         $category = $request->category;
 
         if (is_array($category)) {
         $category = implode(',', $category);
         }
 
-        // echo $category."<br>";
+        $country = $request->country;
 
+        if (is_array($country)) {
+        $country = implode(',', $country);
+        }
+        // dd($country);
+
+        $tag = $request->tag;
+
+        if (is_array($tag)) {
+        $tag = implode(',', $tag);
+        }
 
         $validatedData = $request->validate([
         'pname' => 'required|unique:product_details,product_name|max:255',
@@ -111,23 +102,6 @@ class ProductController extends Controller
         'trevinue' => 'required',
         'alexarank' => 'required',
         'opportunity' => 'required',
-        'aliexpress' => 'required',
-        'fbadd' => 'required',
-        'google' => 'required',
-        'youtube' => 'required',
-        'shopify' => 'required',
-        'img1' => 'required|active_url',
-        'img2' => 'required|active_url',
-        'img3' => 'required|active_url',
-        'img4' => 'nullable|active_url',
-        'img5' => 'nullable|active_url',
-        'competitor1' => 'required',
-        'competitor2' => 'required',
-        'competitor3' => 'required',
-        'competitor4' => 'required',
-        'competitor5' => 'required',
-        'amazon' => 'required',
-        'ebay' => 'required',
         'tag' => 'required',
         'age' => 'required',
         'gender' => 'required',
@@ -135,9 +109,7 @@ class ProductController extends Controller
         'country' => 'required',
         'desc' => 'required',
         'video'=> 'required',
-        'gif1' => 'required_without_all:gif2,gif3',
-        'gif2' => 'required_without_all:gif1,gif3',
-        'gif3' => 'required_without_all:gif1,gif2',
+
     ]);
 
         $productDetails = new ProductDetail;
@@ -150,12 +122,12 @@ class ProductController extends Controller
         $productDetails->alexa_rank = $request->input('alexarank');
         $productDetails->age = $age;
         $productDetails->gender  = $gender;
-        $productDetails->country = $request->input('country');
+        $productDetails->country = $country;
         $productDetails->category = $category;
         $productDetails->description = $request->input('desc');
         $productDetails->status = $request->input('status');
         $productDetails->product_type_id = $request->input('type');
-        $productDetails->tag = $request->input('tag');
+        $productDetails->tag = $tag;
         $productDetails->opportunity_level  = $opportunity;
         $productDetails->user_id  = auth()->id();
         $productDetails->uploader_name = $request->input('uploadername');
@@ -171,9 +143,9 @@ class ProductController extends Controller
         $productLinks->amazon = $request->input('amazon');
         $productLinks->competitor_link_1 = $request->input('competitor1');
         $productLinks->competitor_link_2 = $request->input('competitor2');
-        $productLinks->competitor_link_3 = $request->input('competitor2');
-        $productLinks->competitor_link_4 = $request->input('competitor2');
-        $productLinks->competitor_link_5 = $request->input('competitor2');
+        $productLinks->competitor_link_3 = $request->input('competitor3');
+        $productLinks->competitor_link_4 = $request->input('competitor4');
+        $productLinks->competitor_link_5 = $request->input('competitor5');
 
         $productDetails->productLink()->save($productLinks);
 
@@ -203,11 +175,11 @@ class ProductController extends Controller
     {
         //  FETCH PRODUCT DETAILS BY ID
         $productDetails = ProductDetail::find($id);
-        // dd($productDetails);
+        
         $productImages = ProductImage::firstWhere('product_detail_id', $id);
-        // dd($productImages); 
+         
         $productLinks = ProductLink::firstWhere('product_detail_id', $id);
-        // dd($productLinks, $productImages);
+        
 
 
         //  FETCH SELECTED OPPORTUNITY DATA
@@ -220,7 +192,7 @@ class ProductController extends Controller
 
         //  FETCH SELECTED GENDER DATA
         $gender = $productDetails->gender;
-        // dd($gender);
+        
         $containsMen = Str::contains($gender, 'Men');
         $containsWomen = Str::contains($gender, 'Women');
         $containsBaby = Str::contains($gender, 'Baby');
@@ -238,21 +210,30 @@ class ProductController extends Controller
         $containsUnder5564 = Str::contains($customerAge, '55-64');
         $containsUnder65   = Str::contains($customerAge, '65+');
 
+        //  FETCH SELECTED CATEGORY DATA
+        $category = $productDetails->category;
+
+        $containsHB   = Str::contains($category, 'Health & Beauty');
+        $containsBK = Str::contains($category, 'Baby & Kids');
+        $containsFIT = Str::contains($category, 'Fitness');
+        $containsCA = Str::contains($category, 'Car Accessories');
+        $containsHG = Str::contains($category, 'Home & Gerden');
+        $containsPA = Str::contains($category, 'Pet Accessories');
 
         //  FETCH SELECTED TYPE DATA
         $productType = $productDetails->product_type_id;
 
         $containsSa = Str::contains($productType, 1);
-        $containsUn = Str::contains($gender, 2);
+        $containsUn = Str::contains($productType, 2);
 
 
         //  FETCH SELECTED STATUS
         $productStatus = $productDetails->status;
-        // dd($productStatus);
+        
         $containsAv = Str::contains($productStatus, 'Available');
         $containsUnav = Str::contains($productStatus, 'Unavailable');
 
-        return view('freelancer.edit-product', compact('id', 'productDetails', 'productLinks', 'productImages','containsT','containsF','containsU','containsUnder18','containsUnder1824','containsUnder2534','containsUnder3444','containsUnder4554','containsUnder5564','containsUnder65','containsMen','containsWomen','containsBaby','containsUnisex','containsSa','containsUn','containsAv','containsUnav'));
+        return view('freelancer.practice-edit-product', compact('id', 'productDetails', 'productLinks', 'productImages','containsT','containsF','containsU','containsUnder18','containsUnder1824','containsUnder2534','containsUnder3444','containsUnder4554','containsUnder5564','containsUnder65','containsMen','containsWomen','containsBaby','containsUnisex','containsSa','containsUn','containsAv','containsUnav','containsHB','containsBK','containsFIT','containsCA','containsHG','containsPA'));
     }
 
     public function productUpdate(Request $request)
@@ -282,39 +263,6 @@ class ProductController extends Controller
 
         $validatedData = $request->validate([
         'pname' => 'required|max:255',
-        'cost' => 'required',
-        'profit' => 'required',
-        'torder' => 'required',
-        'trevinue' => 'required',
-        'alexarank' => 'required',
-        'opportunity' => 'required',
-        'aliexpress' => 'required',
-        'fbadd' => 'required',
-        'google' => 'required',
-        'youtube' => 'required',
-        'shopify' => 'required',
-        'img1' => 'required|active_url',
-        'img2' => 'required|active_url',
-        'img3' => 'required|active_url',
-        'img4' => 'nullable|active_url',
-        'img5' => 'nullable|active_url',
-        'competitor1' => 'required',
-        'competitor2' => 'required',
-        'competitor3' => 'required',
-        'competitor4' => 'required',
-        'competitor5' => 'required',
-        'amazon' => 'required',
-        'ebay' => 'required',
-        'tag' => 'required',
-        'age' => 'required',
-        'gender' => 'required',
-        'category' => 'required',
-        'country' => 'required',
-        'desc' => 'required',
-        'video'=> 'required',
-        // 'gif1' => 'required_without_all:gif2,gif3',
-        // 'gif2' => 'required_without_all:gif1,gif3',
-        // 'gif3' => 'required_without_all:gif1,gif2',
     ]);
 
         $productDetails = ProductDetail::find($request->id);
@@ -331,7 +279,7 @@ class ProductController extends Controller
         $productDetails->category = $request->input('category');
         $productDetails->description = $request->input('desc');
         $productDetails->status = $request->input('status');
-        $productDetails->product_type_id = $request->input('type');
+        $productDetails->product_type_id = $type_id;
         $productDetails->opportunity_level  = $request->input('opportunity');
         $productDetails->user_id  = auth()->id();
         $productDetails->tag = $request->input('tag');
@@ -347,11 +295,10 @@ class ProductController extends Controller
         $productLinks->shopify = $request->input('shopify');
         $productLinks->competitor_link_1 = $request->input('competitor1');
         $productLinks->competitor_link_2 = $request->input('competitor2');
-        $productLinks->competitor_link_3 = $request->input('competitor2');
-        $productLinks->competitor_link_4 = $request->input('competitor2');
-        $productLinks->competitor_link_5 = $request->input('competitor2');
+        $productLinks->competitor_link_3 = $request->input('competitor3');
+        $productLinks->competitor_link_4 = $request->input('competitor4');
+        $productLinks->competitor_link_5 = $request->input('competitor5');
         $productLinks->amazon = $request->input('amazon');
-
 
         $productDetails->productLink()->save($productLinks);
 

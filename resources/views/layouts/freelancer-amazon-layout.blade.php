@@ -3,42 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>eButify | Customer Trending Product Research</title>
-
+  @if(Route::currentRouteName() == 'amazon-products' || Route::currentRouteName() == 'add-new-amz')
+  <title>eButify | Amazon Product List</title>
+  @elseif(Route::currentRouteName() == 'ali-express-products' || Route::currentRouteName() == 'add-new-ali')
+  <title>eButify | Ali Express Product List</title>
+  @endif
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.css">
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-  
-  <!-- Slick Slider -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-
   <!-- My style -->
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-  <style>
-.video-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-}
 
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-</style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -99,7 +77,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('assets/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -115,7 +93,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('assets/img/avatar2.png')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="assets/img/avatar2.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -131,7 +109,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('assets/img/avatar.png')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="assets/img/avatar.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -152,20 +130,20 @@
         <a class="" data-toggle="dropdown" href="#">
           <div class="user-panel d-flex mr-3">
             <div class="image">
-              <img src="{{asset('assets/img/user1-128x128.jpg')}}" class="img-circle " alt="Jone Due">
+              <img src="assets/img/user1-128x128.jpg" class="img-circle " alt="Jone Due">
             </div>
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">Jone Due</span>
+          <span class="dropdown-item dropdown-header">{{Auth::user()->name}}</span>
           <div class="dropdown-divider"></div>
           <div class="dropdown-divider"></div>
-          <a href="customer-profile-page.html" class="dropdown-item">
-            <i class="far fa-user mr-2"></i> My Profile
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-key mr-2"></i> Change password
           </a>
           <div class="dropdown-divider"></div>
-          <a href="customer-subscriptions-billing.html" class="dropdown-item">
-            <i class="far fa-bell mr-2"></i> Subcription
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-user mr-2"></i> Update Profile
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">Logout</a>
@@ -191,7 +169,7 @@
           <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{url('dashboard')}}" class="nav-link active">
+            <a href="{{route('freelancer-dashboard')}}" class="@if(Route::currentRouteName() == 'dashboard' || Route::currentRouteName() == 'freelancer-dashboard') nav-link active @endif nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -199,119 +177,50 @@
             </a>
           </li>
          
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
+          <li class="nav-item">
+            <a href="{{route('product-research')}}" class="@if(Route::currentRouteName() == 'product-research' || Route::currentRouteName() == 'product-edit' || Route::currentRouteName() == 'uploadPage') nav-link active @endif nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Product Research
-                <i class="right fas fa-angle-right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview pl-4 ml-2">
-              <li class="nav-item">
-                <a href="{{url('fb-ad-products')}}" class="nav-link">
-                  <i class="nav-icon fab fa-facebook-square"></i>
-                  <p>Facebook Ads</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('untapped-product')}}" class="nav-link">
-                  <i class="nav-icon fas fa-upload"></i>
-                  <p>Untapped Products</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('trending-products')}}" class="nav-link">
-                  <i class="nav-icon fas fa-vector-square"></i>
-                  <p>Trending Products</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('all-product')}}" class="nav-link">
-                  <i class="nav-icon fab fa-adn"></i>
-                  <p>All Products</p>
-                </a>
-              </li>
-            </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Explores
                 <i class="fas fa-angle-right right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview pl-4 ml-2">
+            <ul class="nav nav-treeview pl-5">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <img src="{{asset('assets/img/amz.png')}}" style="width: 16px; margin-bottom: 6px;" alt="">
-                  <p>Amazon Explore</p>
+                <a href="{{route('amazon-products')}}" class="@if(Route::currentRouteName() == 'amazon-products' || Route::currentRouteName() == 'add-new-amz') nav-link active @endif nav-link">
+                  <p>Amazon Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="customer-ali-exprees-explore.html" class="nav-link">
-                  <img src="{{asset('assets/img/ali.png')}}" style="width: 16px; margin-bottom: 6px;" alt="">
-                  <p>AliExpress Explore</p>
+                <a href="{{route('ali-express-products')}}" class="@if(Route::currentRouteName() == 'ali-express-products' || Route::currentRouteName() == 'add-new-ali') nav-link active @endif nav-link">
+                  <p>AliExpress Product</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="customer-store-explore.html" class="nav-link">
-                  <img src="{{asset('assets/img/shp.png')}}" style="width: 18px; margin-bottom: 6px;" alt="">
-                  <p>Store Explore</p>
+                <a href="{{route('shopify-products')}}" class="@if(Route::currentRouteName() == 'shopify-products' || Route::currentRouteName() == 'add-new-shopify') nav-link active @endif nav-link">
+                  <p>Shopify Product</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Help
-                <i class="fas fa-angle-right right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview pl-4 ml-2">
-              <li class="nav-item">
-                <a href="customer-help-tutorial.html" class="nav-link">
-                  <i class="nav-icon fas fa-video"></i>
-                  <p>Tutorials</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="customer-FAQ.html" class="nav-link">
-                  <i class="nav-icon fas fa-comment-dots"></i>
-                  <p>FAQ</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="customer-contact-us.html" class="nav-link">
-                  <i class="nav-icon fas fa-user-tag"></i>
-                  <p>Contact Us</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <br>
-          <li class="nav-item">
-            <p>QUICK LINKS</p>
-          </li>
-          <li class="nav-item">
-            <a href="customer-help-tutorial.html" class="nav-link">
-              <i class="nav-icon fas fa-video"></i>
-              <p>Tutorials</p>
+          <li class="nav-item pl-4 ml-2">
+            <!-- href="freelancer-project.html" -->
+            <a  class="nav-link">
+              <p>Project</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="customer-FAQ.html" class="nav-link">
-              <i class="nav-icon fas fa-comment-dots"></i>
-              <p>FAQ</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="customer-contact-us.html" class="nav-link">
-              <i class="nav-icon fas fa-user-tag"></i>
-              <p>Contact Us</p>
+          <li class="nav-item pl-4 ml-2">
+            <!-- href="freelancer-project -detail-1.html" -->
+            <a  class="nav-link">
+              <p>Message</p>
             </a>
           </li>
         </ul>
@@ -321,48 +230,22 @@
     <!-- /.sidebar -->
   </aside>
 
-@yield('content')
+  @yield('content')
 
-          <footer>
-          <div class="row justify-content-center my-4">
-            <copyright>&copy; 2020 - 2021 eButify Inc. All rights reserved</copyright>
-          </div>
-        </footer>
-      </div><!--/. container-fluid -->
-    </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-
-</div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 <!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
 <!-- overlayScrollbars -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js"></script>
 
-<!--Select2 from-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-
 <script src="{{asset('assets/js/script.js')}}"></script>
 
-<script>
-   $(document) .ready(function(){
-    $('.select2').select2({
-      width: '100%'
-    });
-  });
-</script>
-
-@yield('js')
 
 </body>
 </html>

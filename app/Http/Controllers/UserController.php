@@ -17,29 +17,23 @@ use File;
 
 class UserController extends Controller
 {
-    public function trendingProducts()
+	public function allProduct()
 	{
-	 	if(Auth::check()){
+		if(Auth::check()){
 			
-		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->get();
+		$trendingProducts = ProductDetail::all();
+
+		count($trendingProducts);
 
 		// dd( $trendingProducts );
 
-		$rows = round(count($trendingProducts)/3);
-		// dd($rows);
-
-		// foreach($trendingProducts as $trendingProduct){
-		// 	echo ("fuck");
-		// }
-		// exit();
-
 		foreach ($trendingProducts as $trendingproduct) {
+
 			$country = $trendingproduct->country.",";
 
-			// echo $country;
 		}
 
-		return view('user.trending-product',compact('trendingProducts','rows'));
+		return view('user.all-product',compact('trendingProducts','country'));
 
 		}else{
 
@@ -48,11 +42,36 @@ class UserController extends Controller
 	 	}
 	}
 
-	public function productDetails()
+	public function allProductDetails($product_id)
 	{
+
 		if(Auth::check()){
 			
+		$trendingProducts = ProductDetail::where('id', $product_id)
+		->get();
+		// dd($trendingProducts);
+		
+		foreach ($trendingProducts as $trendingproduct) {
+			$country = $trendingproduct->country.",";
+
+			// echo $country;
+		}
+
+		return view('user.product-details',compact('trendingProducts','country'));
+
+		}else{
+
+	 	return view('auth.login');
+		}
+	}
+
+    public function trendingProducts()
+	{
+	 	if(Auth::check()){
+			
 		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->get();
+
+		// dd( $trendingProducts );
 
 		foreach ($trendingProducts as $trendingproduct) {
 			$country = $trendingproduct->country.",";
@@ -60,13 +79,163 @@ class UserController extends Controller
 			// echo $country;
 		}
 
-		return view('user.product-details',compact('trendingProducts'));
+			if (empty($country)) {
+
+				return view('user.trending-product',compact('trendingProducts'));
+
+			}else{
+
+				return view('user.trending-product',compact('trendingProducts','country'));
+
+			}
+
+		}else{
+
+	 	return view('auth.login');
+
+	 	}
+	}
+
+	public function trendingProductDetails($product_id)
+	{
+
+		if(Auth::check()){
+			
+		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')
+		->where('id', $product_id)
+		->get();
+		
+		foreach ($trendingProducts as $trendingproduct) {
+			$country = $trendingproduct->country.",";
+
+			// echo $country;
+		}
+
+		if (empty($country)) {
+
+			return view('user.product-details',compact('trendingProducts'));
+
+		}else{
+
+			return view('user.product-details',compact('trendingProducts','country'));
+
+		}
+		
 
 		}else{
 
 	 	return view('auth.login');
 		}
 	}
+
+	public function fbAdProducts()
+	{
+		if(Auth::check()){
+			
+		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->get();
+
+		// dd( $trendingProducts );
+		
+
+		foreach ($trendingProducts as $trendingproduct) {
+			
+			$country = $trendingproduct->country.",";
+			// dd($country);
+
+		}
+
+			if (empty($country)) {
+
+				return view('user.practice-fb-ads-product',compact('trendingProducts'));
+
+			}else{
+
+				return view('user.practice-fb-ads-product',compact('trendingProducts','country'));
+
+			}
+		
+
+		}else{
+
+	 	return view('auth.login');
+
+	 	}
+	}
+
+	public function fbAdProductsDetails($product_id)
+	{
+
+		if(Auth::check()){
+			
+		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')
+		->where('id', $product_id)
+		->get();
+		
+		foreach ($trendingProducts as $trendingproduct) {
+			$country = $trendingproduct->country.",";
+
+			// echo $country;
+		}
+
+		return view('user.product-details',compact('trendingProducts','country'));
+
+		}else{
+
+	 	return view('auth.login');
+		}
+	}
+
+	public function untappedProducts()
+	{
+		if(Auth::check()){
+			
+		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->get();
+
+		// dd( $trendingProducts );
+
+		if (!empty($trendingProducts) ){
+
+			foreach ($trendingProducts as $trendingproduct) {
+				
+				$country = $trendingproduct->country.",";
+				// dd($country);
+			}
+		}
+
+		return view('user.practice-untapped-product',compact('trendingProducts','country'));
+
+		}else{
+
+	 	return view('auth.login');
+
+	 	}
+	}
+
+	public function untappedProductsDetails($product_id)
+	{
+
+		if(Auth::check()){
+			
+		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')
+		->where('id', $product_id)
+		->get();
+
+		// dd($trendingProducts);
+
+		foreach ($trendingProducts as $trendingproduct) {
+			$country = $trendingproduct->country.",";
+
+			// echo $country;
+		}
+
+		return view('user.product-details',compact('trendingProducts','country'));
+
+		}else{
+
+	 	return view('auth.login');
+		}
+	}
+
 
     public function downloadGIF($gifs)
     {

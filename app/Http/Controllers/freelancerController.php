@@ -53,9 +53,7 @@ class FreelancerController extends Controller
 
             }elseif (Auth::user()->user_type == "freelancer") {
 
-                    //  
-                    return view('freelancer.index');
-
+                return view('freelancer.freelancer-dashboard');
             }
 
         }
