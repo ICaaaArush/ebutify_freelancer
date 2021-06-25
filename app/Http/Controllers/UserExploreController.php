@@ -19,9 +19,12 @@ class UserExploreController extends Controller
     public function exploreAli(Request $request)
     {
         if(Auth::check()){
-
+            $sortSelected = 0;
+            $filterSelected = 0;
         //-- HANDLE SORTING
         if($request->sort) {
+            $sortSelected = $request->sort;
+            $filterSelected = $request->filter;
           switch($request->sort){
             case 1:
                 $orderColumn = 'profit';
@@ -112,9 +115,11 @@ class UserExploreController extends Controller
         }else{
             $category = '';
         }
-      
+        
         //-- HANDLE FILTER
         if($request->filter) {
+            $filterSelected = $request->filter;
+            $sortSelected = $request->sort;
           switch($request->filter){
             case 1:
                 $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
@@ -159,11 +164,11 @@ class UserExploreController extends Controller
 
             if (empty($country)) {
 
-                return view('user.explore-ali',compact('trendingProducts'));
+                return view('user.explore-ali',compact('trendingProducts','sortSelected','filterSelected'));
 
             }else{
-
-                return view('user.explore-ali',compact('trendingProducts','country'));
+                // dd($sortSelected);
+                return view('user.explore-ali',compact('trendingProducts','country','sortSelected','filterSelected'));
             }
 
         }else{

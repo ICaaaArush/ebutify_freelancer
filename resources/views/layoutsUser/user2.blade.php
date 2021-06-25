@@ -199,7 +199,7 @@
               <a class="nav-link" href="pages/password.html"><i class="fa fa-lock"></i>Password</a>
               <a class="nav-link" href="pages/subscriptions.html"><i class="fa fa-user"></i>subcription
               <a class="nav-link" href="pages/billing.html"><i class="fa fa-credit-card"></i>Billing</a>
-              <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+              <a class="nav-link" href="{{ route('logout') }}"><i class="fa fa-power -off"></i>Logout</a>
             </div>
           </div>
         </div>

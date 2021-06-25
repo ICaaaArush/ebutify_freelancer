@@ -157,10 +157,10 @@
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">Jone Due</span>
+          <span class="dropdown-item dropdown-header">{{Auth::user()->name}}</span>
           <div class="dropdown-divider"></div>
           <div class="dropdown-divider"></div>
-          <a href="customer-profile-page.html" class="dropdown-item">
+          <a href="{{ route('profile') }}" class="dropdown-item">
             <i class="far fa-user mr-2"></i> My Profile
           </a>
           <div class="dropdown-divider"></div>
@@ -168,7 +168,7 @@
             <i class="far fa-bell mr-2"></i> Subcription
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">Logout</a>
+          <a href="{{ route('logout') }}" class="dropdown-item dropdown-footer">Logout</a>
         </div>
       </li>
       

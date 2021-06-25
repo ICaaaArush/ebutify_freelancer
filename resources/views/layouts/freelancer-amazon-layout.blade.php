@@ -146,7 +146,7 @@
             <i class="fas fa-user mr-2"></i> Update Profile
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">Logout</a>
+          <a href="{{ route('logout') }}" class="dropdown-item dropdown-footer">Logout</a>
         </div>
       </li>
       

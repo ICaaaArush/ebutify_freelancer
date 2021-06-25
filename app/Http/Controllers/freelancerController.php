@@ -98,9 +98,33 @@ class FreelancerController extends Controller
     }
 
     
-    public function myprofile()
+    public function profile()
     {
         
-        return view('freelancer.myprofile');
+        return view('freelancer.profile');
+    }
+
+    public function updatePassword(Request $request)
+    {
+        dd($request->all());
+        $validatedData = $request->validate([
+
+        'name' => 'required|unique:user,name|max:255',
+        'cost' => 'required',
+        'profit' => 'required',
+        'torder' => 'required',
+        'trevinue' => 'required',
+        'alexarank' => 'required',
+        'opportunity' => 'required',
+        'tag' => 'required',
+        'age' => 'required',
+        'gender' => 'required',
+        'category' => 'required',
+        'country' => 'required',
+        'desc' => 'required',
+        'video'=> 'required',
+
+        ]);
+
     }
 }

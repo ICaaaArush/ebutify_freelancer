@@ -108,6 +108,15 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/search-all-product', [Us
 
 
 
+//  FREELANCER PROFILE
+Route::middleware(['auth:sanctum', 'verified'])->get('/profile', [FreelancerController::class, 'profile'])->name('profile');
+
+//  FREELANCER UPDATE PROFILE
+Route::middleware(['auth:sanctum', 'verified'])->get('/update-profile', [FreelancerController::class, 'updateProfile'])->name('update-profile');
+
+//  FREELANCER UPDATE PASSWORD
+Route::middleware(['auth:sanctum', 'verified'])->post('/update-password', [FreelancerController::class, 'updatePassword'])->name('update-password');
+
 //  FREELANCER PRODUCT RESEARCH
 Route::middleware(['auth:sanctum', 'verified'])->get('/product-research', [ProductController::class, 'productResearch'])->name('product-research');
 
