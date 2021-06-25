@@ -29,7 +29,7 @@
                                   {{ session('status') }}
                               </div>
                           @endif
-                          <form class="pr-2" action="{{ route('upload-ali') }}" method="POST" enctype="multipart/form-data">
+                          <form class="pr-2" action="{{ route('upload-amazon') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                              <input type="hidden" id="uploadername" name="uploadername" value="{{Auth::user()->name}}">
                             <div class="form-group">
@@ -57,11 +57,11 @@
                                   </div>
                                   <div class="form-group col-md-4">
                                     <label for="inputProductPrice">Product Price</label>
-                                    <input type="text" name="price" class="form-control" id="inputProductPrice">
+                                    <input type="number" step=".01" name="price" class="form-control" id="inputProductPrice">
                                   </div>
                                   <div class="form-group col-md-3">
                                     <label for="inputStarRatting">Star Ratting</label>
-                                    <input type="text" name="star_rating" class="form-control" id="inputStarRatting">
+                                    <input type="number" step=".01" name="star_rating" class="form-control" id="inputStarRatting">
                                   </div>
                                 </div>
                               </div>
@@ -69,7 +69,7 @@
                             <div class="form-row">
                               <div class="form-group col-md-6 col-lg-2">
                                 <label for="inputTotalReviews">Total Reviews</label>
-                                <input type="text" name="t_review" class="form-control" id="inputTotalReviews">
+                                <input type="number" name="t_review" class="form-control" id="inputTotalReviews">
                               </div>
                               <div class="form-group col-md-6 col-lg-2">
                                 <label for="inputProtectionProduct">Product Type</label>

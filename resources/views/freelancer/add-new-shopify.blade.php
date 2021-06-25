@@ -47,11 +47,11 @@
                                 <div class="row">
                                   <div class="form-group col-md-5">
                                     <label for="inputMonthlyTraffic">Monthly Traffic</label>
-                                    <input type="text" class="form-control" name="monthly_traffic" id="inputMonthlyTraffic">
+                                    <input type="number" class="form-control" name="monthly_traffic" id="inputMonthlyTraffic">
                                   </div>
                                   <div class="form-group col-md-7">
                                     <label for="inputAdSpend">AdSpend</label>
-                                    <input type="text" class="form-control" name="ads_spend" id="inputAdSpend">
+                                    <input type="number" class="form-control" name="ads_spend" id="inputAdSpend">
                                   </div>
                                 </div>
                               </div>
@@ -61,7 +61,7 @@
                                 <div class="row">
                                   <div class="form-group col-md-7">
                                     <label for="inputRunningAds">Running Ads</label>
-                                    <input type="text" class="form-control" name="running_ads" id="inputRunningAds">
+                                    <input type="number" class="form-control" name="running_ads" id="inputRunningAds">
                                   </div>
                                   <div class="form-group col-md-5">
                                     <label for="inputFacebookPageLink">Facebook Page Link</label>
@@ -76,8 +76,7 @@
                             <div class="shopify-from-box shadow p-3 mb-3 mr-2">
                                 <h4 class="pl-2">Product One</h4>
                                   <div class="form-group col-12">
-                                    <input type="checkbox" id="holder0" name="holder[0]" value="0">
-                                    <label for="holder" style="color:red;">Add Product One</label><br>
+                                    <input type="hidden" id="holder0" name="holder[0]" value="0">
                                     <input type="text" class="form-control my-2" name="pname0" placeholder="Product Name">
                                     <input type="text" class="form-control my-2" name="img10" placeholder="Product Image Link">
                                     <input type="text" class="form-control my-2" name="price0" placeholder="Product Price">
@@ -97,8 +96,7 @@
                             <div class="shopify-from-box shadow p-3 mb-3 ml-2">
                                 <h4 class="pl-2">Product Two</h4>
                                   <div class="form-group col-12">
-                                    <input type="checkbox" id="holder1" name="holder[1]" value="1">
-                                    <label for="holder" style="color:red;">Add Product Two</label><br>
+                                    <input type="hidden" id="holder1" name="holder[1]" value="1">
                                     <input type="text" class="form-control my-2" name="pname1" placeholder="Product Name">
                                     <input type="text" class="form-control my-2" name="img11" placeholder="Product Image Link">
                                     <input type="text" class="form-control my-2" name="price1" placeholder="Product Price">
@@ -118,8 +116,7 @@
                             <div class="shopify-from-box shadow p-3 mb-3 mr-2">
                                 <h4 class="pl-2">Product Three</h4>
                                   <div class="form-group col-12">
-                                    <input type="checkbox" id="holder2" name="holder[2]" value="2">
-                                    <label for="holder" style="color:red;">Add Product Three</label><br>
+                                    <input type="hidden" id="holder2" name="holder[2]" value="2">
                                     <input type="text" class="form-control my-2" name="pname2" placeholder="Product Name">
                                     <input type="text" class="form-control my-2" name="img12" placeholder="Product Image Link">
                                     <input type="text" class="form-control my-2" name="price2" placeholder="Product Price">
@@ -139,8 +136,7 @@
                             <div class="shopify-from-box shadow p-3 mb-3 ml-2">
                                 <h4 class="pl-2">Product Four</h4>
                                   <div class="form-group col-12">
-                                    <input type="checkbox" id="holder3" name="holder[3]" value="3">
-                                    <label for="holder" style="color:red;">Add Product Four</label><br>
+                                    <input type="hidden" id="holder3" name="holder[3]" value="3">
                                     <input type="text" class="form-control my-2" name="pname3" placeholder="Product Name">
                                     <input type="text" class="form-control my-2" name="img13" placeholder="Product Image Link">
                                     <input type="text" class="form-control my-2" name="price3" placeholder="Product Price">

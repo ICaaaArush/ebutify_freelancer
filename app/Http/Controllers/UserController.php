@@ -17,13 +17,141 @@ use File;
 
 class UserController extends Controller
 {
-	public function allProduct()
+	public function allProduct(Request $request)
 	{
 		if(Auth::check()){
-			
-		$trendingProducts = ProductDetail::all();
+		
+		if(!empty($request->category)){
+			// dd($request->category);
+		}
 
-		count($trendingProducts);
+		//-- HANDLE SORTING
+      	if($request->sort) {
+          switch($request->sort){
+			case 1:
+				$orderColumn = 'profit';
+			break;
+			case 2:
+				$orderColumn = 'total_order';
+			break;
+			case 3:
+				$orderColumn = 'created_at';
+			break;
+			case 4:
+				$orderColumn = 'total_order';
+			break;
+			case 5:
+				$orderColumn = 'total_order';
+			break;
+			default:
+				$orderColumn = 'product_name';
+			break;        
+ 			}
+ 			
+      	}else{
+      		$orderColumn = 'created_at';
+      	}
+
+      	//-- HANDLE CATEGORY
+      	if($request->category) {
+          switch($request->category){
+			case 1:
+				$category = 'Women\'s Fashion';
+			break;
+			case 2:
+				$category = 'Man\'s Fashion';
+			break;
+			case 3:
+				$category = 'Health & Beauty';
+			break;
+			case 4:
+				$category = 'Home Improvement';
+			break;
+			case 5:
+				$category = 'Garden Improvement';
+			break;
+			case 6:
+				$category = 'Pet Accessories';
+			break;
+			case 7:
+				$category = 'Electronics';
+			break;
+			case 8:
+				$category = 'Computer Accessories';
+			break;
+			case 9:
+				$category = 'Baby & Kids';
+			break;
+			case 10:
+				$category = 'Kitchen & household';
+			break;
+			case 11:
+				$category = 'Jewellery';
+			break;
+			case 12:
+				$category = 'Car Accessories';
+			break;
+			case 13:
+				$category = 'Bike Accessories';
+			break;
+			case 14:
+				$category = 'Mobile Accessories';
+			break;
+			case 15:
+				$category = 'Fitness';
+			break;
+			case 16:
+				$category = 'Bag\'s & Shoes';
+			break;
+			case 17:
+				$category = 'Outdoor';
+			break;
+			case 18:
+				$category = 'Beauty Hair';
+			break;
+			default:
+				$category = '';
+			break;        
+ 			}
+ 			
+      	}else{
+      		$category = '';
+      	}
+      
+      	//-- HANDLE FILTER
+      	if($request->filter) {
+          switch($request->filter){
+			case 1:
+				$trendingProducts = ProductDetail::where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+				// dd($trendingProducts);
+			break;
+			case 2:
+				$trendingProducts = ProductDetail::where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			case 3:
+				$trendingProducts = ProductDetail::where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			case 4:
+				$trendingProducts = ProductDetail::where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			default:
+				$filterBy = 'product_name';
+			break;        
+ 			}
+      	}else{
+
+      	}
+
+      	if($request->search) {
+      		// dd($request->search);
+      		$trendingProducts = ProductDetail::where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      	}
+      	if (empty($trendingProducts)) {
+      		$trendingProducts = ProductDetail::where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      	}
+
+		// $trendingProducts = ProductDetail::all();
+		// count($trendingProducts);
 
 		// dd( $trendingProducts );
 
@@ -65,11 +193,136 @@ class UserController extends Controller
 		}
 	}
 
-    public function trendingProducts()
+    public function trendingProducts(Request $request)
 	{
 	 	if(Auth::check()){
+
+		//-- HANDLE SORTING
+      	if($request->sort) {
+          switch($request->sort){
+			case 1:
+				$orderColumn = 'profit';
+			break;
+			case 2:
+				$orderColumn = 'total_order';
+			break;
+			case 3:
+				$orderColumn = 'created_at';
+			break;
+			case 4:
+				$orderColumn = 'total_order';
+			break;
+			case 5:
+				$orderColumn = 'total_order';
+			break;
+			default:
+				$orderColumn = 'product_name';
+			break;        
+ 			}
+ 			
+      	}else{
+      		$orderColumn = 'created_at';
+      	}
+
+      	//-- HANDLE CATEGORY
+      	if($request->category) {
+          switch($request->category){
+			case 1:
+				$category = 'Women\'s Fashion';
+			break;
+			case 2:
+				$category = 'Man\'s Fashion';
+			break;
+			case 3:
+				$category = 'Health & Beauty';
+			break;
+			case 4:
+				$category = 'Home Improvement';
+			break;
+			case 5:
+				$category = 'Garden Improvement';
+			break;
+			case 6:
+				$category = 'Pet Accessories';
+			break;
+			case 7:
+				$category = 'Electronics';
+			break;
+			case 8:
+				$category = 'Computer Accessories';
+			break;
+			case 9:
+				$category = 'Baby & Kids';
+			break;
+			case 10:
+				$category = 'Kitchen & household';
+			break;
+			case 11:
+				$category = 'Jewellery';
+			break;
+			case 12:
+				$category = 'Car Accessories';
+			break;
+			case 13:
+				$category = 'Bike Accessories';
+			break;
+			case 14:
+				$category = 'Mobile Accessories';
+			break;
+			case 15:
+				$category = 'Fitness';
+			break;
+			case 16:
+				$category = 'Bag\'s & Shoes';
+			break;
+			case 17:
+				$category = 'Outdoor';
+			break;
+			case 18:
+				$category = 'Beauty Hair';
+			break;
+			default:
+				$category = '';
+			break;        
+ 			}
+ 			
+      	}else{
+      		$category = '';
+      	}
+      
+      	//-- HANDLE FILTER
+      	if($request->filter) {
+          switch($request->filter){
+			case 1:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+				// dd($trendingProducts);
+			break;
+			case 2:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			case 3:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			case 4:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			default:
+				$filterBy = 'product_name';
+			break;        
+ 			}
+      	}else{
+
+      	}
+
+      	if($request->search) {
+      		// dd($request->search);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      	}
+      	if (empty($trendingProducts)) {
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      	}	 	
 			
-		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->get();
+		// $trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->get();
 
 		// dd( $trendingProducts );
 
@@ -86,7 +339,6 @@ class UserController extends Controller
 			}else{
 
 				return view('user.trending-product',compact('trendingProducts','country'));
-
 			}
 
 		}else{
@@ -128,19 +380,141 @@ class UserController extends Controller
 		}
 	}
 
-	public function fbAdProducts()
+	public function fbAdProducts(Request $request)
 	{
 		if(Auth::check()){
-			
-		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->get();
 
-		// dd( $trendingProducts );
+		//-- HANDLE SORTING
+      	if($request->sort) {
+          switch($request->sort){
+			case 1:
+				$orderColumn = 'profit';
+			break;
+			case 2:
+				$orderColumn = 'total_order';
+			break;
+			case 3:
+				$orderColumn = 'created_at';
+			break;
+			case 4:
+				$orderColumn = 'total_order';
+			break;
+			case 5:
+				$orderColumn = 'total_order';
+			break;
+			default:
+				$orderColumn = 'product_name';
+			break;        
+ 			}
+ 			
+      	}else{
+      		$orderColumn = 'created_at';
+      	}
+
+      	//-- HANDLE CATEGORY
+      	if($request->category) {
+          switch($request->category){
+			case 1:
+				$category = 'Women\'s Fashion';
+			break;
+			case 2:
+				$category = 'Man\'s Fashion';
+			break;
+			case 3:
+				$category = 'Health & Beauty';
+			break;
+			case 4:
+				$category = 'Home Improvement';
+			break;
+			case 5:
+				$category = 'Garden Improvement';
+			break;
+			case 6:
+				$category = 'Pet Accessories';
+			break;
+			case 7:
+				$category = 'Electronics';
+			break;
+			case 8:
+				$category = 'Computer Accessories';
+			break;
+			case 9:
+				$category = 'Baby & Kids';
+			break;
+			case 10:
+				$category = 'Kitchen & household';
+			break;
+			case 11:
+				$category = 'Jewellery';
+			break;
+			case 12:
+				$category = 'Car Accessories';
+			break;
+			case 13:
+				$category = 'Bike Accessories';
+			break;
+			case 14:
+				$category = 'Mobile Accessories';
+			break;
+			case 15:
+				$category = 'Fitness';
+			break;
+			case 16:
+				$category = 'Bag\'s & Shoes';
+			break;
+			case 17:
+				$category = 'Outdoor';
+			break;
+			case 18:
+				$category = 'Beauty Hair';
+			break;
+			default:
+				$category = '';
+			break;        
+ 			}
+ 			
+      	}else{
+      		$category = '';
+      	}
+      
+      	//-- HANDLE FILTER
+      	if($request->filter) {
+          switch($request->filter){
+			case 1:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+				// dd($trendingProducts);
+			break;
+			case 2:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			case 3:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			case 4:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			default:
+				$filterBy = 'product_name';
+			break;        
+ 			}
+      	}else{
+
+      	}
+
+      	if($request->search) {
+      		// dd($request->search);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      	}
+      	if (empty($trendingProducts)) {
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      	}
+			
+		// $trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->get();
 		
 
 		foreach ($trendingProducts as $trendingproduct) {
 			
 			$country = $trendingproduct->country.",";
-			// dd($country);
 
 		}
 
@@ -174,7 +548,6 @@ class UserController extends Controller
 		foreach ($trendingProducts as $trendingproduct) {
 			$country = $trendingproduct->country.",";
 
-			// echo $country;
 		}
 
 		return view('user.product-details',compact('trendingProducts','country'));
@@ -185,11 +558,139 @@ class UserController extends Controller
 		}
 	}
 
-	public function untappedProducts()
+	public function untappedProducts(Request $request)
 	{
 		if(Auth::check()){
-			
-		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->get();
+		
+		//-- HANDLE SORTING
+      	if($request->sort) {
+          switch($request->sort){
+			case 1:
+				$orderColumn = 'profit';
+			break;
+			case 2:
+				$orderColumn = 'total_order';
+			break;
+			case 3:
+				$orderColumn = 'created_at';
+			break;
+			case 4:
+				$orderColumn = 'total_order';
+			break;
+			case 5:
+				$orderColumn = 'total_order';
+			break;
+			default:
+				$orderColumn = 'product_name';
+			break;        
+ 			}
+ 			
+      	}else{
+      		$orderColumn = 'created_at';
+      	}
+
+      	//-- HANDLE CATEGORY
+      	if($request->category) {
+          switch($request->category){
+			case 1:
+				$category = 'Women\'s Fashion';
+			break;
+			case 2:
+				$category = 'Man\'s Fashion';
+			break;
+			case 3:
+				$category = 'Health & Beauty';
+			break;
+			case 4:
+				$category = 'Home Improvement';
+			break;
+			case 5:
+				$category = 'Garden Improvement';
+			break;
+			case 6:
+				$category = 'Pet Accessories';
+			break;
+			case 7:
+				$category = 'Electronics';
+			break;
+			case 8:
+				$category = 'Computer Accessories';
+			break;
+			case 9:
+				$category = 'Baby & Kids';
+			break;
+			case 10:
+				$category = 'Kitchen & household';
+			break;
+			case 11:
+				$category = 'Jewellery';
+			break;
+			case 12:
+				$category = 'Car Accessories';
+			break;
+			case 13:
+				$category = 'Bike Accessories';
+			break;
+			case 14:
+				$category = 'Mobile Accessories';
+			break;
+			case 15:
+				$category = 'Fitness';
+			break;
+			case 16:
+				$category = 'Bag\'s & Shoes';
+			break;
+			case 17:
+				$category = 'Outdoor';
+			break;
+			case 18:
+				$category = 'Beauty Hair';
+			break;
+			default:
+				$category = '';
+			break;        
+ 			}
+ 			
+      	}else{
+      		$category = '';
+      	}
+      
+      	//-- HANDLE FILTER
+      	if($request->filter) {
+          switch($request->filter){
+			case 1:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+				// dd($trendingProducts);
+			break;
+			case 2:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			case 3:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			case 4:
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+			break;
+			default:
+				$filterBy = 'product_name';
+			break;        
+ 			}
+      	}else{
+
+      	}
+
+      	if($request->search) {
+      		// dd($request->search);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      	}
+      	if (empty($trendingProducts)) {
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      	}
+      	
+	    // $trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where($filterBy)->orderBy($orderColumn,'DESC')->paginate(5);
+	    // dd($trendingProducts);
+
+		// $trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->get();
 
 		// dd( $trendingProducts );
 
@@ -200,9 +701,14 @@ class UserController extends Controller
 				$country = $trendingproduct->country.",";
 				// dd($country);
 			}
-		}
 
-		return view('user.practice-untapped-product',compact('trendingProducts','country'));
+			return view('user.practice-untapped-product',compact('trendingProducts'));
+
+		}else{
+
+			return view('user.practice-untapped-product',compact('trendingProducts','country'));
+
+		}
 
 		}else{
 
@@ -236,6 +742,20 @@ class UserController extends Controller
 		}
 	}
 
+	public function viewTutorial($value='')
+	{
+		return view('user.tutorial');
+	}
+
+	public function viewFAQ($value='')
+	{
+		return view('user.FAQ');
+	}
+
+	public function viewContactUs($value='')
+	{
+		return view('user.contact-us');
+	}
 
     public function downloadGIF($gifs)
     {
@@ -251,7 +771,7 @@ class UserController extends Controller
 		  $zip->addFromString(basename($path),  file_get_contents($path));
 		  }
 		  else{
-		   echo"file does not exist";
+		   echo" file does not exist";
 		  }
 		}
 		$zip->close();

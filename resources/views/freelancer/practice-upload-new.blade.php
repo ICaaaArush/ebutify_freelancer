@@ -121,19 +121,19 @@
 
                                         <div class="form-row">
                                           <div class="form-group col-12">
-                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img1" value="{{old('img1')}}">
+                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img1" value="{{old('img1')}}" required="">
                                           </div>
                                           <div class="form-group col-12">
-                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img2" value="{{old('img2')}}">
+                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img2" value="{{old('img2')}}" required="">
                                           </div>
                                           <div class="form-group col-12">
-                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img3" value="{{old('img3')}}">
+                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img3" value="{{old('img3')}}" required="">
                                           </div>
                                           <div class="form-group col-12">
-                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img4" value="{{old('img4')}}">
+                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img4" value="{{old('img4')}}" required="">
                                           </div>
                                           <div class="form-group col-12">
-                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img5" value="{{old('img5')}}">
+                                            <input type="url" class="form-control" id="inputAliExpressImageLink" name="img5" value="{{old('img5')}}" required="">
                                           </div>
                                         </div>
 
@@ -145,7 +145,7 @@
 
                                       <div class="form-row">
                                         <div class="form-group col-12">
-                                          <input type="url" class="form-control" id="inputAliExpressImageLink" name="competitor1" value="{{old('competitor1')}}">
+                                          <input type="url" class="form-control" id="inputAliExpressImageLink" name="competitor1" value="{{old('competitor1')}}" required="">
                                         </div>
                                         <div class="form-group col-12">
                                           <input type="url" class="form-control" id="inputAliExpressImageLink" name="competitor2" value="{{old('competitor2')}}">
@@ -273,7 +273,7 @@
                                 <div class="form-row ml-2">
                                   <div class="form-group col-md-6">
                                     <label for="inputAliVideoLink">Ali Video link</label>
-                                    <input type="url" class="form-control" id="inputAliVideoLink" name="video" value="{{old('video')}}" required="">
+                                    <input type="url" class="form-control" id="inputAliVideoLink" name="video" value="{{old('video')}}">
                                   </div>
                                   <div class="form-group col-md-6">
                                     <label for="inputProtectionProduct">Protection Product</label>

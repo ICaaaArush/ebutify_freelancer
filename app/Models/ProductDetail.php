@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class ProductDetail extends Model
 {
@@ -41,5 +42,11 @@ class ProductDetail extends Model
     {
     	return $this->belongsTo(Gender::class);
     }
+
+    public $sortable = ['id',
+                        'explore_pro_type',
+                        'total_order',
+                        'created_at',
+                        'updated_at'];
 
 }

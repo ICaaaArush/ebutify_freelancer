@@ -44,8 +44,8 @@
                                     <input type="text" name="ali_express_link" class="form-control" id="inputAliExpressLink">
                                   </div>
                                   <div class="form-group col-md-6">
-                                    <label for="inputAmazonLink">Amazon Link</label>
-                                    <input type="text" name="amz_link" class="form-control" id="inputAmazonLink">
+                                    <label for="inputAmazonLink">Total Sales</label>
+                                    <input type="number" step=".01" name="amz_link" class="form-control" id="inputAmazonLink">
                                   </div>
                                 </div>
                               </div>
@@ -57,11 +57,11 @@
                                   </div>
                                   <div class="form-group col-md-4">
                                     <label for="inputProductPrice">Product Price</label>
-                                    <input type="text" name="price" class="form-control" id="inputProductPrice">
+                                    <input type="number" step=".01" name="price" class="form-control" id="inputProductPrice">
                                   </div>
                                   <div class="form-group col-md-3">
                                     <label for="inputStarRatting">Star Ratting</label>
-                                    <input type="text" name="star_rating" class="form-control" id="inputStarRatting">
+                                    <input type="number" name="star_rating" class="form-control" id="inputStarRatting">
                                   </div>
                                 </div>
                               </div>
@@ -69,7 +69,7 @@
                             <div class="form-row">
                               <div class="form-group col-md-6 col-lg-2">
                                 <label for="inputTotalReviews">Total Reviews</label>
-                                <input type="text" name="t_review" class="form-control" id="inputTotalReviews">
+                                <input type="number" name="t_review" class="form-control" id="inputTotalReviews">
                               </div>
                               <div class="form-group col-md-6 col-lg-2">
                                 <label for="inputProtectionProduct">Product Type</label>

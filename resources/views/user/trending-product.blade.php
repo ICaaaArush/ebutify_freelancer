@@ -1,305 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>eButify | Untapped Product Research</title>
-      <!-- Google Font: Source Sans Pro -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-      <!-- Font Awesome Icons -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-      <!-- overlayScrollbars -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.css">
-      <!-- Select2 -->
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-      <!-- Slick Slider -->
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-      <!-- My style -->
-      <link rel="stylesheet" href="assets/css/style.css">
-      <style type="text/css">
-         #modal_demo {
-         left: 0px;
-         top: 0px;
-         right: 0px;
-         bottom: 0px;
-         margin: auto;
-         width: 100%;
-         height: 100%;
-         text-align: center;
-         z-index: 10000;
-         }
-      </style>
-   </head>
-   <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-      <div class="wrapper">
-      <!-- Preloader -->
-      <div class="preloader flex-column justify-content-center align-items-center">
-         <img class="animation__wobble" src="assets/img/eButify.png" alt="eButifyLogo">
-      </div>
-      <!-- Navbar -->
-      <nav class="main-header navbar navbar-expand navbar-white">
-         <!-- Left navbar links -->
-         <ul class="navbar-nav">
-            <li class="nav-item">
-               <a class="nav-link primary-color" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-         </ul>
-         <!-- Right navbar links -->
-         <ul class="navbar-nav ml-auto">
-            <!-- Notifications Dropdown Menu -->
-            <li class="nav-item dropdown">
-               <a class="nav-link primary-color" data-toggle="dropdown" href="#">
-               <i class="far fa-bell"></i>
-               <span class="badge badge-warning navbar-badge">3</span>
-               </a>
-               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                  <span class="dropdown-item dropdown-header">3 Notifications</span>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                  <i class="fas fa-envelope mr-2"></i> 1 new messages
-                  <span class="float-right text-muted text-sm">3 mins</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                  <i class="fas fa-users mr-2"></i> 1 friend requests
-                  <span class="float-right text-muted text-sm">12 hours</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                  <i class="fas fa-file mr-2"></i> 1 new reports
-                  <span class="float-right text-muted text-sm">2 days</span>
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-               </div>
-            </li>
-            <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown">
-               <a class="nav-link primary-color" data-toggle="dropdown" href="#">
-               <i class="far fa-envelope"></i>
-               <span class="badge badge-danger navbar-badge">4</span>
-               </a>
-               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                  <a href="#" class="dropdown-item">
-                     <!-- Message Start -->
-                     <div class="media">
-                        <img src="assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                        <div class="media-body">
-                           <h3 class="dropdown-item-title">
-                              Brad Diesel
-                              <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                           </h3>
-                           <p class="text-sm">Call me whenever you can...</p>
-                           <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                     </div>
-                     <!-- Message End -->
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                     <!-- Message Start -->
-                     <div class="media">
-                        <img src="assets/img/avatar2.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                           <h3 class="dropdown-item-title">
-                              John Pierce
-                              <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                           </h3>
-                           <p class="text-sm">I got your message bro</p>
-                           <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                     </div>
-                     <!-- Message End -->
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">
-                     <!-- Message Start -->
-                     <div class="media">
-                        <img src="assets/img/avatar.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                        <div class="media-body">
-                           <h3 class="dropdown-item-title">
-                              Nora Silvester
-                              <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                           </h3>
-                           <p class="text-sm">The subject goes here</p>
-                           <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                        </div>
-                     </div>
-                     <!-- Message End -->
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-               </div>
-            </li>
-            <li class="nav-item dropdown">
-               <a class="" data-toggle="dropdown" href="#">
-                  <div class="user-panel d-flex mr-3">
-                     <div class="image">
-                        <img src="assets/img/user1-128x128.jpg" class="img-circle " alt="Jone Due">
-                     </div>
-                  </div>
-               </a>
-               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                  <span class="dropdown-item dropdown-header">Jone Due</span>
-                  <div class="dropdown-divider"></div>
-                  <div class="dropdown-divider"></div>
-                  <a href="customer-profile-page.html" class="dropdown-item">
-                  <i class="far fa-user mr-2"></i> My Profile
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="customer-subscriptions-billing.html" class="dropdown-item">
-                  <i class="far fa-bell mr-2"></i> Subcription
-                  </a>
-                  <div class="dropdown-divider"></div>
-                  <a href="{{route('logout')}}" class="dropdown-item dropdown-footer">Logout</a>
-               </div>
-            </li>
-         </ul>
-      </nav>
-      <!-- /.navbar -->
-      <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-light-primary">
-         <!-- Brand Logo -->
-         <a href="" class="brand-link">
-         <img src="assets/img/eButify.png" alt="e/Butify Logo" class="brand-image" style="opacity: .8">
-         </a>
-         <!-- Sidebar -->
-         <div class="sidebar">
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                  <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
-                  <li class="nav-item">
-                     <a href="{{url('dashboard')}}" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                           Dashboard
-                        </p>
-                     </a>
-                  </li>
-                  <li class="nav-item menu-open">
-                     <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                           Product Research
-                           <i class="right fas fa-angle-right"></i>
-                        </p>
-                     </a>
-                     <ul class="nav nav-treeview pl-4 ml-2">
-                        <li class="nav-item">
-                           <a href="{{route('fb-ad-products')}}" class="nav-link">
-                              <i class="nav-icon fab fa-facebook-square"></i>
-                              <p>Facebook Ads</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="{{route('untapped-product')}}" class="nav-link">
-                              <i class="nav-icon fas fa-upload"></i>
-                              <p>Untapped Products</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="{{route('trending-products')}}" class="nav-link active">
-                              <i class="nav-icon fas fa-vector-square"></i>
-                              <p>Trending Products</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="{{url('all-product')}}" class="nav-link">
-                              <i class="nav-icon fab fa-adn"></i>
-                              <p>All Products</p>
-                           </a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li class="nav-item">
-                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
-                        <p>
-                           Explores
-                           <i class="fas fa-angle-right right"></i>
-                        </p>
-                     </a>
-                     <ul class="nav nav-treeview pl-4 ml-2">
-                        <li class="nav-item">
-                           <a href="customer-ali-exprees-explore.html" class="nav-link">
-                              <img src="assets/img/ali.png" style="width: 16px; margin-bottom: 6px;" alt="">
-                              <p>AliExpress Explore</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="customer-amazon-explore.html" class="nav-link">
-                              <img src="assets/img/amz.png" style="width: 16px; margin-bottom: 6px;" alt="">
-                              <p>Amazon Explore</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="customer-store-explore.html" class="nav-link">
-                              <img src="assets/img/shp.png" style="width: 18px; margin-bottom: 6px;" alt="">
-                              <p>Store Explore</p>
-                           </a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li class="nav-item">
-                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                           Help
-                           <i class="fas fa-angle-right right"></i>
-                        </p>
-                     </a>
-                     <ul class="nav nav-treeview pl-4 ml-2">
-                        <li class="nav-item">
-                           <a href="customer-help-tutorial.html" class="nav-link">
-                              <i class="nav-icon fas fa-video"></i>
-                              <p>Tutorials</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="customer-FAQ.html" class="nav-link">
-                              <i class="nav-icon fas fa-comment-dots"></i>
-                              <p>FAQ</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="customer-contact-us.html" class="nav-link">
-                              <i class="nav-icon fas fa-user-tag"></i>
-                              <p>Contact Us</p>
-                           </a>
-                        </li>
-                     </ul>
-                  </li>
-                  <br>
-                  <li class="nav-item">
-                     <p>QUICK LINKS</p>
-                  </li>
-                  <li class="nav-item">
-                     <a href="customer-help-tutorial.html" class="nav-link">
-                        <i class="nav-icon fas fa-video"></i>
-                        <p>Tutorials</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="customer-FAQ.html" class="nav-link">
-                        <i class="nav-icon fas fa-comment-dots"></i>
-                        <p>FAQ</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="customer-contact-us.html" class="nav-link">
-                        <i class="nav-icon fas fa-user-tag"></i>
-                        <p>Contact Us</p>
-                     </a>
-                  </li>
-               </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-         </div>
-         <!-- /.sidebar -->
-      </aside>
+@extends('layoutsUser.user3')
+@section('content')
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <nav>
@@ -318,62 +19,76 @@
             <h3>Trending Product Research</h3>
             <a type="button" class="btn btn-facebook-ads" href=""><i class="fas fa-video"></i> Tutorials</a>
           </div>
-          <div class="col-12">
-            <div class="input-group my-3">
-              <input type="text" class="form-control fb-ads-input" placeholder="Type Product name or neach">
-              <div class="input-group-append">
-                <button class="btn btn-fb-ads-input" type="button" id="#">Search</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.row -->
-
-        <div class="row mx-2">
-          <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-            <select class="form-control select2">
-              <option>All Categories</option>
-              <option>Health & Beauty</option>
-              <option>Home & Garden</option>
-              <option>Pet Accessories</option>
-              <option>Electronics</option>
-              <option>Baby & Kids</option>
-              <option>Kitchen & household</option>
-              <option>Outdoor</option>
-            </select>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-            <select class="form-control select2">
-              <option>All Niches</option>
-              <option>Health & Beauty</option>
-              <option>Home & Garden</option>
-              <option>Pet Accessories</option>
-              <option>Electronics</option>
-              <option>Baby & Kids</option>
-              <option>Kitchen & household</option>
-              <option>Outdoor</option>
-            </select>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-            <select class="form-control">
-              <option>Filter Products</option>
-              <option>By Product Type</option>
-              <option>By Price Over</option>
-              <option>By Price Under</option>
-              <option>By Found Date</option>
-              <option>By Last added Date</option>
-            </select>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-            <select class="form-control">
-              <option>Sort Produtcs</option>
-              <option>By Stores Selling</option>
-              <option>By Total Orders</option>
-              <option>By Found Date</option>
-              <option>By Last added Date</option>
-            </select>
-          </div>
-        </div>
+               <form class="col-12" method="get" action="{{ route('trending-products') }}">
+                  <div class="col-12">
+                     <div class="input-group my-3">
+                        <input type="text" class="form-control fb-ads-input" placeholder="Type Product name or niche" name="search">
+                        <div class="input-group-append">
+                           <button class="btn btn-fb-ads-input" type="submit" id="#">Search</button>
+                        </div>
+                     </div>
+                  </div>
+               </form>
+               </div>
+               <!-- /.row -->
+               <form id="filterForm" method="get" action="{{ route('trending-products') }}">
+                  <div class="row mx-2">
+                     <div class="col-sm-12 col-md-6 col-lg-3 my-1">
+                        <select class="form-control select2 filter-item" name="category">
+                           <option value="">All Categories</option>
+                           <option value="1">Women's Fashion</option>
+                           <option value="2">Man's Fashion</option>
+                           <option value="3">Health & Beauty</option>
+                           <option value="4">Home Improvement</option>
+                           <option value="5">Garden Improvement</option>
+                           <option value="6">Pet Accessories</option>
+                           <option value="7">Electronics</option>
+                           <option value="8">Computer Accessories</option>
+                           <option value="9">Baby & Kids</option>
+                           <option value="10">Kitchen & household</option>
+                           <option value="11">Jewellery</option>
+                           <option value="12">Car Accessories</option>
+                           <option value="13">Bike Accessories</option>
+                           <option value="14">Mobile Accessories</option>
+                           <option value="15">Fitness</option>
+                           <option value="16">Bag's & Shoes</option>
+                           <option value="17">Outdoor</option>
+                           <option value="18">Beauty Hair</option>
+                        </select>
+                     </div>
+                     <div class="col-sm-12 col-md-6 col-lg-3 my-1">
+                        <select class="form-control select2 filter-item" name="niche">
+                           <option>All Niches</option>
+                           <option>Health & Beauty</option>
+                           <option>Home & Garden</option>
+                           <option>Pet Accessories</option>
+                           <option>Electronics</option>
+                           <option>Baby & Kids</option>
+                           <option>Kitchen & household</option>
+                           <option>Outdoor</option>
+                        </select>
+                     </div>
+                     <div class="col-sm-12 col-md-6 col-lg-3 my-1">
+                        <select class="form-control select2-no-search filter-item" name="filter" style="width: 100%;">
+                           <option>Filter Products</option>
+                           <option value="1">By Price under $30</option>
+                           <option value="2">By Price Over $30</option>
+                           <option value="3">By Profit Over $15</option>
+                           <option value="4">By Cost under $20</option>
+                        </select>
+                     </div>
+                     <div class="col-sm-12 col-md-6 col-lg-3 my-1">
+                        <select class="form-control select2-no-search filter-item" name="sort" style="width: 100%;">
+                           <option>Sort Produtcs</option>
+                           <option value="1">By Profit</option>
+                           <option value="2">By Total Orders</option>
+                           <option value="3">By Last added Date</option>
+                           <option value="4">By Image</option>
+                           <option value="5">By Video</option>
+                        </select>
+                     </div>
+                  </div>
+               </form>
         <!-- /.row -->
 
         <div class="row mx-3 mt-3">
@@ -452,110 +167,68 @@
 @endforeach
           </div>
         </div>
+@endsection
 
-        <!-- /.row -->
-               <footer>
-                  <div class="row justify-content-center my-4">
-                     <copyright>&copy; 2020 - 2021 eButify Inc. All rights reserved</copyright>
-                  </div>
-               </footer>
-            </div>
-            <!--/. container-fluid -->
-         </section>
-         <!-- /.content -->
-      </div>
-      <!-- /.content-wrapper -->
-      <div class="modal fade " id="Untapped-pro-Modal" tabindex="-1" aria-labelledby="UntappedModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-lg">
-            <div class="modal-content ">
-               <h2 class="text-center my-5">Loading...</h2>
-            </div>
-         </div>
-      </div>
-      <!-- ./wrapper -->
-      <!-- REQUIRED SCRIPTS -->
-      <!-- jQuery -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-      <!-- Bootstrap -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" ></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-      <!-- overlayScrollbars -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/js/OverlayScrollbars.min.js"></script>
-      <!--Select2 from-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-      <script src="assets/js/script.js"></script>
-      <script>
-         $(document) .ready(function(){
-          $('.select2').select2({
-            width: '100%'
-          });
-          $('.select2-no-search').select2({
-            minimumResultsForSearch: -1
-          });
-          
-         
-          $('#Untapped-pro-Modal').on('shown.bs.modal', function () {
-            $('#Untapped-pro-Modal .modal-content').html('<h2 class="text-center my-5">Loading...</h2>');
-            $.get('ajax/product-research-modal.html', function(modalData){
-              $('#Untapped-pro-Modal .modal-content').html(modalData);
-            });        
-          });
-          $('#Untapped-pro-Modal').on('hide.bs.modal', function () {
-            $('#Untapped-pro-Modal .modal-content').html('<h2 class="text-center my-5">Loading...</h2>');
-          });
-         
-         });
-      </script>
-      <script>
-         function videoPlay(){
-           $('#video-control').trigger('play');
-           $('.video-icon-play').hide();
-           $('.video-icon-pause').show();
-         }
-         function videoPause() {
-           $('#video-control').trigger('pause');
-           $('.video-icon-play').show();
-           $('.video-icon-pause').hide();
-         }
-         $('.slickslider').slick({
-           slidesToShow: 1,
-           slidesToScroll: 1,
-           fade: true,
-           asNavFor: '.slider-nav'
-         });
-         $('.slider-nav').slick({
-           slidesToShow: 5,
-           slidesToScroll: 1,
-           arrows: false,
-           asNavFor: '.slickslider',
-           //centerMode: true,
-           focusOnSelect: true
-         });
-         $('.slickslider').on('afterChange', function(event, slick, currentSlide, nextSlide){
-           videoPause();
-         });
-         $('.video-icon-play').click(function(){
-           videoPlay();
-         });
-         $('.video-icon-pause').click(function(){
-           videoPause();
-         });
-         $('.slider2').slick({
-           slidesToShow: 1,
-           slidesToScroll: 1,
-           arrows: false,
-           fade: true,
-           asNavFor: '.slider-nav2'
-         });
-         $('.slider-nav2').slick({
-           slidesToShow: 3,
-           slidesToScroll: 1,
-           arrows: false,
-           asNavFor: '.slider2',
-           //centerMode: true,
-           focusOnSelect: true
-         });
-      </script>
-   </body>
-</html>
+@section('js')
+<script>
+   $(document) .ready(function(){
+    $('.select2').select2({
+      width: '100%'
+    });
+    $('.select2-no-search').select2({
+      minimumResultsForSearch: -1
+    });
+   
+   });
+</script>
+<script>
+   function videoPlay(){
+     $('#video-control').trigger('play');
+     $('.video-icon-play').hide();
+     $('.video-icon-pause').show();
+   }
+   function videoPause() {
+     $('#video-control').trigger('pause');
+     $('.video-icon-play').show();
+     $('.video-icon-pause').hide();
+   }
+   $('.slickslider').slick({
+     slidesToShow: 1,
+     slidesToScroll: 1,
+     fade: true,
+     asNavFor: '.slider-nav'
+   });
+   $('.slider-nav').slick({
+     slidesToShow: 5,
+     slidesToScroll: 1,
+     arrows: false,
+     asNavFor: '.slickslider',
+     //centerMode: true,
+     focusOnSelect: true
+   });
+   $('.slickslider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+     videoPause();
+   });
+   $('.video-icon-play').click(function(){
+     videoPlay();
+   });
+   $('.video-icon-pause').click(function(){
+     videoPause();
+   });
+   $('.slider2').slick({
+     slidesToShow: 1,
+     slidesToScroll: 1,
+     arrows: false,
+     fade: true,
+     asNavFor: '.slider-nav2'
+   });
+   $('.slider-nav2').slick({
+     slidesToShow: 3,
+     slidesToScroll: 1,
+     arrows: false,
+     asNavFor: '.slider2',
+     //centerMode: true,
+     focusOnSelect: true
+   });
+</script>
+@endsection

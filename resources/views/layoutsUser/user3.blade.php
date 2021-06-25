@@ -191,7 +191,7 @@
           <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{url('dashboard')}}" class="nav-link active">
+            <a href="{{url('dashboard')}}" class="@if(Route::currentRouteName() == 'dashboard' || Route::currentRouteName() == 'freelancer-dashboard') nav-link active @endif nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -199,8 +199,8 @@
             </a>
           </li>
          
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
+          <li class="nav-item @if(Route::currentRouteName() == 'product-research' || Route::currentRouteName() == 'product-edit' || Route::currentRouteName() == 'uploadPage' || Route::currentRouteName() == 'trending-products' || Route::currentRouteName() == 'all-product') menu-open @endif">
+            <a href="#" class="@if(Route::currentRouteName() == 'product-research' || Route::currentRouteName() == 'product-edit' || Route::currentRouteName() == 'uploadPage' || Route::currentRouteName() == 'trending-products' || Route::currentRouteName() == 'all-product') nav-link active @endif nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Product Research
@@ -221,21 +221,21 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('trending-products')}}" class="nav-link">
+                <a href="{{url('trending-products')}}" class="@if(Route::currentRouteName() == 'trending-products') nav-link active @endif nav-link">
                   <i class="nav-icon fas fa-vector-square"></i>
                   <p>Trending Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('all-product')}}" class="nav-link">
+                <a href="{{url('all-product')}}" class="@if(Route::currentRouteName() == 'all-product') nav-link active @endif nav-link">
                   <i class="nav-icon fab fa-adn"></i>
                   <p>All Products</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item @if(Route::currentRouteName() == 'ali-product' || Route::currentRouteName() == 'amz-product' || Route::currentRouteName() == 'store-product') menu-open @endif">
+            <a href="#" class="@if(Route::currentRouteName() == 'ali-product' || Route::currentRouteName() == 'amz-product' || Route::currentRouteName() == 'store-product') nav-link active @endif nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Explores
@@ -244,27 +244,27 @@
             </a>
             <ul class="nav nav-treeview pl-4 ml-2">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <img src="{{asset('assets/img/amz.png')}}" style="width: 16px; margin-bottom: 6px;" alt="">
-                  <p>Amazon Explore</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="customer-ali-exprees-explore.html" class="nav-link">
+                <a href="{{route('ali-product')}}" class="@if(Route::currentRouteName() == 'ali-product') nav-link active @endif nav-link">
                   <img src="{{asset('assets/img/ali.png')}}" style="width: 16px; margin-bottom: 6px;" alt="">
                   <p>AliExpress Explore</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="customer-store-explore.html" class="nav-link">
+                <a href="{{route('amz-product')}}" class="@if(Route::currentRouteName() == 'amz-product') nav-link active @endif nav-link">
+                  <img src="{{asset('assets/img/amz.png')}}" style="width: 16px; margin-bottom: 6px;" alt="">
+                  <p>Amazon Explore</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('store-product')}}" class="@if(Route::currentRouteName() == 'store-product') nav-link active @endif nav-link">
                   <img src="{{asset('assets/img/shp.png')}}" style="width: 18px; margin-bottom: 6px;" alt="">
                   <p>Store Explore</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="@if(Route::currentRouteName() == 'tutorial' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'contact-us') menu-open @endif nav-item">
+            <a href="#" class="@if(Route::currentRouteName() == 'tutorial' ||Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'contact-us' ) nav-link active @endif nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Help
@@ -273,19 +273,19 @@
             </a>
             <ul class="nav nav-treeview pl-4 ml-2">
               <li class="nav-item">
-                <a href="customer-help-tutorial.html" class="nav-link">
+                <a href="{{url('tutorial')}}" class="@if(Route::currentRouteName() == 'tutorial') nav-link active @endif nav-link">
                   <i class="nav-icon fas fa-video"></i>
                   <p>Tutorials</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="customer-FAQ.html" class="nav-link">
+                <a href="{{url('FAQ')}}" class="@if(Route::currentRouteName() == 'FAQ') nav-link active @endif nav-link">
                   <i class="nav-icon fas fa-comment-dots"></i>
                   <p>FAQ</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="customer-contact-us.html" class="nav-link">
+                <a href="{{url('contact-us')}}" class="@if(Route::currentRouteName() == 'contact-us') nav-link active @endif nav-link">
                   <i class="nav-icon fas fa-user-tag"></i>
                   <p>Contact Us</p>
                 </a>
@@ -297,21 +297,27 @@
             <p>QUICK LINKS</p>
           </li>
           <li class="nav-item">
-            <a href="customer-help-tutorial.html" class="nav-link">
-              <i class="nav-icon fas fa-video"></i>
-              <p>Tutorials</p>
+            <a href="https://www.facebook.com/ebutify" class="nav-link">
+              <i class="nav-icon fab fa-facebook-square"></i>
+              <p>Facebook</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="customer-FAQ.html" class="nav-link">
-              <i class="nav-icon fas fa-comment-dots"></i>
-              <p>FAQ</p>
+            <a href="https://www.instagram.com/ebutify" class="nav-link">
+              <i class="nav-icon fab fa-instagram-square"></i>
+              <p>Instagram</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="customer-contact-us.html" class="nav-link">
-              <i class="nav-icon fas fa-user-tag"></i>
-              <p>Contact Us</p>
+            <a href="https://twitter.com/eButify" class="nav-link">
+              <i class="nav-icon fab fa-twitter-square"></i>
+              <p>Twitter</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.pinterest.com/ebutify" class="nav-link">
+              <i class="nav-icon fab fa-pinterest-square"></i>
+              <p>Pinterest</p>
             </a>
           </li>
         </ul>
@@ -360,6 +366,22 @@
       width: '100%'
     });
   });
+
+   $(document).on("change", ".filter-item", function(){
+           console.log("sorting updated...");
+           $('#filterForm').submit();
+         });
+
+         $(document).on("scroll", function(){
+           console.log("you scrolled...");
+           console.log(window.scrollY);
+           if(window.scrollY >=1200)
+           {
+               //-- fetch data with ajax
+               
+               //-- feed current data container
+           }
+         });
 </script>
 
 @yield('js')

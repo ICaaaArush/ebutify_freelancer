@@ -300,7 +300,8 @@ class ProductController extends Controller
         $productLinks->competitor_link_5 = $request->input('competitor5');
         $productLinks->amazon = $request->input('amazon');
 
-        $productDetails->productLink()->save($productLinks);
+        //$productDetails->productLink()->save($productLinks);
+        $productLinks->save();
 
         $productImage = ProductImage::find($request->productLinksId);
         $productImage->image_link_1 = $request->input('img1');
@@ -320,7 +321,8 @@ class ProductController extends Controller
         $productImage->gif_3 = $gifFileName3;
         }
 
-        $productDetails->productImage()->save($productImage);
+        //$productDetails->productImage()->save($productImage);
+        $productImage->save();
 
         return back()->with('status', 'Product Updated Successfully!');
     }

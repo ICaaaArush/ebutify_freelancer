@@ -42,10 +42,12 @@ $minute = $diff->i;
                 <div class="col-12">
                   <div class="slickslider">
                   <div>
-                      <div class="video-container">
+                      <div class="product-video-container embed-responsive embed-responsive-16by9">
                           <!-- <i class="fas fa-play-circle video-icon-play" style=""></i>
                           <i class="fas fa-pause-circle video-icon-pause" style="display: none;"></i> -->
-                          <iframe class="responsive-iframe" src="{{$productImage->video_link}}"></iframe>
+                          <video id="video-control" controls>
+                            <source src="{{$productImage->video_link}}" type="video/mp4">
+                         </video>
                       </div>
                   </div>
                   <div>
@@ -105,40 +107,56 @@ $minute = $diff->i;
                     <div class="row">
                         <div class="col-sm-6 col-md-6">
                           <div class="row pl-2 selling-sc">
-                            <p>Selling on 12 Shopify store</p>
+                            @php
+                            if (!empty($trendingProduct->productLink[0]->competitor_link_1)){
+                                $gifs = $trendingProduct->productLink[0]->competitor_link_1;
+                              }
+                            if(!empty($trendingProduct->productLink[0]->competitor_link_2)){
+                              if(!empty($gifs)){
+                                $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_2;
+                              }else{
+                                $gifs = $trendingProduct->productLink[0]->competitor_link_2;
+                              }
+                            }
+                            if (!empty($trendingProduct->productLink[0]->competitor_link_3)){
+                              if(!empty($gifs)){
+                                $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_3;
+                              }else{
+                                $gifs = $trendingProduct->productLink[0]->competitor_link_3;
+                              }
+                            }
+                            if (!empty($trendingProduct->productLink[0]->competitor_link_4)){
+                              if(!empty($gifs)){
+                                $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_4;
+                              }else{
+                                $gifs = $trendingProduct->productLink[0]->competitor_link_4;
+                              }
+                            }
+                            if (!empty($trendingProduct->productLink[0]->competitor_link_5)){
+                              if(!empty($gifs)){
+                                $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_5;
+                              }else{
+                                $gifs = $trendingProduct->productLink[0]->competitor_link_5;
+                              }
+                            }
+                            $files = explode(',', $gifs);
+                            @endphp
+                            <p>Selling on {{count($files)}} Shopify store</p>
                           </div>
-@foreach($trendingProduct->ProductLink as $productLink)
-                          <div class="row selling-store">
-                            <div class="col-12">
-                              <p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt=""> <a href="{{$productLink->competitor_link_1}}">
-                               @php
-                               $address = $productLink->competitor_link_1;
-                               $split = explode("com",$address);
-                               @endphp
-                               {{$split[0]}}com...</a></p>
-                              <p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt=""> <a href="{{$productLink->competitor_link_2}}">
-                               @php
-                               $address = $productLink->competitor_link_2;
-                               $split = explode("com",$address);
-                               @endphp
-                               {{$split[0]}}com...</a></p>
-                              <p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt=""> <a href="{{$productLink->competitor_link_3}}">
-                               @php
-                               $address = $productLink->competitor_link_3;
-                               $split = explode("com",$address);
-                               @endphp
-                               {{$split[0]}}com...</a></p>
-                              <p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt=""> <a href="{{$productLink->competitor_link_4}}">
-                               @php
-                               $address = $productLink->competitor_link_4;
-                               $split = explode("com",$address);
-                               @endphp
-                               {{$split[0]}}com...</a></p>
-                            </div>
+                        <div class="row selling-store">
+                          <div class="col-12">
+                            <?php if (!empty($files)) {
+                              foreach ($files as $link) {
+                                $address1 = $link;
+                                $split1 = explode("com",$address1);
+                                ?><p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt=""> {{$split1[0]}}com...<a href="{{$link}}"><?php
+                              }
+                            } ?>
                           </div>
                         </div>
-@endforeach
-                        <div class="col-sm-6 col-md-6 selling-country pl-3">
+                        </div>
+
+                        <div class="col-sm-6 col-md-6 selling-country pl-3" style="max-width: 500%;">
                           <div class="row pl-2 selling-sc">
                             <p>Selling Country</p>
                           </div>
@@ -175,6 +193,7 @@ $minute = $diff->i;
                       <li><a class="list-group-item rounded my-1" href="{{$productLink->youtube}}" role="tab"><i class="fab fa-youtube"></i> View YouTube Review</a></li>
                     </ul>
 @endforeach
+@foreach ($trendingProduct->productImage as $productImage)
                     <div class="slider2">
                       <div>
                         <img src="{{asset('storage/'.$productImage->gif_1)}}" class="img-fluid" alt="">
@@ -191,6 +210,7 @@ $minute = $diff->i;
                         <img src="{{asset('storage/'.$productImage->gif_2)}}" class="img-fluid" alt="">
                         <img src="{{asset('storage/'.$productImage->gif_3)}}" class="img-fluid" alt="">
                     </div>
+@endforeach
                     @php
                     if (!empty($productImage->gif_1)){
                         $gifs = $productImage->gif_1;

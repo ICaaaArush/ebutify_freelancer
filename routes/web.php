@@ -5,6 +5,8 @@ use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExploreController;
+use App\Http\Controllers\UserExploreController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -49,21 +51,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/myprofile', [FreelancerCo
 //  SUBSRIBE FOR USER
 Route::post('/subscribe', [FreelancerController::class,'subscribe'])->name('subscribe');
 
-//  FREELANCER PRODUCT RESEARCH
-Route::middleware(['auth:sanctum', 'verified'])->get('/product-research', [ProductController::class, 'productResearch'])->name('product-research');
-
-//  FREELANCER VIEW PRODUCT-UPLOAD-PAGE
-Route::middleware(['auth:sanctum', 'verified'])->get('/uploadPage', [ProductController::class, 'uploadPage'])->name('uploadPage');
-
-//  FREELANCER UPLOAD PRODUCT
-Route::post('/uploadProduct', [ProductController::class, 'uploadProduct'])->name('uploadProduct');
-
-// FREELANCER EDIT PRODUCT
-Route::middleware(['auth:sanctum', 'verified'])->get('/product-edit/{id}', [ProductController::class, 'productEdit'])->name('product-edit');
-
-//  FREELANCER UPDATE PRODUCT
-Route::post('/product-update', [ProductController::class, 'productUpdate'])->name('productUpdate');
-
 //  USER DOWNLOAD GIF
 Route::get('/downloadGIF/{gifs}', [UserController::class, 'downloadGIF'])->name('downloadGIF');
 
@@ -91,6 +78,50 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/all-product-details/{prod
 
 //  USER VIEW UNTAPPED PRODUCTS
 Route::middleware(['auth:sanctum', 'verified'])->get('/untapped-product', [UserController::class, 'untappedProducts'])->name('untapped-product');
+
+//  USER VIEW ALI EXPRESS PRODUCTS
+Route::middleware(['auth:sanctum', 'verified'])->get('/ali-product', [UserExploreController::class, 'exploreAli'])->name('ali-product');
+
+//  USER VIEW AMAZON PRODUCTS
+Route::middleware(['auth:sanctum', 'verified'])->get('/amz-product', [UserExploreController::class, 'exploreAmz'])->name('amz-product');
+
+//  USER VIEW STORE PRODUCTS
+Route::middleware(['auth:sanctum', 'verified'])->get('/store-product', [UserExploreController::class, 'exploreStore'])->name('store-product');
+
+//  USER VIEW TUTORIAL
+Route::middleware(['auth:sanctum', 'verified'])->get('/tutorial', [UserController::class, 'viewTutorial'])->name('tutorial');
+
+//  USER VIEW FAQ
+Route::middleware(['auth:sanctum', 'verified'])->get('/FAQ', [UserController::class, 'viewFAQ'])->name('FAQ');
+
+//  USER VIEW CONTACT US
+Route::middleware(['auth:sanctum', 'verified'])->get('/contact-us', [UserController::class, 'viewContactUs'])->name('contact-us');
+
+//  USER SEND EMAIL
+Route::middleware(['auth:sanctum', 'verified'])->post('/send-email', [ContactController::class, 'contact'])->name('send-email');
+
+//  USER SEARCH
+Route::middleware(['auth:sanctum', 'verified'])->post('/search-all-product', [UserController::class, 'allProduct'])->name('search');
+
+
+
+
+
+
+//  FREELANCER PRODUCT RESEARCH
+Route::middleware(['auth:sanctum', 'verified'])->get('/product-research', [ProductController::class, 'productResearch'])->name('product-research');
+
+//  FREELANCER VIEW PRODUCT-UPLOAD-PAGE
+Route::middleware(['auth:sanctum', 'verified'])->get('/uploadPage', [ProductController::class, 'uploadPage'])->name('uploadPage');
+
+//  FREELANCER UPLOAD PRODUCT
+Route::post('/uploadProduct', [ProductController::class, 'uploadProduct'])->name('uploadProduct');
+
+// FREELANCER EDIT PRODUCT
+Route::middleware(['auth:sanctum', 'verified'])->get('/product-edit/{id}', [ProductController::class, 'productEdit'])->name('product-edit');
+
+//  FREELANCER UPDATE PRODUCT
+Route::post('/product-update', [ProductController::class, 'productUpdate'])->name('productUpdate');
 
 
 

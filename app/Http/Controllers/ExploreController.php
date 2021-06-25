@@ -65,11 +65,12 @@ class ExploreController extends Controller
         $productDetails->product_type_id = $request->input('type');
         $productDetails->user_id  = auth()->id();
         $productDetails->uploader_name = $request->input('uploadername');
+        $productDetails->total_revenue = $request->input('amz_link');
         $productDetails->save();
 
         $productLinks = new ProductLink;
         $productLinks->aliexpress = $request->input('ali_express_link');
-        $productLinks->amazon = $request->input('amz_link');
+        
 
         $productDetails->productLink()->save($productLinks);
 
@@ -191,6 +192,7 @@ class ExploreController extends Controller
                 $productDetails->running_ads = $request->input('running_ads');
                 $productDetails->fb_page_link = $request->input('fb_page_link');
                 $productDetails->uploader_name = $request->input('uploadername');
+                $productDetails->explore_pro_type = "shopify";
 
                 $productDetails->user_id  = auth()->id();
 
