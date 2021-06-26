@@ -31,29 +31,65 @@
                   </form>
                </div>
                <!-- /.row -->
-               <form id="filterForm" method="get" action="{{ route('fb-ad-products') }}">
+               <form id="filterForm" method="get" action="{{ route('trending-products') }}">
                   <div class="row mx-2">
                      <div class="col-sm-12 col-md-6 col-lg-3 my-1">
                         <select class="form-control select2 filter-item" name="category">
                            <option value="">All Categories</option>
-                           <option value="1">Women's Fashion</option>
-                           <option value="2">Man's Fashion</option>
-                           <option value="3">Health & Beauty</option>
-                           <option value="4">Home Improvement</option>
-                           <option value="5">Garden Improvement</option>
-                           <option value="6">Pet Accessories</option>
-                           <option value="7">Electronics</option>
-                           <option value="8">Computer Accessories</option>
-                           <option value="9">Baby & Kids</option>
-                           <option value="10">Kitchen & household</option>
-                           <option value="11">Jewellery</option>
-                           <option value="12">Car Accessories</option>
-                           <option value="13">Bike Accessories</option>
-                           <option value="14">Mobile Accessories</option>
-                           <option value="15">Fitness</option>
-                           <option value="16">Bag's & Shoes</option>
-                           <option value="17">Outdoor</option>
-                           <option value="18">Beauty Hair</option>
+                           <option @if ($categorySelected == 1)
+                                            selected="selected"
+                                        @endif value="1">Women's Fashion</option>
+                           <option @if ($categorySelected == 2)
+                                            selected="selected"
+                                        @endif value="2">Man's Fashion</option>
+                           <option @if ($categorySelected == 3)
+                                            selected="selected"
+                                        @endif value="3">Health & Beauty</option>
+                           <option @if ($categorySelected == 4)
+                                            selected="selected"
+                                        @endif value="4">Home Improvement</option>
+                           <option @if ($categorySelected == 5)
+                                            selected="selected"
+                                        @endif value="5">Garden Improvement</option>
+                           <option @if ($categorySelected == 6)
+                                            selected="selected"
+                                        @endif value="6">Pet Accessories</option>
+                           <option @if ($categorySelected == 7)
+                                            selected="selected"
+                                        @endif value="7">Electronics</option>
+                           <option @if ($categorySelected == 8)
+                                            selected="selected"
+                                        @endif value="8">Computer Accessories</option>
+                           <option @if ($categorySelected == 9)
+                                            selected="selected"
+                                        @endif value="9">Baby & Kids</option>
+                           <option @if ($categorySelected == 10)
+                                            selected="selected"
+                                        @endif value="10">Kitchen & household</option>
+                           <option @if ($categorySelected == 11)
+                                            selected="selected"
+                                        @endif value="11">Jewellery</option>
+                           <option @if ($categorySelected == 12)
+                                            selected="selected"
+                                        @endif value="12">Car Accessories</option>
+                           <option @if ($categorySelected == 13)
+                                            selected="selected"
+                                        @endif value="13">Bike Accessories</option>
+                           <option @if ($categorySelected == 14)
+                                            selected="selected"
+                                        @endif value="14">Mobile Accessories</option>
+                           <option @if ($categorySelected == 15)
+                                            selected="selected"
+                                        @endif value="15">Fitness</option>
+                           <option @if ($categorySelected == 16)
+                                            selected="selected"
+                                        @endif value="16">Bag's & Shoes</option>
+                           <option @if ($categorySelected == 17)
+                                            selected="selected"
+                                        @endif value="17">Outdoor</option>
+                           <option @if ($categorySelected == 18)
+                                            selected="selected"
+                                        @endif value="18">Beauty Hair</option>
                         </select>
                      </div>
                      <div class="col-sm-12 col-md-6 col-lg-3 my-1">
@@ -70,21 +106,39 @@
                      </div>
                      <div class="col-sm-12 col-md-6 col-lg-3 my-1">
                         <select class="form-control select2-no-search filter-item" name="filter" style="width: 100%;">
-                           <option value="">Filter Products</option>
-                           <option value="1">By Price under $30</option>
-                           <option value="2">By Price Over $30</option>
-                           <option value="3">By Profit Over $15</option>
-                           <option value="4">By Cost under $20</option>
+                           <option>Filter Products</option>
+                           <option @if ($filterSelected == 1)
+                                            selected="selected"
+                                        @endif value="1">By Price under $30</option>
+                           <option @if ($filterSelected == 2)
+                                            selected="selected"
+                                        @endif value="2">By Price Over $30</option>
+                           <option @if ($filterSelected == 3)
+                                            selected="selected"
+                                        @endif value="3">By Profit Over $15</option>
+                           <option @if ($filterSelected == 4)
+                                            selected="selected"
+                                        @endif value="4">By Cost under $20</option>
                         </select>
                      </div>
                      <div class="col-sm-12 col-md-6 col-lg-3 my-1">
                         <select class="form-control select2-no-search filter-item" name="sort" style="width: 100%;">
                            <option>Sort Produtcs</option>
-                           <option value="1">By Profit</option>
-                           <option value="2">By Total Orders</option>
-                           <option value="3">By Last added Date</option>
-                           <option value="4">By Image</option>
-                           <option value="5">By Video</option>
+                           <option @if ($sortSelected == 1)
+                                            selected="selected"
+                                        @endif value="1">By Profit</option>
+                           <option @if ($sortSelected == 2)
+                                            selected="selected"
+                                        @endif value="2">By Total Orders</option>
+                           <option @if ($sortSelected == 3)
+                                            selected="selected"
+                                        @endif value="3">By Last added Date</option>
+                           <option @if ($sortSelected == 4)
+                                            selected="selected"
+                                        @endif value="4">By Image</option>
+                           <option @if ($sortSelected == 5)
+                                            selected="selected"
+                                        @endif value="5">By Video</option>
                         </select>
                      </div>
                   </div>

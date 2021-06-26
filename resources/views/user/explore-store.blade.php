@@ -19,62 +19,9 @@
             <h3>Shopify Store Explorer</h3>
             <a type="button" class="btn btn-facebook-ads" href=""><i class="fas fa-video"></i> Tutorials</a>
           </div>
-          <div class="col-12">
-            <div class="input-group my-3">
-              <input type="text" class="form-control fb-ads-input" placeholder="Type Product name or neach">
-              <div class="input-group-append">
-                <button class="btn btn-fb-ads-input" type="button" id="#">Search</button>
-              </div>
-            </div>
-          </div>
         </div>
         <!-- /.row -->
 
-        <div class="row mx-2">
-          <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-            <select class="form-control select2">
-              <option>All Categories</option>
-              <option>Health & Beauty</option>
-              <option>Home & Garden</option>
-              <option>Pet Accessories</option>
-              <option>Electronics</option>
-              <option>Baby & Kids</option>
-              <option>Kitchen & household</option>
-              <option>Outdoor</option>
-            </select>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-            <select class="form-control select2">
-              <option>All Niches</option>
-              <option>Health & Beauty</option>
-              <option>Home & Garden</option>
-              <option>Pet Accessories</option>
-              <option>Electronics</option>
-              <option>Baby & Kids</option>
-              <option>Kitchen & household</option>
-              <option>Outdoor</option>
-            </select>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-            <select class="form-control select2-no-search" style="width: 100%;">
-              <option>Filter Products</option>
-              <option>By Product Type</option>
-              <option>By Price Over</option>
-              <option>By Price Under</option>
-              <option>By Found Date</option>
-              <option>By Last added Date</option>
-            </select>
-          </div>
-          <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-            <select class="form-control select2-no-search" style="width: 100%;">
-              <option>Sort Produtcs</option>
-              <option>By Stores Selling</option>
-              <option>By Total Orders</option>
-              <option>By Found Date</option>
-              <option>By Last added Date</option>
-            </select>
-          </div>
-        </div>
         <!-- /.row -->
 <?php $j=0 ?>
 <?php $k=0 ?>
