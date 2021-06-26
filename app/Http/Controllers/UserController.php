@@ -122,17 +122,17 @@ class UserController extends Controller
       	if($request->filter) {
           switch($request->filter){
 			case 1:
-				$trendingProducts = ProductDetail::where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('price', '<=' ,'30')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
 				// dd($trendingProducts);
 			break;
 			case 2:
-				$trendingProducts = ProductDetail::where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('price', '>=' , '30')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->orderBy($orderColumn,'DESC')->paginate(5);
 			break;
 			case 3:
-				$trendingProducts = ProductDetail::where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('profit', '>=' , '15')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->orderBy($orderColumn,'DESC')->paginate(5);
 			break;
 			case 4:
-				$trendingProducts = ProductDetail::where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('profit', '<=' , '15')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->orderBy($orderColumn,'DESC')->paginate(5);
 			break;
 			default:
 				$filterBy = 'product_name';
@@ -144,10 +144,10 @@ class UserController extends Controller
 
       	if($request->search) {
       		// dd($request->search);
-      		$trendingProducts = ProductDetail::where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      		$trendingProducts = ProductDetail::where('product_name', 'LIKE', '%'.$request->search.'%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
       	}
       	if (empty($trendingProducts)) {
-      		$trendingProducts = ProductDetail::where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      		$trendingProducts = ProductDetail::where('category', 'LIKE' ,'%'.$category.'%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->orderBy($orderColumn,'DESC')->paginate(5);
       	}
 
 		// $trendingProducts = ProductDetail::all();
@@ -294,17 +294,17 @@ class UserController extends Controller
       	if($request->filter) {
           switch($request->filter){
 			case 1:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(25);
 				// dd($trendingProducts);
 			break;
 			case 2:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			case 3:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			case 4:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			default:
 				$filterBy = 'product_name';
@@ -316,10 +316,10 @@ class UserController extends Controller
 
       	if($request->search) {
       		// dd($request->search);
-      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
       	}
       	if (empty($trendingProducts)) {
-      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(25);
       	}	 	
 			
 		// $trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%trending_product%')->get();
@@ -481,17 +481,17 @@ class UserController extends Controller
       	if($request->filter) {
           switch($request->filter){
 			case 1:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(25);
 				// dd($trendingProducts);
 			break;
 			case 2:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			case 3:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			case 4:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			default:
 				$filterBy = 'product_name';
@@ -503,10 +503,10 @@ class UserController extends Controller
 
       	if($request->search) {
       		// dd($request->search);
-      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(25);
       	}
       	if (empty($trendingProducts)) {
-      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(25);
       	}
 			
 		// $trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%facebook_ads%')->get();
@@ -659,17 +659,17 @@ class UserController extends Controller
       	if($request->filter) {
           switch($request->filter){
 			case 1:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('price', '<=' ,'30')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(25);
 				// dd($trendingProducts);
 			break;
 			case 2:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			case 3:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			case 4:
-				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(5);
+				$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(25);
 			break;
 			default:
 				$filterBy = 'product_name';
@@ -681,10 +681,10 @@ class UserController extends Controller
 
       	if($request->search) {
       		// dd($request->search);
-      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('product_name', 'LIKE', '%'.$request->search.'%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(25);
       	}
       	if (empty($trendingProducts)) {
-      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(5);
+      		$trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')->where('category', 'LIKE' ,'%'.$category.'%')->orderBy($orderColumn,'DESC')->paginate(25);
       	}
       	
 	    // $trendingProducts = ProductDetail::where('opportunity_level', 'LIKE' ,'%untapped_product%')->where($filterBy)->orderBy($orderColumn,'DESC')->paginate(5);
