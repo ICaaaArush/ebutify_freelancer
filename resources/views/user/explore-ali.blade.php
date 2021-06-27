@@ -32,97 +32,125 @@
         </div>
         <!-- /.row -->
 
-                <form id="filterForm" method="get" action="{{ route('ali-product') }}">
-                <div class="row mx-2">
-                  <div class="col-lg-6"></div>
-                    <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-                        <select class="form-control select2-no-search filter-item" name="filter" style="width: 100%;">
-                           <option value="">Filter Products</option>
-                           <option @if ($filterSelected == 1)
-                                            selected="selected"
-                                        @endif value="1">By Price under $30</option>
-                           <option @if ($filterSelected == 2)
-                                            selected="selected"
-                                        @endif value="2">By Price Over $30</option>
-                        </select>
-                     </div>
-                     <div class="col-sm-12 col-md-6 col-lg-3 my-1">
-                        <select class="form-control select2-no-search filter-item" name="sort" style="width: 100%;">
-                           <option>Sort Produtcs</option>
-                           <option @if ($sortSelected == 2)
-                                            selected="selected"
-                                        @endif value="2">By Total Orders</option>
-                           <option @if ($sortSelected == 3)
-                                            selected="selected"
-                                        @endif value="3">By Last added Date</option>
-                        </select>
-                     </div>
-                </div>
-                </form>
+        <form id="filterForm" method="get" action="{{ route('ali-product') }}">
+        <div class="row mx-2">
+          <div class="col-lg-6"></div>
+            <div class="col-sm-12 col-md-6 col-lg-3 my-1">
+                <select class="form-control select2-no-search filter-item" name="filter" style="width: 100%;">
+                   <option value="">Filter Products</option>
+                   <option @if ($filterSelected == 1)
+                                    selected="selected"
+                                @endif value="1">By Price under $30</option>
+                   <option @if ($filterSelected == 2)
+                                    selected="selected"
+                                @endif value="2">By Price Over $30</option>
+                </select>
+             </div>
+             <div class="col-sm-12 col-md-6 col-lg-3 my-1">
+                <select class="form-control select2-no-search filter-item" name="sort" style="width: 100%;">
+                   <option>Sort Produtcs</option>
+                   <option @if ($sortSelected == 2)
+                                    selected="selected"
+                                @endif value="2">By Total Orders</option>
+                   <option @if ($sortSelected == 3)
+                                    selected="selected"
+                                @endif value="3">By Last added Date</option>
+                </select>
+             </div>
+        </div>
+        </form>
+
         <!-- /.row -->
         <div class="row mx-3 mt-3">
           <div class="card-deck">
-
-@foreach($trendingProducts as $trendingProduct)
-<div class="col-md-4 mt-4">
-            <div class="card shadow">
-              @foreach ($trendingProduct->productImage as $productImage)
-              <img src="{{$productImage->image_link_1}}" class="card-img-top img-fluid" alt="...">
-              @endforeach
-              <div class="row card-body px-2">
-                <div class="col-12 pb-1 px-3" style="border-bottom: 2px solid #DCDCDC;">
-                  <h5 class="card-title">{{$trendingProduct->product_name}}</h5>
-                </div> 
-                <div class="row mt-3">
-                  <div class="col-12 text-center px-3">
-                    <?php if ($trendingProduct->explore_star_rating > 1) { ?>
-                      <span class="fa fa-star checked"></span>
-                    <?php } else { ?>
-                      <span class="fa fa-star"></span>
-                    <?php } ?>
-                    <?php if ($trendingProduct->explore_star_rating > 2) { ?>
-                      <span class="fa fa-star checked"></span>
-                    <?php } else { ?>
-                      <span class="fa fa-star"></span>
-                    <?php } ?>
-                    <?php if ($trendingProduct->explore_star_rating > 3) { ?>
-                      <span class="fa fa-star checked"></span>
-                    <?php } else { ?>
-                      <span class="fa fa-star"></span>
-                    <?php } ?>
-                    <?php if ($trendingProduct->explore_star_rating > 4) { ?>
-                      <span class="fa fa-star checked"></span>
-                    <?php } else { ?>
-                      <span class="fa fa-star"></span>
-                    <?php } ?>
-                    <?php if ($trendingProduct->explore_star_rating == 5) { ?>
-                      <span class="fa fa-star checked"></span>
-                    <?php } else { ?>
-                      <span class="fa fa-star"></span>
-                    <?php } ?>
-                    <span>{{$trendingProduct->explore_star_rating}}</span>
-                  </div>
-                  <div class="col-12 text-center px-3">
-                    <span class="cae-cart-icon"><i class="fas fa-shopping-basket"></i> Total Order</span>
-                    <span>{{$trendingProduct->total_order}}</span>
-                  </div>
-                  
-                  <div class="col-12 text-center px-3">
-                    <span class="cae-cart-icon"><i class="fas fa-atom"></i> Selling Price</span>
-                    <span>{{$trendingProduct->price}}</span>
+            <!-- SHOW PRODUCT DETAILS -->
+            <!-- FOREACH STARTS -->
+            @foreach($trendingProducts as $trendingProduct)
+            <div class="col-md-4 mt-4">
+              <div class="card shadow">
+                @foreach ($trendingProduct->productImage as $productImage)
+                <img src="{{$productImage->image_link_1}}" class="card-img-top img-fluid" alt="...">
+                @endforeach
+                <div class="row card-body px-2">
+                  <div class="col-12 pb-1 px-3" style="border-bottom: 2px solid #DCDCDC;">
+                    <h5 class="card-title">{{$trendingProduct->product_name}}</h5>
+                  </div> 
+                  <div class="row mt-3">
+                    <div class="col-12 text-center px-3">
+                      <?php if ($trendingProduct->explore_star_rating >= 1) { ?>
+                        <span class="fa fa-star checked"></span>
+                      <?php } else { ?>
+                        <span class="fa fa-star"></span>
+                      <?php } ?>
+                      <?php if ($trendingProduct->explore_star_rating >= 2) { ?>
+                        <span class="fa fa-star checked"></span>
+                      <?php } else { ?>
+                        <span class="fa fa-star"></span>
+                      <?php } ?>
+                      <?php if ($trendingProduct->explore_star_rating >= 3) { ?>
+                        <span class="fa fa-star checked"></span>
+                      <?php } else { ?>
+                        <span class="fa fa-star"></span>
+                      <?php } ?>
+                      <?php if ($trendingProduct->explore_star_rating >= 4) { ?>
+                        <span class="fa fa-star checked"></span>
+                      <?php } else { ?>
+                        <span class="fa fa-star"></span>
+                      <?php } ?>
+                      <?php if ($trendingProduct->explore_star_rating == 5) { ?>
+                        <span class="fa fa-star checked"></span>
+                      <?php } else { ?>
+                        <span class="fa fa-star"></span>
+                      <?php } ?>
+                      <span>{{$trendingProduct->explore_star_rating}}</span>
+                    </div>
+                    <div class="col-12 text-center px-3">
+                      <span class="cae-cart-icon"><i class="fas fa-shopping-basket"></i> Total Order</span>
+                      <span>{{$trendingProduct->total_order}}</span>
+                    </div>
+                    
+                    <div class="col-12 text-center px-3">
+                      <span class="cae-cart-icon"><i class="fas fa-atom"></i> Selling Price</span>
+                      <span>{{$trendingProduct->price}}</span>
+                    </div>
                   </div>
                 </div>
+                @foreach ($trendingProduct->ProductLink as $productLink)
+                <div class="row px-2 mb-2 rounded justify-content-center">
+                  <a href="{{$productLink->aliexpress}}" class="cae-view"><img src="{{asset('assets/img/aliExpress-logo.png')}}" class="img-fluid" style="width: 16px; margin: 5px;" alt=""> View on a Demo</a>
+                </div>
+                @endforeach
               </div>
-              @foreach ($trendingProduct->ProductLink as $productLink)
-              <div class="row px-2 mb-2 rounded justify-content-center">
-                <a href="{{$productLink->aliexpress}}" class="cae-view"><img src="{{asset('assets/img/aliExpress-logo.png')}}" class="img-fluid" style="width: 16px; margin: 5px;" alt=""> View on a Demo</a>
-              </div>
-              @endforeach
             </div>
-</div>
-@endforeach
+            @endforeach
+            <!-- FOREACH ENDS -->
+
+            <!-- LOAD MORE DATA SHOW -->
+ 
+                <div class="card-deck" id="data-wrapper">
+                </div>
+
+              <!-- RESULTS -->
+
+            <!-- LOAD MORE DATA END -->
+
           </div>
         </div>
         <!-- /.row -->
 
+            <!-- LOADING SIGN SHOW -->
+            <div class="auto-load text-center">
+                <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                    <path fill="#000"
+                        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                            from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
+            <!-- LOADING SIGN END -->
+       
+
 @endsection
+

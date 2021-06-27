@@ -87,7 +87,66 @@ class UserExploreController extends Controller
             $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->orderBy($orderColumn,'DESC')->paginate(5);
         }
 
-
+        $results = ProductDetail::orderBy('id')->paginate(9);
+        $artilces = '';
+        if ($request->ajax()) {
+            foreach ($results as $result) {
+                $artilces.=
+                '<div class="col-md-4 mt-4" style="box-sizing: border-box; flex-flow: row wrap; margin: auto;">
+                    <div class="card shadow">
+                      <img src="'.$result->productImage[0]->image_link_1.'" class="card-img-top img-fluid" alt="...">
+                      <div class="row card-body px-2">
+                        <div class="col-12 pb-1 px-3" style="border-bottom: 2px solid #DCDCDC;">
+                          <h5 class="card-title">'.$result->product_name.'</h5>
+                        </div> 
+                        <div class="row mt-3">
+                          <div class="col-12 text-center px-3">
+                            <?php if ($result->explore_star_rating >= 1) { ?>
+                              <span class="fa fa-star checked"></span>
+                            <?php } else { ?>
+                              <span class="fa fa-star"></span>
+                            <?php } ?>
+                            <?php if ($result->explore_star_rating >= 2) { ?>
+                              <span class="fa fa-star checked"></span>
+                            <?php } else { ?>
+                              <span class="fa fa-star"></span>
+                            <?php } ?>
+                            <?php if ($result->explore_star_rating >= 3) { ?>
+                              <span class="fa fa-star checked"></span>
+                            <?php } else { ?>
+                              <span class="fa fa-star"></span>
+                            <?php } ?>
+                            <?php if ($result->explore_star_rating >= 4) { ?>
+                              <span class="fa fa-star checked"></span>
+                            <?php } else { ?>
+                              <span class="fa fa-star"></span>
+                            <?php } ?>
+                            <?php if ($result->explore_star_rating == 5) { ?>
+                              <span class="fa fa-star checked"></span>
+                            <?php } else { ?>
+                              <span class="fa fa-star"></span>
+                            <?php } ?>
+                            <span>'.$result->explore_star_rating.'</span>
+                          </div>
+                          <div class="col-12 text-center px-3">
+                            <span class="cae-cart-icon"><i class="fas fa-shopping-basket"></i> Total Order</span>
+                            <span>'.$result->total_order.'</span>
+                          </div>
+                          
+                          <div class="col-12 text-center px-3">
+                            <span class="cae-cart-icon"><i class="fas fa-atom"></i> Selling Price</span>
+                            <span>'.$result->price.'</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row px-2 mb-2 rounded justify-content-center">
+                        <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view"><img src="{{asset(\'assets/img/aliExpress-logo.png\')}}" class="img-fluid" style="width: 16px; margin: 5px;" alt=""> View on a Demo</a>
+                      </div>
+                    </div>
+                </div>';
+            }
+            return $artilces;
+        }
 
 
             
