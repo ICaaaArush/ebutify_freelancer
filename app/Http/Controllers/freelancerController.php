@@ -98,10 +98,10 @@ class FreelancerController extends Controller
     }
 
     
-    public function profile()
+    public function profile($id)
     {
-        
-        return view('freelancer.profile');
+        $data = User::where('id', $id)->first();
+        return view('freelancer.profile',compact('data'));
     }
 
     public function updatePassword(Request $request)

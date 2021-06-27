@@ -91,6 +91,31 @@ class UserExploreController extends Controller
         $artilces = '';
         if ($request->ajax()) {
             foreach ($results as $result) {
+                if($result->explore_star_rating >= 1){
+                    $star1 = '<span class="fa fa-star checked"></span>';
+                }else{
+                    $star1 = '<span class="fa fa-star"></span>';
+                }
+                if($result->explore_star_rating >= 2){
+                    $star2 = '<span class="fa fa-star checked"></span>';
+                }else{
+                    $star2 = '<span class="fa fa-star"></span>';
+                }
+                if($result->explore_star_rating >= 3){
+                    $star3 = '<span class="fa fa-star checked"></span>';
+                }else{
+                    $star3 = '<span class="fa fa-star"></span>';
+                }
+                if($result->explore_star_rating >= 4){
+                    $star4 = '<span class="fa fa-star checked"></span>';
+                }else{
+                    $star4 = '<span class="fa fa-star"></span>';
+                }
+                if($result->explore_star_rating >= 5){
+                    $star5 = '<span class="fa fa-star checked"></span>';
+                }else{
+                    $star5 = '<span class="fa fa-star"></span>';
+                }
                 $artilces.=
                 '<div class="col-md-4 mt-4" style="box-sizing: border-box; flex-flow: row wrap; margin: auto;">
                     <div class="card shadow">
@@ -101,31 +126,12 @@ class UserExploreController extends Controller
                         </div> 
                         <div class="row mt-3">
                           <div class="col-12 text-center px-3">
-                            <?php if ($result->explore_star_rating >= 1) { ?>
-                              <span class="fa fa-star checked"></span>
-                            <?php } else { ?>
-                              <span class="fa fa-star"></span>
-                            <?php } ?>
-                            <?php if ($result->explore_star_rating >= 2) { ?>
-                              <span class="fa fa-star checked"></span>
-                            <?php } else { ?>
-                              <span class="fa fa-star"></span>
-                            <?php } ?>
-                            <?php if ($result->explore_star_rating >= 3) { ?>
-                              <span class="fa fa-star checked"></span>
-                            <?php } else { ?>
-                              <span class="fa fa-star"></span>
-                            <?php } ?>
-                            <?php if ($result->explore_star_rating >= 4) { ?>
-                              <span class="fa fa-star checked"></span>
-                            <?php } else { ?>
-                              <span class="fa fa-star"></span>
-                            <?php } ?>
-                            <?php if ($result->explore_star_rating == 5) { ?>
-                              <span class="fa fa-star checked"></span>
-                            <?php } else { ?>
-                              <span class="fa fa-star"></span>
-                            <?php } ?>
+                            '.$star1.'
+                            '.$star2.'
+                            '.$star3.'
+                            '.$star4.'
+                            '.$star5.'
+                            
                             <span>'.$result->explore_star_rating.'</span>
                           </div>
                           <div class="col-12 text-center px-3">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>eButify | Customer Trending Product Research</title>
+  <title>eButify | Customer Profile Page</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -13,32 +13,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.css">
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-  
-  <!-- Slick Slider -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
   <!-- My style -->
-  <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-  <style>
-.video-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
-}
+  <link rel="stylesheet" href="assets/css/style.css">
 
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-</style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -46,7 +24,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__wobble" src="{{asset('assets/img/eButify.png')}}" alt="eButifyLogo">
+    <img class="animation__wobble" src="assets/img/eButify.png" alt="eButifyLogo">
   </div>
 
   <!-- Navbar -->
@@ -99,7 +77,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('assets/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -115,7 +93,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('assets/img/avatar2.png')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="assets/img/avatar2.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -131,7 +109,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{{asset('assets/img/avatar.png')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="assets/img/avatar.png" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -152,15 +130,15 @@
         <a class="" data-toggle="dropdown" href="#">
           <div class="user-panel d-flex mr-3">
             <div class="image">
-              <img src="{{asset('assets/img/user1-128x128.jpg')}}" class="img-circle " alt="Jone Due">
+              <img src="assets/img/user1-128x128.jpg" class="img-circle " alt="Jone Due">
             </div>
           </div>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">{{Auth::user()->name}}</span>
+          <span class="dropdown-item dropdown-header">Jone Due</span>
           <div class="dropdown-divider"></div>
           <div class="dropdown-divider"></div>
-          <a href="{{ route('profile') }}" class="dropdown-item">
+          <a href="customer-profile-page.html" class="dropdown-item">
             <i class="far fa-user mr-2"></i> My Profile
           </a>
           <div class="dropdown-divider"></div>
@@ -168,7 +146,7 @@
             <i class="far fa-bell mr-2"></i> Subcription
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{ route('logout') }}" class="dropdown-item dropdown-footer">Logout</a>
+          <a href="#" class="dropdown-item dropdown-footer">Logout</a>
         </div>
       </li>
       
@@ -180,7 +158,7 @@
   <aside class="main-sidebar sidebar-light-primary">
     <!-- Brand Logo -->
     <a href="" class="brand-link">
-      <img src="{{asset('assets/img/eButify.png')}}" alt="e/Butify Logo" class="brand-image" style="opacity: .8">
+      <img src="assets/img/eButify.png" alt="e/Butify Logo" class="brand-image" style="opacity: .8">
     </a>
 
     <!-- Sidebar -->
@@ -191,7 +169,7 @@
           <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{url('dashboard')}}" class="@if(Route::currentRouteName() == 'dashboard' || Route::currentRouteName() == 'freelancer-dashboard') nav-link active @endif nav-link">
+            <a href="customer-ebutify-services-dashboard.html" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -199,8 +177,8 @@
             </a>
           </li>
          
-          <li class="nav-item @if(Route::currentRouteName() == 'product-research' || Route::currentRouteName() == 'product-edit' || Route::currentRouteName() == 'uploadPage' || Route::currentRouteName() == 'trending-products' || Route::currentRouteName() == 'all-product') menu-open @endif">
-            <a href="#" class="@if(Route::currentRouteName() == 'product-research' || Route::currentRouteName() == 'product-edit' || Route::currentRouteName() == 'uploadPage' || Route::currentRouteName() == 'trending-products' || Route::currentRouteName() == 'all-product') nav-link active @endif nav-link">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 Product Research
@@ -209,33 +187,33 @@
             </a>
             <ul class="nav nav-treeview pl-4 ml-2">
               <li class="nav-item">
-                <a href="{{url('fb-ad-products')}}" class="nav-link">
+                <a href="customer-facebook-ads-research.html" class="nav-link">
                   <i class="nav-icon fab fa-facebook-square"></i>
                   <p>Facebook Ads</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('untapped-product')}}" class="nav-link">
+                <a href="customer-untapped-product-research.html" class="nav-link">
                   <i class="nav-icon fas fa-upload"></i>
                   <p>Untapped Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('trending-products')}}" class="@if(Route::currentRouteName() == 'trending-products') nav-link active @endif nav-link">
+                <a href="customer-trending-product-research.html" class="nav-link">
                   <i class="nav-icon fas fa-vector-square"></i>
                   <p>Trending Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('all-product')}}" class="@if(Route::currentRouteName() == 'all-product') nav-link active @endif nav-link">
+                <a href="customer-all-product-research.html" class="nav-link">
                   <i class="nav-icon fab fa-adn"></i>
                   <p>All Products</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item @if(Route::currentRouteName() == 'ali-product' || Route::currentRouteName() == 'amz-product' || Route::currentRouteName() == 'store-product') menu-open @endif">
-            <a href="#" class="@if(Route::currentRouteName() == 'ali-product' || Route::currentRouteName() == 'amz-product' || Route::currentRouteName() == 'store-product') nav-link active @endif nav-link">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
                 Explores
@@ -244,27 +222,27 @@
             </a>
             <ul class="nav nav-treeview pl-4 ml-2">
               <li class="nav-item">
-                <a href="{{route('ali-product')}}" class="@if(Route::currentRouteName() == 'ali-product') nav-link active @endif nav-link">
-                  <img src="{{asset('assets/img/ali.png')}}" style="width: 16px; margin-bottom: 6px;" alt="">
+                <a href="customer-ali-exprees-explore.html" class="nav-link">
+                  <img src="assets/img/ali.png" style="width: 16px; margin-bottom: 6px;" alt="">
                   <p>AliExpress Explore</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('amz-product')}}" class="@if(Route::currentRouteName() == 'amz-product') nav-link active @endif nav-link">
-                  <img src="{{asset('assets/img/amz.png')}}" style="width: 16px; margin-bottom: 6px;" alt="">
+                <a href="customer-amazon-explore.html" class="nav-link">
+                  <img src="assets/img/amz.png" style="width: 16px; margin-bottom: 6px;" alt="">
                   <p>Amazon Explore</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('store-product')}}" class="@if(Route::currentRouteName() == 'store-product') nav-link active @endif nav-link">
-                  <img src="{{asset('assets/img/shp.png')}}" style="width: 18px; margin-bottom: 6px;" alt="">
+                <a href="customer-store-explore.html" class="nav-link">
+                  <img src="assets/img/shp.png" style="width: 18px; margin-bottom: 6px;" alt="">
                   <p>Store Explore</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="@if(Route::currentRouteName() == 'tutorial' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'contact-us') menu-open @endif nav-item">
-            <a href="#" class="@if(Route::currentRouteName() == 'tutorial' ||Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'contact-us' ) nav-link active @endif nav-link">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Help
@@ -273,19 +251,19 @@
             </a>
             <ul class="nav nav-treeview pl-4 ml-2">
               <li class="nav-item">
-                <a href="{{url('tutorial')}}" class="@if(Route::currentRouteName() == 'tutorial') nav-link active @endif nav-link">
+                <a href="customer-help-tutorial.html" class="nav-link">
                   <i class="nav-icon fas fa-video"></i>
                   <p>Tutorials</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('FAQ')}}" class="@if(Route::currentRouteName() == 'FAQ') nav-link active @endif nav-link">
+                <a href="customer-FAQ.html" class="nav-link">
                   <i class="nav-icon fas fa-comment-dots"></i>
                   <p>FAQ</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('contact-us')}}" class="@if(Route::currentRouteName() == 'contact-us') nav-link active @endif nav-link">
+                <a href="customer-contact-us.html" class="nav-link">
                   <i class="nav-icon fas fa-user-tag"></i>
                   <p>Contact Us</p>
                 </a>
@@ -297,27 +275,21 @@
             <p>QUICK LINKS</p>
           </li>
           <li class="nav-item">
-            <a href="https://www.facebook.com/ebutify" class="nav-link">
-              <i class="nav-icon fab fa-facebook-square"></i>
-              <p>Facebook</p>
+            <a href="customer-help-tutorial.html" class="nav-link">
+              <i class="nav-icon fas fa-video"></i>
+              <p>Tutorials</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://www.instagram.com/ebutify" class="nav-link">
-              <i class="nav-icon fab fa-instagram-square"></i>
-              <p>Instagram</p>
+            <a href="customer-FAQ.html" class="nav-link">
+              <i class="nav-icon fas fa-comment-dots"></i>
+              <p>FAQ</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://twitter.com/eButify" class="nav-link">
-              <i class="nav-icon fab fa-twitter-square"></i>
-              <p>Twitter</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.pinterest.com/ebutify" class="nav-link">
-              <i class="nav-icon fab fa-pinterest-square"></i>
-              <p>Pinterest</p>
+            <a href="customer-contact-us.html" class="nav-link">
+              <i class="nav-icon fas fa-user-tag"></i>
+              <p>Contact Us</p>
             </a>
           </li>
         </ul>
@@ -327,13 +299,104 @@
     <!-- /.sidebar -->
   </aside>
 
-@yield('content')
 
-          <footer>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <nav>
+      <div class="nav nav-tabs nav-justified cpr-dashboard" id="nav-tab" role="tablist">
+        <a class="nav-link active" href="customer-product-research-dashboard.html">Product Research Tool</a>
+        <a class="nav-link " href="customer-ebutify-services-dashboard.html">eButify Services</a>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid p-0">
+        <!-- Info boxes -->
+        <div class="row contact-header px-3 py-2">
+          <div class="col-12">
+            <h3>My Profile</h3>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row collaps-body shadow p-3 m-2">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-lg-5 col-md-5 mt-5 pt-4">
+                <div class="img-fluid img-circle mx-auto d-block" style="width: 160px; height: 160px; overflow: hidden; position: relative;">
+                  <img id="profile_upload_img" src="assets/img/avatar5.png" style="width: 100%; height: 100%;"  alt="">
+                  <input style="display: none;" accept=".png, .jpg, .jpeg, .gif" type="file" id="profile_upload" name="profile_upload">
+                  <div onclick="profile_upload()" style="cursor:pointer; width: 100%; height: 30px; text-align: center; font-size: 20px; background-color: rgba(1,1, 1, .6); position: absolute; bottom: 0; color: white;">
+                    <i class="fa fa-camera"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-7 col-md-7">
+                <form>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="#" placeholder="Md. Rezaul Islam">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="#" placeholder="Boalerdara, Nageswari, Kurigram">
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-4">
+                      <input type="email" class="form-control" id="#" placeholder="Rangpur">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <input type="email" class="form-control" id="#" placeholder="Kurigram">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <input type="email" class="form-control" id="#" placeholder="5660">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="#" placeholder="eButify INC">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="#" placeholder="rezaul.islam@ebutify.com">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="#" placeholder="rezaul.islam@ebutify.com">
+                  </div>
+                </form>
+                <div class="text-right">
+                  <button type="button" class="btn info-save-btn">Save Info</button>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-5 col-md-5 text-center">
+                <h4 style="color: #5D5D5D;">Account Security</h4>
+              </div>
+              <div class="col-lg-7 col-md-7 mt-2">
+                <form>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="#" placeholder="Current Password">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="#" placeholder="New Password">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" class="form-control" id="#" placeholder="Confirm Password">
+                  </div>
+                </form>
+                <div class="text-right">
+                  <button type="button" class="btn info-save-btn">Save Password</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <footer>
           <div class="row justify-content-center my-4">
             <copyright>&copy; 2020 - 2021 eButify Inc. All rights reserved</copyright>
           </div>
         </footer>
+
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->
@@ -343,11 +406,12 @@
 </div>
 <!-- ./wrapper -->
 
+
+
+
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
@@ -358,71 +422,29 @@
 <!--Select2 from-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
-<script src="{{asset('assets/js/script.js')}}"></script>
+<script src="assets/js/script.js"></script>
 
-<script>
+
+<script language="javascript" type="text/javascript">
    $(document) .ready(function(){
     $('.select2').select2({
       width: '100%'
     });
   });
 
-   $(document).on("change", ".filter-item", function(){
-           console.log("sorting updated...");
-           $('#filterForm').submit();
-         });
-
-         // $(document).on("scroll", function(){
-         //   console.log("you scrolled...");
-         //   console.log(window.scrollY);
-         //   if(window.scrollY >=1200)
-         //   {
-         //       //-- fetch data with ajax
-               
-         //       //-- feed current data container
-         //   }
-         // });
-
-
-
-      //  AJAX FOR LOAD MORE PRODUCT
-
-      var ENDPOINT = "{{ url('/') }}";
-      var page = 1;
-      infinteLoadMore(page);
-
-      $(window).scroll(function () {
-          if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-              page++;
-              infinteLoadMore(page);
-          }
+  function profile_upload(){
+    $('#profile_upload').trigger('click');
+  }
+  $(function () {
+      $("#profile_upload").change(function () {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $("#profile_upload_img").attr("src", e.target.result);
+        }
+        reader.readAsDataURL($(this)[0].files[0]);
       });
-
-      function infinteLoadMore(page) {
-          $.ajax({
-                  url: ENDPOINT + "/ali-product?page=" + page,
-                  datatype: "php",
-                  type: "get",
-                  beforeSend: function () {
-                      $('.auto-load').show();
-                  }
-              })
-              .done(function (response) {
-                  if (response.length == 0) {
-                      $('.auto-load').html("No More Products To Show!");
-                      return;
-                  }
-                  $('.auto-load').hide();
-                  $("#data-wrapper").append(response);
-              })
-              .fail(function (jqXHR, ajaxOptions, thrownError) {
-                  console.log('Server error occured');
-              });
-      }
-
+  });
 </script>
-
-@yield('js')
 
 </body>
 </html>

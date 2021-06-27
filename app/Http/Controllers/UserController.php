@@ -11,12 +11,20 @@ use App\Models\ProductType;
 use App\Models\Category;
 use App\Models\Gender;
 use App\Models\Country;
+use App\Models\User;
 use ZipArchive;
 use File;
 
 
 class UserController extends Controller
 {
+	public function profile($id)
+	{
+		$data = User::where('id', $id)->first();
+        return view('user.profile',compact('data'));
+	}
+
+
 	public function allProduct(Request $request)
 	{
 		if(Auth::check()){

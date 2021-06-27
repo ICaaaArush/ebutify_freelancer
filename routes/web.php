@@ -46,7 +46,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/work-report', [Freelancer
 Route::middleware(['auth:sanctum', 'verified'])->get('/message', [FreelancerController::class, 'message'])->name('message');
 
 //  PROFILE (HAS TO BE FOR USER AND FREELANCER)
-Route::middleware(['auth:sanctum', 'verified'])->get('/myprofile', [FreelancerController::class, 'myprofile'])->name('myprofile');
+Route::middleware(['auth:sanctum', 'verified'])->get('/userprofile/{id}', [UserController::class, 'profile'])->name('myprofile');
 
 //  SUBSRIBE FOR USER
 Route::post('/subscribe', [FreelancerController::class,'subscribe'])->name('subscribe');
