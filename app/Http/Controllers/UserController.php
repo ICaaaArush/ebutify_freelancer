@@ -177,6 +177,8 @@ class UserController extends Controller
 
 		// dd( $trendingProducts );
 
+
+
 		foreach ($trendingProducts as $trendingproduct) {
 
 			$country = $trendingproduct->country.",";

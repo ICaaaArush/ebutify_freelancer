@@ -324,6 +324,7 @@
                                                       <div class="col-md-6">
                                                         <div class="row pl-2 selling-sc">
                                                             @php
+                                                             $gifs = 0;
                                                              if (!empty($trendingProduct->productLink[0]->competitor_link_1)){
                                                                  $gifs = $trendingProduct->productLink[0]->competitor_link_1;
                                                                }
@@ -357,11 +358,15 @@
                                                              }
                                                              $files = explode(',', $gifs);
                                                              @endphp
+                                                             @if($gifs == 0)
+                                                               <p>Not currently selling on any Shopify store</p>
+                                                             @else
                                                              <p>Selling on {{count($files)}} Shopify store</p>
+                                                             @endif
                                                            </div>
                                                          <div class="row selling-store">
                                                            <div class="col-12">
-                                                             <?php if (!empty($files)) {
+                                                             <?php if (!empty($files) && $gifs != 0) {
                                                                foreach ($files as $link) {
                                                                  $address1 = $link;
                                                                  $split1 = explode("com",$address1);
