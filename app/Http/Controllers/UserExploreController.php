@@ -245,7 +245,7 @@ class UserExploreController extends Controller
         if (empty($trendingProducts)) {
             $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->orderBy($orderColumn,'DESC')->paginate(18);
         }
-
+        // dd($trendingProducts);
         
         $artilces = '';
         if ($request->ajax()) {

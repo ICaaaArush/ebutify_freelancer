@@ -23,7 +23,7 @@ class FreelancerController extends Controller
 
             //  IF USER TYPE MATCHES
     		if(Auth::user()->user_type == "user"){
-
+                $user_id = auth()->id();
                 //  IF USER'S NOT SUBSCRIBED
                 if(!Auth::user()->subscribed('main')){
 
@@ -53,7 +53,10 @@ class FreelancerController extends Controller
 
             }elseif (Auth::user()->user_type == "freelancer") {
 
-                return view('freelancer.freelancer-dashboard');
+                $user_id = auth()->id();
+                $products = ProductDetail::where('user_id', $user_id)->get();
+                $productAdded = count($products);
+                return view('freelancer.freelancer-dashboard', compact('productAdded'));
             }
 
         }

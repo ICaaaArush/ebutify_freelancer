@@ -34,7 +34,7 @@
                              <input type="hidden" id="uploadername" name="uploadername" value="{{Auth::user()->name}}">
                             <div class="form-group">
                               <label for="inputProduct">product Name</label>
-                              <input type="text" name="pname" class="form-control" id="inputProduct">
+                              <input type="text" required="" name="pname" class="form-control" id="inputProduct">
                             </div>
                             <div class="row">
                               <div class="col-lg-6">
@@ -53,7 +53,7 @@
                                 <div class="form-row">
                                   <div class="form-group col-md-5">
                                     <label for="inputImageLink">Image Link</label>
-                                    <input type="text" name="img_link" class="form-control" id="inputImageLink">
+                                    <input type="text" required="" name="img_link" class="form-control" id="inputImageLink">
                                   </div>
                                   <div class="form-group col-md-4">
                                     <label for="inputProductPrice">Product Price</label>
@@ -61,7 +61,7 @@
                                   </div>
                                   <div class="form-group col-md-3">
                                     <label for="inputStarRatting">Star Ratting</label>
-                                    <input type="number" name="star_rating" class="form-control" id="inputStarRatting">
+                                    <input type="number" step=".01" name="star_rating" class="form-control" id="inputStarRatting">
                                   </div>
                                 </div>
                               </div>

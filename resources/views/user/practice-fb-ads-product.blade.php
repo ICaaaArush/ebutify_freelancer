@@ -484,9 +484,10 @@
                                        </div>
                                     </div>
                                     <div class="row">
+                                       <?php $product_id = $trendingProduct->id ?>
                                        <div class="col-12 modal-footer px-0 mt-2">
                                           <button type="button" class="btn btn-modal-cancel" data-dismiss="modal">Cancel</button>
-                                          <a href="" type="button" class="btn btn-modal-product">View Product</a>
+                                          <a href="{{route('trending-product-details',[$product_id])}}" type="button" class="btn btn-modal-product">View Product</a>
                                        </div>
                                     </div>
                                  </div>
