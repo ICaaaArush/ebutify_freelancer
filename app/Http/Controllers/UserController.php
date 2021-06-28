@@ -12,16 +12,47 @@ use App\Models\Category;
 use App\Models\Gender;
 use App\Models\Country;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+use Hash;
+use Validator;
 use ZipArchive;
 use File;
 
 
 class UserController extends Controller
 {
-	public function profile($id)
+	public function profile()
 	{
-		$data = User::where('id', $id)->first();
-        return view('user.profile',compact('data'));
+        return view('user.profile');
+	}
+
+	public function profileupdate(Request $request){
+
+		$path = $request->profile_upload->store('userimages/profile', 'public');
+
+		$update = User::where('id',Auth::user()->id)->update([
+			'name' => $request->name,
+			'address' => $request->address,
+			'email' =>$request->email,
+			'profile_photo_path' => $path
+		]);
+
+		return back();
+	}
+
+	public function passwordchange(Request $request){
+		$validator = Validator::make($request->all(), [
+			'password' => 'required|password',
+			'new_password' => 'required_with:confirm_password|same:confirm_password',
+			'confirm_password' => ['required'],
+		])->validate();
+		$password = Hash::make($request->new_password);
+		$update = User::where('id',Auth::user()->id)->update([
+			'password' => $password
+		]);
+
+		return back();
+
 	}
 
 

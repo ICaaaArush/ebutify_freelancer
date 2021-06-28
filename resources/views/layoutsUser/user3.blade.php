@@ -160,7 +160,7 @@
           <span class="dropdown-item dropdown-header">{{Auth::user()->name}}</span>
           <div class="dropdown-divider"></div>
           <div class="dropdown-divider"></div>
-          <a href="{{ route('profile') }}" class="dropdown-item">
+          <a href="/userprofile" class="dropdown-item">
             <i class="far fa-user mr-2"></i> My Profile
           </a>
           <div class="dropdown-divider"></div>
