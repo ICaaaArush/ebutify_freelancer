@@ -23,9 +23,13 @@ class ProductController extends Controller
     {
         $user_id = auth()->id();
 
-        $collections = ProductDetail::where('user_id', $user_id)->get();
-
-        $productDetails = $collections->sortByDesc('created_at');
+        $productDetails = ProductDetail::where('user_id', $user_id)
+        ->where('explore_pro_type', 'NOT LIKE' ,'%ali_express%')
+        ->where('explore_pro_type', 'NOT LIKE' ,'%amazon%')
+        ->where('explore_pro_type', 'NOT LIKE' ,'%shopify%')
+        ->orderBy('created_at','DESC')->paginate(50);
+        // dd($productDetails);
+        // $productDetails = $collections->sortBy('created_at','DESC');
 
         return view('freelancer.product-research-new', compact('productDetails'));
     }
@@ -213,7 +217,21 @@ class ProductController extends Controller
         //  FETCH SELECTED CATEGORY DATA
         $category = $productDetails->category;
 
-        $containsHB   = Str::contains($category, 'Health & Beauty');
+        $containsBAC = Str::contains($category, 'Bike Accessories');
+        $containsMAC = Str::contains($category, 'Mobile Accessories');
+        $containsBS = Str::contains($category, 'Bag\'s & Shoes');
+        $containsOD = Str::contains($category, 'Outdoor');
+        $containsBH = Str::contains($category, 'Beauty Hair');
+
+        $containsJW = Str::contains($category, 'Jewellery');
+        $containsKH = Str::contains($category, 'Kitchen & household');
+        $containsCUC = Str::contains($category, 'Computer Accessories');
+        $containsELE = Str::contains($category, 'Electronics');
+        $containsGIM = Str::contains($category, 'Garden Improvement');
+        $containsMFA = Str::contains($category, 'Man\'s Fashion');
+
+        $containsWf = Str::contains($category, ' Women\'s Fashion');
+        $containsHB = Str::contains($category, 'Health & Beauty');
         $containsBK = Str::contains($category, 'Baby & Kids');
         $containsFIT = Str::contains($category, 'Fitness');
         $containsCA = Str::contains($category, 'Car Accessories');
@@ -233,7 +251,7 @@ class ProductController extends Controller
         $containsAv = Str::contains($productStatus, 'Available');
         $containsUnav = Str::contains($productStatus, 'Unavailable');
 
-        return view('freelancer.practice-edit-product', compact('id', 'productDetails', 'productLinks', 'productImages','containsT','containsF','containsU','containsUnder18','containsUnder1824','containsUnder2534','containsUnder3444','containsUnder4554','containsUnder5564','containsUnder65','containsMen','containsWomen','containsBaby','containsUnisex','containsSa','containsUn','containsAv','containsUnav','containsHB','containsBK','containsFIT','containsCA','containsHG','containsPA'));
+        return view('freelancer.practice-edit-product', compact('id', 'productDetails', 'productLinks', 'productImages','containsT','containsF','containsU','containsUnder18','containsUnder1824','containsUnder2534','containsUnder3444','containsUnder4554','containsUnder5564','containsUnder65','containsMen','containsWomen','containsBaby','containsUnisex','containsSa','containsUn','containsAv','containsUnav','containsHB','containsBK','containsFIT','containsCA','containsHG','containsPA','containsBAC','containsMAC','containsBS','containsO','containsBH','containsJW','containsKH','containsCUC','containsELE','containsGIM','containsMFA','containsWf'));
     }
 
     public function productUpdate(Request $request)

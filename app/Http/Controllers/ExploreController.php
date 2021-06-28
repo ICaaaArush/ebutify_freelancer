@@ -21,19 +21,18 @@ class ExploreController extends Controller
     {
         $user_id = auth()->id();
 
-        $collections = ProductDetail::where('user_id', $user_id)
+        $productDetails = ProductDetail::where('user_id', $user_id)
                                             ->where('explore_pro_type', 'LIKE' ,'%ali_express%')
-                                            ->get();
+                                            ->orderBy('created_at','DESC')
+                                            ->paginate(50);
 
-        $productDetails = $collections->sortByDesc('created_at');
+        // $productDetails = $collections->orderBy('created_at','DESC')->paginate('10');
 
         return view('freelancer.explorer-ali-express', compact('productDetails'));
     }
     public function uploadAliPage()
     {
-        $productDetails = ProductDetail::all();
-
-        return view('freelancer.add-new-ali-ex',compact('productDetails'));
+        return view('freelancer.add-new-ali-ex');
     }
 
     public function uploadAli(Request $request)
@@ -86,11 +85,10 @@ class ExploreController extends Controller
     {
         $user_id = auth()->id();
 
-        $collections = ProductDetail::where('user_id', $user_id)
+        $productDetails = ProductDetail::where('user_id', $user_id)
                                             ->where('explore_pro_type', 'LIKE' ,'%amazon%')
-                                            ->get();
-                                            
-        $productDetails = $collections->sortByDesc('created_at');
+                                            ->orderBy('created_at','DESC')
+                                            ->paginate(50);
 
         return view('freelancer.explorer-amazon', compact('productDetails'));
     }
@@ -152,11 +150,10 @@ class ExploreController extends Controller
     {
         $user_id = auth()->id();
 
-        $collections = ProductDetail::where('user_id', $user_id)
+        $productDetails = ProductDetail::where('user_id', $user_id)
                                             ->where('explore_pro_type', 'LIKE' ,'%shopify%')
-                                            ->get();
-
-        $productDetails = $collections->sortByDesc('created_at');
+                                            ->orderBy('created_at','DESC')
+                                            ->paginate(50);
 
         return view('freelancer.explorer-shopify', compact('productDetails'));
     }

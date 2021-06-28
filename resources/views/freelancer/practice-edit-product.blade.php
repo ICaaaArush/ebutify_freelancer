@@ -268,6 +268,42 @@
                                     <h4 class="text-center">Select Category</h4>
                                     <div class="input-group mb-3">
                                       <select class="custom-select" multiple id="inputSelectCategory" size="6" name="category[]" >
+                                        <option @if ($containsWf == true)
+                                        selected="selected"
+                                    @endif>Women's Fashion</option>
+                                        <option @if ($containsMFA == true)
+                                        selected="selected"
+                                    @endif>Man's Fashion</option>
+                                        <option @if ($containsGIM == true)
+                                        selected="selected"
+                                    @endif>Garden Improvement</option>
+                                        <option @if ($containsELE == true)
+                                        selected="selected"
+                                    @endif>Electronics</option>
+                                        <option @if ($containsCUC == true)
+                                        selected="selected"
+                                    @endif>Computer Accessories</option>
+                                        <option @if ($containsKH == true)
+                                        selected="selected"
+                                    @endif>Kitchen & household</option>
+                                        <option @if ($containsJW == true)
+                                        selected="selected"
+                                    @endif>Jewellery</option>
+                                        <option @if ($containsBAC == true)
+                                        selected="selected"
+                                    @endif>Bike Accessories</option>
+                                        <option @if ($containsMAC == true)
+                                        selected="selected"
+                                    @endif>Mobile Accessories</option>
+                                        <option @if ($containsBS == true)
+                                        selected="selected"
+                                    @endif>Bag's & Shoes</option>
+                                        <option @if ($containsOD == true)
+                                        selected="selected"
+                                    @endif>Outdoor</option>
+                                        <option @if ($containsBH == true)
+                                        selected="selected"
+                                    @endif>Beauty Hair</option>
                                         <option @if ($containsHB == true)
                                         selected="selected"
                                     @endif>Health & Beauty</option>
@@ -282,7 +318,7 @@
                                     @endif>Car Accessories</option>
                                         <option @if ($containsHG == true)
                                         selected="selected"
-                                    @endif>Home & Gerden</option>
+                                    @endif>Home & Garden</option>
                                         <option @if ($containsPA == true)
                                         selected="selected"
                                     @endif>Pet Accessories</option>

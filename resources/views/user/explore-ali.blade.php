@@ -65,72 +65,17 @@
           <div class="card-deck">
             <!-- SHOW PRODUCT DETAILS -->
             <!-- FOREACH STARTS -->
-            @foreach($trendingProducts as $trendingProduct)
-            <div class="col-md-4 mt-4">
-              <div class="card shadow">
-                @foreach ($trendingProduct->productImage as $productImage)
-                <img src="{{$productImage->image_link_1}}" class="card-img-top img-fluid" alt="...">
-                @endforeach
-                <div class="row card-body px-2">
-                  <div class="col-12 pb-1 px-3" style="border-bottom: 2px solid #DCDCDC;">
-                    <h5 class="card-title">{{$trendingProduct->product_name}}</h5>
-                  </div> 
-                  <div class="row mt-3">
-                    <div class="col-12 text-center px-3">
-                      <?php if ($trendingProduct->explore_star_rating >= 1) { ?>
-                        <span class="fa fa-star checked"></span>
-                      <?php } else { ?>
-                        <span class="fa fa-star"></span>
-                      <?php } ?>
-                      <?php if ($trendingProduct->explore_star_rating >= 2) { ?>
-                        <span class="fa fa-star checked"></span>
-                      <?php } else { ?>
-                        <span class="fa fa-star"></span>
-                      <?php } ?>
-                      <?php if ($trendingProduct->explore_star_rating >= 3) { ?>
-                        <span class="fa fa-star checked"></span>
-                      <?php } else { ?>
-                        <span class="fa fa-star"></span>
-                      <?php } ?>
-                      <?php if ($trendingProduct->explore_star_rating >= 4) { ?>
-                        <span class="fa fa-star checked"></span>
-                      <?php } else { ?>
-                        <span class="fa fa-star"></span>
-                      <?php } ?>
-                      <?php if ($trendingProduct->explore_star_rating == 5) { ?>
-                        <span class="fa fa-star checked"></span>
-                      <?php } else { ?>
-                        <span class="fa fa-star"></span>
-                      <?php } ?>
-                      <span>{{$trendingProduct->explore_star_rating}}</span>
-                    </div>
-                    <div class="col-12 text-center px-3">
-                      <span class="cae-cart-icon"><i class="fas fa-shopping-basket"></i> Total Order</span>
-                      <span>{{$trendingProduct->total_order}}</span>
-                    </div>
-                    
-                    <div class="col-12 text-center px-3">
-                      <span class="cae-cart-icon"><i class="fas fa-atom"></i> Selling Price</span>
-                      <span>{{$trendingProduct->price}}</span>
-                    </div>
-                  </div>
-                </div>
-                @foreach ($trendingProduct->ProductLink as $productLink)
-                <div class="row px-2 mb-2 rounded justify-content-center">
-                  <a href="{{$productLink->aliexpress}}" class="cae-view"><img src="{{asset('assets/img/aliExpress-logo.png')}}" class="img-fluid" style="width: 16px; margin: 5px;" alt=""> View on a Demo</a>
-                </div>
-                @endforeach
-              </div>
-            </div>
-            @endforeach
+
             <!-- FOREACH ENDS -->
 
             <!-- LOAD MORE DATA SHOW -->
  
-                <div class="card-deck" id="data-wrapper">
-                </div>
 
-              <!-- RESULTS -->
+                <div class="card-deck" id="data-wrapper">
+                
+                    <!-- RESULTS -->
+            
+                </div>
 
             <!-- LOAD MORE DATA END -->
 
@@ -154,3 +99,40 @@
 
 @endsection
 
+@section('js')
+<script>
+    var ENDPOINT = "{{ url('/') }}";
+    var page = 1;
+    infinteLoadMore(page);
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            page++;
+            infinteLoadMore(page);
+        }
+    });
+
+    function infinteLoadMore(page) {
+        $.ajax({
+                url: ENDPOINT + "/ali-product?page=" + page,
+                datatype: "html",
+                type: "get",
+                beforeSend: function () {
+                    $('.auto-load').show();
+                }
+            })
+            .done(function (response) {
+                if (response.length == 0) {
+                    $('.auto-load').html("<br>No More Products To Show!");
+                    return;
+                }
+                $('.auto-load').hide();
+                $("#data-wrapper").append(response);
+            })
+            .fail(function (jqXHR, ajaxOptions, thrownError) {
+                console.log('Server error occured');
+            });
+    }
+
+</script>
+@endsection

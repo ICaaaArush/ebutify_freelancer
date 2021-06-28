@@ -10,7 +10,7 @@
             <div class="col-md-12">
                 <form class="row mb-3 mt-1">
                     <div class="col-12 col-sm pr-sm-0">
-                        <input type="text" name="search" id="search" value="Search Listed Product Here" placeholder="Search accounts, contracts and transactions" class="form-control">
+                        <input type="text" id="myInput" onkeyup="myFunction()" class="form-control" placeholder="Search for names here... " aria-label="Recipient's username">
                     </div>
                     <div class="col-12 col-sm-auto pl-sm-0">
                         <input type="button" name="commit" value="Search" class="btn btn-primary btn-block">
@@ -35,8 +35,7 @@
                   <th>ID</th>
                   <th>Image</th>
                   <th>Product Name</th>
-                  <th>Ali Express Link</th>
-                  <th>Amazon Link</th>
+                  <th>Total Sales</th>
                   <th>Price</th>
                   <th>Explore Star Rating</th>
                   <th>Explore Total Review</th>
@@ -45,20 +44,16 @@
                   <th width="100">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="myTable">
                 <?php $i=1 ?>
                 @foreach($productDetails as $productDetail)
                 <tr>
-                  <td>{{$i}}</td>
-                  <?php $i++ ?>
+                  <td>{{$productDetail->id}}</td>
                   @foreach ($productDetail->productImage as $productImage)
                   <td><img class="tbl-img" src="{{$productImage->image_link_1}}"></td>
                   @endforeach
                   <td>{{$productDetail->product_name}}</td>
-                  @foreach ($productDetail->productLink as $productLink)
-                  <td>{{$productLink->aliexpress}}</td>
-                  <td>{{$productLink->amazon}}</td>
-                  @endforeach
+                  <td>{{$productDetail->total_revenue}}</td>
                   <td>${{$productDetail->price}}</td>
                   <td>{{$productDetail->explore_star_rating}}</td>
                   <td>{{$productDetail->explore_t_review}}</td>
@@ -74,15 +69,7 @@
                 @endif
             <nav aria-label="Page navigation">
               <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-caret-left"></i></a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#"><i class="fas fa-caret-right"></i></a>
-                </li>
+                {{ $productDetails->links() }}
               </ul>
             </nav>
 
@@ -97,4 +84,17 @@
   </div>
   <!-- /.content-wrapper -->
 
+@endsection
+
+@section('js')
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 @endsection

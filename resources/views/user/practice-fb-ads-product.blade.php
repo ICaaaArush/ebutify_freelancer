@@ -324,6 +324,7 @@
                                                       <div class="col-md-6">
                                                         <div class="row pl-2 selling-sc">
                                                             @php
+                                                             $gifs = 0;
                                                              if (!empty($trendingProduct->productLink[0]->competitor_link_1)){
                                                                  $gifs = $trendingProduct->productLink[0]->competitor_link_1;
                                                                }
@@ -357,11 +358,15 @@
                                                              }
                                                              $files = explode(',', $gifs);
                                                              @endphp
+                                                             @if($gifs == 0)
+                                                               <p>Not currently selling on any Shopify store</p>
+                                                             @else
                                                              <p>Selling on {{count($files)}} Shopify store</p>
+                                                             @endif
                                                            </div>
                                                          <div class="row selling-store">
                                                            <div class="col-12">
-                                                             <?php if (!empty($files)) {
+                                                             <?php if (!empty($files) && $gifs != 0) {
                                                                foreach ($files as $link) {
                                                                  $address1 = $link;
                                                                  $split1 = explode("com",$address1);
@@ -479,9 +484,10 @@
                                        </div>
                                     </div>
                                     <div class="row">
+                                       <?php $product_id = $trendingProduct->id ?>
                                        <div class="col-12 modal-footer px-0 mt-2">
                                           <button type="button" class="btn btn-modal-cancel" data-dismiss="modal">Cancel</button>
-                                          <a href="" type="button" class="btn btn-modal-product">View Product</a>
+                                          <a href="{{route('trending-product-details',[$product_id])}}" type="button" class="btn btn-modal-product">View Product</a>
                                        </div>
                                     </div>
                                  </div>

@@ -50,7 +50,7 @@
                 <?php $i=1 ?>
                 @foreach($productDetails as $productDetail)
                 <tr>
-                  <td>{{$i}}</td>
+                  <td>{{$productDetail->id}}</td>
                   @foreach ($productDetail->productImage as $productImage)
                   <td><img class="tbl-img" src="{{$productImage->image_link_1}}"></td>
                   @endforeach
@@ -71,14 +71,11 @@
               </tbody>
             </table>  
 
-
-
-                
-               
-
-
-
-
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center">
+                {{ $productDetails->links() }}
+              </ul>
+            </nav>
       
           </div>
           <!-- /.col -->
