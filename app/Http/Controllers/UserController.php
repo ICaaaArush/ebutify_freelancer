@@ -1016,25 +1016,32 @@ class UserController extends Controller
 	}
 
     public function downloadGIF($gifs)
-    {
+	{
     	// echo $gifs;
     	$files = explode(',', $gifs);
-    	// dd($files);
+    	$headers = [
+        'Content-Type' => 'application/octet-stream',
+    ];
     	$zip = new ZipArchive();
 		$zip_name = "ebutify_gif_".time().".zip"; // Zip name
+	    touch($zip_name);
+		
 		$zip->open($zip_name,  ZipArchive::CREATE);
 		foreach ($files as $file) {
-		  echo $path = public_path('storage/').$file;
-		  if(file_exists($path)){
+		  $path = asset('/storage/'.$file);
+		  //if(file_exists($path)){
 		  $zip->addFromString(basename($path),  file_get_contents($path));
-		  }
-		  else{
-		   echo" file does not exist";
-		  }
+		  //}
+		  //else{
+		  // echo"file does not exist";
+		  //}
 		}
 		$zip->close();
+// 		dd(basename($path));
+// 		dd($zip);
 
-		return response()->download(public_path($zip_name));
+// 		return response()->download('http://ecomfia.com/'.$zip_name);
+        return redirect('https://ecomfia.com/'.$zip_name);
 
     }
 }
