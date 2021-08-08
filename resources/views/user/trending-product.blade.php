@@ -17,7 +17,7 @@
         <div class="row mx-2 my-3">
           <div class="col-12 facebook-ads-header d-flex justify-content-between">
             <h3>Trending Product Research</h3>
-            <a type="button" class="btn btn-facebook-ads" href=""><i class="fas fa-video"></i> Tutorials</a>
+            <a type="button" class="btn btn-facebook-ads" href="{{url('tutorial')}}"><i class="fas fa-video"></i> Tutorials</a>
           </div>
                <form class="col-12" method="get" action="{{ route('trending-products') }}">
                   <div class="col-12">
@@ -214,7 +214,7 @@
                 </div>
 <?php $product_id = $trendingProduct->id ?>
                 <div class="row mx-4 px-2 mb-2 justify-content-center rounded icon-btn">
-                  <a href="{{route('trending-product-details',[$product_id])}}" type="button" class="btn fb-ads-card-btn">View Product Details</a>
+                  <a href="{{route('product-details',[$product_id])}}" type="button" class="btn fb-ads-card-btn">View Product Details</a>
                 </div>
               </div>
 </div>
@@ -310,7 +310,7 @@
 
     var ENDPOINT = "{{ url('/') }}";
     var page = 1;
-    infinteLoadMore(page);
+    //infinteLoadMore(page);
 
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
@@ -318,10 +318,29 @@
             infinteLoadMore(page);
         }
     });
+    $('html,body').bind('touchmove', function(e) { 
+      page++;
+      infinteLoadMore(page);
+    });
 
     function infinteLoadMore(page) {
+            
+        let urlWithoutQueryString = "{{ url()->current() }}";
+        // console.log(`urlWithoutQueryString: ${urlWithoutQueryString}`);
+        
+        let urlWithQueryString = "{{ url()->full() }}";
+        // console.log(`urlWithQueryString: ${urlWithQueryString}`);
+        
+        let actualQueryString = urlWithQueryString.replace(urlWithoutQueryString, "");
+        if(actualQueryString != ""){
+            actualQueryString = actualQueryString.replace(/&amp;/g, '&') + "&";
+        }else{
+            actualQueryString = "?";
+        }
+        // console.log(`actualQueryString: ${actualQueryString}`);
+        
         $.ajax({
-                url: ENDPOINT + "/trending-products?page=" + page,
+                url: urlWithoutQueryString + actualQueryString + "page=" + page,
                 datatype: "html",
                 type: "get",
                 beforeSend: function () {
@@ -335,13 +354,14 @@
                 }
                 $('.auto-load').hide();
                 $("#data-wrapper").append(response);
+                
+                //-- INITIATE SLICK ON DYNAMICALLY ADDED CONTENTS
+                initiateSlick('yes');
             })
             .fail(function (jqXHR, ajaxOptions, thrownError) {
                 console.log('Server error occured');
             });
     }
-
-
 
 </script>
 @endsection

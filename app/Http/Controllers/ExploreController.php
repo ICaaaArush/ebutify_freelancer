@@ -11,6 +11,7 @@ use App\Models\ProductType;
 use App\Models\Category;
 use App\Models\Gender;
 use App\Models\Country;
+use App\Models\ShopifyProduct;
 use ZipArchive;
 use File;
 
@@ -22,9 +23,12 @@ class ExploreController extends Controller
         $user_id = auth()->id();
 
         $productDetails = ProductDetail::where('user_id', $user_id)
-                                            ->where('explore_pro_type', 'LIKE' ,'%ali_express%')
+                                            ->where('explore_pro_type', 'LIKE','%ali_express%')
                                             ->orderBy('created_at','DESC')
                                             ->paginate(50);
+                                            
+        // $productDetails = ProductDetail::orderBy('created_at','DESC')
+        //                                     ->paginate(1000);
 
         // $productDetails = $collections->orderBy('created_at','DESC')->paginate('10');
 
@@ -150,8 +154,7 @@ class ExploreController extends Controller
     {
         $user_id = auth()->id();
 
-        $productDetails = ProductDetail::where('user_id', $user_id)
-                                            ->where('explore_pro_type', 'LIKE' ,'%shopify%')
+        $productDetails = ShopifyProduct::where('user_id', $user_id)
                                             ->orderBy('created_at','DESC')
                                             ->paginate(50);
 
@@ -160,57 +163,51 @@ class ExploreController extends Controller
 
     public function uploadShopifyPage()
     {
-        $productDetails = ProductDetail::all();
+        $productDetails = ShopifyProduct::all();
 
         return view('freelancer.add-new-shopify',compact('productDetails'));
     }
 
     public function uploadShopify(Request $request)
     {
-        // dd($request->all());
-
-        $category = $request->category;
-
-        if (is_array($category)) {
-        $category = implode(',', $category);
-        }
-        
-        
-        $i=0;
-        foreach($request->holder as $holder) {
-                 
-
-                $productDetails = new ProductDetail;
-                $productDetails->product_name = $request->input('pname'.$i);
-                $productDetails->price = $request->input('price'.$i);
-                $productDetails->product_type_id = $request->input('type'.$i);
-                $productDetails->monthly_traffic = $request->input('monthly_traffic');
-                $productDetails->ads_spend = $request->input('ads_spend');
-                $productDetails->running_ads = $request->input('running_ads');
-                $productDetails->fb_page_link = $request->input('fb_page_link');
-                $productDetails->uploader_name = $request->input('uploadername');
-                $productDetails->explore_pro_type = "shopify";
-
-                $productDetails->user_id  = auth()->id();
-
-                $productDetails->save();
-
-                $productImage = new ProductImage;
-                $productImage->image_link_1 = $request->input('img1'.$i);
-
-                $productDetails->productImage()->save($productImage);
-
-                $productLinks = new ProductLink;
-                $productLinks->shopify = $request->input('shopify');
-                $productLinks->competitor_link_1 = $request->input('competitor1'.$i);
-                $productLinks->aliexpress = $request->input('aliexpress'.$i);
-
-                $productDetails->productLink()->save($productLinks);
-
-                $i++;
-        }
-        
-
-        return back()->with('status', 'Product Uploaded Successfully!');
+                $shopify_products = new ShopifyProduct;
+                $shopify_products->shopify_link = $request->input('shopify');
+                $shopify_products->monthly_traffic = $request->input('monthly_traffic');
+                $shopify_products->ad_spend = $request->input('ad_spend');
+                $shopify_products->running_ads = $request->input('running_ads');
+                $shopify_products->fb_link = $request->input('fb_page_link');
+                
+                $shopify_products->product_name = $request->input('pname');
+                $shopify_products->image_link = $request->input('img1');
+                $shopify_products->price  = $request->input('price');
+                $shopify_products->product_link = $request->input('competitor1');
+                $shopify_products->ali_express_link = $request->input('aliexpress');
+                $shopify_products->product_type = $request->input('type'); 
+                
+                $shopify_products->product_name2 = $request->input('pname1');
+                $shopify_products->image_link2 = $request->input('img11');
+                $shopify_products->price2  = $request->input('price1');
+                $shopify_products->product_link2 = $request->input('competitor11');
+                $shopify_products->ali_express_link2 = $request->input('aliexpress1');
+                $shopify_products->product_type2 = $request->input('type1');
+                
+                $shopify_products->product_name3 = $request->input('pname2');
+                $shopify_products->image_link3 = $request->input('img12');
+                $shopify_products->price3  = $request->input('price2');
+                $shopify_products->product_link3 = $request->input('competitor12');
+                $shopify_products->ali_express_link3 = $request->input('aliexpress2');
+                $shopify_products->product_type3 = $request->input('type2');
+                
+                $shopify_products->product_name4 = $request->input('pname3');
+                $shopify_products->image_link4 = $request->input('img13');
+                $shopify_products->price4  = $request->input('price3');
+                $shopify_products->product_link4 = $request->input('competitor13');
+                $shopify_products->ali_express_link4 = $request->input('aliexpress3');
+                $shopify_products->product_type4 = $request->input('type3');
+                
+                $shopify_products->uploader_name = $request->input('uploadername');
+                $shopify_products->user_id = auth()->id();
+                $shopify_products->save();
+                return back()->with('status', 'Product Uploaded Successfully!');
     }
 }

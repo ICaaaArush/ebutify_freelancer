@@ -17,7 +17,7 @@
         <div class="row mx-2 my-3">
           <div class="col-12 facebook-ads-header d-flex justify-content-between">
             <h3>All Product Research</h3>
-            <a type="button" class="btn btn-facebook-ads" href=""><i class="fas fa-video"></i> Tutorials</a>
+            <a type="button" class="btn btn-facebook-ads" href="{{url('tutorial')}}"><i class="fas fa-video"></i> Tutorials</a>
           </div>
           <form class="col-12" method="get" action="{{ route('all-product') }}">
             <div class="col-12">
@@ -258,7 +258,7 @@
 
     var ENDPOINT = "{{ url('/') }}";
     var page = 1;
-    infinteLoadMore(page);
+    //infinteLoadMore(page);
 
     $(window).scroll(function () {
         if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
@@ -266,10 +266,30 @@
             infinteLoadMore(page);
         }
     });
+    
+    $('html,body').bind('touchmove', function(e) { 
+      page++;
+      infinteLoadMore(page);
+    });
 
     function infinteLoadMore(page) {
+            
+        let urlWithoutQueryString = "{{ url()->current() }}";
+        // console.log(`urlWithoutQueryString: ${urlWithoutQueryString}`);
+        
+        let urlWithQueryString = "{{ url()->full() }}";
+        // console.log(`urlWithQueryString: ${urlWithQueryString}`);
+        
+        let actualQueryString = urlWithQueryString.replace(urlWithoutQueryString, "");
+        if(actualQueryString != ""){
+            actualQueryString = actualQueryString.replace(/&amp;/g, '&') + "&";
+        }else{
+            actualQueryString = "?";
+        }
+        // console.log(`actualQueryString: ${actualQueryString}`);
+        
         $.ajax({
-                url: ENDPOINT + "/all-product?page=" + page,
+                url: urlWithoutQueryString + actualQueryString + "page=" + page,
                 datatype: "html",
                 type: "get",
                 beforeSend: function () {
@@ -283,6 +303,9 @@
                 }
                 $('.auto-load').hide();
                 $("#data-wrapper").append(response);
+                
+                //-- INITIATE SLICK ON DYNAMICALLY ADDED CONTENTS
+                initiateSlick('yes');
             })
             .fail(function (jqXHR, ajaxOptions, thrownError) {
                 console.log('Server error occured');

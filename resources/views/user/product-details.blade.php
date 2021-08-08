@@ -11,32 +11,34 @@
     </nav>
 
     <!-- Main content -->
+<?php $mob = 0; ?>
 @foreach($trendingProducts as $trendingProduct)
-    <section class="content">
+<?php $mob++; ?>
+<section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
         <div class="modal-header">
           <h5 class="modal-title pl-2" id="UntappedModalLabel">{{$trendingProduct->product_name}}</h5>
         </div>
-@php
-$date1 = new DateTime("now");
+  @php
+  $date1 = new DateTime("now");
 
-$date2 = date_create($trendingProduct->created_at);
+  $date2 = date_create($trendingProduct->created_at);
 
-$diff = date_diff($date1,$date2);
+  $diff = date_diff($date1,$date2);
 
-$month = $diff->m;                 
-$day = $diff->d;                 
-$hour = $diff->h;
-$minute = $diff->i;
+  $month = $diff->m;                 
+  $day = $diff->d;                 
+  $hour = $diff->h;
+  $minute = $diff->i;
 
-@endphp
+  @endphp
         <div class="row uptapped-active-found">
             <p>Found {{$diff->m}} Month {{$diff->d}} Days {{$diff->h}} Hours {{$diff->i}} Minutes ago</p>
         </div>
         <div class="modal-body veiw-detail-modal pt-1">
           <div class="row pt-2">
-@foreach ($trendingProduct->productImage as $productImage)
+  @foreach ($trendingProduct->productImage as $productImage)
             <div class="col-lg-4">
               <div class="row mx-1 mb-4">
                 <div class="col-12">
@@ -77,7 +79,7 @@ $minute = $diff->i;
                 </div>
               </div>
             </div>
-@endforeach
+  @endforeach
             <div class="col-lg-8">
               <div class="row mx-1">
                 <div class="col-12">
@@ -166,9 +168,9 @@ $minute = $diff->i;
                               $countrys = $trendingProduct->country;
                               $countrys = explode(',', $countrys);
                               @endphp
-@foreach($countrys as $country)
+  @foreach($countrys as $country)
                               <p><img src="{{asset('assets/img/web-path.png')}}" style="width: 20px; margin-top: -6px;" alt=""> {{$country}}</p>
-@endforeach
+  @endforeach
                             </div>
                           </div>
                       </div>
@@ -183,7 +185,7 @@ $minute = $diff->i;
               <div class="col-lg-4">
                 <div class="row mx-2">
                   <div class="col-12 shadow bg-white border-rounded mb-4">
-@foreach ($trendingProduct->ProductLink as $productLink)
+  @foreach ($trendingProduct->ProductLink as $productLink)
                     <ul class="list-group list-group-flush py-3 list-unstyled prm-list">
                       <li><a class="list-group-item rounded my-1" href="{{$productLink->competitor_link_1}}" role="tab"><i class="fas fa-store-alt"></i> Visit Competitor Store</a></li>
                       <li><a class="list-group-item rounded my-1" href="{{$productLink->aliexpress}}" role="tab"><img src="{{asset('assets/img/ali.png')}}" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
@@ -192,25 +194,25 @@ $minute = $diff->i;
                       <li><a class="list-group-item rounded my-1" href="{{$productLink->facebook_ad}}" role="tab"><i class="fab fa-facebook"></i> View Facebook Ads</a></li>
                       <li><a class="list-group-item rounded my-1" href="{{$productLink->youtube}}" role="tab"><i class="fab fa-youtube"></i> View YouTube Review</a></li>
                     </ul>
-@endforeach
-@foreach ($trendingProduct->productImage as $productImage)
+  @endforeach
+  @foreach ($trendingProduct->productImage as $productImage)
                     <div class="slider2">
                       <div>
-                        <img src="{{asset('storage/'.$productImage->gif_1)}}" class="img-fluid" alt="">
+                        <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="">
                       </div>
                       <div>
-                        <img src="{{asset('storage/'.$productImage->gif_2)}}" class="img-fluid" alt="">
+                        <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="">
                       </div>
                       <div>
-                        <img src="{{asset('storage/'.$productImage->gif_3)}}" class="img-fluid" alt="">
+                        <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="">
                       </div>
                     </div>
                     <div class="slider-nav2 my-2 justify-content-between">
-                        <img src="{{asset('storage/'.$productImage->gif_1)}}" class="img-fluid" alt="">
-                        <img src="{{asset('storage/'.$productImage->gif_2)}}" class="img-fluid" alt="">
-                        <img src="{{asset('storage/'.$productImage->gif_3)}}" class="img-fluid" alt="">
+                        <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="">
+                        <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="">
+                        <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="">
                     </div>
-@endforeach
+  @endforeach
                     @php
                     if (!empty($productImage->gif_1)){
                         $gifs = $productImage->gif_1;
@@ -239,43 +241,88 @@ $minute = $diff->i;
                 </div>
               </div>
               <div class="col-lg-8 tab-content">
-                <div class="row mb-2 mx-2">
+               <div class="row mb-2 mx-2">
                   <div class="tab-pane fade show active" role="tabpanel">
-                    <ul class="nav nav-tabs modal-tab nav-justified shadow" role="tablist">
+                    <ul class="nav nav-tabs modal-tab nav-justified shadow role='tablist'">
                       <li class="nav-item plan-tab" role="presentation">
-                        <a class="nav-link active" data-toggle="tab" href="#pd1" style="font-size: 13px;" role="tab">Product Description</a>
+                        <a class="nav-link active" data-toggle="tab" href="#pd{{$mob}}" style="font-size: 13px;" role="tab">Product Description</a>
                       </li>
                       <li class="nav-item plan-tab" role="presentation">
-                        <a class="nav-link nav-link-show-1" data-toggle="tab" href="#far1" style="font-size: 13px;" role="tab">Facebook Audience Research</a>
-                        <a class="nav-link nav-link-show-2" data-toggle="tab" href="#far1" style="font-size: 13px;" role="tab">Fb Audience Research</a>
+                        <a class="nav-link nav-link-show-1" data-toggle="tab" href="#far{{$mob}}" style="font-size: 13px;" role="tab">Facebook Audience Research</a>
                       </li>
                     </ul>
                     <div class="tab-content pr-modal-tab bg-white shadow">
-                      <div class="tab-pane fade show active pb-3" id="pd1" role="tabpanel">
+                      <div class="tab-pane fade show active pb-3" id="pd{{$mob}}" role="tabpanel">
                         <div class="row mx-3 pt-3 plan-header">
-                            <p><?php echo $trendingProduct->description;?>
-                            </p>
+                            <p>{!!$trendingProduct->description!!}</p>
                         </div>
                       </div>
-                      <div class="tab-pane pb-3 fade" id="far1" role="tabpanel">
+                      <div class="tab-pane pb-3 fade" id="far{{$mob}}" role="tabpanel">
                         <div class="row mx-3 pt-3 plan-header">
-                            <p>No data given
-                            </p>
+                          <div class="col-md-6">
+                            <div class="far-video-hedear">
+                              <h3>Facebook video ads</h3>
+                              <button type="button" class="btn far-download-btn">Download</button>
+                            </div>
+                            <div class="product-video-container embed-responsive embed-responsive-16by9">
+                              <i class="fas fa-play-circle video2-icon-play"></i>
+                              <i class="fas fa-pause-circle video2-icon-pause" style="display: none;"></i>
+                              <video id="video-control-2">
+                                <source src="{{asset('storage/app/public/'.$trendingProduct->video_name)}}" type="video/mp4">
+                              </video>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="far-all-hedear mb-3">
+                              <h3>Facebook Content</h3>
+                            </div>
+                            <div class="far-fb-content-text shadow-sm">
+                              <p class="far-fb-text">{{$trendingProduct->content}}</p>
+                            </div>
+                          </div>
                         </div>
+                        @php
+                        $ages = $trendingProduct->age;
+                        $ages = explode(',', $ages);
+                        @endphp
+                        <div class="row m-2 p-2">
+                          <div class="col-6 far-all-hedear">
+                            <h3>Targeting Age</h3>
+                            <div class="far-age-target-content shadow-sm">
+                              <p>This ads on facebook & other social media targeted age range below.</p>
+                              @foreach($ages as $age)
+                              <p class="mt-2">
+                                {{$age}}; <br>
+                              </p>
+                              @endforeach
+                            </div>
+                          </div>
+                           @php
+                           $genders = $trendingProduct->gender;
+                           $genders = explode(',', $genders);
+                           @endphp
+                          <div class="col-6 far-all-hedear">
+                            <h3>Targeting Gender</h3>
+                            <div class="far-genter-content shadow-sm">
+                              <p>This ads on facebook & other social media targeted gender below.</p>
+                              @foreach($genders as $gender)
+                              <p class="mt-2">{{$gender}};<br></p>
+                              @endforeach
+                            </div>
+                          </div>
+                        </div>
+
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+               </div>
+            </div>
             </div>
             <div class="row">
-              <div class="col-12 modal-footer px-0 mt-2">
-                <a href="" type="button" class="btn btn-modal-product">View Product</a>
-              </div>
             </div>
         </div>
       </div>
-    </section>
+</section>
         <!-- /.row -->
 @endforeach
 @endsection

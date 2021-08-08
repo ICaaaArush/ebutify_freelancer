@@ -3,7 +3,7 @@
 
       <!-- Content Wrapper. Contains page content -->
 
-      <div class="content-wrapper">
+<div class="content-wrapper">
          <nav>
             <div class="nav nav-tabs nav-justified cpr-dashboard" id="nav-tab" role="tablist">
                <a class="nav-link active" href="customer-product-research-dashboard.html">Product Research Tool</a>
@@ -17,7 +17,7 @@
                <div class="row mx-2 my-3">
                   <div class="col-12 facebook-ads-header d-flex justify-content-between">
                      <h3>Facebook Ad Products</h3>
-                     <a type="button" class="btn btn-facebook-ads" href=""><i class="fas fa-video"></i> Tutorials</a>
+                     <a type="button" class="btn btn-facebook-ads" href="{{url('tutorial')}}"><i class="fas fa-video"></i> Tutorials</a>
                   </div>
                   <form class="col-12" method="get" action="{{ route('fb-ad-products') }}">
                      <div class="col-12">
@@ -31,7 +31,7 @@
                   </form>
                </div>
                <!-- /.row -->
-               <form id="filterForm" method="get" action="{{ route('trending-products') }}">
+               <form id="filterForm" method="get" action="{{ route('fb-ad-products') }}">
                   <div class="row mx-2">
                      <div class="col-sm-12 col-md-6 col-lg-3 my-1">
                         <select class="form-control select2 filter-item" name="category">
@@ -144,360 +144,497 @@
                   </div>
                </form>
                <!-- /.row -->
-               <div class="row mx-3 mt-3">
-                  <div class="card-deck">
+   <div class="row mx-3 mt-3">
+   <div class="card-deck">
                      
-<?php $j = 1; ?>
-@if ($trendingProducts->count() == 0)
-<div class="justify-content-center" >
+   <?php $j = 1; ?>
+   @if ($trendingProducts->count() == 0)
+   <div class="justify-content-center" >
 
-   <p class="justify-content-center" style="text-align: center;">No products to display.</p>
+      <p class="justify-content-center" style="text-align: center;">No products to display.</p>
 
-</div>
-@endif
+   </div>
+   @endif
 
-@foreach($trendingProducts as $trendingProduct)
-<div class="col-md-4 mt-4">
-                     <div class="card shadow" style="min-width: 280px;">
-                        <div class="row px-2" data-toggle="modal" data-target="#modal_demo{{$j}}">
-                           @foreach ($trendingProduct->productImage as $productImage)
-                           <div class="col-12 p-0 video-icon">
-                              <img src="{{$productImage->image_link_1}}" class="card-img-top img-fluid" alt="..." style="max-height:300px;">
-                              <i class="fas fa-play-circle video-play-icon"></i>
+   @foreach($trendingProducts as $trendingProduct)
+   <div class="col-md-4 mt-4">
+                        <div class="card shadow" style="min-width: 280px;">
+                           <div class="row px-2" data-toggle="modal" data-target="#modal_demo{{$trendingProduct->id}}">
+                              @foreach ($trendingProduct->productImage as $productImage)
+                              <div class="col-12 p-0 video-icon">
+                                 <img src="{{$productImage->image_link_1}}" class="card-img-top img-fluid" alt="..." style="max-height:300px;">
+                                 <i class="fas fa-play-circle video-play-icon"></i>
+                              </div>
+                              @endforeach
+                              <div class="col-12 mt-4 pb-1 px-3" style="border-bottom: 2px solid #DCDCDC;">
+                                 <h5 class="card-title">{{$trendingProduct->product_name}}</h5>
+                              </div>
+                           </div>
+                           <div class="row card-body pt-0 px-2">
+                              <div class="col-12 px-3">
+                                 <div class="row">
+                                    <div class="col-7">
+                                       <span>Order</span>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                       <span>{{$trendingProduct->total_order}}</span>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-7">
+                                       <span>Product Cost</span>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                       <span>${{$trendingProduct->cost}}</span>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-7">
+                                       <span>Selling Price</span>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                       <span>${{$trendingProduct->price}}</span>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-7">
+                                       <span>Profit Margin</span>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                       <span>${{$trendingProduct->profit}}</span>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <div class="col-7">
+                                       <span>Total Sales</span>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                       <span>${{$trendingProduct->total_revenue}}</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           @foreach ($trendingProduct->ProductLink as $productLink)
+                           <div class="row mx-4 px-2 mb-2 rounded justify-content-between icon-btn">
+                              <a href="{{$productLink->facebook_ad}}" class="fb-ads-card-footer"><img src="{{asset('assets/img/fb-2.png')}}" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="{{$productLink->aliexpress}}" class="fb-ads-card-footer"><img src="{{asset('assets/img/ali.png')}}" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="{{$productLink->amazon}}" class="fb-ads-card-footer"><img src="{{asset('assets/img/amz.png')}}" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="{{$productLink->competitor_link_1}}" class="fb-ads-card-footer"><img src="{{asset('assets/img/shp.png')}}" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="{{$productLink->youtube}}" class="fb-ads-card-footer"><i class="fab fa-youtube" style="color: #FF0000; font-size: 26px;margin: 0 5px;"></i></a>
                            </div>
                            @endforeach
-                           <div class="col-12 mt-4 pb-1 px-3" style="border-bottom: 2px solid #DCDCDC;">
-                              <h5 class="card-title">{{$trendingProduct->product_name}}</h5>
-                           </div>
-                        </div>
-                        <div class="row card-body pt-0 px-2">
-                           <div class="col-12 px-3">
-                              <div class="row">
-                                 <div class="col-7">
-                                    <span>Order</span>
-                                 </div>
-                                 <div class="col-5 text-right">
-                                    <span>{{$trendingProduct->total_order}}</span>
-                                 </div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-7">
-                                    <span>Product Cost</span>
-                                 </div>
-                                 <div class="col-5 text-right">
-                                    <span>${{$trendingProduct->cost}}</span>
-                                 </div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-7">
-                                    <span>Selling Price</span>
-                                 </div>
-                                 <div class="col-5 text-right">
-                                    <span>${{$trendingProduct->price}}</span>
-                                 </div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-7">
-                                    <span>Profit Margin</span>
-                                 </div>
-                                 <div class="col-5 text-right">
-                                    <span>${{$trendingProduct->profit}}</span>
-                                 </div>
-                              </div>
-                              <div class="row">
-                                 <div class="col-7">
-                                    <span>Total Sales</span>
-                                 </div>
-                                 <div class="col-5 text-right">
-                                    <span>${{$trendingProduct->total_revenue}}</span>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                        @foreach ($trendingProduct->ProductLink as $productLink)
-                        <div class="row mx-4 px-2 mb-2 rounded justify-content-between icon-btn">
-                           <a href="{{$productLink->facebook_ad}}" class="fb-ads-card-footer"><img src="{{asset('assets/img/fb-2.png')}}" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                           <a href="{{$productLink->aliexpress}}" class="fb-ads-card-footer"><img src="{{asset('assets/img/ali.png')}}" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                           <a href="{{$productLink->amazon}}" class="fb-ads-card-footer"><img src="{{asset('assets/img/amz.png')}}" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                           <a href="{{$productLink->competitor_link_1}}" class="fb-ads-card-footer"><img src="{{asset('assets/img/shp.png')}}" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                           <a href="{{$productLink->youtube}}" class="fb-ads-card-footer"><i class="fab fa-youtube" style="color: #FF0000; font-size: 26px;margin: 0 5px;"></i></a>
-                        </div>
-                        @endforeach
-                        <div class="modal fade" id="modal_demo{{$j}}" tabindex="-1" role="dialog" aria-labelledby="modal_demo{{$j}}" aria-hidden="true">
-                           <div class="modal-dialog" role="document" style="max-width:80%; margin: auto;">
-                              <div class="modal-content">
-                                 <div class="modal-header">
-                                    <h5 class="modal-title pl-2" id="UntappedModalLabel">{{$trendingProduct->product_name}}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                 </div>
-                                 @php
-                                    $date1 = new DateTime("now");
-
-                                    $date2 = date_create($trendingProduct->created_at);
-
-                                    $diff = date_diff($date1,$date2);
-
-                                    $month = $diff->m;                 
-                                    $day = $diff->d;                 
-                                    $hour = $diff->h;
-                                    $minute = $diff->i;
-                                 @endphp
-                                 <div class="row uptapped-active-found">
-                                    <p>Found {{$diff->m}} Month {{$diff->d}} Days {{$diff->h}} Hours {{$diff->i}} Minutes ago</p>
-                                 </div>
-                                 <div class="modal-body untapped-p-modal pt-1">
-                                    <div class="row pt-2">
-                                       <div class="col-lg-4">
-                                          <div class="row mx-1 mb-4">
-                                             @foreach ($trendingProduct->productImage as $productImage)
-                                             <div class="col-12">
-                                                
-                                                <div class="slickslider">
-                                                   <div>
-                                                      <div class="product-video-container embed-responsive embed-responsive-16by9">
-                                                         <i class="fas fa-play-circle video-icon-play"></i>
-                                                         <i class="fas fa-pause-circle video-icon-pause" style="display: none;"></i>
-                                                         <video id="video-control" controls>
-                                                            <source src="{{$productImage->video_link}}" type="video/mp4">
-                                                         </video>
-                                                      </div>
-                                                   </div>
-                                                   <div>
-                                                      <img src="{{$productImage->image_link_1}}" class="img-fluid" alt="">
-                                                   </div>
-                                                   <div>
-                                                      <img src="{{$productImage->image_link_2}}" class="img-fluid" alt="">
-                                                   </div>
-                                                   <div>
-                                                      <img src="{{$productImage->image_link_3}}" class="img-fluid" alt="">
-                                                   </div>
-                                                   <div>
-                                                      <img src="{{$productImage->image_link_4}}" class="img-fluid" alt="">
-                                                   </div>
-                                                   <div>
-                                                      <img src="{{$productImage->image_link_5}}" class="img-fluid" alt="">
-                                                   </div>
-                                                </div>
-                                                <div class="slider-nav my-3">
-                                                   <img src="{{$productImage->video_link}}" alt="">
-                                                   <img src="{{$productImage->image_link_1}}" alt="">
-                                                   <img src="{{$productImage->image_link_2}}" alt="">
-                                                   <img src="{{$productImage->image_link_3}}" alt="">
-                                                   <img src="{{$productImage->image_link_4}}" alt="">
-                                                   <img src="{{$productImage->image_link_5}}" alt="">
-                                                </div>
-
-                                             </div>
-                                             @endforeach
-
-                                          </div>
-                                       </div>
-                                       <div class="col-lg-8">
-                                          <div class="row mx-1">
-                                             <div class="col-12">
-                                                <div class="shadow bg-white rounded">
-                                                   <table class="table table-borderless untapped-p-table table-responsive">
-                                                      <thead>
-                                                         <tr>
-                                                            <th>Order</th>
-                                                            <th>Product Cost</th>
-                                                            <th>Selling Price</th>
-                                                            <th>Profit</th>
-                                                            <th>Total Sales</th>
-                                                         </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                         <tr>
-                                                            <th>{{$trendingProduct->total_order}}</th>
-                                                            <th>${{$trendingProduct->cost}}</th>
-                                                            <th>${{$trendingProduct->price}}</th>
-                                                            <th>${{$trendingProduct->profit}}</th>
-                                                            <th>${{$trendingProduct->total_revenue}}</th>
-                                                         </tr>
-                                                      </tbody>
-                                                   </table>
-                                                </div>
-                                                <div class="shadow bg-white rounded p-3">
-                                                   <div class="row">
-                                                      <div class="col-md-6">
-                                                        <div class="row pl-2 selling-sc">
-                                                            @php
-                                                             $gifs = 0;
-                                                             if (!empty($trendingProduct->productLink[0]->competitor_link_1)){
-                                                                 $gifs = $trendingProduct->productLink[0]->competitor_link_1;
-                                                               }
-                                                             if(!empty($trendingProduct->productLink[0]->competitor_link_2)){
-                                                               if(!empty($gifs)){
-                                                                 $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_2;
-                                                               }else{
-                                                                 $gifs = $trendingProduct->productLink[0]->competitor_link_2;
-                                                               }
-                                                             }
-                                                             if (!empty($trendingProduct->productLink[0]->competitor_link_3)){
-                                                               if(!empty($gifs)){
-                                                                 $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_3;
-                                                               }else{
-                                                                 $gifs = $trendingProduct->productLink[0]->competitor_link_3;
-                                                               }
-                                                             }
-                                                             if (!empty($trendingProduct->productLink[0]->competitor_link_4)){
-                                                               if(!empty($gifs)){
-                                                                 $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_4;
-                                                               }else{
-                                                                 $gifs = $trendingProduct->productLink[0]->competitor_link_4;
-                                                               }
-                                                             }
-                                                             if (!empty($trendingProduct->productLink[0]->competitor_link_5)){
-                                                               if(!empty($gifs)){
-                                                                 $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_5;
-                                                               }else{
-                                                                 $gifs = $trendingProduct->productLink[0]->competitor_link_5;
-                                                               }
-                                                             }
-                                                             $files = explode(',', $gifs);
-                                                             @endphp
-                                                             @if($gifs == 0)
-                                                               <p>Not currently selling on any Shopify store</p>
-                                                             @else
-                                                             <p>Selling on {{count($files)}} Shopify store</p>
-                                                             @endif
-                                                           </div>
-                                                         <div class="row selling-store">
-                                                           <div class="col-12">
-                                                             <?php if (!empty($files) && $gifs != 0) {
-                                                               foreach ($files as $link) {
-                                                                 $address1 = $link;
-                                                                 $split1 = explode("com",$address1);
-                                                                 ?><p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt="">  {{$split1[0]}}com...<a href="{{$link}}"><?php
-                                                               }
-                                                             } ?>
-                                                           </div>
-                                                         </div>
-                                                         </div>
-                                                         <div class="col-sm-6 col-md-6 selling-country pl-3" style="max-width: 500%;">
-                                                           <div class="row pl-2 selling-sc">
-                                                             <p>Selling Country</p>
-                                                           </div>
-                                                           <div class="row selling-store">
-                                                             <div class="col-12">
-                                                               @php
-                                                               $countrys = $trendingProduct->country;
-                                                               $countrys = explode(',', $countrys);
-                                                               @endphp
-                                                               @foreach($countrys as $country)
-                                                            <p><img src="{{asset('assets/img/web-path.png')}}" style="width: 20px; margin-top: -6px;" alt=""> {{$country}}</p>
-                                                               @endforeach
-                                                               <!-- <a href="">+5 more Country's</a> -->
-                                                            </div>
-                                                         </div>
-                                                      </div>
-                                                   </div>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
+                           <div class="modal fade" id="modal_demo{{$trendingProduct->id}}" tabindex="-1" role="dialog" aria-labelledby="modal_demo{{$trendingProduct->id}}" aria-hidden="true">
+                              <div class="modal-dialog" role="document" style="max-width:80%; margin: auto;">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h5 class="modal-title pl-2" id="UntappedModalLabel">{{$trendingProduct->product_name}}</h5>
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                       <span aria-hidden="true">&times;</span>
+                                       </button>
                                     </div>
-                                    <div class="row mt-4">
-                                       <div class="col-lg-4">
-                                          <div class="row mx-2">
-                                             @foreach ($trendingProduct->ProductLink as $productLink)
-                                             <div class="col-12 shadow bg-white border-rounded mb-4">
-                                                <ul class="list-group list-group-flush py-3 list-unstyled prm-list">
-                                                   <li><a class="list-group-item rounded my-1" href="{{$productLink->competitor_link_1}}" role="tab"><i class="fas fa-store-alt"></i> Visit Competitor Store</a></li>
-                                                   <li><a class="list-group-item rounded my-1" href="{{$productLink->aliexpress}}" role="tab"><img src="{{asset('assets/img/ali.png')}}" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
-                                                   <li><a class="list-group-item rounded my-1" href="{{$productLink->amazon}}" role="tab"><i class="fab fa-amazon"></i> View Product On Amazon</a></li>
-                                                   <li><a class="list-group-item rounded my-1" href="{{$productLink->ebay}}" role="tab"><i class="fab fa-ebay"></i> View Product On eBay</a></li>
-                                                   <li><a class="list-group-item rounded my-1" href="{{$productLink->facebook_ad}}" role="tab"><i class="fab fa-facebook"></i> View Facebook Ads</a></li>
-                                                   <li><a class="list-group-item rounded my-1" href="{{$productLink->youtube}}" role="tab"><i class="fab fa-youtube"></i> View YouTube Review</a></li>
-                                                </ul>
-                                                <div class="slider2">
+                                    @php
+                                       $date1 = new DateTime("now");
+
+                                       $date2 = date_create($trendingProduct->created_at);
+
+                                       $diff = date_diff($date1,$date2);
+
+                                       $month = $diff->m;                 
+                                       $day = $diff->d;                 
+                                       $hour = $diff->h;
+                                       $minute = $diff->i;
+                                    @endphp
+                                    <div class="row uptapped-active-found">
+                                       <p>Found {{$diff->m}} Month {{$diff->d}} Days {{$diff->h}} Hours {{$diff->i}} Minutes ago</p>
+                                    </div>
+                                    <div class="modal-body untapped-p-modal pt-1">
+                                       <div class="row pt-2">
+                                          <div class="col-lg-4">
+                                             <div class="row mx-1 mb-4">
                                                 @foreach ($trendingProduct->productImage as $productImage)
-                                                   <div>
-                                                      <img src="{{asset('storage/'.$productImage->gif_1)}}" class="img-fluid" alt="">
+                                                <div class="col-12">
+                                                   <div class="slickslider">
+                                                      <div>
+                                                         <div class="product-video-container embed-responsive embed-responsive-16by9">
+                                                            <i class="fas fa-play-circle video-icon-play"></i>
+                                                            <i class="fas fa-pause-circle video-icon-pause" style="display: none;"></i>
+                                                            <video id="video-control" controls>
+                                                               <source src="{{$productImage->video_link}}" type="video/mp4">
+                                                            </video>
+                                                         </div>
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{$productImage->image_link_1}}" class="img-fluid" alt="">
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{$productImage->image_link_2}}" class="img-fluid" alt="">
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{$productImage->image_link_3}}" class="img-fluid" alt="">
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{$productImage->image_link_4}}" class="img-fluid" alt="">
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{$productImage->image_link_5}}" class="img-fluid" alt="">
+                                                      </div>
                                                    </div>
-                                                   <div>
-                                                      <img src="{{asset('storage/'.$productImage->gif_2)}}" class="img-fluid" alt="">
+                                                   <div class="slider-nav my-3">
+                                                      <img src="{{$productImage->video_link}}" alt="">
+                                                      <img src="{{$productImage->image_link_1}}" alt="">
+                                                      <img src="{{$productImage->image_link_2}}" alt="">
+                                                      <img src="{{$productImage->image_link_3}}" alt="">
+                                                      <img src="{{$productImage->image_link_4}}" alt="">
+                                                      <img src="{{$productImage->image_link_5}}" alt="">
                                                    </div>
-                                                   <div>
-                                                      <img src="{{asset('storage/'.$productImage->gif_3)}}" class="img-fluid" alt="">
-                                                   </div>
-                                                
-                                                </div>
-                                                <div class="slider-nav2 my-2 justify-content-between">
-                                                   <img src="{{asset('storage/'.$productImage->gif_1)}}" class="img-fluid" alt="gif 1">
-                                                   <img src="{{asset('storage/'.$productImage->gif_2)}}" class="img-fluid" alt="">
-                                                   <img src="{{asset('storage/'.$productImage->gif_3)}}" class="img-fluid" alt="">
                                                 </div>
                                                 @endforeach
-                                                @php
-                                                  if (!empty($productImage->gif_1)){
-                                                      $gifs = $productImage->gif_1;
-                                                    }
-                                                  if(!empty($productImage->gif_2)){
-                                                    if(!empty($gifs)){
-                                                      $gifs = $gifs.",".$productImage->gif_2;
-                                                    }else{
-                                                      $gifs = $productImage->gif_2;
-                                                    }
-                                                  }
-                                                  if (!empty($productImage->gif_3)){
-                                                    if(!empty($gifs)){
-                                                      $gifs = $gifs.",".$productImage->gif_3;
-                                                    }else{
-                                                      $gifs = $productImage->gif_3;
-                                                    }
-                                                  }
-                                                  @endphp
-                                                <div class="mb-2 float-right">
-                                                   <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
-                                                   <button class="btn-download" value="download">
-                                                   <a href="{{route('downloadGIF',[$gifs])}}">Download</a></button>
-                                                </div>
                                              </div>
-                                             @endforeach
                                           </div>
-                                       </div>
-                                       <div class="col-lg-8 tab-content">
-                                          <div class="row mb-2 mx-2">
-                                             <div class="tab-pane fade show active" role="tabpanel">
-                                                <ul class="nav nav-tabs modal-tab nav-justified shadow" role="tablist">
-                                                   <li class="nav-item plan-tab" role="presentation">
-                                                      <a class="nav-link active" data-toggle="tab" href="#pd1" style="font-size: 13px;" role="tab">Product Description</a>
-                                                   </li>
-                                                   <li class="nav-item plan-tab" role="presentation">
-                                                     <!--  <a class="nav-link nav-link-show-1" data-toggle="tab" href="#far1" style="font-size: 13px;" role="tab">Facebook Audience Research</a>
-                                                      <a class="nav-link nav-link-show-2" data-toggle="tab" href="#far1" style="font-size: 13px;" role="tab">Fb Audience Research</a> -->
-                                                   </li>
-                                                </ul>
-                                                <div class="tab-content pr-modal-tab bg-white shadow">
-                                                   <div class="tab-pane fade show active pb-3" id="pd1" role="tabpanel">
-                                                      <div class="row mx-3 pt-3 plan-header">
-                                                         <p><?php echo $trendingProduct->description;?>
-                                                         </p>
+                                          <div class="col-lg-8">
+                                             <div class="row mx-1">
+                                                <div class="col-12">
+                                                   <div class="shadow bg-white rounded">
+                                                      <table class="table table-borderless untapped-p-table table-responsive">
+                                                         <thead>
+                                                            <tr>
+                                                               <th>Order</th>
+                                                               <th>Product Cost</th>
+                                                               <th>Selling Price</th>
+                                                               <th>Profit</th>
+                                                               <th>Total Sales</th>
+                                                            </tr>
+                                                         </thead>
+                                                         <tbody>
+                                                            <tr>
+                                                               <th>{{$trendingProduct->total_order}}</th>
+                                                               <th>${{$trendingProduct->cost}}</th>
+                                                               <th>${{$trendingProduct->price}}</th>
+                                                               <th>${{$trendingProduct->profit}}</th>
+                                                               <th>${{$trendingProduct->total_revenue}}</th>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                   </div>
+                                                   <div class="shadow bg-white rounded p-3">
+                                                      <div class="row">
+                                                            <div class="col-md-6">
+                                                               <div class="row pl-2 selling-sc">
+                                                                  @php
+                                                                   $comLink = '';
+                                                                   if (!empty($trendingProduct->productLink[0]->competitor_link_1)){
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_1;
+                                                                     }
+                                                                   if(!empty($trendingProduct->productLink[0]->competitor_link_2)){
+                                                                     if(!empty($comLink)){
+                                                                       $comLink = $comLink.",".$trendingProduct->productLink[0]->competitor_link_2;
+                                                                     }else{
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_2;
+                                                                     }
+                                                                   }
+                                                                   if (!empty($trendingProduct->productLink[0]->competitor_link_3)){
+                                                                     if(!empty($comLink)){
+                                                                       $comLink = $comLink.",".$trendingProduct->productLink[0]->competitor_link_3;
+                                                                     }else{
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_3;
+                                                                     }
+                                                                   }
+                                                                   if (!empty($trendingProduct->productLink[0]->competitor_link_4)){
+                                                                     if(!empty($comLink)){
+                                                                       $comLink = $comLink.",".$trendingProduct->productLink[0]->competitor_link_4;
+                                                                     }else{
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_4;
+                                                                     }
+                                                                   }
+                                                                   if (!empty($trendingProduct->productLink[0]->competitor_link_5)){
+                                                                     if(!empty($comLink)){
+                                                                       $comLink = $comLink.",".$trendingProduct->productLink[0]->competitor_link_5;
+                                                                     }else{
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_5;
+                                                                     }
+                                                                   }
+                                                                   $links = explode(',', $comLink);
+                                                                   @endphp
+                                                                   @if(empty($links))
+                                                                     <p>Not currently selling on any Shopify store</p>
+                                                                   @else
+                                                                   <p>Selling on {{count($links)}} Shopify store</p>
+                                                                   @endif
+                                                               </div>
+                                                               <div class="row selling-store">
+                                                                  <div class="col-12">
+                                                                      <?php if (!empty($links)) {
+                                                                        foreach ($links as $link) {
+                                                                          $split1 = explode("com",$link);
+                                                                          ?><a href="{{$link}}" target="_blank"><p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt="">  {{$split1[0]}}com...</p></a><?php
+                                                                        }
+                                                                      } ?>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <div class="col-sm-6 col-md-6 selling-country pl-3" style="max-width: 500%;">
+                                                               <div class="row pl-2 selling-sc">
+                                                                <p>Selling Country</p>
+                                                               </div>
+                                                               <div class="row selling-store">
+                                                                  <div class="col-12">
+                                                                     @php
+                                                                     $countrys = $trendingProduct->country;
+                                                                     $countrys = explode(',', $countrys);
+                                                                     @endphp
+                                                                     @foreach($countrys as $country)
+                                                                        <p><img src="{{asset('assets/img/web-path.png')}}" style="width: 20px; margin-top: -6px;" alt=""> {{$country}}</p>
+                                                                     @endforeach
+                                                                  <!-- <a href="">+5 more Country's</a> -->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
                                                       </div>
                                                    </div>
                                                 </div>
                                              </div>
                                           </div>
                                        </div>
-                                    </div>
-                                    <div class="row">
-                                       <?php $product_id = $trendingProduct->id ?>
-                                       <div class="col-12 modal-footer px-0 mt-2">
-                                          <button type="button" class="btn btn-modal-cancel" data-dismiss="modal">Cancel</button>
-                                          <a href="{{route('trending-product-details',[$product_id])}}" type="button" class="btn btn-modal-product">View Product</a>
+                                       <div class="row mt-4">
+                                          <div class="col-lg-4">
+                                             <div class="row mx-2">
+                                                @foreach ($trendingProduct->ProductLink as $productLink)
+                                                <div class="col-12 shadow bg-white border-rounded mb-4">
+                                                   <ul class="list-group list-group-flush py-3 list-unstyled prm-list">
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->competitor_link_1}}" role="tab"><i class="fas fa-store-alt"></i> Visit Competitor Store</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->aliexpress}}" role="tab"><img src="{{asset('assets/img/ali.png')}}" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->amazon}}" role="tab"><i class="fab fa-amazon"></i> View Product On Amazon</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->ebay}}" role="tab"><i class="fab fa-ebay"></i> View Product On eBay</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->facebook_ad}}" role="tab"><i class="fab fa-facebook"></i> View Facebook Ads</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->youtube}}" role="tab"><i class="fab fa-youtube"></i> View YouTube Review</a></li>
+                                                   </ul>
+                                                   <div class="slider2">
+                                                      @foreach ($trendingProduct->productImage as $productImage)
+                                                      <div>
+                                                         <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="">
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="">
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="">
+                                                      </div>
+                                                   </div>
+                                                   <div class="slider-nav2 my-2 justify-content-between">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="arush">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="">
+                                                   </div>
+                                                   @endforeach
+                                                   @php
+                                                   $gifs = '';
+                                                     if (!empty($productImage->gif_1)){
+                                                         $gifs = $productImage->gif_1;
+                                                       }
+                                                     if(!empty($productImage->gif_2)){
+                                                       if(!empty($gifs)){
+                                                         $gifs = $gifs.",".$productImage->gif_2;
+                                                       }else{
+                                                         $gifs = $productImage->gif_2;
+                                                       }
+                                                     }
+                                                     if (!empty($productImage->gif_3)){
+                                                       if(!empty($gifs)){
+                                                         $gifs = $gifs.",".$productImage->gif_3;
+                                                       }else{
+                                                         $gifs = $productImage->gif_3;
+                                                       }
+                                                     }
+                                                   @endphp
+                                                   @if(!empty($gifs))
+                                                   <div class="mb-2 float-right">
+                                                      <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
+                                                      <button class="btn-download" value="download">
+                                                      <a href="{{route('downloadGIF',[$gifs])}}">Download</a></button>
+                                                   </div>
+                                                   @endif
+                                                </div>
+                                                @endforeach
+                                             </div>
+                                          </div>
+            <div class="col-lg-8 tab-content">
+               <div class="row mb-2 mx-2">
+                  <div class="tab-pane fade show active" role="tabpanel">
+                    <ul class="nav nav-tabs modal-tab nav-justified shadow role='tablist'">
+                      <li class="nav-item plan-tab" role="presentation">
+                        <a class="nav-link active" data-toggle="tab" href="#pd{{$j}}" style="font-size: 13px;" role="tab">Product Description</a>
+                      </li>
+                      <li class="nav-item plan-tab" role="presentation">
+                        <a class="nav-link nav-link-show-1" data-toggle="tab" href="#far{{$j}}" style="font-size: 13px;" role="tab">Facebook Audience Research</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content pr-modal-tab bg-white shadow">
+                      <div class="tab-pane fade show active pb-3" id="pd{{$j}}" role="tabpanel">
+                        <div class="row mx-3 pt-3 plan-header">
+                            <p>{!!$trendingProduct->description!!}</p>
+                        </div>
+                      </div>
+                      <div class="tab-pane pb-3 fade" id="far{{$j}}" role="tabpanel">
+                        <div class="row mx-3 pt-3 plan-header">
+                          <div class="col-md-6">
+                            <div class="far-video-hedear">
+                              <h3>Facebook video ads</h3>
+                              <button type="button" class="btn far-download-btn">Download</button>
+                            </div>
+                            <div class="product-video-container embed-responsive embed-responsive-16by9">
+                              <i class="fas fa-play-circle video2-icon-play"></i>
+                              <i class="fas fa-pause-circle video2-icon-pause" style="display: none;"></i>
+                              <video id="video-control-2">
+                                <source src="{{asset('storage/app/public/'.$trendingProduct->video_name)}}" type="video/mp4">
+                              </video>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="far-all-hedear mb-3">
+                              <h3>Facebook Content</h3>
+                            </div>
+                            <div class="far-fb-content-text shadow-sm">
+                              <p class="far-fb-text">{{$trendingProduct->content}}</p>
+                            </div>
+                          </div>
+                        </div>
+                        @php
+                        $ages = $trendingProduct->age;
+                        $ages = explode(',', $ages);
+                        @endphp
+                        <div class="row m-2 p-2">
+                          <div class="col-6 far-all-hedear">
+                            <h3>Targeting Age</h3>
+                            <div class="far-age-target-content shadow-sm">
+                              <p>This ads on facebook & other social media targeted age range below.</p>
+                              @foreach($ages as $age)
+                              <p class="mt-2">
+                                {{$age}}; <br>
+                              </p>
+                              @endforeach
+                            </div>
+                          </div>
+                           @php
+                           $genders = $trendingProduct->gender;
+                           $genders = explode(',', $genders);
+                           @endphp
+                          <div class="col-6 far-all-hedear">
+                            <h3>Targeting Gender</h3>
+                            <div class="far-genter-content shadow-sm">
+                              <p>This ads on facebook & other social media targeted gender below.</p>
+                              @foreach($genders as $gender)
+                              <p class="mt-2">{{$gender}};<br></p>
+                              @endforeach
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+                                       </div>
+                                       <div class="row">
+                                          <?php $product_id = $trendingProduct->id ?>
+                                          <div class="col-12 modal-footer px-0 mt-2">
+                                             <button type="button" class="btn btn-modal-cancel" data-dismiss="modal">Cancel</button>
+                                             <a href="{{route('product-details',[$product_id])}}" target="_blank" type="button" class="btn btn-modal-product">View Product</a>
+                                          </div>
                                        </div>
                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
-                     </div>
+   </div>
+   <?php $j++; ?>
+   @endforeach
+            <!-- LOAD MORE DATA SHOW -->
+ 
+
+                <div class="card-deck" id="data-wrapper">
+                
+                    <!-- RESULTS -->
+            
+                </div>
+
+            <!-- LOAD MORE DATA END -->
+
+
+   </div>
 </div>
-<?php $j++; ?>
-@endforeach
-                  </div>
-               </div>
+
+            <!-- LOADING SIGN SHOW -->
+            <div class="auto-load text-center">
+                <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" height="60" viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+                    <path fill="#000"
+                        d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" dur="1s"
+                            from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
+            <!-- LOADING SIGN END -->
+@endsection
+
+@section('js')
+<script>
+initiateSlick('yes');
+    var ENDPOINT = "{{ url('/') }}";
+    var page = 1;
+    //infinteLoadMore(page);
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            page++;
+            infinteLoadMore(page);
+        }
+    });
+    $('html,body').bind('touchmove', function(e) { 
+      page++;
+      infinteLoadMore(page);
+    });
+
+    function infinteLoadMore(page) {
+        let urlWithoutQueryString = "{{ url()->current() }}";
+        console.log(`urlWithoutQueryString: ${urlWithoutQueryString}`);
+        
+        let urlWithQueryString = "{{ url()->full() }}";
+        console.log(`urlWithQueryString: ${urlWithQueryString}`);
+        
+        let actualQueryString = urlWithQueryString.replace(urlWithoutQueryString, "");
+        if(actualQueryString != ""){
+            actualQueryString = actualQueryString.replace(/&amp;/g, '&') + "&";
+        }else{
+            actualQueryString = "?";
+        }
+        console.log(`actualQueryString: ${actualQueryString}`);
+        
+        $.ajax({
+                url: urlWithoutQueryString + actualQueryString + "page=" + page,
+                datatype: "html",
+                type: "get",
+                beforeSend: function () {
+                    $('.auto-load').show();
+                }
+            })
+            .done(function (response) {
+                if (response.length == 0) {
+                    $('.auto-load').html("<br>No More Products To Show!");
+                    return;
+                }
+                $('.auto-load').hide();
+                $("#data-wrapper").append(response);
+                
+                //-- INITIATE SLICK ON DYNAMICALLY ADDED CONTENTS
+                initiateSlick('yes');
+            })
+            .fail(function (jqXHR, ajaxOptions, thrownError) {
+                console.log('Server error occured');
+            });
+    }
+
+</script>
 @endsection

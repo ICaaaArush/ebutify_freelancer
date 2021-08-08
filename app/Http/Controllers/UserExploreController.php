@@ -11,6 +11,7 @@ use App\Models\ProductType;
 use App\Models\Category;
 use App\Models\Gender;
 use App\Models\Country;
+use App\Models\ShopifyProduct;
 use ZipArchive;
 use File;
 
@@ -59,17 +60,17 @@ class UserExploreController extends Controller
             $categorySelected = $request->category;
           switch($request->filter){
             case 1:
-                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('price', '<=' ,'30')->orderBy($orderColumn,'DESC')->paginate(18);
+                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('price', '<=' ,'30')->orderBy($orderColumn,'DESC')->paginate(3);
                 // dd($trendingProducts);
             break;
             case 2:
-                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(18);
+                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(3);
             break;
             case 3:
-                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(18);
+                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('profit', '>=' , '15')->orderBy($orderColumn,'DESC')->paginate(3);
             break;
             case 4:
-                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(18);
+                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('profit', '<=' , '15')->orderBy($orderColumn,'DESC')->paginate(3);
             break;
             default:
                 $filterBy = 'product_name';
@@ -81,10 +82,10 @@ class UserExploreController extends Controller
 
         if($request->search) {
             // dd($request->search);
-            $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('product_name', 'LIKE', '%'.$request->search.'%')->orderBy($orderColumn,'DESC')->paginate(18);
+            $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->where('product_name', 'LIKE', '%'.$request->search.'%')->orderBy($orderColumn,'DESC')->paginate(3);
         }
         if (empty($trendingProducts)) {
-            $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->orderBy($orderColumn,'DESC')->paginate(18);
+            $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%ali_express%')->orderBy($orderColumn,'DESC')->paginate(3);
         }
 
         // $results = ProductDetail::orderBy('id')->paginate(9);
@@ -146,7 +147,7 @@ class UserExploreController extends Controller
                         </div>
                       </div>
                       <div class="row px-2 mb-2 rounded justify-content-center">
-                        <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view"><img src="{{asset(\'assets/img/aliExpress-logo.png\')}}" class="img-fluid" style="width: 16px; margin: 5px;" alt=""> View on a Demo</a>
+                        <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view"><img src="http://ecomfia.com/assets/img/ali.png" class="img-fluid" style="width: 16px; margin: 5px;" alt=""> View on AliExpress</a>
                       </div>
                     </div>
                 </div>';
@@ -224,11 +225,11 @@ class UserExploreController extends Controller
             $categorySelected = $request->category;
           switch($request->filter){
             case 1:
-                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->where('price', '<=' ,'30')->orderBy($orderColumn,'DESC')->paginate(18);
+                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->where('price', '<=' ,'30')->orderBy($orderColumn,'DESC')->paginate(3);
                 // dd($trendingProducts);
             break;
             case 2:
-                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(18);
+                $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->where('price', '>=' , '30')->orderBy($orderColumn,'DESC')->paginate(3);
             break;
             default:
                 $filterBy = 'id';
@@ -240,10 +241,10 @@ class UserExploreController extends Controller
 
         if($request->search) {
             // dd($request->search);
-            $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->where('product_name', 'LIKE', '%'.$request->search.'%')->orderBy($orderColumn,'DESC')->paginate(18);
+            $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->where('product_name', 'LIKE', '%'.$request->search.'%')->orderBy($orderColumn,'DESC')->paginate(3);
         }
         if (empty($trendingProducts)) {
-            $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->orderBy($orderColumn,'DESC')->paginate(18);
+            $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%amazon%')->orderBy($orderColumn,'DESC')->paginate(3);
         }
         // dd($trendingProducts);
         
@@ -308,10 +309,10 @@ class UserExploreController extends Controller
 
                 <div class="row mb-3 mx-1">
                   <div class="col-6 text-center p-0">
-                    <a href="'.$result->productLink[0]->amazon.'" class="cae-view rounded px-2 py-1" style="color: #918C9B;"><i class="fab fa-amazon" style="background: #191919; color: #fff; font-size: 12px; padding: 2px; line-height: 13px;"></i> Amazon</a>
+                    <a href="'.$result->productLink[0]->amazon.'" class="cae-view rounded px-2 py-1" style="color: #918C9B;"><i class="fab fa-amazon" style="background: #191919; color: #fff; font-size: 12px; padding: 2px; line-height: 13px;"></i> View Amazon</a>
                   </div>
                   <div class="col-6 text-center p-0">
-                    <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view rounded px-2 py-1" style="color: #918C9B;"><img src="{{asset(\'assets/img/aliExpress-logo.png\')}}" style="width: 16px; padding-bottom: 5px;" alt=""> AliExpress</a>
+                    <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view rounded px-2 py-1" style="color: #918C9B;"><img src="http://ecomfia.com/assets/img/ali.png" style="width: 16px; padding-bottom: 5px;" alt=""> View AliExpress</a>
                   </div>
                 </div>
 
@@ -350,13 +351,116 @@ class UserExploreController extends Controller
         }
     }
 
-    public function exploreStore()
+    public function exploreStore(Request $request)
     {
         if(Auth::check()){
             
-        $trendingProducts = ProductDetail::where('explore_pro_type', 'LIKE' ,'%shopify%')->get();
+        $trendingProducts = ShopifyProduct::paginate(3);
 
         // dd( $trendingProducts );
+        
+        
+        
+        $artilces = '';
+        if ($request->ajax()) {
+            foreach ($trendingProducts as $trendingProduct) {
+
+                      $address = $trendingProduct->shopify_link;
+                      $split = explode("com",$address);
+                      $resultAddr = $split[0];
+                      
+                $artilces.='
+        <div class="row cse-main-body p-3 m-3">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row cse-content-header">
+              <div class="col-lg-2 col-md-2 col-sm-6">
+                <a target="_blank" href="'.$trendingProduct->shopify_link.'" style="color: #17a2b8;"><i class="fas fa-shopping-bag" style="color: #DC143C;"></i>
+                      '.$resultAddr.'
+                      </a>
+                <a target="_blank" href="'.$trendingProduct->shopify_link.'" class="cse-see-link-2 float-right" style="color: #17a2b8;">See all <i class="fas fa-chevron-right"></i></a>
+              </div>
+              <div class="col-lg-2 col-md-2 cse-hide">
+                <span><strong>Traffic:</strong>'.$trendingProduct->monthly_traffic.'M/month</span>
+              </div>
+              <div class="col-lg-2 col-md-2 cse-hide">
+                <span>Tech Spend: '.$trendingProduct->ad_spend.'K/mo</span>
+              </div>
+              <div class="col-lg-2 col-md-2 cse-hide">
+                <span>Tracking '.$trendingProduct->running_ads.' <i class="fab fa-facebook-f" style="color: #3B5998;"></i> </span>
+              </div>
+              <div class="col-lg-2 col-md-2 cse-social-media-icon cse-hide">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-youtube"></i>
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-6 show-right">
+                <a target="_blank" href="'.$trendingProduct->shopify_link.'" class="cse-see-link-1" style="color: #17a2b8;">See all <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row pt-3">
+              <div class="col-md-6 col-lg-3">
+                <div class="row">
+                  <div class="col-6 my-2">
+                    <img src="'.$trendingProduct->image_link.'" class="img-fluid" style="height: 85px;" alt="">
+                  </div>
+                  <div class="col-6 my-2">
+                    <a target="_blank" href="'.$trendingProduct->product_link.'" style="font-size: 14px; color: #B1B1B1;">'.$trendingProduct->product_name.'</a>
+                    
+                    <p style="font-size: 13px;">Price: $'.$trendingProduct->price.'</p>
+                    <a target="_blank" href="'.$trendingProduct->ali_express_link.'" class="cse-link"><img src="assets/img/ali.png" style="width: 14px; margin: 0 0 5px 0;" alt=""> AliExpress</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="row">
+                  <div class="col-6 my-2">
+                    <img src="'.$trendingProduct->image_link2.'" class="img-fluid" style="height: 85px;" alt="">
+                  </div>
+                  <div class="col-6 my-2">
+                    <a target="_blank" href="'.$trendingProduct->product_link2.'" style="font-size: 14px; color: #B1B1B1;">'.$trendingProduct->product_name2.'</a>
+                    <p style="font-size: 13px;">Price: $'.$trendingProduct->price2.'</p>
+                    <a target="_blank" href="'.$trendingProduct->ali_express_link2.'" class="cse-link"><img src="assets/img/ali.png" style="width: 14px; margin: 0 0 5px 0;" alt=""> AliExpress</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="row">
+                  <div class="col-6 my-2">
+                    <img src="'.$trendingProduct->image_link3.'" class="img-fluid" style="height: 85px;" alt="">
+                  </div>
+                  <div class="col-6 my-2">
+                    <a target="_blank" href="'.$trendingProduct->product_link3.'" style="font-size: 14px; color: #B1B1B1;">'.$trendingProduct->product_name3.'</a>
+                    
+                    <p style="font-size: 13px;">Price: $'.$trendingProduct->price3.'</p>
+                    <a target="_blank" href="'.$trendingProduct->ali_express_link3.'" class="cse-link"><img src="assets/img/ali.png" style="width: 14px; margin: 0 0 5px 0;" alt=""> AliExpress</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3">
+                <div class="row">
+                  <div class="col-6 my-2">
+                    <img src="'.$trendingProduct->image_link4.'" class="img-fluid" style="height: 85px;" alt="">
+                  </div>
+                  <div class="col-6 my-2">
+                    <a target="_blank" href="'.$trendingProduct->product_link4.'" style="font-size: 14px; color: #B1B1B1;">'.$trendingProduct->product_name4.'</a>
+                    <p style="font-size: 13px;">Price: $'.$trendingProduct->price4.'</p>
+                    <a target="_blank" href="'.$trendingProduct->ali_express_link4.'" class="cse-link"><img src="assets/img/ali.png" style="width: 14px; margin: 0 0 5px 0;" alt=""> AliExpress</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+                ';
+            }
+            return $artilces;
+        }
+        
+        
+        
 
         foreach ($trendingProducts as $trendingproduct) {
             $country = $trendingproduct->country.",";

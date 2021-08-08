@@ -17,7 +17,7 @@
         <div class="row mx-2 my-3">
           <div class="col-12 facebook-ads-header d-flex justify-content-between">
             <h3>AliExpress Explorer</h3>
-            <a type="button" class="btn btn-facebook-ads" href=""><i class="fas fa-video"></i> Tutorials</a>
+            <a type="button" class="btn btn-facebook-ads" href="{{url('tutorial')}}"><i class="fas fa-video"></i> Tutorials</a>
           </div>
           <form class="col-12" method="get" action="{{ route('ali-product') }}">
             <div class="col-12">

@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\UserExploreController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FileUploadController;
+
 
 
 /*
@@ -45,16 +47,17 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/work-report', [Freelancer
 //  MESSAGE VIEW
 Route::middleware(['auth:sanctum', 'verified'])->get('/message', [FreelancerController::class, 'message'])->name('message');
 
-//  PROFILE (HAS TO BE FOR USER AND FREELANCER)
+//  PROFILE USER
 Route::middleware(['auth:sanctum', 'verified'])->get('/userprofile', [UserController::class, 'profile'])->name('myprofile');
 
-// USER PROFILE UPDATE
-
+//  USER PROFILE UPDATE
 Route::middleware(['auth:sanctum', 'verified'])->post('/user-profile-update',[UserController::class, 'profileupdate']);
 
-// USER PASSWORD CHANGE
-
+//  USER PASSWORD CHANGE
 Route::middleware(['auth:sanctum', 'verified'])->post('/user-password-cahnge',[UserController::class, 'passwordchange']);
+
+//  PROFILE FREELANCER
+Route::middleware(['auth:sanctum', 'verified'])->get('/freelancer-profile', [UserController::class, 'freelancerProfile'])->name('freelancer-profile');
 
 
 //  SUBSRIBE FOR USER
@@ -74,7 +77,7 @@ Route::get('/billing-portal', function (Request $request) {
 Route::middleware(['auth:sanctum', 'verified'])->get('/trending-products', [UserController::class, 'trendingProducts'])->name('trending-products');
 
 //  USER TRENDING PRODUCT DETAILS
-Route::middleware(['auth:sanctum', 'verified'])->get('/trending-product-details/{product_id}', [UserController::class, 'trendingProductDetails'])->name('trending-product-details');
+Route::middleware(['auth:sanctum', 'verified'])->get('/product-details/{product_id}', [UserController::class, 'trendingProductDetails'])->name('product-details');
 
 //  USER VIEW FB AD PRODUCTS
 Route::middleware(['auth:sanctum', 'verified'])->get('/fb-ad-products', [UserController::class, 'fbAdProducts'])->name('fb-ad-products');
@@ -135,13 +138,31 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/uploadPage', [ProductCont
 //  FREELANCER UPLOAD PRODUCT
 Route::post('/uploadProduct', [ProductController::class, 'uploadProduct'])->name('uploadProduct');
 
+Route::post('/fileUpload', [FileUploadController::class, 'upload']);
+
 // FREELANCER EDIT PRODUCT
 Route::middleware(['auth:sanctum', 'verified'])->get('/product-edit/{id}', [ProductController::class, 'productEdit'])->name('product-edit');
 
 //  FREELANCER UPDATE PRODUCT
 Route::post('/product-update', [ProductController::class, 'productUpdate'])->name('productUpdate');
 
+// FREELANCER VIEW AMAZON EDIT PRODUCT
+Route::middleware(['auth:sanctum', 'verified'])->get('/amazon-product-edit/{id}', [ProductController::class, 'amazonProductEdit'])->name('amazon-product-edit');
 
+//  FREELANCER AMAZON UPDATE PRODUCT
+Route::post('/amazon-product-update', [ProductController::class, 'amazonProductUpdate'])->name('amazon-product-update');
+
+// FREELANCER VIEW ALI EDIT PRODUCT
+Route::middleware(['auth:sanctum', 'verified'])->get('/ali-product-edit/{id}', [ProductController::class, 'aliProductEdit'])->name('ali-product-edit');
+
+//  FREELANCER ALI UPDATE PRODUCT
+Route::post('/ali-product-update', [ProductController::class, 'aliProductUpdate'])->name('ali-product-update');
+
+// FREELANCER VIEW SHOPIFY EDIT PRODUCT
+Route::middleware(['auth:sanctum', 'verified'])->get('/shopify-product-edit/{id}', [ProductController::class, 'shopifyProductEdit'])->name('shopify-product-edit');
+
+//  FREELANCER SHOPIFY UPDATE PRODUCT
+Route::post('/shopify-product-update', [ProductController::class, 'shopifyProductUpdate'])->name('shopify-product-update');
 
 //  FREELANCER VIEW ALI EXPRESS PRODUCTS
 Route::middleware(['auth:sanctum', 'verified'])->get('/ali-express-products', [ExploreController::class, 'exploreAliProduct'])->name('ali-express-products');
@@ -169,3 +190,38 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/add-new-shopify', [Explor
 
 //  FREELANCER UPLOAD SHOPIFY PRODUCTS
 Route::post('/upload-shopify', [ExploreController::class, 'uploadShopify'])->name('upload-shopify');
+
+
+
+//  FRONT END
+
+Route::get('/', function(){
+    return view('front.index');
+});
+
+Route::get('/pricing', function(){
+    return view('front.pricing');
+});
+Route::get('/privacy-policy', function(){
+    return view('front.privacy-policy');
+});
+Route::get('/contact-us', function(){
+    return view('front.contact-us');
+});
+Route::get('/about', function(){
+    return view('front.about');
+});
+Route::get('/blog', function(){
+    return view('front.blog');
+});
+Route::get('/our-team', function(){
+    return view('front.about_our-team');
+});
+Route::get('/contact-us', function(){
+    return view('front.contact-us');
+});
+Route::get('/refund-policy', function(){
+    return view('front.refund-policy');
+});
+
+// END FRONT END

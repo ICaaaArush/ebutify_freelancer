@@ -243,57 +243,63 @@
                         </li>
                      </ul>
                   </li>
-                  <li class="nav-item">
-                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                           Help
-                           <i class="fas fa-angle-right right"></i>
-                        </p>
-                     </a>
-                     <ul class="nav nav-treeview pl-4 ml-2">
-                        <li class="nav-item">
-                           <a href="customer-help-tutorial.html" class="nav-link">
-                              <i class="nav-icon fas fa-video"></i>
-                              <p>Tutorials</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="customer-FAQ.html" class="nav-link">
-                              <i class="nav-icon fas fa-comment-dots"></i>
-                              <p>FAQ</p>
-                           </a>
-                        </li>
-                        <li class="nav-item">
-                           <a href="customer-contact-us.html" class="nav-link">
-                              <i class="nav-icon fas fa-user-tag"></i>
-                              <p>Contact Us</p>
-                           </a>
-                        </li>
-                     </ul>
-                  </li>
+                  <li class="@if(Route::currentRouteName() == 'tutorial' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'contact-us') menu-open @endif nav-item">
+            <a href="#" class="@if(Route::currentRouteName() == 'tutorial' ||Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'FAQ' || Route::currentRouteName() == 'contact-us' ) nav-link active @endif nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Help
+                <i class="fas fa-angle-right right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview pl-4 ml-2">
+              <li class="nav-item">
+                <a href="{{url('tutorial')}}" class="@if(Route::currentRouteName() == 'tutorial') nav-link active @endif nav-link">
+                  <i class="nav-icon fas fa-video"></i>
+                  <p>Tutorials</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('FAQ')}}" class="@if(Route::currentRouteName() == 'FAQ') nav-link active @endif nav-link">
+                  <i class="nav-icon fas fa-comment-dots"></i>
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('contact-us')}}" class="@if(Route::currentRouteName() == 'contact-us') nav-link active @endif nav-link">
+                  <i class="nav-icon fas fa-user-tag"></i>
+                  <p>Contact Us</p>
+                </a>
+              </li>
+            </ul>
+          </li>
                   <br>
-                  <li class="nav-item">
-                     <p>QUICK LINKS</p>
-                  </li>
-                  <li class="nav-item">
-                     <a href="customer-help-tutorial.html" class="nav-link">
-                        <i class="nav-icon fas fa-video"></i>
-                        <p>Tutorials</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="customer-FAQ.html" class="nav-link">
-                        <i class="nav-icon fas fa-comment-dots"></i>
-                        <p>FAQ</p>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="customer-contact-us.html" class="nav-link">
-                        <i class="nav-icon fas fa-user-tag"></i>
-                        <p>Contact Us</p>
-                     </a>
-                  </li>
+          <li class="nav-item">
+            <p>QUICK LINKS</p>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.facebook.com/ebutify" class="nav-link">
+              <i class="nav-icon fab fa-facebook-square"></i>
+              <p>Facebook</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.instagram.com/ebutify" class="nav-link">
+              <i class="nav-icon fab fa-instagram-square"></i>
+              <p>Instagram</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://twitter.com/eButify" class="nav-link">
+              <i class="nav-icon fab fa-twitter-square"></i>
+              <p>Twitter</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.pinterest.com/ebutify" class="nav-link">
+              <i class="nav-icon fab fa-pinterest-square"></i>
+              <p>Pinterest</p>
+            </a>
+          </li>
                </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -347,6 +353,8 @@
          });
       </script>
       <script>
+        function initiateSlick(ajax){
+          
          function videoPlay(){
            $('#video-control').trigger('play');
            $('.video-icon-play').hide();
@@ -357,22 +365,8 @@
            $('.video-icon-play').show();
            $('.video-icon-pause').hide();
          }
-         $('.slickslider').slick({
-           slidesToShow: 1,
-           slidesToScroll: 1,
-           fade: true,
-           asNavFor: '.slider-nav'
-         });
-         $('.slider-nav').slick({
-           slidesToShow: 5,
-           slidesToScroll: 1,
-           arrows: false,
-           asNavFor: '.slickslider',
-           //centerMode: true,
-           focusOnSelect: true
-         });
-         $('.slickslider').on('afterChange', function(event, slick, currentSlide, nextSlide){
-           videoPause();
+         $(function(){
+            initiateSlick('no') ;
          });
          $('.video-icon-play').click(function(){
            videoPlay();
@@ -380,14 +374,14 @@
          $('.video-icon-pause').click(function(){
            videoPause();
          });
-         $('.slider2').slick({
+         $('.slider2').not('.slick-initialized').slick({
            slidesToShow: 1,
            slidesToScroll: 1,
            arrows: false,
            fade: true,
            asNavFor: '.slider-nav2'
          });
-         $('.slider-nav2').slick({
+         $('.slider-nav2').not('.slick-initialized').slick({
            slidesToShow: 3,
            slidesToScroll: 1,
            arrows: false,
@@ -398,22 +392,48 @@
 
 
          $(document).on("change", ".filter-item", function(){
-           console.log("sorting updated...");
+           // console.log("sorting updated...");
            $('#filterForm').submit();
          });
 
-         $(document).on("scroll", function(){
-           console.log("you scrolled...");
-           console.log(window.scrollY);
-           if(window.scrollY >=1200)
-           {
-               //-- fetch data with ajax
+         // $(document).on("scroll", function(){
+         //   console.log("you scrolled...");
+         //   console.log(window.scrollY);
+         //   if(window.scrollY >=1200)
+         //   {
+         //       //-- fetch data with ajax
                
-               //-- feed current data container
-           }
-         });
+         //       //-- feed current data container
+         //   }
+         // });
+         
+         
+             //-- FOR DEBUGGING
+             console.log(`initiating slick...${ajax}`);
+             
+            $('.slickslider').not('.slick-initialized').slick({
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               fade: true,
+               asNavFor: '.slider-nav'
+            });
+            
+             $('.slider-nav').not('.slick-initialized').slick({
+               slidesToShow: 5,
+               slidesToScroll: 1,
+               arrows: false,
+               asNavFor: '.slickslider',
+               //centerMode: true,
+               focusOnSelect: true
+            });
+             
+            $('.slickslider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+                videoPause();
+            });
+        }
 
 
       </script>
+      @yield('js')
    </body>
 </html>
