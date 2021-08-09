@@ -45,7 +45,7 @@
                                         
                                     </div>
                                     <div class="price-table-card-btn text-center">
-                                        <a href="" type="button" class="btn price-card-5-btn">Buy Now</a>
+                                        <a href="#" type="button" class="btn price-card-5-btn">Buy Now</a>
                                     </div>
 
                                     <div class="col-12 text-center">
@@ -83,7 +83,7 @@
                                         <p class="ptc-text">No questions, no contracts, cancel at any time with one click, 100% risk free.s</p>
                                     </div>
                                     <div class="price-table-card-btn text-center">
-                                        <a href="" type="button" class="btn price-card-5-btn">Buy Now</a>
+                                        <a href="#" type="button" class="btn price-card-5-btn">Buy Now</a>
                                     </div>
 
                                     <div class="col-12 text-center">

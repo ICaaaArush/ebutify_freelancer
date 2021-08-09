@@ -22,11 +22,11 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">How to Run Successful Independence Day Marketing Campaign (4th of July)</a></h5>
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">How to Run Successful Independence Day Marketing Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -46,11 +46,11 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">Visual Content Marketing : An Actionable Guide for Digital Marketers</a></h5>
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">Visual Content Marketing : An Actionable Guide for Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="images/reza.jpg" height="36" width="36">
+                                                            <a href="#"><img src="{{asset('images/reza.jpg')}}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -70,12 +70,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">How to Run Successful Independence Day Marketing
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">How to Run Successful Independence Day Marketing
                                                         Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -95,12 +95,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">Visual Content Marketing : An Actionable Guide for
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">Visual Content Marketing : An Actionable Guide for
                                                         Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -118,14 +118,14 @@
                                     </div>
                                     <div class="col">
                                         <div class="card h-100">
-                                            <img src="images/WordPress-Birthday-2021-1536x839.png" class="card-img-top" alt="...">
+                                            <img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">How to Run Successful Independence Day Marketing
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">How to Run Successful Independence Day Marketing
                                                         Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -145,12 +145,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">Visual Content Marketing : An Actionable Guide for
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">Visual Content Marketing : An Actionable Guide for
                                                         Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -170,12 +170,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">How to Run Successful Independence Day Marketing
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">How to Run Successful Independence Day Marketing
                                                         Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -195,12 +195,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">Visual Content Marketing : An Actionable Guide for
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">Visual Content Marketing : An Actionable Guide for
                                                         Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -220,12 +220,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">How to Run Successful Independence Day Marketing
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">How to Run Successful Independence Day Marketing
                                                         Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -245,12 +245,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">Visual Content Marketing : An Actionable Guide for
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">Visual Content Marketing : An Actionable Guide for
                                                         Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -270,12 +270,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">How to Run Successful Independence Day Marketing
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">How to Run Successful Independence Day Marketing
                                                         Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -295,12 +295,12 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">Visual Content Marketing : An Actionable Guide for
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">Visual Content Marketing : An Actionable Guide for
                                                         Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
+                                                            <a href="#"><img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -340,33 +340,33 @@
                                     <h2>Popular Post</h2>
                                     <div class="popular-sidebar-post">
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
+                                            <a href="#"><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
+                                            <a href="#"><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
+                                            <a href="#"><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
+                                            <a href="#"><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
+                                            <a href="#"><img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                     </div>

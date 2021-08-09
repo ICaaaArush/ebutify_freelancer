@@ -30,30 +30,30 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light navigation-menu">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="index.html"><img src="images/eButify.png" alt=""></a>
+                        <a class="navbar-brand" href="/"><img src="{{asset('images/eButify.png')}}" alt=""></a>
                         <button class="navbar-toggler" type="button" >
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav main-nav-menu me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pricing.html">Pricing</a>
+                                    <a class="nav-link" href="/pricing">Pricing</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
+                                    <a class="nav-link" href="/privacy-policy">Privacy Policy</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact-us.html">Contact Us</a>
+                                    <a class="nav-link" href="/contact-us">Contact Us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about.html">About Us</a>
+                                    <a class="nav-link" href="/about">About Us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blog</a>
+                                    <a class="nav-link" href="/blog">Blog</a>
                                 </li>
                             </ul>
                             <div class="d-flex">
-                                <a href="login.html" class="btn btn-primary menu-user-btn" type="">Sign In</a>
+                                <a href="/login" class="btn btn-primary menu-user-btn" type="">Sign In</a>
                             </div>
                         </div>
                     </div>
@@ -98,13 +98,13 @@
                                 <div class="row row-cols-1 row-cols-md-2 g-4">
                                     <div class="col">
                                         <div class="card h-100">
-                                            <img src="images/WordPress-Birthday-2021-1536x839.png" class="card-img-top" alt="...">
+                                            <img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">How to Run Successful Independence Day Marketing Campaign (4th of July)</a></h5>
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">How to Run Successful Independence Day Marketing Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="images/reza.jpg" height="36" width="36">
+                                                            <a href="#"><img src="{{asset('images/reza.jpg')}}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -122,13 +122,13 @@
                                     </div>
                                     <div class="col">
                                         <div class="card h-100">
-                                            <img src="images/WordPress-Birthday-2021-1536x839.png" class="card-img-top" alt="...">
+                                            <img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">Visual Content Marketing : An Actionable Guide for Digital Marketers</a></h5>
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">Visual Content Marketing : An Actionable Guide for Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="images/reza.jpg" height="36" width="36">
+                                                            <a href="#"><img src="{{asset('images/reza.jpg')}}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -146,14 +146,14 @@
                                     </div>
                                     <div class="col">
                                         <div class="card h-100">
-                                            <img src="images/WordPress-Birthday-2021-1536x839.png" class="card-img-top" alt="...">
+                                            <img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="">How to Run Successful Independence Day Marketing
+                                                <h5 class="card-title latest-blog-card-title"><a href="#">How to Run Successful Independence Day Marketing
                                                         Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href=""><img src="images/reza.jpg" height="36" width="36">
+                                                            <a href="#"><img src="{{asset('images/reza.jpg')}}" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -184,33 +184,33 @@
                                     <h2>Popular Post</h2>
                                     <div class="popular-sidebar-post">
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="images/WordPress-Birthday-2021-1536x839.png"></a>
+                                            <a href="#"><img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="images/WordPress-Birthday-2021-1536x839.png"></a>
+                                            <a href="#"><img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="images/WordPress-Birthday-2021-1536x839.png"></a>
+                                            <a href="#"><img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="images/WordPress-Birthday-2021-1536x839.png"></a>
+                                            <a href="#"><img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="images/WordPress-Birthday-2021-1536x839.png"></a>
+                                            <a href="#"><img src="{{asset('images/WordPress-Birthday-2021-1536x839.png')}}"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                     </div>
@@ -218,26 +218,26 @@
                                 <div class="author_categories_list">
                                     <h2>Categories</h2>
                                     <ul>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>Accounting</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>add on release</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>Comparison</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>CRM</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>Digital Marketing</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>ERP</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>Extension</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>HRM</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>New Features</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>News and Update</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>Accounting</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>add on release</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>Comparison</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>CRM</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>Digital Marketing</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>ERP</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>Extension</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>HRM</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>New Features</a>(52)</li>
-                                        <li class="author_cat_item"><a href=""><i class="fas fa-chevron-right"></i>News and Update</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>Accounting</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>add on release</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>Comparison</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>CRM</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>Digital Marketing</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>ERP</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>Extension</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>HRM</a>(52)</li>
+                                        <li class="author_cat_item"><a href="##"><i class="fas fa-chevron-right"></i>New Features</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>News and Update</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>Accounting</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>add on release</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>Comparison</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>CRM</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>Digital Marketing</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>ERP</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>Extension</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>HRM</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>New Features</a>(52)</li>
+                                        <li class="author_cat_item"><a href="#"><i class="fas fa-chevron-right"></i>News and Update</a>(52)</li>
                                     </ul>
                                 </div>
                             </div>
@@ -285,9 +285,9 @@
                                 <div class="footer-main-nav-content footer-mid-left-content">
                                     <h3 class="footer-main-title footer-mid-l-title">Company</h3>
                                     <ul class="footer-main-nav">
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="/about">About Us</a></li>
+                                        <li><a href="/contact-us">Contact Us</a></li>
+                                        <li><a href="/blog">Blog</a></li>
                                         
                                     </ul>
                                 </div>
@@ -296,10 +296,10 @@
                                 <div class="footer-main-nav-content footer-mid-right-content">
                                     <h3 class="footer-main-title footer-mid-r-title">Resources</h3>
                                     <ul class="footer-main-nav">
-                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                        <li><a href="refund-policy.html">Return Policy</a></li>
-                                        <li><a href="terms-and-conditions.html">Terms of service</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                        <li><a href="/refund-policy">Return Policy</a></li>
+                                        <li><a href="'/terms-and-conditions">Terms of service</a></li>
+                                        <li><a href="/faq">FAQ</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -337,7 +337,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <!-- Custom js -->
-    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
     
 
 </body>

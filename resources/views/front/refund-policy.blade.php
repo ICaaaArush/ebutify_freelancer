@@ -16,8 +16,8 @@
                     <div class="col-12 refund-main-contant pb-5">
                         <div class="refund-policy-here">
                             <h2>Try Before Buying</h2>
-                            <p><a href="">WP ERP Demo</a> is available so that you can try and check what you are buying. We have included all the extensions of WP
-                            ERP within the demo just for you. You can request the demo directly from <a href="">here.</a> </p>
+                            <p><a href="#">WP ERP Demo</a> is available so that you can try and check what you are buying. We have included all the extensions of WP
+                            ERP within the demo just for you. You can request the demo directly from <a href="#">here.</a> </p>
                         </div>
                         <div class="refund-policy-here">
                             <h2>Our No Question Asked Refund Policy After Purchase</h2>
@@ -75,7 +75,7 @@
                             <p>When you are placing an order for any of our products, you indicate that you have read this refund policy properly. This
                             also proves that you agree with and fully accept the terms of this refund policy. We ask you not to place an order with
                             us if you do not agree with the terms and conditions.</p>
-                            <p>If the above criteria mentioned in this policy are met, then you are eligible for a refund. <a href="">Please use the contact form</a> 
+                            <p>If the above criteria mentioned in this policy are met, then you are eligible for a refund. <a href="#">Please use the contact form</a> 
                             and we will reply within 2 working days.</p>
                             
                         </div>

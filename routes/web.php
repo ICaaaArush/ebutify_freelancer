@@ -199,6 +199,10 @@ Route::get('/', function(){
     return view('front.index');
 });
 
+Route::get('/author', function(){
+    return view('front.author');
+});
+
 Route::get('/pricing', function(){
     return view('front.pricing');
 });
@@ -214,6 +218,9 @@ Route::get('/about', function(){
 Route::get('/blog', function(){
     return view('front.blog');
 });
+Route::get('/blog2', function(){
+    return view('front.blog2');
+});
 Route::get('/our-team', function(){
     return view('front.about_our-team');
 });
@@ -223,5 +230,13 @@ Route::get('/contact-us', function(){
 Route::get('/refund-policy', function(){
     return view('front.refund-policy');
 });
-
+Route::get('/terms-and-conditions', function(){
+    return view('front.terms-and-conditions.html');
+});
+Route::get('/faq', function(){
+    return view('front.faq.html');
+});
+Route::get('/sign-up_1', function(){
+    return view('front.sign-up_1.html');
+});
 // END FRONT END

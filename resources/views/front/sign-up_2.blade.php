@@ -183,8 +183,8 @@
                                                         src="images/trust-paypal.png" class="img-fluid"></p>
                                                 <p>By Clicking Complete Account Button or The Paypal Button You are agreeing
                                                     to eButify's
-                                                    <a href="terms-and-conditions.html">Terms and Conditions</a>
-                                                    and <a href="privacy-policy.html">Privacy Policy</a>
+                                                    <a href="/terms-and-conditions">Terms and Conditions</a>
+                                                    and <a href="/privacy-policy">Privacy Policy</a>
                                                 </p>
                                                 <p>Your membership will start when you complete your account and will end once your cancel your
                                                     subscription. You will be billed on the same day each month or year based on your

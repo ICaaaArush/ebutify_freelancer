@@ -15,7 +15,7 @@
                             <div class="entry_profile">
                                 <span class="article_author_link">
                                     <i class="fas fa-user-circle"></i>
-                                    <a href="author.html">
+                                    <a href="/author">
                                         <span>Rezaul Islam</span>
                                     </a>
                                     <span class="divider">|</span>
