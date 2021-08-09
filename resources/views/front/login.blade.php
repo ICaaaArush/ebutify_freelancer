@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col-12">
                                             <div class="new-user-sign_up">
-                                                <p>New user to eButify? <a href="/sign-up_1">Sign Up Now</a></p>
+                                                <p>New user to eButify? <a href="sign-up_1.html">Sign Up Now</a></p>
                                             </div>
                                         </div>
                                     </div>

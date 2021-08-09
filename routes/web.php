@@ -231,10 +231,10 @@ Route::get('/refund-policy', function(){
     return view('front.refund-policy');
 });
 Route::get('/terms-and-conditions', function(){
-    return view('front.terms-and-conditions.html');
-});
+    return view('front.terms-and-conditions');
+})->name('terms-and-conditions');
 Route::get('/faq', function(){
-    return view('front.faq.html');
+    return view('front.faq');
 });
 Route::get('/sign-up_1', function(){
     return view('front.sign-up_1.html');

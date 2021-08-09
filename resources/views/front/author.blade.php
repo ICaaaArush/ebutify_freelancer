@@ -95,7 +95,8 @@
                                         <div class="card h-100">
                                             <img src="{{ asset('front/images/WordPress-Birthday-2021-1536x839.png') }}" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="#">Visual Content Marketing : An Actionable Guide for
+                                                <h5 class="card-title latest-blog-card-title"><a href="#
+                                                    ">Visual Content Marketing : An Actionable Guide for
                                                         Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">

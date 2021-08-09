@@ -25,7 +25,7 @@
 
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('front/css/style.css')); ?>">
 </head>
 <body>
     <header id="header">
@@ -33,7 +33,7 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light navigation-menu">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="/"><img src="{{ asset('front/images/eButify.png') }}" alt=""></a>
+                        <a class="navbar-brand" href="/"><img src="<?php echo e(asset('front/images/eButify.png')); ?>" alt=""></a>
                         <button class="navbar-toggler" type="button" >
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -89,7 +89,7 @@
 
 
 
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 
 
 
@@ -189,7 +189,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 <!-- Custom js -->
-<script type="text/javascript" src="{{ asset('front/js/custom.js') }}"></script>
+<script type="text/javascript" src="<?php echo e(asset('front/js/custom.js')); ?>"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -214,4 +214,4 @@
 </script>
 
 </body>
-</html>
+</html><?php /**PATH C:\xampp\htdocs\New folder\ebutify_freelancer\resources\views/front/layout/main.blade.php ENDPATH**/ ?>
