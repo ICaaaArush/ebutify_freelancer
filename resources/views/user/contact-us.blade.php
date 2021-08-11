@@ -5,8 +5,8 @@
   <div class="content-wrapper">
     <nav>
       <div class="nav nav-tabs nav-justified cpr-dashboard" id="nav-tab" role="tablist">
-        <a class="nav-link active" href="customer-product-research-dashboard.html">Product Research Tool</a>
-        <a class="nav-link " href="customer-ebutify-services-dashboard.html">eButify Services</a>
+        <a class="nav-link active" href="/dashboard">Product Research Tool</a>
+        <a class="nav-link " href="/service-dashboard">eButify Services</a>
       </div>
     </nav>
 
@@ -146,15 +146,15 @@
                     <div class="col-md-6 col-lg-5 my-3">
                       <div class="contac-sm-icon my-2 py-2 px-3 shadow-sm">
                         <i class="fab fa-facebook-square" style="color: #1F52C9;"></i>
-                        <a href="">Facebook Official Fan Page</a>
+                        <a href="https://www.facebook.com/ebutify">Facebook Official Fan Page</a>
                       </div>
                       <div class="contac-sm-icon my-2 py-2 px-3 shadow-sm">
                         <i class="fab fa-instagram-square" style="color: #C9942A;"></i>
-                        <a href="">Instagram Official Fan Page </a>
+                        <a href="https://www.instagram.com/ebutify">Instagram Official Fan Page </a>
                       </div>
                       <div class="contac-sm-icon my-2 py-2 px-3 shadow-sm">
                         <i class="fab fa-twitter-square" style="color: #3DDC97;"></i>
-                        <a href="">Twitter Official Fan Page </a>
+                        <a href="https://twitter.com/eButify">Twitter Official Fan Page </a>
                       </div>
                     </div>
                   </div>

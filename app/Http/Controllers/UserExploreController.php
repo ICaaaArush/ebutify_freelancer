@@ -91,6 +91,8 @@ class UserExploreController extends Controller
         // $results = ProductDetail::orderBy('id')->paginate(9);
         $artilces = '';
         if ($request->ajax()) {
+
+            // dd($trendingProducts);
             foreach ($trendingProducts as $result) {
                 if($result->explore_star_rating >= 1){
                     $star1 = '<span class="fa fa-star checked"></span>';
@@ -137,12 +139,22 @@ class UserExploreController extends Controller
                           </div>
                           <div class="col-12 text-center px-3">
                             <span class="cae-cart-icon"><i class="fas fa-shopping-basket"></i> Total Order</span>
-                            <span>'.$result->total_order.'</span>
+                            <span>'.$result->total_order.' Not Uploaded</span>
+                          </div>
+
+                          <div class="col-12 text-center px-3">
+                            <span class="cae-cart-icon"><i class="fas fa-shopping-basket"></i> Total Review</span>
+                            <span>'.$result->explore_t_review.'</span>
+                          </div>
+
+                          <div class="col-12 text-center px-3">
+                            <span class="cae-cart-icon"><i class="fas fa-shopping-basket"></i> Total Price</span>
+                            <span>'.$result->price.'</span>
                           </div>
                           
                           <div class="col-12 text-center px-3">
-                            <span class="cae-cart-icon"><i class="fas fa-atom"></i> Selling Price</span>
-                            <span>'.$result->price.'</span>
+                            <span class="cae-cart-icon"><i class="fas fa-atom"></i> Total Revenue</span>
+                            <span>'.$result->total_revenue.'</span>
                           </div>
                         </div>
                       </div>
@@ -297,12 +309,13 @@ class UserExploreController extends Controller
                         <span>'.$result->explore_star_rating.'</span>
                     </div>
                     <div class="col-12 text-center px-3">
-                      <span class="cae-cart-icon"><i class="fas fa-shopping-basket"></i> Total Order</span>
-                      <span>'.$result->total_order.'</span>
-                    </div>
-                    <div class="col-12 text-center px-3">
                       <span class="cae-cart-icon"><i class="fas fa-atom"></i> Selling Price</span>
                       <span>'.$result->price.'</span>
+                    </div>
+                    <div class="col-12 text-center px-3">
+                      <span class="cae-cart-icon"><i class="fas fa-atom"></i> Total Review</span>
+                      <span>'.$result->explore_t_review.'</span>
+                    </div>
                     </div>
                   </div>
                 </div>
