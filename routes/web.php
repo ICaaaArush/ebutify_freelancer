@@ -29,6 +29,43 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//  SUP ALL PRODUCTS VIEW
+Route::middleware(['auth:sanctum', 'verified'])->get('/sup-all-products', function () {
+    return view('sup-all-products');
+})->name('super-all-products');
+
+//  SUP ALL CATEGORIES AND NICHES VIEW
+Route::middleware(['auth:sanctum', 'verified'])->get('/sup-categories-niches', function () {
+    return view('sup-categories-niches');
+})->name('super-categories-niches');
+
+//  SUP SUBSCRIBERS VIEW
+Route::middleware(['auth:sanctum', 'verified'])->get('/subscriber', function () {
+    return view('subscriber');
+})->name('subscriber');
+
+//  SUP FREELANCER LIST VIEW
+Route::middleware(['auth:sanctum', 'verified'])->get('/freelancers-list', function () {
+    return view('freelancers-list');
+})->name('freelancers-list');
+
+    //  ADD NEW FREELANCER
+    Route::middleware(['auth:sanctum', 'verified'])->get('/add-new-freelancer', function () {
+        return view('add-new-freelancer');
+    })->name('add-new-freelancer');
+
+//  SUP CUSTOMERS LIST VIEW
+Route::middleware(['auth:sanctum', 'verified'])->get('/customer-list', function () {
+    return view('customer');
+})->name('customer-list');
+
+
+
+
+
+
+
 // Route::group(['middleware' => ['auth:sanctrum']], function(){
 
 // })

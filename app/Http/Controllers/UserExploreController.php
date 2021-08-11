@@ -316,7 +316,7 @@ class UserExploreController extends Controller
                       <span class="cae-cart-icon"><i class="fas fa-atom"></i> Total Review</span>
                       <span>'.$result->explore_t_review.'</span>
                     </div>
-                    </div>
+
                   </div>
                 </div>
 
