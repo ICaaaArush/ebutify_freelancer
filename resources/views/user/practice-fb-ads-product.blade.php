@@ -6,8 +6,8 @@
 <div class="content-wrapper">
          <nav>
             <div class="nav nav-tabs nav-justified cpr-dashboard" id="nav-tab" role="tablist">
-               <a class="nav-link active" href="customer-product-research-dashboard.html">Product Research Tool</a>
-               <a class="nav-link " href="customer-ebutify-services-dashboard.html">eButify Services</a>
+               <a class="nav-link active" href="/dashboard">Product Research Tool</a>
+               <a class="nav-link " href="/service-dashboard">eButify Services</a>
             </div>
          </nav>
          <!-- Main content -->
@@ -421,9 +421,9 @@
                                                       </div>
                                                    </div>
                                                    <div class="slider-nav2 my-2 justify-content-between">
-                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="arush">
-                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="">
-                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="gif">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="gif">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="gif">
                                                    </div>
                                                    @endforeach
                                                    @php

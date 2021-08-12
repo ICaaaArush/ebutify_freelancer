@@ -9,6 +9,9 @@ use App\Http\Controllers\UserExploreController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\SuperAdminController;
+use App\Http\Controllers\UserServiceController;
+use App\Http\Controllers\OrderController;
+
 
 
 
@@ -116,6 +119,31 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/send-email', [ContactCon
 //  USER SEARCH
 Route::middleware(['auth:sanctum', 'verified'])->post('/search-all-product', [UserController::class, 'allProduct'])->name('search');
 
+//  # USER SERVICES START #
+
+//  USER SERVICE DASHBOARD
+Route::middleware(['auth:sanctum', 'verified'])->get('/service-dashboard', [UserServiceController::class, 'serviceDashboard'])->name('service-dashboard');
+
+//  USER EBUTIFY SERVICES
+Route::middleware(['auth:sanctum', 'verified'])->get('/ebutify-services', [UserServiceController::class, 'ebutifyServices'])->name('ebutify-services');
+
+//  USER VIEW SER
+Route::middleware(['auth:sanctum', 'verified'])->get('/view-services', [UserServiceController::class, 'viewServices'])->name('view-services');
+
+//  USER ALL PROJECTS
+Route::middleware(['auth:sanctum', 'verified'])->get('/all-projects', [UserServiceController::class, 'allProjects'])->name('all-projects');
+
+//  USER PROJECT DETAILS
+Route::middleware(['auth:sanctum', 'verified'])->get('/project-details', [UserServiceController::class, 'allProjectsDetails'])->name('project-details');
+
+//  USER PLACE ORDER
+Route::middleware(['auth:sanctum', 'verified'])->get('/place-order', [OrderController::class, 'placeOrder'])->name('place-order');
+
+//  USER PLACE CUSTOM ORDER
+Route::middleware(['auth:sanctum', 'verified'])->get('/place-custom-order', [OrderController::class, 'placeCustomOrder'])->name('place-custom-order');
+
+//  USER PLACE ORDER PART TWO
+Route::middleware(['auth:sanctum', 'verified'])->get('/place-order-%2', [OrderController::class, 'placeCustomOrderStep2'])->name('/place-order-%2');
 
 
 
@@ -191,6 +219,19 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/add-new-shopify', [Explor
 
 //  FREELANCER UPLOAD SHOPIFY PRODUCTS
 Route::post('/upload-shopify', [ExploreController::class, 'uploadShopify'])->name('upload-shopify');
+
+//  FREELANCER UPLOAD SHOPIFY PRODUCTS
+Route::get('/freelancer-project', function () {
+    return view('freelancer.freelancer-project');
+});
+
+//  FREELANCER UPLOAD SHOPIFY PRODUCTS
+Route::get('/freelancer-project-detail', function () {
+    return view('freelancer.freelancer-project-detail');
+});
+
+
+
 
 
 

@@ -45,7 +45,7 @@
                                   </div>
                                   <div class="form-group col-md-6">
                                     <label for="inputAmazonLink">Total Sales</label>
-                                    <input type="number" step=".01" name="amz_link" class="form-control" id="inputAmazonLink">
+                                    <input type="number" step=".01" name="t_sales" class="form-control" id="inputAmazonLink">
                                   </div>
                                 </div>
                               </div>

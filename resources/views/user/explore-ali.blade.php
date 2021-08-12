@@ -5,8 +5,8 @@
   <div class="content-wrapper">
     <nav>
       <div class="nav nav-tabs nav-justified cpr-dashboard" id="nav-tab" role="tablist">
-        <a class="nav-link active" href="customer-product-research-dashboard.html">Product Research Tool</a>
-        <a class="nav-link " href="customer-ebutify-services-dashboard.html">eButify Services</a>
+        <a class="@if(Route::currentRouteName() == 'freelancer-dashboard') nav-link active @endif nav-link" href="/dashboard">Product Research Tool</a>
+        <a class="@if(Route::currentRouteName() == 'service-dashboard') nav-link active  @endif nav-link " href="/service-dashboard">eButify Services</a>
       </div>
     </nav>
 

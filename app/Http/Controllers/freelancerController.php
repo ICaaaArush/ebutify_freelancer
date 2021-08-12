@@ -57,6 +57,9 @@ class FreelancerController extends Controller
                 $products = ProductDetail::where('user_id', $user_id)->get();
                 $productAdded = count($products);
                 return view('freelancer.freelancer-dashboard', compact('productAdded'));
+            }elseif(Auth::user()->user_type == "super_admin"){
+
+                return view('super_admin.super-admin-panel', compact('productAdded'));
             }
 
         }
@@ -130,4 +133,5 @@ class FreelancerController extends Controller
         ]);
 
     }
+
 }

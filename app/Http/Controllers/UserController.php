@@ -895,7 +895,19 @@ class UserController extends Controller
 								   $gifs .= $result->productImage[0]->gif_3;
 								 }
 								}
-    // dd($gifs);
+    						// dd($gifs);
+
+								if(!empty($gifs)){
+
+                $downloadButton =  '<div class="mb-2 float-right">
+                    <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
+                    <button class="btn-download" value="download">
+                    <a href="http://ecomfia.com/downloadGIF/'.$gifs.'">Download</a></button>
+                 </div>';
+								}else{
+									$downloadButton = "";
+								}
+
 								
                 $linkToDetailsPage = url("/product-details/{$result->id}");
 
@@ -1099,11 +1111,7 @@ class UserController extends Controller
                                                       <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
                                                       <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
                                                    </div>
-                                                   <div class="mb-2 float-right">
-                                                      <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
-                                                      <button class="btn-download" value="download">
-                                                      <a href="http://ecomfia.com/downloadGIF/'.$gifs.'">Download</a></button>
-                                                   </div>
+                                                   '.$downloadButton.'
                                                 </div>
                                                 
                                              </div>
@@ -1122,7 +1130,7 @@ class UserController extends Controller
                     <div class="tab-content pr-modal-tab bg-white shadow">
                       <div class="tab-pane fade show active pb-3" id="tab'.$result->id.'" role="tabpanel">
                         <div class="row mx-3 pt-3 plan-header">
-                            <p>{!!$trendingProduct->description!!}</p>
+                            <p>'.$trendingProduct->description.'</p>
                         </div>
                       </div>
                       <div class="tab-pane pb-3 fade" id="far'.$result->id.'" role="tabpanel">
@@ -1524,6 +1532,16 @@ class UserController extends Controller
 								 }
 								}
     // dd($gifs);
+								if(!empty($gifs)){
+
+								$downloadButton =  '<div class="mb-2 float-right">
+                    <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
+                    <button class="btn-download" value="download">
+                    <a href="http://ecomfia.com/downloadGIF/'.$gifs.'">Download</a></button>
+                 </div>';
+								}else{
+									$downloadButton = "";
+								}
 								
                                            
                 $linkToDetailsPage = url("/product-details/{$result->id}");
@@ -1728,11 +1746,7 @@ class UserController extends Controller
                                                       <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
                                                       <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
                                                    </div>
-                                                   <div class="mb-2 float-right">
-                                                      <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
-                                                      <button class="btn-download" value="download">
-                                                      <a href="http://ecomfia.com/downloadGIF/'.$gifs.'">Download</a></button>
-                                                   </div>
+                                                   '.$downloadButton.'
                                                 </div>
                                                 
                                              </div>
@@ -1751,7 +1765,7 @@ class UserController extends Controller
                     <div class="tab-content pr-modal-tab bg-white shadow">
                       <div class="tab-pane fade show active pb-3" id="tab'.$result->id.'" role="tabpanel">
                         <div class="row mx-3 pt-3 plan-header">
-                            <p>{!!$trendingProduct->description!!}</p>
+                            <p>'.$result->description.'</p>
                         </div>
                       </div>
                       <div class="tab-pane pb-3 fade" id="far'.$result->id.'" role="tabpanel">
