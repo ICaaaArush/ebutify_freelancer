@@ -59,7 +59,7 @@
                     <div class="col-12">
                         <div class="featured-post">
                             <figure class="featured-thumbnail">
-                            <a href="">
+                            <a href="#">
                             <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>"></a>
                             <span class="thumbnail_badge">Featured</span>
                             </figure>
@@ -67,14 +67,14 @@
                                 <a class="featured__article-badge">WordPress</a>
                                 <div class="featured__article-header">
                                     <h2 class="featured__article-title">
-                                        <a href="" class="article-title-link">Happy Birthday WordPress! Celebrating 18 Years of Excellence from eButify</a>
+                                        <a href="#" class="article-title-link">Happy Birthday WordPress! Celebrating 18 Years of Excellence from eButify</a>
                                     </h2>
                                 </div>
                                 <div class="featured__article-content">
                                     <div class="font__size-16" style="color: rgb(79, 91, 109); margin-bottom:30px;">
                                         <p>Today WordPress celebrates its 18th birthday. That's right, it's been 18 years since American developer Matt Mullenweg and English ...</p>
                                     </div>
-                                    <a href="">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                                    <a href="#">Continue Reading <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </article>
                         </div>
@@ -90,7 +90,7 @@
                             <div class="col-12">
                                 <div class="blog-post-card-head">
                                     <h2>Latest <span>Blog</span></h2>
-                                    <a href="">View All <i class="fas fa-arrow-right"></i></a>
+                                    <a href="#">View All <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
                             <div class="col-12 blog-post-single">
@@ -99,11 +99,11 @@
                                         <div class="card h-100">
                                             <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="blog2.html">How to Run Successful Independence Day Marketing Campaign (4th of July)</a></h5>
+                                                <h5 class="card-title latest-blog-card-title"><a href="/blog2">How to Run Successful Independence Day Marketing Campaign (4th of July)</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                            <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -123,11 +123,11 @@
                                         <div class="card h-100">
                                             <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                             <div class="card-body eb-latest-card-body">
-                                                <h5 class="card-title latest-blog-card-title"><a href="blog2.html">Visual Content Marketing : An Actionable Guide for Digital Marketers</a></h5>
+                                                <h5 class="card-title latest-blog-card-title"><a href="/blog2">Visual Content Marketing : An Actionable Guide for Digital Marketers</a></h5>
                                                 <div class="latest-card-footer">
                                                     <div class="blog-posted-by">
                                                         <span class="author">
-                                                            <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                            <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                                 <span class="author-name">Rezaul Islam</span>
                                                                 <span class="post-date"> Jul 3, 2021</span>
                                                             </a>
@@ -154,19 +154,19 @@
                                     <h2>Most <span>Popular</span></h2>
                                     <div class="popular-sidebar-post">
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>"></a>
+                                            <a href="#"><img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>"></a>
+                                            <a href="#"><img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>"></a>
                                             <div class="popular-post-content">
-                                                <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
+                                                <a href="#">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
                                         </div>
                                         <div class="sidebar-single-post">
-                                            <a href=""><img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>"></a>
+                                            <a href="#"><img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>"></a>
                                             <div class="popular-post-content">
                                                 <a href="">Best WooCommerce Multi Vendor Plugin For...</a>
                                             </div>
@@ -194,12 +194,12 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">Factors Influencing Organizational Project Management Success in 2021
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">Factors Influencing Organizational Project Management Success in 2021
                                         </a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>
@@ -219,11 +219,11 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">Google May Update 2021: Are You Ready to Face This Biggest Update of The Year?</a></h5>
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">Google May Update 2021: Are You Ready to Face This Biggest Update of The Year?</a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>
@@ -243,11 +243,11 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">How to Run a Successful Father’s Day Campaign (The Do’s & Dont’s)</a></h5>
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">How to Run a Successful Father’s Day Campaign (The Do’s & Dont’s)</a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>
@@ -267,11 +267,11 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">Best Productivity Hacks Shared by Elon Musk, Jeff Bezos, Steve Jobs</a></h5>
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">Best Productivity Hacks Shared by Elon Musk, Jeff Bezos, Steve Jobs</a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>
@@ -291,11 +291,11 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">How to Setup Google Ads Conversion Tracking to Your WooCommerce Website</a></h5>
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">How to Setup Google Ads Conversion Tracking to Your WooCommerce Website</a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>
@@ -315,12 +315,12 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">Dokan Shipping Status: The Easiest Way to eCommerce Shipment Tracking
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">Dokan Shipping Status: The Easiest Way to eCommerce Shipment Tracking
                                         </a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>
@@ -340,11 +340,11 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">An Easy Guide for Marketplace Owners to Get More Sales Using Dokan Live Chat Module</a></h5>
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">An Easy Guide for Marketplace Owners to Get More Sales Using Dokan Live Chat Module</a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>
@@ -364,11 +364,11 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">5 Best Custom Post Types Plugins for WordPress Compared</a></h5>
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">5 Best Custom Post Types Plugins for WordPress Compared</a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>
@@ -388,11 +388,11 @@
                                 <div class="card h-100">
                                     <img src="<?php echo e(asset('front/images/WordPress-Birthday-2021-1536x839.png')); ?>" class="card-img-top" alt="...">
                                     <div class="card-body eb-latest-card-body">
-                                        <h5 class="card-title latest-blog-card-title"><a href="blog2.html">Happy Birthday WordPress! Celebrating 18 Years of Excellence from weDevs</a></h5>
+                                        <h5 class="card-title latest-blog-card-title"><a href="/blog2">Happy Birthday WordPress! Celebrating 18 Years of Excellence from weDevs</a></h5>
                                         <div class="latest-card-footer">
                                             <div class="blog-posted-by">
                                                 <span class="author">
-                                                    <a href="author.html"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
+                                                    <a href="/author"><img src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36" width="36">
                                                         <span class="author-name">Rezaul Islam</span>
                                                         <span class="post-date"> Jul 3, 2021</span>
                                                     </a>

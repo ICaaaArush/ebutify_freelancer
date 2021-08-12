@@ -73,8 +73,10 @@
                             <span class="small d-block mb-2">Satisfied Clients</span>
                         </span>
                         <div class="btn btn-primary btn-sm btn-block download-cta" style="width: 100%;">
+                            <a href="/register" style="color: #fff">
                             <span class="d-none d-sm-inline">Get</span>
                             Started
+                        </a>
                         </div>
                     </span>
                 </button>
@@ -137,9 +139,9 @@
                                 <div class="footer-main-nav-content footer-mid-left-content">
                                     <h3 class="footer-main-title footer-mid-l-title">Company</h3>
                                     <ul class="footer-main-nav">
-                                        <li><a href="about.html">About Us</a></li>
-                                        <li><a href="contact.html">Contact Us</a></li>
-                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="/about">About Us</a></li>
+                                        <li><a href="/contact-us">Contact Us</a></li>
+                                        <li><a href="/blog">Blog</a></li>
                                         
                                     </ul>
                                 </div>
@@ -148,10 +150,10 @@
                                 <div class="footer-main-nav-content footer-mid-right-content">
                                     <h3 class="footer-main-title footer-mid-r-title">Resources</h3>
                                     <ul class="footer-main-nav">
-                                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                        <li><a href="refund-policy.html">Return Policy</a></li>
-                                        <li><a href="terms-and-conditions.html">Terms of service</a></li>
-                                        <li><a href="faq.html">FAQ</a></li>
+                                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                                        <li><a href="/refund-policy">Return Policy</a></li>
+                                        <li><a href="/terms-and-conditions">Terms of service</a></li>
+                                        <li><a href="/faq">FAQ</a></li>
                                     </ul>
                                 </div>
                             </div>

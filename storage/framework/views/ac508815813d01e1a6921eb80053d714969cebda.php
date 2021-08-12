@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-12">
                             <div class="eb-font-page-btn">
-                                <a class="get-start-btn" href=""><i class="fas fa-arrow-right"></i>Get Started</a>
+                                <a class="get-start-btn" href="/register"><i class="fas fa-arrow-right"></i>Get Started</a>
                             </div>
                         </div>
                         
@@ -458,7 +458,7 @@
                             <div class="card-body">
                                 <h3 class="card-title">Understanding The Concept of Accounting Management System for Small Business</h3>
                                 <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href=""><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
+                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
                                                 width="36"></a>
                                         <span class="post-author-name">Rezaul Islam</span>
                                         <span class="post-author-time">Jun 26, 2021</span>
@@ -477,7 +477,7 @@
                             <div class="card-body">
                                 <h3 class="card-title">What are The Key Benefits of Sales CRM for Small Business</h3>
                                 <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href=""><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
+                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
                                                 width="36"></a>
                                         <span class="post-author-name">Rezaul Islam</span>
                                         <span class="post-author-time">Jun 26, 2021</span>
@@ -496,7 +496,7 @@
                             <div class="card-body">
                                 <h3 class="card-title">Best WordPress Plugins for Business Websites (2021)</h3>
                                 <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href=""><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
+                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
                                                 width="36"></a>
                                         <span class="post-author-name">Rezaul Islam</span>
                                         <span class="post-author-time">Jun 26, 2021</span>
@@ -512,7 +512,7 @@
                 </div>
                 <div class="row">
                     <div class="eb-card-see-more-btn">
-                        <a type="button" class="btn ebc-more-btn" href="blog.html">See More</a>
+                        <a type="button" class="btn ebc-more-btn" href="/blog">See More</a>
                     </div>
                 </div>
             </div>

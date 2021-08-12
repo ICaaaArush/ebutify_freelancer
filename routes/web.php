@@ -8,6 +8,7 @@ use App\Http\Controllers\ExploreController;
 use App\Http\Controllers\UserExploreController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\SuperAdminController;
 
 
 
@@ -240,3 +241,13 @@ Route::get('/sign-up_1', function(){
     return view('front.sign-up_1.html');
 });
 // END FRONT END
+
+// SUPER ADMIN START
+
+Route::get('/super', [SuperAdminController::class, 'index']);
+
+Route::get('/super/blog/create', [SuperAdminController::class, 'blog']);
+Route::post('/super/blog', [SuperAdminController::class, 'store']);
+Route::get('/super/blog', [SuperAdminController::class, 'blog_index']);
+
+// SUPER ADMIN END

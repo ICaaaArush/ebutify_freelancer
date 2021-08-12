@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-12">
                             <div class="eb-font-page-btn">
-                                <a class="get-start-btn" href="#"><i class="fas fa-arrow-right"></i>Get Started</a>
+                                <a class="get-start-btn" href="/register"><i class="fas fa-arrow-right"></i>Get Started</a>
                             </div>
                         </div>
                         
