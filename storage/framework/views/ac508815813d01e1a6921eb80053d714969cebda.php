@@ -452,63 +452,22 @@
                                 Don’t just get happy customers. Learn how to create a loyal fan base with your hospitality.</p>
                         </div>
                     </div>
+                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col">
                         <div class="card h-100 shadow-sm">
-                            <img src="<?php echo e(asset('front/images/11.jpg')); ?>" class="card-img-top" alt="...">
+                            <a href="/single-blog/<?php echo e($item->id); ?>"><img src="<?php echo e(asset('storage/'.$item->image)); ?>" class="card-img-top" alt="..."></a>
                             <div class="card-body">
-                                <h3 class="card-title">Understanding The Concept of Accounting Management System for Small Business</h3>
+                                <a href="/single-blog/<?php echo e($item->id); ?>"><h3 class="card-title"><?php echo e($item->heading); ?></h3></a>
                                 <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
-                                                width="36"></a>
-                                        <span class="post-author-name">Rezaul Islam</span>
-                                        <span class="post-author-time">Jun 26, 2021</span>
-                                    </span>
-                                    <span class="post-duration">
-                                        <i class="far fa-clock"></i>
-                                        11 min read
+                                    <span class="post-author-content"><a href="#"></a>
+                                        <span class="post-author-name"><?php echo e($item->name); ?></span>
+                                        <span class="post-author-time" style="left: 0px;"><?php echo e(date('F j,Y', strtotime($item->created_at))); ?></span>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <img src="<?php echo e(asset('front/images/11.jpg')); ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title">What are The Key Benefits of Sales CRM for Small Business</h3>
-                                <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
-                                                width="36"></a>
-                                        <span class="post-author-name">Rezaul Islam</span>
-                                        <span class="post-author-time">Jun 26, 2021</span>
-                                    </span>
-                                    <span class="post-duration">
-                                        <i class="far fa-clock"></i>
-                                        11 min read
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <img src="<?php echo e(asset('front/images/11.jpg')); ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title">Best WordPress Plugins for Business Websites (2021)</h3>
-                                <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
-                                                width="36"></a>
-                                        <span class="post-author-name">Rezaul Islam</span>
-                                        <span class="post-author-time">Jun 26, 2021</span>
-                                    </span>
-                                    <span class="post-duration">
-                                        <i class="far fa-clock"></i>
-                                        11 min read
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="row">
                     <div class="eb-card-see-more-btn">

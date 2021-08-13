@@ -24,7 +24,19 @@
         <!-- Info table -->
         <div class="row mr-2">
           <div class="col-12 product-table bg-white pl-0 pr-0 ml-2 shadow-sm">
+                        <?php if(session('errors')): ?>
+                          <div class="alert alert-danger">
+                              <ul>
+                                      <li><?php echo e($errors); ?></li>
+                              </ul>
+                          </div>
+                          <?php endif; ?>
+                          <?php if(session('status')): ?>
+                              <div class="alert alert-success">
+                                  <?php echo e(session('status')); ?>
 
+                              </div>
+                          <?php endif; ?>
             <table class="bg-white table table-hover table-bordered table-responsive">
               <thead>
                 <tr>
@@ -43,7 +55,10 @@
                   <td> <img  src="<?php echo e(asset('storage/'.$item->image)); ?>" alt="" class="img-fluid" style='height: auto; width: 200px; object-fit: contain'></td>
                   <td><?php echo e($item->heading); ?></td>
                   <td><?php echo e($item->name); ?></td>
-                  <td><a href="" class="btn btn-primary">Edit</a></td>
+                  <td>
+                    <a href="/super/blog/edit/<?php echo e($item->id); ?>" class="btn btn-primary">Edit</a>
+                    <a href="/super/blog/delete/<?php echo e($item->id); ?>" class="btn btn-danger">Delete</a>
+                  </td>
                 </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </tbody>

@@ -11,6 +11,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\UserServiceController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\FrontendControllerController;
 
 
 
@@ -237,9 +238,7 @@ Route::get('/freelancer-project-detail', function () {
 
 //  FRONT END
 
-Route::get('/', function(){
-    return view('front.index');
-});
+Route::get('/', [FrontendControllerController::class,'index']);
 
 Route::get('/author', function(){
     return view('front.author');
@@ -257,15 +256,19 @@ Route::get('/contact-us', function(){
 Route::get('/about', function(){
     return view('front.about');
 });
-Route::get('/blog', function(){
-    return view('front.blog');
-});
-Route::get('/blog2', function(){
-    return view('front.blog2');
-});
+
+
+
+// BLOG FRONTEND
+Route::get('/blog', [FrontendControllerController::class, 'blog']);
+Route::get('/single-blog/{id}', [FrontendControllerController::class,'single_blog']);
 Route::get('/our-team', function(){
     return view('front.about_our-team');
 });
+// END BLOG FRONTEND
+
+
+
 Route::get('/contact-us', function(){
     return view('front.contact-us');
 });
@@ -290,5 +293,8 @@ Route::get('/super', [SuperAdminController::class, 'index']);
 Route::get('/super/blog/create', [SuperAdminController::class, 'blog']);
 Route::post('/super/blog', [SuperAdminController::class, 'store']);
 Route::get('/super/blog', [SuperAdminController::class, 'blog_index']);
+Route::get('/super/blog/edit/{id}', [SuperAdminController::class, 'blog_edit']);
+Route::post('/super/blog/update/{id}', [SuperAdminController::class, 'blog_update']);
+Route::get('/super/blog/delete/{id}', [SuperAdminController::class, 'blog_delete']);
 
 // SUPER ADMIN END

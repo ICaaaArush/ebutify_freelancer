@@ -214,14 +214,12 @@
             </ul>
           </li>
           <li class="nav-item pl-4 ml-2">
-            <!-- href="freelancer-project.html" -->
-            <a  class="nav-link">
+            <a href="/freelancer-project" class="nav-link">
               <p>Project</p>
             </a>
           </li>
           <li class="nav-item pl-4 ml-2">
-            <!-- href="freelancer-project -detail-1.html" -->
-            <a  class="nav-link">
+            <a href="/freelancer-project-detail" class="nav-link">
               <p>Message</p>
             </a>
           </li>

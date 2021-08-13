@@ -239,7 +239,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/super/blog/create" class="nav-link">
+                <a href="/super/blog" class="nav-link">
                   <p>Blog</p>
                 </a>
               </li>

@@ -9,9 +9,9 @@
                         <h2>Our Team</h2>
                     </div>
                     <div class="col-12 text-center">
-                        <a href="about.html" type="button" class="btn about-page-link-btn shadow-sm"><i
+                        <a href="/about" type="button" class="btn about-page-link-btn shadow-sm"><i
                                 class="fas fa-info"></i><br>About eButify</a>
-                        <a href="about_our-team.html" type="button" class="btn about-page-link-btn active shadow"><i
+                        <a href="/our-team" type="button" class="btn about-page-link-btn active shadow"><i
                                 class="fas fa-users"></i><br>The Team</a>
                     </div>
                 </div>

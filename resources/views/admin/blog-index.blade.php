@@ -24,7 +24,18 @@
         <!-- Info table -->
         <div class="row mr-2">
           <div class="col-12 product-table bg-white pl-0 pr-0 ml-2 shadow-sm">
-
+                        @if (session('errors'))
+                          <div class="alert alert-danger">
+                              <ul>
+                                      <li>{{ $errors }}</li>
+                              </ul>
+                          </div>
+                          @endif
+                          @if (session('status'))
+                              <div class="alert alert-success">
+                                  {{ session('status') }}
+                              </div>
+                          @endif
             <table class="bg-white table table-hover table-bordered table-responsive">
               <thead>
                 <tr>
@@ -43,7 +54,10 @@
                   <td> <img  src="{{ asset('storage/'.$item->image) }}" alt="" class="img-fluid" style='height: auto; width: 200px; object-fit: contain'></td>
                   <td>{{ $item->heading }}</td>
                   <td>{{ $item->name}}</td>
-                  <td><a href="" class="btn btn-primary">Edit</a></td>
+                  <td>
+                    <a href="/super/blog/edit/{{ $item->id }}" class="btn btn-primary">Edit</a>
+                    <a href="/super/blog/delete/{{ $item->id }}" class="btn btn-danger">Delete</a>
+                  </td>
                 </tr>
                 @endforeach
               </tbody>
