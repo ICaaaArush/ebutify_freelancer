@@ -182,7 +182,7 @@
 
                                       <div class="form-row">
                                         <div class="form-group col-12">
-                                          <img class="form-group" src="{{'http://ecomfia.com/storage/app/public/'.$productImages->gif_1}}" style="width: 80px;" alt="No GIF Yet">
+                                          <img class="form-group" src="{{'https://ebutify.com/storage/app/public/'.$productImages->gif_1}}" style="width: 80px;" alt="No GIF Yet">
                                           <input class="form-group filepond" id="profile-select1" accept=".png, .jpg, .jpeg, .gif" type="file" name="gif1" style="display:none; width: 70%; overflow: hidden;">
                                         </div>
                                         <div class="form-group col-12">

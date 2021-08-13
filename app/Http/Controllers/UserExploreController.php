@@ -159,7 +159,7 @@ class UserExploreController extends Controller
                         </div>
                       </div>
                       <div class="row px-2 mb-2 rounded justify-content-center">
-                        <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view"><img src="http://ecomfia.com/assets/img/ali.png" class="img-fluid" style="width: 16px; margin: 5px;" alt=""> View on AliExpress</a>
+                        <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view"><img src="https://ebutify.com/assets/img/ali.png" class="img-fluid" style="width: 16px; margin: 5px;" alt=""> View on AliExpress</a>
                       </div>
                     </div>
                 </div>';
@@ -325,7 +325,7 @@ class UserExploreController extends Controller
                     <a href="'.$result->productLink[0]->amazon.'" class="cae-view rounded px-2 py-1" style="color: #918C9B;"><i class="fab fa-amazon" style="background: #191919; color: #fff; font-size: 12px; padding: 2px; line-height: 13px;"></i> View Amazon</a>
                   </div>
                   <div class="col-6 text-center p-0">
-                    <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view rounded px-2 py-1" style="color: #918C9B;"><img src="http://ecomfia.com/assets/img/ali.png" style="width: 16px; padding-bottom: 5px;" alt=""> View AliExpress</a>
+                    <a href="'.$result->productLink[0]->aliexpress.'" class="cae-view rounded px-2 py-1" style="color: #918C9B;"><img src="https://ebutify.com/assets/img/ali.png" style="width: 16px; padding-bottom: 5px;" alt=""> View AliExpress</a>
                   </div>
                 </div>
 

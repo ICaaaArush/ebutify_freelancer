@@ -94,7 +94,7 @@
                 } else {
                     // The card has been verified successfully...
                     console.log('handling success', setupIntent.payment_method);
-                 	 axios.post('http://ecomfia.com/subscribe',{
+                 	 axios.post('https://ebutify.com/subscribe',{
                         payment_method: setupIntent.payment_method,
                         plan : plan
                     }).then((data)=>{

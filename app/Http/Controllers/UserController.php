@@ -832,7 +832,7 @@ class UserController extends Controller
 								if (!empty($files)) {
 								  foreach ($files as $link) {
 								    $split1 = explode(".com",$link);
-								    $webLinks .= '<a href="'.$link.'" target="_blank"><p><img src="http://ecomfia.com/assets/img/web-icon.png" style="width: 20px; margin-top: -6px;" alt="">  '. $split1[0].'com...  </p></a>';
+								    $webLinks .= '<a href="'.$link.'" target="_blank"><p><img src="https://ebutify.com/assets/img/web-icon.png" style="width: 20px; margin-top: -6px;" alt="">  '. $split1[0].'com...  </p></a>';
 								  }
 								  
 								}
@@ -871,7 +871,7 @@ class UserController extends Controller
 
 								$countryS = '';
 								foreach($countrys as $country){
-									$countryS .= '<p><img src="http://ecomfia.com/assets/img/web-path.png" style="width: 20px; margin-top: -6px;" alt=""> '.$country.'</p>';
+									$countryS .= '<p><img src="https://ebutify.com/assets/img/web-path.png" style="width: 20px; margin-top: -6px;" alt=""> '.$country.'</p>';
 								}
 
 								$desc = $result->description;
@@ -902,7 +902,7 @@ class UserController extends Controller
                 $downloadButton =  '<div class="mb-2 float-right">
                     <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
                     <button class="btn-download" value="download">
-                    <a href="http://ecomfia.com/downloadGIF/'.$gifs.'">Download</a></button>
+                    <a href="https://ebutify.com/downloadGIF/'.$gifs.'">Download</a></button>
                  </div>';
 								}else{
 									$downloadButton = "";
@@ -970,10 +970,10 @@ class UserController extends Controller
                               </div>
                            </div>
                            <div class="row mx-4 px-2 mb-2 rounded justify-content-between icon-btn">
-                              <a href="'.$result->productLink[0]->facebook_ad.'" class="fb-ads-card-footer"><img src="http://ecomfia.com/assets/img/fb-2.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                              <a href="'.$result->productLink[0]->aliexpress.'" class="fb-ads-card-footer"><img src="http://ecomfia.com/assets/img/ali.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                              <a href="'.$result->productLink[0]->amazon.'" class="fb-ads-card-footer"><img src="http://ecomfia.com/assets/img/amz.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                              <a href="'.$result->productLink[0]->competitor_link_1.'" class="fb-ads-card-footer"><img src="http://ecomfia.com/assets/img/shp.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="'.$result->productLink[0]->facebook_ad.'" class="fb-ads-card-footer"><img src="https://ebutify.com/assets/img/fb-2.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="'.$result->productLink[0]->aliexpress.'" class="fb-ads-card-footer"><img src="https://ebutify.com/assets/img/ali.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="'.$result->productLink[0]->amazon.'" class="fb-ads-card-footer"><img src="https://ebutify.com/assets/img/amz.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="'.$result->productLink[0]->competitor_link_1.'" class="fb-ads-card-footer"><img src="https://ebutify.com/assets/img/shp.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
                               <a href="'.$result->productLink[0]->youtube.'" class="fb-ads-card-footer"><i class="fab fa-youtube" style="color: #FF0000; font-size: 26px;margin: 0 5px;"></i></a>
                            </div>
                            <div class="modal fade" id="modal_demo'.$result->id.'" tabindex="-1" role="dialog" aria-labelledby="modal_demo'.$result->id.'" aria-hidden="true">
@@ -1089,7 +1089,7 @@ class UserController extends Controller
                                                 <div class="col-12 shadow bg-white border-rounded mb-4">
                                                    <ul class="list-group list-group-flush py-3 list-unstyled prm-list">
                                                       <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->competitor_link_1.'" role="tab"><i class="fas fa-store-alt"></i> Visit Competitor Store</a></li>
-                                                      <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->aliexpress.'" role="tab"><img src="http://ecomfia.com/assets/img/ali.png" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->aliexpress.'" role="tab"><img src="https://ebutify.com/assets/img/ali.png" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
                                                       <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->amazon.'" role="tab"><i class="fab fa-amazon"></i> View Product On Amazon</a></li>
                                                       <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->ebay.'" role="tab"><i class="fab fa-ebay"></i> View Product On eBay</a></li>
                                                       <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->facebook_ad.'" role="tab"><i class="fab fa-facebook"></i> View Facebook Ads</a></li>
@@ -1097,19 +1097,19 @@ class UserController extends Controller
                                                    </ul>
                                                    <div class="slider2">
                                                       <div>
-                                                         <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_1.'" class="img-fluid" alt="">
+                                                         <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_1.'" class="img-fluid" alt="">
                                                       </div>
                                                       <div>
-                                                         <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
+                                                         <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
                                                       </div>
                                                       <div>
-                                                         <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
+                                                         <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
                                                       </div>
                                                    </div>
                                                    <div class="slider-nav2 my-2 justify-content-between">
-                                                      <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_1.'" class="img-fluid" alt="">
-                                                      <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
-                                                      <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
+                                                      <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_1.'" class="img-fluid" alt="">
+                                                      <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
+                                                      <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
                                                    </div>
                                                    '.$downloadButton.'
                                                 </div>
@@ -1143,7 +1143,7 @@ class UserController extends Controller
                             <div class="product-video-container embed-responsive embed-responsive-16by9">
                               
                               <video id="video-control-2" controls>
-                                <source src="https://ecomfia.com/storage/app/public/'.$result->video_name.'" type="video/mp4">
+                                <source src="https://ebutify.com/storage/app/public/'.$result->video_name.'" type="video/mp4">
                               </video>
                             </div>
                           </div>
@@ -1184,7 +1184,7 @@ class UserController extends Controller
                                        <div class="row">
                                           <div class="col-12 modal-footer px-0 mt-2">
                                              <button type="button" class="btn btn-modal-cancel" data-dismiss="modal">Cancel</button>
-                                             <a href="http://ecomfia.com/product-details/'.$product_id.'" type="button" class="btn btn-modal-product">View Product</a>
+                                             <a href="https://ebutify.com/product-details/'.$product_id.'" type="button" class="btn btn-modal-product">View Product</a>
                                           </div>
                                        </div>
                                     </div>
@@ -1471,7 +1471,7 @@ class UserController extends Controller
 								if (!empty($files)) {
 								  foreach ($files as $link) {
 								    $split1 = explode(".com",$link);
-								    $webLinks .= '<a href="'.$link.'" target="_blank"><p><img src="http://ecomfia.com/assets/img/web-icon.png" style="width: 20px; margin-top: -6px;" alt="">  '. $split1[0].'com... </p></a>';
+								    $webLinks .= '<a href="'.$link.'" target="_blank"><p><img src="https://ebutify.com/assets/img/web-icon.png" style="width: 20px; margin-top: -6px;" alt="">  '. $split1[0].'com... </p></a>';
 								  }
 								}
 
@@ -1485,7 +1485,7 @@ class UserController extends Controller
 
 								$countryS = '';
 								foreach($countrys as $country){
-									$countryS .= '<p><img src="http://ecomfia.com/assets/img/web-path.png" style="width: 20px; margin-top: -6px;" alt=""> '.$country.'</p>';
+									$countryS .= '<p><img src="https://ebutify.com/assets/img/web-path.png" style="width: 20px; margin-top: -6px;" alt=""> '.$country.'</p>';
 								}
 
 
@@ -1537,7 +1537,7 @@ class UserController extends Controller
 								$downloadButton =  '<div class="mb-2 float-right">
                     <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
                     <button class="btn-download" value="download">
-                    <a href="http://ecomfia.com/downloadGIF/'.$gifs.'">Download</a></button>
+                    <a href="https://ebutify.com/downloadGIF/'.$gifs.'">Download</a></button>
                  </div>';
 								}else{
 									$downloadButton = "";
@@ -1605,10 +1605,10 @@ class UserController extends Controller
                               </div>
                            </div>
                            <div class="row mx-4 px-2 mb-2 rounded justify-content-between icon-btn">
-                              <a href="'.$result->productLink[0]->facebook_ad.'" class="fb-ads-card-footer"><img src="http://ecomfia.com/assets/img/fb-2.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                              <a href="'.$result->productLink[0]->aliexpress.'" class="fb-ads-card-footer"><img src="http://ecomfia.com/assets/img/ali.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                              <a href="'.$result->productLink[0]->amazon.'" class="fb-ads-card-footer"><img src="http://ecomfia.com/assets/img/amz.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
-                              <a href="'.$result->productLink[0]->competitor_link_1.'" class="fb-ads-card-footer"><img src="http://ecomfia.com/assets/img/shp.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="'.$result->productLink[0]->facebook_ad.'" class="fb-ads-card-footer"><img src="https://ebutify.com/assets/img/fb-2.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="'.$result->productLink[0]->aliexpress.'" class="fb-ads-card-footer"><img src="https://ebutify.com/assets/img/ali.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="'.$result->productLink[0]->amazon.'" class="fb-ads-card-footer"><img src="https://ebutify.com/assets/img/amz.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
+                              <a href="'.$result->productLink[0]->competitor_link_1.'" class="fb-ads-card-footer"><img src="https://ebutify.com/assets/img/shp.png" style="width: 20px; margin: 0 5px 2px 5px;" alt=""></a>
                               <a href="'.$result->productLink[0]->youtube.'" class="fb-ads-card-footer"><i class="fab fa-youtube" style="color: #FF0000; font-size: 26px;margin: 0 5px;"></i></a>
                            </div>
                            <div class="modal fade" id="modal_demo'.$product_id.'" tabindex="-1" role="dialog" aria-labelledby="modal_demo'.$product_id.'" aria-hidden="true">
@@ -1724,7 +1724,7 @@ class UserController extends Controller
                                                 <div class="col-12 shadow bg-white border-rounded mb-4">
                                                    <ul class="list-group list-group-flush py-3 list-unstyled prm-list">
                                                       <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->competitor_link_1.'" role="tab"><i class="fas fa-store-alt"></i> Visit Competitor Store</a></li>
-                                                      <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->aliexpress.'" role="tab"><img src="http://ecomfia.com/assets/img/ali.png" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->aliexpress.'" role="tab"><img src="https://ebutify.com/assets/img/ali.png" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
                                                       <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->amazon.'" role="tab"><i class="fab fa-amazon"></i> View Product On Amazon</a></li>
                                                       <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->ebay.'" role="tab"><i class="fab fa-ebay"></i> View Product On eBay</a></li>
                                                       <li><a class="list-group-item rounded my-1" href="'.$result->productLink[0]->facebook_ad.'" role="tab"><i class="fab fa-facebook"></i> View Facebook Ads</a></li>
@@ -1732,19 +1732,19 @@ class UserController extends Controller
                                                    </ul>
                                                    <div class="slider2">
                                                       <div>
-                                                         <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_1.'" class="img-fluid" alt="">
+                                                         <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_1.'" class="img-fluid" alt="">
                                                       </div>
                                                       <div>
-                                                         <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
+                                                         <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
                                                       </div>
                                                       <div>
-                                                         <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
+                                                         <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
                                                       </div>
                                                    </div>
                                                    <div class="slider-nav2 my-2 justify-content-between">
-                                                      <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_1.'" class="img-fluid" alt="gif 1">
-                                                      <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
-                                                      <img src="https://ecomfia.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
+                                                      <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_1.'" class="img-fluid" alt="gif 1">
+                                                      <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_2.'" class="img-fluid" alt="">
+                                                      <img src="https://ebutify.com/storage/app/public/'.$result->productImage[0]->gif_3.'" class="img-fluid" alt="">
                                                    </div>
                                                    '.$downloadButton.'
                                                 </div>
@@ -1778,7 +1778,7 @@ class UserController extends Controller
                             <div class="product-video-container embed-responsive embed-responsive-16by9">
                               
                               <video id="video-control-2" controls>
-                                <source src="https://ecomfia.com/storage/app/public/'.$result->video_name.'" type="video/mp4">
+                                <source src="https://ebutify.com/storage/app/public/'.$result->video_name.'" type="video/mp4">
                               </video>
                             </div>
                           </div>
@@ -1943,8 +1943,8 @@ class UserController extends Controller
 // 		dd(basename($path));
 // 		dd($zip);
 
-// 		return response()->download('http://ecomfia.com/'.$zip_name);
-        return redirect('https://ecomfia.com/'.$zip_name);
+// 		return response()->download('https://ebutify.com/'.$zip_name);
+        return redirect('https://ebutify.com/'.$zip_name);
 
     }
 }
