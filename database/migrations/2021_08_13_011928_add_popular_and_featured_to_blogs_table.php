@@ -14,8 +14,8 @@ class AddPopularAndFeaturedToBlogsTable extends Migration
     public function up()
     {
         Schema::table('blogs', function (Blueprint $table) {
-            $table->boolean('popular')->default(0);
-            $table->boolean('featured')->default(0);
+            $table->string('popular')->default(0);
+            $table->string('featured')->default(0);
         });
     }
 
