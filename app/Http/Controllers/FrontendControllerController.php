@@ -22,7 +22,7 @@ class FrontendControllerController extends Controller
         ->get();
 
         $popular = Blog::where('popular', 'false')->latest()->get();
-        $featured = Blog::where('popular', 'false')->latest()->first();
+        $featured = Blog::where('featured', 'false')->latest()->first();
         return view('front.blog',compact('data','popular','featured'));
     }
 
