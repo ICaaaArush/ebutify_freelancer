@@ -234,7 +234,7 @@
             </a>
             <ul class="nav nav-treeview pl-4 ml-2">
               <li class="nav-item">
-                <a href="/super/all-products" class="nav-link">
+                <a href="/super/homepage" class="nav-link">
                   <p>Homepage</p>
                 </a>
               </li>
@@ -244,17 +244,27 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/super/faq" class="nav-link">
+                  <p>FAQ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/super/review" class="nav-link">
+                  <p>Review</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/super/terms-condition" class="nav-link">
                   <p>Terms of Services</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/super/privacy-policy" class="nav-link">
                   <p>Privacy & Policy</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/super/return-policy" class="nav-link">
                   <p>Return Policy</p>
                 </a>
               </li>

@@ -6,6 +6,8 @@ use App\Models\FrontendController;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\User;
+use App\Models\Homepage;
+use App\Models\Review;
 
 class FrontendControllerController extends Controller
 {
@@ -35,9 +37,13 @@ class FrontendControllerController extends Controller
         ->limit(3)
         ->get();
 
+        $image = Homepage::all();
+
+        $review = Review::latest()->get();
+
         $popular = Blog::where('popular', 'false')->latest()->get();
         $featured = Blog::where('popular', 'false')->latest()->first();
-        return view('front.index',compact('data','popular','featured'));
+        return view('front.index',compact('data','popular','featured','image','review'));
     }
 
     /**

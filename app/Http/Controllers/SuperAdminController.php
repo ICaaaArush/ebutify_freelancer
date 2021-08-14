@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Homepage;
+use App\Models\FAQ;
+use App\Models\Review;
+use App\Models\TermsAndCondition;
+use App\Models\PrivacyAndPolicy;
+use App\Models\RefundPolicy;
 use Illuminate\Support\Facades\Storage;
 use Auth;
 
@@ -22,22 +28,18 @@ class SuperAdminController extends Controller
     }
     public function index()
     {
-        // if(Auth::user()->user_type == 'admin'){
-            return view('admin.index');
-        // }else{
-        //     return back();
-        // }
-        
+            return view('admin.index');       
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Change the Image for Homepage.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function homepage()
     {
-        //
+        $homepage = Homepage::all();
+        return view('admin.homepage',compact('homepage'));
     }
 
     /**
@@ -73,14 +75,21 @@ class SuperAdminController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Update the specified resource of homepage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function homepage_update(Request $request, $id)
     {
-        //
+
+        $path = $request->image->store('homepage/uploads', 'public');
+
+        $update = Homepage::where('id',$id)->update([
+            'image' => $path
+        ]);
+
+        return redirect()->back()->with('status','HomePage Image Changed Successfully');
     }
 
     /**
@@ -171,5 +180,161 @@ class SuperAdminController extends Controller
         $delete = Blog::where('id', $id)->delete();
 
         return redirect()->back()->with('errors', 'Blog Deleted Successfully!');
+    }
+
+    public function faq_index()
+    {
+        $data = FAQ::all();
+        return view('admin.faq-index',compact('data'));
+    }
+
+    public function faq()
+    {
+        return view('admin.faq-create');
+    }
+
+    public function faq_store(Request $request)
+    {   
+        $add = new FAQ;
+        $add->faq_question = $request->faq_question;
+        $add->faq_answer = $request->faq_answer;
+        $add->save();
+
+        return redirect()->back()->with('status', 'FAQ created successfully');
+    }
+
+    public function faq_edit($id){
+
+        $data = FAQ::where('id', $id)->first();
+
+        return view('admin.faq-create',compact('data'));
+    }
+
+    public function faq_update(Request $request,$id){
+
+        $update = FAQ::where('id', $id)->update([
+            'faq_question' => $request->faq_question,
+            'faq_answer' => $request->faq_answer,
+            ]);
+
+        return redirect()->back()->with('status', 'FAQ updated successfully');
+    }
+
+    public function faq_delete($id){
+        $delete = FAQ::where('id', $id)->delete();
+
+        return redirect()->back()->with('errors', 'FAQ Deleted Successfully!');
+    }
+
+    public function review_index()
+    {
+        $data = Review::all();
+        return view('admin.review-index',compact('data'));
+    }
+
+    public function review()
+    {
+        return view('admin.review-create');
+    }
+
+    public function review_store(Request $request)
+    {   
+
+        if(isset($request->image)){
+            $path = $request->image->store('review/uploads', 'public');
+        }
+
+        $add = new Review;
+        $add->name = $request->name;
+        $add->designation = $request->designation;
+        $add->review = $request->review;
+        if(isset($request->image)){
+        $add->image = $path;
+        }
+        $add->save();
+
+        return redirect()->back()->with('status', 'Review created successfully');
+    }
+
+    public function review_edit($id){
+
+        $data = Review::where('id', $id)->first();
+
+        return view('admin.faq-create',compact('data'));
+    }
+
+    public function review_update(Request $request,$id){
+
+        $old = Review::where('id', $id)->first();
+
+        if(isset($request->image)){
+            $path = $request->image->store('review/uploads', 'public');
+        }else{
+            $path = $old->image;
+        }
+
+        $update = Review::where('id', $id)->update([
+            'name' => $request->name,
+            'designation' => $request->designation,
+            'review' => $request->review,
+            'image' => $request->image,
+            ]);
+
+        return redirect()->back()->with('status', 'Review updated successfully');
+    }
+
+    public function review_delete($id){
+        $delete = Review::where('id', $id)->delete();
+
+        return redirect()->back()->with('errors', 'Review Deleted Successfully!');
+    }
+
+
+    public function terms_conditions(){
+
+        $data = TermsAndCondition::where('id',1)->first();
+
+        return view('admin.terms-condition-index',compact('data'));
+    }
+
+    public function terms_conditions_update(Request $request){
+
+        $add = TermsAndCondition::where('id',1)->update([
+            'content' => $request->editor
+        ]);
+
+        return redirect()->back()->with('status','Terms & Conditions Updated Successfully!');
+    }
+
+    public function privacy_policy(){
+
+        $data = PrivacyAndPolicy::where('id',1)->first();
+
+        return view('admin.privacy-policy-index',compact('data'));
+    }
+
+    public function privacy_policy_update(Request $request){
+
+        $add = PrivacyAndPolicy::where('id',1)->update([
+            'content' => $request->editor
+        ]);
+
+        return redirect()->back()->with('status','Privacy & Policy Updated Successfully!');
+    }
+
+    public function refund_policy(){
+
+        $data = RefundPolicy::where('id',1)->first();
+
+        return view('admin.refund-policy-index',compact('data'));
+    }
+
+    public function refund_policy_update(Request $request){
+
+        $add = RefundPolicy::where('id',1)->update([
+            'content' => $request->editor
+        ]);
+
+        return redirect()->back()->with('status','Refund Policy Updated Successfully!');
     }
 }

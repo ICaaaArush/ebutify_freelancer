@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\FAQ;
+use App\Models\TermsAndCondition;
+use App\Models\PrivacyAndPolicy;
+use App\Models\RefundPolicy;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -248,7 +252,8 @@ Route::get('/pricing', function(){
     return view('front.pricing');
 });
 Route::get('/privacy-policy', function(){
-    return view('front.privacy-policy');
+    $data = PrivacyAndPolicy::where('id',1)->first();
+    return view('front.privacy-policy',compact('data'));
 });
 Route::get('/contact-us', function(){
     return view('front.contact-us');
@@ -273,13 +278,18 @@ Route::get('/contact-us', function(){
     return view('front.contact-us');
 });
 Route::get('/refund-policy', function(){
-    return view('front.refund-policy');
+
+    $data = RefundPolicy::where('id',1)->first();
+    return view('front.refund-policy',compact('data'));
 });
 Route::get('/terms-and-conditions', function(){
-    return view('front.terms-and-conditions');
+    $data = TermsAndCondition::where('id',1)->first();
+    return view('front.terms-and-conditions',compact('data'));
 })->name('terms-and-conditions');
 Route::get('/faq', function(){
-    return view('front.faq');
+
+    $data = FAQ::latest()->get();
+    return view('front.faq',compact('data'));
 });
 Route::get('/sign-up_1', function(){
     return view('front.sign-up_1.html');
@@ -296,5 +306,27 @@ Route::get('/super/blog', [SuperAdminController::class, 'blog_index']);
 Route::get('/super/blog/edit/{id}', [SuperAdminController::class, 'blog_edit']);
 Route::post('/super/blog/update/{id}', [SuperAdminController::class, 'blog_update']);
 Route::get('/super/blog/delete/{id}', [SuperAdminController::class, 'blog_delete']);
+Route::get('/super/faq/create', [SuperAdminController::class, 'faq']);
+Route::post('/super/faq', [SuperAdminController::class, 'faq_store']);
+Route::get('/super/faq', [SuperAdminController::class, 'faq_index']);
+Route::get('/super/faq/edit/{id}', [SuperAdminController::class, 'faq_edit']);
+Route::post('/super/faq/update/{id}', [SuperAdminController::class, 'faq_update']);
+Route::get('/super/faq/delete/{id}', [SuperAdminController::class, 'faq_delete']);
+Route::get('/super/review/create', [SuperAdminController::class, 'review']);
+Route::post('/super/review', [SuperAdminController::class, 'review_store']);
+Route::get('/super/review', [SuperAdminController::class, 'review_index']);
+Route::get('/super/review/edit/{id}', [SuperAdminController::class, 'review_edit']);
+Route::post('/super/review/update/{id}', [SuperAdminController::class, 'review_update']);
+Route::get('/super/review/delete/{id}', [SuperAdminController::class, 'review_delete']);
+Route::get('/super/homepage', [SuperAdminController::class, 'homepage']);
+Route::post('/super/homepage/{id}', [SuperAdminController::class, 'homepage_update']);
+Route::get('/super/terms-condition', [SuperAdminController::class, 'terms_conditions']);
+Route::post('/super/terms-condition/update', [SuperAdminController::class, 'terms_conditions_update']);
+Route::get('/super/privacy-policy', [SuperAdminController::class, 'privacy_policy']);
+Route::post('/super/privacy-policy/update', [SuperAdminController::class, 'privacy_policy_update']);
+Route::get('/super/return-policy', [SuperAdminController::class, 'refund_policy']);
+Route::post('/super/return-policy/update', [SuperAdminController::class, 'refund_policy_update']);
+
+
 
 // SUPER ADMIN END
