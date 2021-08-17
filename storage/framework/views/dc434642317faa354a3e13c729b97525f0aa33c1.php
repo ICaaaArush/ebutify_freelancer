@@ -59,7 +59,7 @@
                     <div class="col-12">
                         <div class="featured-post">
                             <figure class="featured-thumbnail">
-                            <a href="/single-blog/<?php echo e($featured->id); ?>">
+                            <a href="/blog/<?php echo e(str_replace(' ', '-', $featured->heading)); ?>">
                             <img src="<?php echo e(asset('storage/'.$featured->image)); ?>"></a>
                             <span class="thumbnail_badge">Featured</span>
                             </figure>
@@ -67,14 +67,14 @@
                                 
                                 <div class="featured__article-header">
                                     <h2 class="featured__article-title">
-                                        <a href="#" class="article-title-link"><?php echo e($featured->heading); ?></a>
+                                        <a href="/blog/<?php echo e(str_replace(' ', '-', $featured->heading)); ?>" class="article-title-link"><?php echo e($featured->heading); ?></a>
                                     </h2>
                                 </div>
                                 <div class="featured__article-content">
                                     <div class="font__size-16" style="color: rgb(79, 91, 109); margin-bottom:30px;">
                                         <p> <?php echo strlen($featured->body) > 50 ? substr($featured->body,0,50).'..' : $featured->body; ?></p>
                                     </div>
-                                    <a href="/single-blog/<?php echo e($featured->id); ?>">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                                    <a href="/blog/<?php echo e(str_replace(' ', '-', $featured->heading)); ?>">Continue Reading <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </article>
                         </div>
@@ -100,7 +100,7 @@
                                             <div class="card h-100">
                                                 <img src="<?php echo e(asset('storage/'.$item->image)); ?>" class="card-img-top" alt="...">
                                                 <div class="card-body eb-latest-card-body">
-                                                    <h5 class="card-title latest-blog-card-title"><a href="/single-blog/<?php echo e($item->id); ?>"><?php echo e($item->heading); ?>
+                                                    <h5 class="card-title latest-blog-card-title"><a href="/blog/<?php echo e(str_replace(' ', '-', $item->heading)); ?>"><?php echo e($item->heading); ?>
 
                                                     </a></h5>
                                                     <div class="latest-card-footer">
@@ -108,7 +108,7 @@
                                                             <span class="author">
                                                                 <a href="/author">
                                                                     
-                                                                    <span class="author-name"><?php echo e($item->name); ?></span>
+                                                                    <span class="author-name"> <a href="/author/<?php echo e(str_replace(' ','-', $item->name)); ?>"><?php echo e($item->name); ?></a></span>
                                                                     <span class="post-date"> <?php echo e(date('F j,Y', strtotime($item->created_at))); ?></span>
                                                                 </a>
                                                             </span>
@@ -119,6 +119,10 @@
                                             </div>
                                         </div>
                                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                     <div class="col-md-12 d-flex justify-content-center">
+                                        <?php echo $data->links(); ?>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -131,9 +135,9 @@
                                     <div class="popular-sidebar-post">
                                         <?php $__currentLoopData = $popular; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <div class="sidebar-single-post">
-                                            <a href="/single-blog/<?php echo e($item->id); ?>"><img src="<?php echo e(asset('storage/'.$item->image)); ?>"></a>
+                                            <a href="/blog/<?php echo e(str_replace(' ', '-', $item->heading)); ?>"><img src="<?php echo e(asset('storage/'.$item->image)); ?>"></a>
                                             <div class="popular-post-content">
-                                                <a href="/single-blog/<?php echo e($item->id); ?>"><?php echo e($item->heading); ?></a>
+                                                <a href="/blog/<?php echo e(str_replace(' ', '-', $item->heading)); ?>"><?php echo e($item->heading); ?></a>
                                             </div>
                                         </div>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

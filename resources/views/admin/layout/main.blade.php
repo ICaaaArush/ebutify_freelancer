@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="d9IRp33pr75pL73aVc0a6FDTx17zY-JvQpPB2J1hsug" />
   <title>eButify | Super Admin Panel</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -13,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.1/css/OverlayScrollbars.css">
   <!-- My style -->
   <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+  
 
 </head>
 
@@ -241,6 +243,11 @@
               <li class="nav-item">
                 <a href="/super/blog" class="nav-link">
                   <p>Blog</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/super/category" class="nav-link">
+                  <p>Blog Category</p>
                 </a>
               </li>
               <li class="nav-item">

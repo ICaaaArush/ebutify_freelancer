@@ -43,6 +43,17 @@
                             <label for="">Blog Header</label>
                             <input type="text" class="form-control" name="heading" id="" value="{{ $data->heading ?? ''}}" placeholder="Enter the blog header"> <br>
 
+                            <label for="">Blog Category</label><br>
+                            <select class="form-control" name="category_id">
+                              @foreach ($category as $item)
+                              <option {{ $data->category_id ?? '' == $item->id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->category_name }}</option>
+                              @endforeach
+                            </select> <br><br>
+
+                            <label for="">Blog Tags</label>
+                            <input type="text" class="form-control" name="tags" id="" value="{{ $data->tags ?? ''}}" placeholder="Enter the blog tags with comma after every tags!"> <br>
+
+
                             <label for="">Is Popular?</label>
                             <input class="form-control" value="{{ $data->popular ?? 'false'}}" {{  $data->popular ?? '' == 'false' ? 'checked' : ''  }} type="checkbox" name="popular" id="">
 

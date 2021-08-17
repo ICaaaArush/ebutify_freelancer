@@ -10,6 +10,7 @@ use App\Models\Review;
 use App\Models\TermsAndCondition;
 use App\Models\PrivacyAndPolicy;
 use App\Models\RefundPolicy;
+use App\Models\BlogCategory;
 use Illuminate\Support\Facades\Storage;
 use Auth;
 
@@ -68,6 +69,8 @@ class SuperAdminController extends Controller
         }else{
             $add->featured = 0;
         }
+        $add->category_id = $request->category_id;
+        $add->tags = $request->tags;
         $add->created_by = Auth::user()->id;
         $add->save();
 
@@ -128,19 +131,23 @@ class SuperAdminController extends Controller
 
     public function blog()
     {
-        return view('admin.blog-create');
+        $category = BlogCategory::all();
+        return view('admin.blog-create',compact('category'));
     }
 
     public function blog_index(){
-        $blog = Blog::latest()->get();
+        $blog = Blog::join('users','users.id','blogs.created_by')
+        ->join('blog_categories','blog_categories.id','blogs.category_id')
+        ->select('blogs.*','users.name','blog_categories.category_name')
+        ->latest()->get();
         return view('admin.blog-index',compact('blog'));
     }
 
     public function blog_edit($id){
-
+        $category = BlogCategory::all();
         $data = Blog::where('id', $id)->first();
 
-        return view('admin.blog-create',compact('data'));
+        return view('admin.blog-create',compact('data','category'));
     }
 
     public function blog_update(Request $request,$id){
@@ -162,15 +169,19 @@ class SuperAdminController extends Controller
                 'heading' => $request->heading,
                 'image' => $path,
                 'body' => $request->editor,
-                'featured' => $feature,
-                'popular' => $popular
+                'featured' => $featured,
+                'popular' => $popular,
+                'tags' => $request->tags,
+                'category_id' =>$request->category_id
             ]);
             }else{
                 $update = Blog::where('id', $id)->update([
                     'heading' => $request->heading,
                     'body' => $request->editor,
                     'featured' => $featured,
-                    'popular' => $popular
+                    'popular' => $popular,
+                    'tags' => $request->tags,
+                    'category_id' =>$request->category_id
                 ]);
             }
             return redirect()->back()->with('status', 'Blog updated successfully');
@@ -260,7 +271,7 @@ class SuperAdminController extends Controller
 
         $data = Review::where('id', $id)->first();
 
-        return view('admin.faq-create',compact('data'));
+        return view('admin.review-create',compact('data'));
     }
 
     public function review_update(Request $request,$id){
@@ -336,5 +347,43 @@ class SuperAdminController extends Controller
         ]);
 
         return redirect()->back()->with('status','Refund Policy Updated Successfully!');
+    }
+
+    public function category_index(){
+
+        $data = BlogCategory::latest()->get();
+
+        return view('admin.category-index',compact('data'));
+    }
+
+    public function category()
+    {
+        return view('admin.category-create');
+    }
+
+    public function category_store(Request $request)
+    {   
+
+        $add = new BlogCategory;
+        $add->category_name = $request->name;
+        $add->save();
+
+        return redirect()->back()->with('status', 'Blog Category created successfully');
+    }
+
+    public function category_edit($id){
+
+        $data = BlogCategory::where('id', $id)->first();
+
+        return view('admin.category-create',compact('data'));
+    }
+
+    public function category_update(Request $request,$id){
+
+        $update = BlogCategory::where('id', $id)->update([
+            'category_name' => $request->name,
+        ]);
+
+        return redirect()->back()->with('status', 'Blog Category updated successfully');
     }
 }

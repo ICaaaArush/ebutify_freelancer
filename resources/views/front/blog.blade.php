@@ -59,7 +59,7 @@
                     <div class="col-12">
                         <div class="featured-post">
                             <figure class="featured-thumbnail">
-                            <a href="/single-blog/{{ $featured->id }}">
+                            <a href="/blog/{{str_replace(' ', '-', $featured->heading)}}">
                             <img src="{{ asset('storage/'.$featured->image) }}"></a>
                             <span class="thumbnail_badge">Featured</span>
                             </figure>
@@ -67,14 +67,14 @@
                                 {{-- <a class="featured__article-badge">WordPress</a> --}}
                                 <div class="featured__article-header">
                                     <h2 class="featured__article-title">
-                                        <a href="#" class="article-title-link">{{ $featured->heading }}</a>
+                                        <a href="/blog/{{str_replace(' ', '-', $featured->heading)}}" class="article-title-link">{{ $featured->heading }}</a>
                                     </h2>
                                 </div>
                                 <div class="featured__article-content">
                                     <div class="font__size-16" style="color: rgb(79, 91, 109); margin-bottom:30px;">
                                         <p> {!! strlen($featured->body) > 50 ? substr($featured->body,0,50).'..' : $featured->body !!}</p>
                                     </div>
-                                    <a href="/single-blog/{{ $featured->id }}">Continue Reading <i class="fas fa-arrow-right"></i></a>
+                                    <a href="/blog/{{str_replace(' ', '-', $featured->heading)}}">Continue Reading <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </article>
                         </div>
@@ -100,14 +100,14 @@
                                             <div class="card h-100">
                                                 <img src="{{ asset('storage/'.$item->image) }}" class="card-img-top" alt="...">
                                                 <div class="card-body eb-latest-card-body">
-                                                    <h5 class="card-title latest-blog-card-title"><a href="/single-blog/{{ $item->id }}">{{ $item->heading }}
+                                                    <h5 class="card-title latest-blog-card-title"><a href="/blog/{{str_replace(' ', '-', $item->heading)}}">{{ $item->heading }}
                                                     </a></h5>
                                                     <div class="latest-card-footer">
                                                         <div class="blog-posted-by">
                                                             <span class="author">
                                                                 <a href="/author">
                                                                     {{-- <img src="{{ asset('front/images/reza.jpg') }}" height="36" width="36"> --}}
-                                                                    <span class="author-name">{{ $item->name }}</span>
+                                                                    <span class="author-name"> <a href="/author/{{ str_replace(' ','-', $item->name) }}">{{ $item->name }}</a></span>
                                                                     <span class="post-date"> {{ date('F j,Y', strtotime($item->created_at)) }}</span>
                                                                 </a>
                                                             </span>
@@ -123,6 +123,9 @@
                                             </div>
                                         </div>
                                      @endforeach
+                                     <div class="col-md-12 d-flex justify-content-center">
+                                        {!! $data->links() !!}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -135,9 +138,9 @@
                                     <div class="popular-sidebar-post">
                                         @foreach ($popular as $item)
                                         <div class="sidebar-single-post">
-                                            <a href="/single-blog/{{ $item->id }}"><img src="{{ asset('storage/'.$item->image) }}"></a>
+                                            <a href="/blog/{{str_replace(' ', '-', $item->heading)}}"><img src="{{ asset('storage/'.$item->image) }}"></a>
                                             <div class="popular-post-content">
-                                                <a href="/single-blog/{{ $item->id }}">{{ $item->heading }}</a>
+                                                <a href="/blog/{{str_replace(' ', '-', $item->heading)}}">{{ $item->heading }}</a>
                                             </div>
                                         </div>
                                         @endforeach
