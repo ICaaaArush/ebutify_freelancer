@@ -42,6 +42,8 @@
                   <th>ID</th>
                   <th>Header Image</th>
                   <th>Header</th>
+                  <th>Category</th>
+                  <th>Tags</th>
                   <th>Created By</th>
                   <th width="100">Action</th>
                 </tr>
@@ -53,6 +55,8 @@
                   <td>{{ $item->id }}</td>
                   <td> <img  src="{{ asset('storage/'.$item->image) }}" alt="" class="img-fluid" style='height: auto; width: 200px; object-fit: contain'></td>
                   <td>{{ $item->heading }}</td>
+                  <td>{{ $item->category_name}}</td>
+                  <td>{{ $item->tags}}</td>
                   <td>{{ $item->name}}</td>
                   <td>
                     <a href="/super/blog/edit/{{ $item->id }}" class="btn btn-primary">Edit</a>

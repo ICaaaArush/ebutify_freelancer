@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\User;
 use App\Models\Homepage;
 use App\Models\Review;
+use App\Models\BlogCategory;
 
 class FrontendControllerController extends Controller
 {
@@ -19,10 +20,10 @@ class FrontendControllerController extends Controller
     public function blog()
     {
         $data = Blog::join('users','users.id','=','blogs.created_by')
-        ->select('blogs.*','users.name')
+        ->join('blog_categories','blog_categories.id','blogs.category_id')
+        ->select('blogs.*','users.name','blog_categories.category_name')
         ->latest()
-        ->get();
-
+        ->paginate(12);
         $popular = Blog::where('popular', 'false')->latest()->get();
         $featured = Blog::where('featured', 'false')->latest()->first();
         return view('front.blog',compact('data','popular','featured'));
@@ -42,7 +43,7 @@ class FrontendControllerController extends Controller
         $review = Review::latest()->get();
 
         $popular = Blog::where('popular', 'false')->latest()->get();
-        $featured = Blog::where('popular', 'false')->latest()->first();
+        $featured = Blog::where('featured', 'false')->latest()->first();
         return view('front.index',compact('data','popular','featured','image','review'));
     }
 
@@ -75,45 +76,69 @@ class FrontendControllerController extends Controller
      */
     public function single_blog($id)
     {
-        dd($id);
-        $data = Blog::where('id', $id)->first();
+        $name = str_replace('-', ' ', $id);
 
+        $data = Blog::where('heading', $name)
+        ->join('blog_categories','blog_categories.id','blogs.category_id')
+        ->select('blogs.*','blog_categories.category_name')
+        ->first();
+        $fix = str_replace(' ','',$data->tags);
+        $tags = explode(',',$fix);
         $author = User::where('id', $data->created_by)->first();
 
-        return view('front.blog2',compact('data','author'));
+        return view('front.blog2',compact('data','author','tags'));
     }
 
+
+    public function category($id)
+    {
+        $fix = str_replace('-',' ',$id);
+
+        $cat = BlogCategory::where('category_name',$fix)->first();
+        
+        $data = Blog::where('category_id', $cat->id)
+            ->join('users','users.id','blogs.created_by')
+            ->select('blogs.*','users.name')
+            ->paginate(12);
+
+        $popular = Blog::where('category_id', $cat->id)->where('popular', 'false')->get();
+
+        $category = BlogCategory::all();
+
+        return view('front.category',compact('data','popular','category','cat'));
+    }
+
+    public function author($id)
+    {
+        $fix = str_replace('-',' ',$id);
+
+        $user = user::where('name',$fix)->first();
+        
+        $data = Blog::where('created_by', $user->id)
+            ->join('users','users.id','blogs.created_by')
+            ->select('blogs.*','users.name')
+            ->paginate(12);
+
+        $popular = Blog::where('created_by', $user->id)->where('popular', 'false')->get();
+
+        $category = BlogCategory::all();
+
+        return view('front.author',compact('data','popular','category','user'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\FrontendController  $frontendController
      * @return \Illuminate\Http\Response
      */
-    public function edit(FrontendController $frontendController)
+    public function contact(Request $request)
     {
-        //
+        $to = 'nman0171@gmail.com';
+        $subject = "Contact Us Form Query";
+        $txt = $request->msg;
+        $headers = "From: ".$request->email."";
+
+        mail($to,$subject,$txt,$headers);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FrontendController  $frontendController
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, FrontendController $frontendController)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\FrontendController  $frontendController
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(FrontendController $frontendController)
-    {
-        //
-    }
 }

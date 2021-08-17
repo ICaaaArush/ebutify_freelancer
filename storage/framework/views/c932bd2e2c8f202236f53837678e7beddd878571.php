@@ -44,6 +44,17 @@
                             <label for="">Blog Header</label>
                             <input type="text" class="form-control" name="heading" id="" value="<?php echo e($data->heading ?? ''); ?>" placeholder="Enter the blog header"> <br>
 
+                            <label for="">Blog Category</label><br>
+                            <select class="form-control" name="category_id">
+                              <?php $__currentLoopData = $category; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                              <option <?php echo e($data->category_id ?? '' == $item->id ? 'selected' : ''); ?> value="<?php echo e($item->id); ?>"><?php echo e($item->category_name); ?></option>
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </select> <br><br>
+
+                            <label for="">Blog Tags</label>
+                            <input type="text" class="form-control" name="tags" id="" value="<?php echo e($data->tags ?? ''); ?>" placeholder="Enter the blog tags with comma after every tags!"> <br>
+
+
                             <label for="">Is Popular?</label>
                             <input class="form-control" value="<?php echo e($data->popular ?? 'false'); ?>" <?php echo e($data->popular ?? '' == 'false' ? 'checked' : ''); ?> type="checkbox" name="popular" id="">
 

@@ -43,6 +43,8 @@
                   <th>ID</th>
                   <th>Header Image</th>
                   <th>Header</th>
+                  <th>Category</th>
+                  <th>Tags</th>
                   <th>Created By</th>
                   <th width="100">Action</th>
                 </tr>
@@ -54,6 +56,8 @@
                   <td><?php echo e($item->id); ?></td>
                   <td> <img  src="<?php echo e(asset('storage/'.$item->image)); ?>" alt="" class="img-fluid" style='height: auto; width: 200px; object-fit: contain'></td>
                   <td><?php echo e($item->heading); ?></td>
+                  <td><?php echo e($item->category_name); ?></td>
+                  <td><?php echo e($item->tags); ?></td>
                   <td><?php echo e($item->name); ?></td>
                   <td>
                     <a href="/super/blog/edit/<?php echo e($item->id); ?>" class="btn btn-primary">Edit</a>

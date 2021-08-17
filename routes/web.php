@@ -244,10 +244,6 @@ Route::get('/freelancer-project-detail', function () {
 
 Route::get('/', [FrontendControllerController::class,'index']);
 
-Route::get('/author', function(){
-    return view('front.author');
-});
-
 Route::get('/pricing', function(){
     return view('front.pricing');
 });
@@ -261,12 +257,15 @@ Route::get('/contact-us', function(){
 Route::get('/about', function(){
     return view('front.about');
 });
+Route::post('/contact-form', [FrontendControllerController::class, 'contact']);
 
 
 
 // BLOG FRONTEND
 Route::get('/blog', [FrontendControllerController::class, 'blog']);
 Route::get('/blog/{id}', [FrontendControllerController::class,'single_blog']);
+Route::get('/category/{id}', [FrontendControllerController::class,'category']);
+Route::get('/author/{id}', [FrontendControllerController::class,'author']);
 Route::get('/our-team', function(){
     return view('front.about_our-team');
 });
@@ -326,6 +325,11 @@ Route::get('/super/privacy-policy', [SuperAdminController::class, 'privacy_polic
 Route::post('/super/privacy-policy/update', [SuperAdminController::class, 'privacy_policy_update']);
 Route::get('/super/return-policy', [SuperAdminController::class, 'refund_policy']);
 Route::post('/super/return-policy/update', [SuperAdminController::class, 'refund_policy_update']);
+Route::get('/super/category/create', [SuperAdminController::class, 'category']);
+Route::post('/super/category', [SuperAdminController::class, 'category_store']);
+Route::get('/super/category', [SuperAdminController::class, 'category_index']);
+Route::get('/super/category/edit/{id}', [SuperAdminController::class, 'category_edit']);
+Route::post('/super/category/update/{id}', [SuperAdminController::class, 'category_update']);
 
 
 

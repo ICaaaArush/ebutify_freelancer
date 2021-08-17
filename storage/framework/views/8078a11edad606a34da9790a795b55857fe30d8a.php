@@ -16,7 +16,7 @@
                                 <span class="article_author_link">
                                     <i class="fas fa-user-circle"></i>
                                     <a href="/author">
-                                        <span><?php echo e($author->name); ?></span>
+                                        <span> <a href="/author/<?php echo e(str_replace(' ','-', $author->name)); ?>"><?php echo e($author->name); ?></a></span>
                                     </a>
                                     <span class="divider">|</span>
                                     <time>Update: <?php echo e(date('F j,Y', strtotime($data->updated_at))); ?></time>
@@ -45,7 +45,22 @@
                             </ul>
                         </div>
                         
-                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="blog_2_posted_in">
+                                    <h3>Posted in:</h3>
+                                    <span><a href="/category/<?php echo e(str_replace(' ', '-', $data->category_name)); ?>"><?php echo e($data->category_name); ?></a></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="blog_2_posted_in">
+                                    <h3>Tagged:</h3>
+                                    <?php $__currentLoopData = $tags; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <span style="display: block; color:#3c5ef0"><a><?php echo e($item); ?></a></span>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="row">
                             <div col-12>
@@ -73,19 +88,18 @@
                 <span class="cols-item">Please<br>Share</span>
                 <ul>
                     
-                    <li><a href="" target="blank"><i class="fab fa-facebook-f" style="color: #3b5998;"></i></a></li>
-                    <li><a href="" target="blank"><i class="fab fa-twitter" style="color: #05acee;"></i></a></li>
-                    <li><a href="" target="blank"><i class="fab fa-linkedin-in" style="color: #0e76a8;"></i></a></li>
-                    <li><a href="" target="blank"><i class="fab fa-whatsapp" style="color: #25d366;"></i></a></li>
-                    <li><a href="" target="blank"><i class="fab fa-get-pocket" style="color: #ee4056;"></i></a></li>
-                    <li><a href=""><i class="fab fa-reddit-alien" style="color: #ff5700;"></i></a></li>
-                    <li><a href="" target="blank"><img src="images/instapaper.svg"></a></li>
-                    <li class="exp-item"><a href="" target="blank"><i class="fas fa-paper-plane" style="color: #08c;"></i></a></li>
-                    <li class="exp-item"><a href="" target="blank"><i class="fab fa-skype" style="color: #00aff0;"></i></a></li>
-                    <li class="exp-item"><a href="" target="blank"><i class="fab fa-pinterest-p" style="color: #c8232c;"></i></a></li>
-                    <li class="exp-item"><a href="" target="blank"><i class="fas fa-envelope" style="color: #08c;"></i></a></li>
-                    <li class="exp-item do-collops"><a href="javascript::void()" ><i class="fas fa-arrow-up" style="color: #0d4fe9;"></i></a></li>
-                    <li class="cols-item do-expnds"><a href="javascript::void()" ><i class="fas fa-arrow-down" style="color: #0d4fe9;"></i></a></li>
+                    <li><a href="#" onclick="
+                        window.open(
+                          'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+                          'facebook-share-dialog', 
+                          'width=626,height=436'); 
+                        return false;"><i class="fab fa-facebook-f" style="color: #3b5998;"></i></a></li>
+                    
+                    <li><a href="#" onclick="
+                        window.open('http://www.linkedin.com/shareArticle?mini=true&url=https://127.0.0.1/<?php echo e(Request::path()); ?>&summary=some%20summary%20if%20you%20want&source=stackoverflow.com');
+                        return false;"><i class="fab fa-linkedin-in" style="color: #0e76a8;"></i></a></li>
+                    
+                    
                 </ul>
             </div>
         </section>
