@@ -266,7 +266,7 @@ Route::get('/about', function(){
 
 // BLOG FRONTEND
 Route::get('/blog', [FrontendControllerController::class, 'blog']);
-Route::get('/single-blog/{id}', [FrontendControllerController::class,'single_blog']);
+Route::get('/blog/{id}', [FrontendControllerController::class,'single_blog']);
 Route::get('/our-team', function(){
     return view('front.about_our-team');
 });

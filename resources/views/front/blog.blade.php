@@ -67,7 +67,7 @@
                                 {{-- <a class="featured__article-badge">WordPress</a> --}}
                                 <div class="featured__article-header">
                                     <h2 class="featured__article-title">
-                                        <a href="#" class="article-title-link">{{ $featured->heading }}</a>
+                                        <a href="/blog/{{ $featured->heading }}" class="article-title-link">{{ $featured->heading }}</a>
                                     </h2>
                                 </div>
                                 <div class="featured__article-content">

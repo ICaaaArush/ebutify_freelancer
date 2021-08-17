@@ -260,7 +260,7 @@ class SuperAdminController extends Controller
 
         $data = Review::where('id', $id)->first();
 
-        return view('admin.faq-create',compact('data'));
+        return view('admin.review-create',compact('data'));
     }
 
     public function review_update(Request $request,$id){

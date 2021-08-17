@@ -75,6 +75,7 @@ class FrontendControllerController extends Controller
      */
     public function single_blog($id)
     {
+        dd($id);
         $data = Blog::where('id', $id)->first();
 
         $author = User::where('id', $data->created_by)->first();

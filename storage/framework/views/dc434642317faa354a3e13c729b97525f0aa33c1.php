@@ -67,7 +67,7 @@
                                 
                                 <div class="featured__article-header">
                                     <h2 class="featured__article-title">
-                                        <a href="#" class="article-title-link"><?php echo e($featured->heading); ?></a>
+                                        <a href="/blog/<?php echo e($featured->heading); ?>" class="article-title-link"><?php echo e($featured->heading); ?></a>
                                     </h2>
                                 </div>
                                 <div class="featured__article-content">
