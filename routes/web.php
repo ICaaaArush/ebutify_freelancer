@@ -116,7 +116,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/tutorial', [UserControlle
 Route::middleware(['auth:sanctum', 'verified'])->get('/FAQ', [UserController::class, 'viewFAQ'])->name('FAQ');
 
 //  USER VIEW CONTACT US
-Route::middleware(['auth:sanctum', 'verified'])->get('/contact-us', [UserController::class, 'viewContactUs'])->name('contact-us');
+Route::middleware(['auth:sanctum', 'verified'])->get('/contact-us-user', [UserController::class, 'viewContactUs'])->name('contact-us');
 
 //  USER SEND EMAIL
 Route::middleware(['auth:sanctum', 'verified'])->post('/send-email', [ContactController::class, 'contact'])->name('send-email');
@@ -149,6 +149,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/place-custom-order', [Ord
 
 //  USER PLACE ORDER PART TWO
 Route::middleware(['auth:sanctum', 'verified'])->get('/place-order-%2', [OrderController::class, 'placeCustomOrderStep2'])->name('/place-order-%2');
+
+//  USER DOWNLOAD VIDEO
+Route::middleware(['auth:sanctum', 'verified'])->get('/downloadVid/{video}', [UserController::class, 'downloadVid'])->name('downloadVid');
+
 
 
 

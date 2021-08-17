@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-12">
                             <div class="eb-font-page-btn">
-                                <a class="get-start-btn" href="#"><i class="fas fa-arrow-right"></i>Get Started</a>
+                                <a class="get-start-btn" href="/register"><i class="fas fa-arrow-right"></i>Get Started</a>
                             </div>
                         </div>
                         
@@ -84,7 +84,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-lg-7 left-large-content mt-3">
-                            <img src="<?php echo e(asset('front/images/Image-2_copy_1.png')); ?>" alt="" class="left-large-section-img shadow">
+                            <img src="<?php echo e(asset('storage/'.$image[0]->image)); ?>" alt="" class="left-large-section-img shadow">
                             <span class="left-large-section-icon-one animation-wave_one">
                                 <i class="fas fa-users"></i>
                             </span>
@@ -215,7 +215,7 @@
                         <div class="col-md-12 col-lg-7 mt-3 eb_main_img_section_2">
                             <div class="row ">
                                 <div class="col-12 right-large-section-image pl-5">
-                                    <img src="<?php echo e(asset('front/images/Image-3_copy_1.png')); ?>" alt="" class="right-large-section-img shadow">
+                                    <img src="<?php echo e(asset('storage/'.$image[1]->image)); ?>" alt="" class="right-large-section-img shadow">
                                     <span class="right-large-section-icon-two animation-wave_two">
                                         <i class="fas fa-handshake"></i>
                                     </span>
@@ -231,7 +231,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-lg-7 mt-3">
-                            <img src="<?php echo e(asset('front/images/Image-4_copy_1.png')); ?>" alt="" class="left-large-section-img shadow">
+                            <img src="<?php echo e(asset('storage/'.$image[2]->image)); ?>" alt="" class="left-large-section-img shadow">
                             <span class="left-large-section-icon-three animation-wave_three">
                                 <i class="fas fa-mobile-alt"></i>
                             </span>
@@ -366,7 +366,7 @@
                         <div class="col-md-12 col-lg-7 mt-3 eb_main_img_section_4">
                             <div class="row">
                                 <div class="col-12 right-large-section-image pl-5">
-                                    <img src="<?php echo e(asset('front/images/Image-5_copy_1.png')); ?>" alt="" class="right-large-section-img shadow">
+                                    <img src="<?php echo e(asset('storage/'.$image[3]->image)); ?>" alt="" class="right-large-section-img shadow">
                                     <span class="right-large-section-icon-four animation-wave_four">
                                         <i class="fab fa-accusoft"></i>
                                     </span>
@@ -386,54 +386,21 @@
                         </div>
                         <div class="col-12">
                             <div class="slick-slider">
-                                <div class="compliment-slider">
-                                    <div class="slider-content mt-5">
-                                        <img class="slider-content-img" src="<?php echo e(asset('front/images/card-author-1.jpeg')); ?>">
-                                        <h1 class="slider-profile-name">Richard Brown</h1>
-                                        <P class="slider-profile-post">Community Organiser</P>
-                                        <p class="slider-profile-compliment">I have been looking for an ERP/CRM to manage invoices and customers for
-                                            sometime now.
-                                            Having used a variety I have settled on this plugin and I am very happy with it. It
-                                            works very well with the ability to not use modules you don’t want.</p>
-                                        <span class="slider-blockquicket"><img src="<?php echo e(asset('front/images/blockquicket-icon.png')); ?>"></span>
-                                    </div>
-                                </div>
+                                <?php $__currentLoopData = $review; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="col-sm-12 col-md-6 compliment-slider">
                                     <div class="slider-content mt-5">
-                                        <img class="slider-content-img" src="<?php echo e(asset('front/images/Cregy.jpeg')); ?>">
-                                        <h1 class="slider-profile-name">Richard Brown</h1>
-                                        <P class="slider-profile-post">Community Organiser</P>
-                                        <p class="slider-profile-compliment">I have been looking for an ERP/CRM to manage invoices and customers for
-                                            sometime now.
-                                            Having used a variety I have settled on this plugin and I am very happy with it. It
-                                            works very well with the ability to not use modules you don’t want.</p>
+                                        <?php if($item->image == 'front/images/avatar.jpg'): ?>
+                                            <img class="slider-content-img" src="<?php echo e(asset($item->image)); ?>">
+                                        <?php else: ?>
+                                        <img class="slider-content-img" src="<?php echo e(asset('storage/'.$item->image)); ?>">
+                                        <?php endif; ?>
+                                        <h1 class="slider-profile-name"><?php echo e($item->name); ?></h1>
+                                        <P class="slider-profile-post"><?php echo e($item->designation); ?></P>
+                                        <p class="slider-profile-compliment"><?php echo e($item->review); ?></p>
                                         <span class="slider-blockquicket"><img src="<?php echo e(asset('front/images/blockquicket-icon.png')); ?>"></span>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6 compliment-slider">
-                                    <div class="slider-content mt-5">
-                                        <img class="slider-content-img" src="<?php echo e(asset('front/images/fazle-rabbi.jpeg')); ?>">
-                                        <h1 class="slider-profile-name">Richard Brown</h1>
-                                        <P class="slider-profile-post">Community Organiser</P>
-                                        <p class="slider-profile-compliment">I have been looking for an ERP/CRM to manage invoices and customers for
-                                            sometime now.
-                                            Having used a variety I have settled on this plugin and I am very happy with it. It
-                                            works very well with the ability to not use modules you don’t want.</p>
-                                        <span class="slider-blockquicket"><img src="<?php echo e(asset('front/images/blockquicket-icon.png')); ?>"></span>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12 col-md-6 compliment-slider">
-                                    <div class="slider-content mt-5">
-                                        <img class="slider-content-img" src="<?php echo e(asset('front/images/Shubnam.jpeg')); ?>">
-                                        <h1 class="slider-profile-name">Richard Brown</h1>
-                                        <P class="slider-profile-post">Community Organiser</P>
-                                        <p class="slider-profile-compliment">I have been looking for an ERP/CRM to manage invoices and customers for
-                                            sometime now.
-                                            Having used a variety I have settled on this plugin and I am very happy with it. It
-                                            works very well with the ability to not use modules you don’t want.</p>
-                                        <span class="slider-blockquicket"><img src="<?php echo e(asset('front/images/blockquicket-icon.png')); ?>"></span>
-                                    </div>
-                                </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
                         
@@ -452,63 +419,22 @@
                                 Don’t just get happy customers. Learn how to create a loyal fan base with your hospitality.</p>
                         </div>
                     </div>
+                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col">
                         <div class="card h-100 shadow-sm">
-                            <img src="<?php echo e(asset('front/images/11.jpg')); ?>" class="card-img-top" alt="...">
+                            <a href="/single-blog/<?php echo e($item->id); ?>"><img src="<?php echo e(asset('storage/'.$item->image)); ?>" class="card-img-top" alt="..."></a>
                             <div class="card-body">
-                                <h3 class="card-title">Understanding The Concept of Accounting Management System for Small Business</h3>
+                                <a href="/single-blog/<?php echo e($item->id); ?>"><h3 class="card-title"><?php echo e($item->heading); ?></h3></a>
                                 <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
-                                                width="36"></a>
-                                        <span class="post-author-name">Rezaul Islam</span>
-                                        <span class="post-author-time">Jun 26, 2021</span>
-                                    </span>
-                                    <span class="post-duration">
-                                        <i class="far fa-clock"></i>
-                                        11 min read
+                                    <span class="post-author-content"><a href="#"></a>
+                                        <span class="post-author-name"><?php echo e($item->name); ?></span>
+                                        <span class="post-author-time" style="left: 0px;"><?php echo e(date('F j,Y', strtotime($item->created_at))); ?></span>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <img src="<?php echo e(asset('front/images/11.jpg')); ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title">What are The Key Benefits of Sales CRM for Small Business</h3>
-                                <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
-                                                width="36"></a>
-                                        <span class="post-author-name">Rezaul Islam</span>
-                                        <span class="post-author-time">Jun 26, 2021</span>
-                                    </span>
-                                    <span class="post-duration">
-                                        <i class="far fa-clock"></i>
-                                        11 min read
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card h-100 shadow-sm">
-                            <img src="<?php echo e(asset('front/images/11.jpg')); ?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title">Best WordPress Plugins for Business Websites (2021)</h3>
-                                <div class="post-author pt-4">
-                                    <span class="post-author-content"><a href="#"><img class="p-author-img" src="<?php echo e(asset('front/images/reza.jpg')); ?>" height="36"
-                                                width="36"></a>
-                                        <span class="post-author-name">Rezaul Islam</span>
-                                        <span class="post-author-time">Jun 26, 2021</span>
-                                    </span>
-                                    <span class="post-duration">
-                                        <i class="far fa-clock"></i>
-                                        11 min read
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
                 <div class="row">
                     <div class="eb-card-see-more-btn">

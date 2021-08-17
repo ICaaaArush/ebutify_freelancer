@@ -285,7 +285,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo e(url('contact-us')); ?>" class="<?php if(Route::currentRouteName() == 'contact-us'): ?> nav-link active <?php endif; ?> nav-link">
+                <a href="<?php echo e(url('/contact-us-user')); ?>" class="<?php if(Route::currentRouteName() == 'contact-us'): ?> nav-link active <?php endif; ?> nav-link">
                   <i class="nav-icon fas fa-user-tag"></i>
                   <p>Contact Us</p>
                 </a>

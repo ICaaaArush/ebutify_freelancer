@@ -479,6 +479,21 @@
                           <div class="col-md-6">
                             <div class="far-video-hedear">
                               <h3>Facebook video ads</h3>
+                               <?php
+
+                               $video = '';
+                                if (!empty($trendingProduct->video_name)){
+                                    $video = $trendingProduct->video_name;
+                                }
+
+                               ?>
+                              <?php if(!empty($video)): ?>
+                              <div class="mb-2 float-right">
+                                 <p class="d-inline-block" style="font-size: 13px;">Download Video</p>
+                                 <button class="btn-download" value="download">
+                                 <a href="<?php echo e(route('downloadVid',[$video])); ?>">Download</a></button>
+                              </div>
+                              <?php endif; ?>
                               <button type="button" class="btn far-download-btn">Download</button>
                             </div>
                             <div class="product-video-container embed-responsive embed-responsive-16by9">
