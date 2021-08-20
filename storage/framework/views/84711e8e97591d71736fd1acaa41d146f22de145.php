@@ -41,7 +41,7 @@
                             <?php endif; ?>
                             <?php echo csrf_field(); ?>
                             <label for="">Name</label>
-                            <input type="text" class="form-control" name="name" id="" value="<?php echo e($data->name ?? ''); ?>" placeholder="Enter the Blog Category Name"> <br>
+                            <input type="text" class="form-control" name="name" id="" value="<?php echo e($data->category_name ?? ''); ?>" placeholder="Enter the Blog Category Name"> <br>
 
                             <input class="form-control btn btn-success" type="submit"
                             <?php if(isset($data)): ?>

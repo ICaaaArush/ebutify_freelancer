@@ -40,7 +40,7 @@
                             @endif
                             @csrf
                             <label for="">Name</label>
-                            <input type="text" class="form-control" name="name" id="" value="{{ $data->name ?? ''}}" placeholder="Enter the Blog Category Name"> <br>
+                            <input type="text" class="form-control" name="name" id="" value="{{ $data->category_name ?? ''}}" placeholder="Enter the Blog Category Name"> <br>
 
                             <input class="form-control btn btn-success" type="submit"
                             @if (isset($data))

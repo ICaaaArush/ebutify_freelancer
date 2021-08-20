@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Homepage;
 use App\Models\Review;
 use App\Models\BlogCategory;
+use App\Mail\ContactMail;
+use Mail;
 
 class FrontendControllerController extends Controller
 {
@@ -133,12 +135,17 @@ class FrontendControllerController extends Controller
      */
     public function contact(Request $request)
     {
-        $to = 'nman0171@gmail.com';
-        $subject = "Contact Us Form Query";
-        $txt = $request->msg;
-        $headers = "From: ".$request->email."";
+        $details = [
+            'subject' => 'Customer Query',
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->msg
+        ];
+        
+        Mail::to('nman0171@gmail.com')->send(new ContactMail($details));
 
-        mail($to,$subject,$txt,$headers);
+        return back()->with('message_sent','Your message has been sent successfully!');
     }
 
 }

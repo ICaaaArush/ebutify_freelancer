@@ -50,7 +50,7 @@
                 <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
                   <td><?php echo e($item->id); ?></td>
-                  <td> <?php echo e($item->name); ?></td>
+                  <td> <?php echo e($item->category_name); ?></td>
                   <td>
                     <a href="/super/category/edit/<?php echo e($item->id); ?>" class="btn btn-primary">Edit</a>
                   </td>

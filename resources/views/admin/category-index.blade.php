@@ -49,7 +49,7 @@
                 @foreach($data as $item)
                 <tr>
                   <td>{{ $item->id }}</td>
-                  <td> {{ $item->name }}</td>
+                  <td> {{ $item->category_name }}</td>
                   <td>
                     <a href="/super/category/edit/{{ $item->id }}" class="btn btn-primary">Edit</a>
                   </td>
