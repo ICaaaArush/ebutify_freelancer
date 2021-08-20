@@ -425,9 +425,9 @@
                                                 
                                                 </div>
                                                 <div class="slider-nav2 my-2 justify-content-between">
-                                                   <img src="<?php echo e(asset('storage/app/public/'.$productImage->gif_1)); ?>" class="img-fluid" alt="">
-                                                   <img src="<?php echo e(asset('storage/app/public/'.$productImage->gif_2)); ?>" class="img-fluid" alt="">
-                                                   <img src="<?php echo e(asset('storage/app/public/'.$productImage->gif_3)); ?>" class="img-fluid" alt="">
+                                                   <img src="<?php echo e(asset('storage/app/public/'.$productImage->gif_1)); ?>" class="img-fluid" alt="gif">
+                                                   <img src="<?php echo e(asset('storage/app/public/'.$productImage->gif_2)); ?>" class="img-fluid" alt="gif">
+                                                   <img src="<?php echo e(asset('storage/app/public/'.$productImage->gif_3)); ?>" class="img-fluid" alt="gif">
                                                 </div>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 <?php

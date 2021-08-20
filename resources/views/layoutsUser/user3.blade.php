@@ -285,7 +285,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('contact-us')}}" class="@if(Route::currentRouteName() == 'contact-us') nav-link active @endif nav-link">
+                <a href="{{url('/contact-us-user')}}" class="@if(Route::currentRouteName() == 'contact-us') nav-link active @endif nav-link">
                   <i class="nav-icon fas fa-user-tag"></i>
                   <p>Contact Us</p>
                 </a>

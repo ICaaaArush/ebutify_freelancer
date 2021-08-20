@@ -73,8 +73,10 @@
                             <span class="small d-block mb-2">Satisfied Clients</span>
                         </span>
                         <div class="btn btn-primary btn-sm btn-block download-cta" style="width: 100%;">
+                            <a href="/register" style="color: #fff">
                             <span class="d-none d-sm-inline">Get</span>
                             Started
+                        </a>
                         </div>
                     </span>
                 </button>

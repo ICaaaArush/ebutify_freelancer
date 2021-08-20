@@ -136,7 +136,7 @@
                <a class="" data-toggle="dropdown" href="#">
                   <div class="user-panel d-flex mr-3">
                      <div class="image">
-                        <img src="assets/img/user1-128x128.jpg" class="img-circle " alt="Jone Due">
+                        <img src="<?php echo e(asset('storage/app/'.Auth::user()->profile_photo_path) ?? 'assets/img/avatar5.png'); ?>" class="img-circle " alt="Jone Due">
                      </div>
                   </div>
                </a>
@@ -265,7 +265,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo e(url('contact-us')); ?>" class="<?php if(Route::currentRouteName() == 'contact-us'): ?> nav-link active <?php endif; ?> nav-link">
+                <a href="<?php echo e(url('/contact-us-user')); ?>" class="<?php if(Route::currentRouteName() == 'contact-us'): ?> nav-link active <?php endif; ?> nav-link">
                   <i class="nav-icon fas fa-user-tag"></i>
                   <p>Contact Us</p>
                 </a>

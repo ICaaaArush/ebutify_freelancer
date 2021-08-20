@@ -107,73 +107,78 @@
                   </div>
                   <div class="shadow bg-white rounded p-3">
                     <div class="row">
-                        <div class="col-sm-6 col-md-6">
-                          <div class="row pl-2 selling-sc">
-                            @php
-                            if (!empty($trendingProduct->productLink[0]->competitor_link_1)){
-                                $gifs = $trendingProduct->productLink[0]->competitor_link_1;
-                              }
-                            if(!empty($trendingProduct->productLink[0]->competitor_link_2)){
-                              if(!empty($gifs)){
-                                $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_2;
-                              }else{
-                                $gifs = $trendingProduct->productLink[0]->competitor_link_2;
-                              }
-                            }
-                            if (!empty($trendingProduct->productLink[0]->competitor_link_3)){
-                              if(!empty($gifs)){
-                                $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_3;
-                              }else{
-                                $gifs = $trendingProduct->productLink[0]->competitor_link_3;
-                              }
-                            }
-                            if (!empty($trendingProduct->productLink[0]->competitor_link_4)){
-                              if(!empty($gifs)){
-                                $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_4;
-                              }else{
-                                $gifs = $trendingProduct->productLink[0]->competitor_link_4;
-                              }
-                            }
-                            if (!empty($trendingProduct->productLink[0]->competitor_link_5)){
-                              if(!empty($gifs)){
-                                $gifs = $gifs.",".$trendingProduct->productLink[0]->competitor_link_5;
-                              }else{
-                                $gifs = $trendingProduct->productLink[0]->competitor_link_5;
-                              }
-                            }
-                            $files = explode(',', $gifs);
-                            @endphp
-                            <p>Selling on {{count($files)}} Shopify store</p>
-                          </div>
-                        <div class="row selling-store">
-                          <div class="col-12">
-                            <?php if (!empty($files)) {
-                              foreach ($files as $link) {
-                                $address1 = $link;
-                                $split1 = explode("com",$address1);
-                                ?><p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt=""> {{$split1[0]}}com...<a href="{{$link}}"><?php
-                              }
-                            } ?>
-                          </div>
-                        </div>
-                        </div>
+                        <div class="col-md-6">
+                                                               <div class="row pl-2 selling-sc">
+                                                                  @php
+                                                                   $comLink = '';
+                                                                   if (!empty($trendingProduct->productLink[0]->competitor_link_1)){
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_1;
+                                                                     }
+                                                                   if(!empty($trendingProduct->productLink[0]->competitor_link_2)){
+                                                                     if(!empty($comLink)){
+                                                                       $comLink = $comLink.",".$trendingProduct->productLink[0]->competitor_link_2;
+                                                                     }else{
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_2;
+                                                                     }
+                                                                   }
+                                                                   if (!empty($trendingProduct->productLink[0]->competitor_link_3)){
+                                                                     if(!empty($comLink)){
+                                                                       $comLink = $comLink.",".$trendingProduct->productLink[0]->competitor_link_3;
+                                                                     }else{
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_3;
+                                                                     }
+                                                                   }
+                                                                   if (!empty($trendingProduct->productLink[0]->competitor_link_4)){
+                                                                     if(!empty($comLink)){
+                                                                       $comLink = $comLink.",".$trendingProduct->productLink[0]->competitor_link_4;
+                                                                     }else{
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_4;
+                                                                     }
+                                                                   }
+                                                                   if (!empty($trendingProduct->productLink[0]->competitor_link_5)){
+                                                                     if(!empty($comLink)){
+                                                                       $comLink = $comLink.",".$trendingProduct->productLink[0]->competitor_link_5;
+                                                                     }else{
+                                                                       $comLink = $trendingProduct->productLink[0]->competitor_link_5;
+                                                                     }
+                                                                   }
+                                                                   $links = explode(',', $comLink);
+                                                                   @endphp
+                                                                   @if(empty($links))
+                                                                     <p>Not currently selling on any Shopify store</p>
+                                                                   @else
+                                                                   <p>Selling on {{count($links)}} Shopify store</p>
+                                                                   @endif
+                                                               </div>
+                                                               <div class="row selling-store">
+                                                                  <div class="col-12">
+                                                                      <?php if (!empty($links)) {
+                                                                        foreach ($links as $link) {
+                                                                          $split1 = explode("com",$link);
+                                                                          ?><a href="{{$link}}" target="_blank"><p><img src="{{asset('assets/img/web-icon.png')}}" style="width: 20px; margin-top: -6px;" alt="">  {{$split1[0]}}com...</p></a><?php
+                                                                        }
+                                                                      } ?>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
 
-                        <div class="col-sm-6 col-md-6 selling-country pl-3" style="max-width: 500%;">
-                          <div class="row pl-2 selling-sc">
-                            <p>Selling Country</p>
-                          </div>
-                          <div class="row selling-store">
-                            <div class="col-12">
-                              @php
-                              $countrys = $trendingProduct->country;
-                              $countrys = explode(',', $countrys);
-                              @endphp
-  @foreach($countrys as $country)
-                              <p><img src="{{asset('assets/img/web-path.png')}}" style="width: 20px; margin-top: -6px;" alt=""> {{$country}}</p>
-  @endforeach
-                            </div>
-                          </div>
-                      </div>
+                                                            <div class="col-sm-6 col-md-6 selling-country pl-3" style="max-width: 500%;">
+                                                               <div class="row pl-2 selling-sc">
+                                                                <p>Selling Country</p>
+                                                               </div>
+                                                               <div class="row selling-store">
+                                                                  <div class="col-12">
+                                                                     @php
+                                                                     $countrys = $trendingProduct->country;
+                                                                     $countrys = explode(',', $countrys);
+                                                                     @endphp
+                                                                     @foreach($countrys as $country)
+                                                                        <p><img src="{{asset('assets/img/web-path.png')}}" style="width: 20px; margin-top: -6px;" alt=""> {{$country}}</p>
+                                                                     @endforeach
+                                                                  <!-- <a href="">+5 more Country's</a> -->
+                                                                  </div>
+                                                               </div>
+                                                            </div>
                     </div>
                   </div>
                 </div>
@@ -182,64 +187,70 @@
           </div>
 
           <div class="row mt-4">
+
               <div class="col-lg-4">
-                <div class="row mx-2">
-                  <div class="col-12 shadow bg-white border-rounded mb-4">
-  @foreach ($trendingProduct->ProductLink as $productLink)
-                    <ul class="list-group list-group-flush py-3 list-unstyled prm-list">
-                      <li><a class="list-group-item rounded my-1" href="{{$productLink->competitor_link_1}}" role="tab"><i class="fas fa-store-alt"></i> Visit Competitor Store</a></li>
-                      <li><a class="list-group-item rounded my-1" href="{{$productLink->aliexpress}}" role="tab"><img src="{{asset('assets/img/ali.png')}}" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
-                      <li><a class="list-group-item rounded my-1" href="{{$productLink->amazon}}" role="tab"><i class="fab fa-amazon"></i> View Product On Amazon</a></li>
-                      <li><a class="list-group-item rounded my-1" href="{{$productLink->ebay}}" role="tab"><i class="fab fa-ebay"></i> View Product On eBay</a></li>
-                      <li><a class="list-group-item rounded my-1" href="{{$productLink->facebook_ad}}" role="tab"><i class="fab fa-facebook"></i> View Facebook Ads</a></li>
-                      <li><a class="list-group-item rounded my-1" href="{{$productLink->youtube}}" role="tab"><i class="fab fa-youtube"></i> View YouTube Review</a></li>
-                    </ul>
-  @endforeach
-  @foreach ($trendingProduct->productImage as $productImage)
-                    <div class="slider2">
-                      <div>
-                        <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="">
-                      </div>
-                      <div>
-                        <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="">
-                      </div>
-                      <div>
-                        <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="">
-                      </div>
-                    </div>
-                    <div class="slider-nav2 my-2 justify-content-between">
-                        <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="">
-                        <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="">
-                        <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="">
-                    </div>
-  @endforeach
-                    @php
-                    if (!empty($productImage->gif_1)){
-                        $gifs = $productImage->gif_1;
-                      }
-                    if(!empty($productImage->gif_2)){
-                      if(!empty($gifs)){
-                        $gifs = $gifs.",".$productImage->gif_2;
-                      }else{
-                        $gifs = $productImage->gif_2;
-                      }
-                    }
-                    if (!empty($productImage->gif_3)){
-                      if(!empty($gifs)){
-                        $gifs = $gifs.",".$productImage->gif_3;
-                      }else{
-                        $gifs = $productImage->gif_3;
-                      }
-                    }
-                    @endphp
-                    <div class="mb-2 float-right">
-                        <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
-                        <a href="{{route('downloadGIF',[$gifs])}}">
-                        <input type="button" id="download" class="btn-download" value="download">
-                    </div>
-                  </div>
-                </div>
-              </div>
+                                             <div class="row mx-2">
+                                                @foreach ($trendingProduct->ProductLink as $productLink)
+
+                                                <div class="col-12 shadow bg-white border-rounded mb-4">
+                                                   <ul class="list-group list-group-flush py-3 list-unstyled prm-list">
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->competitor_link_1}}" role="tab"><i class="fas fa-store-alt"></i> Visit Competitor Store</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->aliexpress}}" role="tab"><img src="{{asset('assets/img/ali.png')}}" style="width: 12px; margin-bottom: 2px;" alt=""> Visit AliExpress Source</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->amazon}}" role="tab"><i class="fab fa-amazon"></i> View Product On Amazon</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->ebay}}" role="tab"><i class="fab fa-ebay"></i> View Product On eBay</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->facebook_ad}}" role="tab"><i class="fab fa-facebook"></i> View Facebook Ads</a></li>
+                                                      <li><a class="list-group-item rounded my-1" href="{{$productLink->youtube}}" role="tab"><i class="fab fa-youtube"></i> View YouTube Review</a></li>
+                                                   </ul>
+                                                   <div class="slider2">
+                                                      @foreach ($trendingProduct->productImage as $productImage)
+                                                      <div>
+                                                         <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="">
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="">
+                                                      </div>
+                                                      <div>
+                                                         <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="">
+                                                      </div>
+                                                   </div>
+                                                   <div class="slider-nav2 my-2 justify-content-between">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_1)}}" class="img-fluid" alt="gif">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_2)}}" class="img-fluid" alt="gif">
+                                                      <img src="{{asset('storage/app/public/'.$productImage->gif_3)}}" class="img-fluid" alt="gif">
+                                                   </div>
+                                                   @endforeach
+                                                   @php
+                                                   $gifs = '';
+                                                     if (!empty($productImage->gif_1)){
+                                                         $gifs = $productImage->gif_1;
+                                                       }
+                                                     if(!empty($productImage->gif_2)){
+                                                       if(!empty($gifs)){
+                                                         $gifs = $gifs.",".$productImage->gif_2;
+                                                       }else{
+                                                         $gifs = $productImage->gif_2;
+                                                       }
+                                                     }
+                                                     if (!empty($productImage->gif_3)){
+                                                       if(!empty($gifs)){
+                                                         $gifs = $gifs.",".$productImage->gif_3;
+                                                       }else{
+                                                         $gifs = $productImage->gif_3;
+                                                       }
+                                                     }
+                                                   @endphp
+                                                   @if(!empty($gifs))
+                                                   <div class="mb-2 float-right">
+                                                      <p class="d-inline-block" style="font-size: 13px;">Download Gif Images</p>
+                                                      <button class="btn-download" value="download">
+                                                      <a href="{{route('downloadGIF',[$gifs])}}">Download</a></button>
+                                                   </div>
+                                                   @endif
+                                                </div>
+                                                @endforeach
+                                             </div>
+                                          </div>
+
               <div class="col-lg-8 tab-content">
                <div class="row mb-2 mx-2">
                   <div class="tab-pane fade show active" role="tabpanel">

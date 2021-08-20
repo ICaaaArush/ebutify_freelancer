@@ -111,6 +111,10 @@
             infinteLoadMore(page);
         }
     });
+    $('html,body').bind('touchmove', function(e) { 
+      page++;
+      infinteLoadMore(page);
+    });
 
     function infinteLoadMore(page) {
         $.ajax({
